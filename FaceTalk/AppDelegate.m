@@ -22,7 +22,7 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.rootViewController = [[BDRootViewController alloc] init];
-    NSLog(@"");
+    NSLog(@"Hello world");
     
     [self.window makeKeyAndVisible];
     
