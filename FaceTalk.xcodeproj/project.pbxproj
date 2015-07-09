@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		189786F21B4E13E00013AAE6 /* BDRootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 189786F11B4E13E00013AAE6 /* BDRootViewController.xib */; };
+		189786F91B4E53260013AAE6 /* FTDHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 189786F71B4E53260013AAE6 /* FTDHomeViewController.m */; };
+		189786FA1B4E53260013AAE6 /* FTDHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 189786F81B4E53260013AAE6 /* FTDHomeViewController.xib */; };
 		848E790F68979E8FF351EDC4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E8EDE843218ECDD1C97B2E90 /* libPods.a */; };
 		A2615A771B4D22C00098EC30 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A2615A761B4D22C00098EC30 /* main.m */; };
 		A2615A7A1B4D22C00098EC30 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A2615A791B4D22C00098EC30 /* AppDelegate.m */; };
@@ -14,15 +17,14 @@
 		A2615A821B4D22C00098EC30 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2615A811B4D22C00098EC30 /* Images.xcassets */; };
 		A2615A851B4D22C00098EC30 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2615A831B4D22C00098EC30 /* LaunchScreen.xib */; };
 		A2615AAD1B4D274E0098EC30 /* UIView+AutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A2615A9E1B4D274E0098EC30 /* UIView+AutoLayout.m */; };
-		A2615AAE1B4D274E0098EC30 /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = A2615AA21B4D274E0098EC30 /* ioapi.c */; };
-		A2615AAF1B4D274E0098EC30 /* mztools.c in Sources */ = {isa = PBXBuildFile; fileRef = A2615AA41B4D274E0098EC30 /* mztools.c */; };
-		A2615AB01B4D274E0098EC30 /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = A2615AA61B4D274E0098EC30 /* unzip.c */; };
-		A2615AB11B4D274E0098EC30 /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = A2615AA81B4D274E0098EC30 /* zip.c */; };
-		A2615AB21B4D274E0098EC30 /* ZipArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = A2615AAB1B4D274E0098EC30 /* ZipArchive.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		02B80C077EFE4DCF271585BE /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		189786F11B4E13E00013AAE6 /* BDRootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BDRootViewController.xib; sourceTree = "<group>"; };
+		189786F61B4E53260013AAE6 /* FTDHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTDHomeViewController.h; sourceTree = "<group>"; };
+		189786F71B4E53260013AAE6 /* FTDHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTDHomeViewController.m; sourceTree = "<group>"; };
+		189786F81B4E53260013AAE6 /* FTDHomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FTDHomeViewController.xib; sourceTree = "<group>"; };
 		53741FB2FED2E104B0749630 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		A2615A711B4D22C00098EC30 /* FaceTalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FaceTalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2615A751B4D22C00098EC30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -35,17 +37,6 @@
 		A2615A841B4D22C00098EC30 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		A2615A9D1B4D274E0098EC30 /* UIView+AutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AutoLayout.h"; sourceTree = "<group>"; };
 		A2615A9E1B4D274E0098EC30 /* UIView+AutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AutoLayout.m"; sourceTree = "<group>"; };
-		A2615AA11B4D274E0098EC30 /* crypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crypt.h; sourceTree = "<group>"; };
-		A2615AA21B4D274E0098EC30 /* ioapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ioapi.c; sourceTree = "<group>"; };
-		A2615AA31B4D274E0098EC30 /* ioapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ioapi.h; sourceTree = "<group>"; };
-		A2615AA41B4D274E0098EC30 /* mztools.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mztools.c; sourceTree = "<group>"; };
-		A2615AA51B4D274E0098EC30 /* mztools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mztools.h; sourceTree = "<group>"; };
-		A2615AA61B4D274E0098EC30 /* unzip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = unzip.c; sourceTree = "<group>"; };
-		A2615AA71B4D274E0098EC30 /* unzip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = unzip.h; sourceTree = "<group>"; };
-		A2615AA81B4D274E0098EC30 /* zip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = zip.c; sourceTree = "<group>"; };
-		A2615AA91B4D274E0098EC30 /* zip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zip.h; sourceTree = "<group>"; };
-		A2615AAA1B4D274E0098EC30 /* ZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZipArchive.h; sourceTree = "<group>"; };
-		A2615AAB1B4D274E0098EC30 /* ZipArchive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZipArchive.m; sourceTree = "<group>"; };
 		E8EDE843218ECDD1C97B2E90 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -68,6 +59,27 @@
 				02B80C077EFE4DCF271585BE /* Pods.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		189786F31B4E52E10013AAE6 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = controllers;
+			sourceTree = "<group>";
+		};
+		189786F41B4E52E10013AAE6 /* models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
+		189786F51B4E52E10013AAE6 /* views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = views;
 			sourceTree = "<group>";
 		};
 		A2615A681B4D22C00098EC30 = {
@@ -127,7 +139,6 @@
 			isa = PBXGroup;
 			children = (
 				A2615A9C1B4D274E0098EC30 /* UIView+AutoLayout */,
-				A2615A9F1B4D274E0098EC30 /* ZipArchive */,
 			);
 			path = library;
 			sourceTree = "<group>";
@@ -139,32 +150,6 @@
 				A2615A9E1B4D274E0098EC30 /* UIView+AutoLayout.m */,
 			);
 			path = "UIView+AutoLayout";
-			sourceTree = "<group>";
-		};
-		A2615A9F1B4D274E0098EC30 /* ZipArchive */ = {
-			isa = PBXGroup;
-			children = (
-				A2615AA01B4D274E0098EC30 /* minizip */,
-				A2615AAA1B4D274E0098EC30 /* ZipArchive.h */,
-				A2615AAB1B4D274E0098EC30 /* ZipArchive.m */,
-			);
-			path = ZipArchive;
-			sourceTree = "<group>";
-		};
-		A2615AA01B4D274E0098EC30 /* minizip */ = {
-			isa = PBXGroup;
-			children = (
-				A2615AA11B4D274E0098EC30 /* crypt.h */,
-				A2615AA21B4D274E0098EC30 /* ioapi.c */,
-				A2615AA31B4D274E0098EC30 /* ioapi.h */,
-				A2615AA41B4D274E0098EC30 /* mztools.c */,
-				A2615AA51B4D274E0098EC30 /* mztools.h */,
-				A2615AA61B4D274E0098EC30 /* unzip.c */,
-				A2615AA71B4D274E0098EC30 /* unzip.h */,
-				A2615AA81B4D274E0098EC30 /* zip.c */,
-				A2615AA91B4D274E0098EC30 /* zip.h */,
-			);
-			path = minizip;
 			sourceTree = "<group>";
 		};
 		A2615AAC1B4D274E0098EC30 /* root */ = {
@@ -184,6 +169,9 @@
 		A2615AB41B4D297A0098EC30 /* goodagents */ = {
 			isa = PBXGroup;
 			children = (
+				189786F31B4E52E10013AAE6 /* controllers */,
+				189786F41B4E52E10013AAE6 /* models */,
+				189786F51B4E52E10013AAE6 /* views */,
 			);
 			path = goodagents;
 			sourceTree = "<group>";
@@ -209,6 +197,10 @@
 				A2615A791B4D22C00098EC30 /* AppDelegate.m */,
 				A2615A7B1B4D22C00098EC30 /* BDRootViewController.h */,
 				A2615A7C1B4D22C00098EC30 /* BDRootViewController.m */,
+				189786F11B4E13E00013AAE6 /* BDRootViewController.xib */,
+				189786F61B4E53260013AAE6 /* FTDHomeViewController.h */,
+				189786F71B4E53260013AAE6 /* FTDHomeViewController.m */,
+				189786F81B4E53260013AAE6 /* FTDHomeViewController.xib */,
 			);
 			name = share;
 			sourceTree = "<group>";
@@ -287,7 +279,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				189786FA1B4E53260013AAE6 /* FTDHomeViewController.xib in Resources */,
 				A2615A851B4D22C00098EC30 /* LaunchScreen.xib in Resources */,
+				189786F21B4E13E00013AAE6 /* BDRootViewController.xib in Resources */,
 				A2615A821B4D22C00098EC30 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -332,15 +326,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				189786F91B4E53260013AAE6 /* FTDHomeViewController.m in Sources */,
 				A2615A7D1B4D22C00098EC30 /* BDRootViewController.m in Sources */,
-				A2615AB21B4D274E0098EC30 /* ZipArchive.m in Sources */,
-				A2615AB11B4D274E0098EC30 /* zip.c in Sources */,
-				A2615AB01B4D274E0098EC30 /* unzip.c in Sources */,
 				A2615AAD1B4D274E0098EC30 /* UIView+AutoLayout.m in Sources */,
-				A2615AAF1B4D274E0098EC30 /* mztools.c in Sources */,
 				A2615A7A1B4D22C00098EC30 /* AppDelegate.m in Sources */,
 				A2615A771B4D22C00098EC30 /* main.m in Sources */,
-				A2615AAE1B4D274E0098EC30 /* ioapi.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
