@@ -1,22 +1,21 @@
 //
-//  FTDHomeViewController.m
+//  FTDGoodAgentHomeController.m
 //  FaceTalk
 //
-//  Created by Mao-MacPro on 15/7/9.
+//  Created by Mao-MacPro on 15/7/10.
 //  Copyright (c) 2015年 wen. All rights reserved.
 //
 
-#import "FTDHomeViewController.h"
-#import "FTDMenuViewController.h"
-@interface FTDHomeViewController ()
+#import "FTDGoodAgentHomeController.h"
+
+@interface FTDGoodAgentHomeController ()
 
 @end
 
-@implementation FTDHomeViewController
+@implementation FTDGoodAgentHomeController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -35,8 +34,4 @@
 }
 */
 
-- (IBAction)menuclick:(id)sender {
-    FTDMenuViewController *FTDMenuViewCol=[[FTDMenuViewController alloc]init];
-    [self.navigationController pushViewController:FTDMenuViewCol animated:YES];
-}
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "BDRootViewController.h"
-
+#import "FTDHomeViewController.h"
 @interface BDRootViewController ()
 
 @end
@@ -26,4 +26,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)ftdhomeviewclick:(id)sender {
+    FTDHomeViewController *FTDHomeViewCol=[[FTDHomeViewController alloc]init];
+    [self.navigationController pushViewController:FTDHomeViewCol animated:YES];
+}
 @end

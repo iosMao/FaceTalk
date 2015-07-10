@@ -21,7 +21,9 @@
     // Override point for customization after application launch.
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    self.window.rootViewController = [[BDRootViewController alloc] init];
+    UINavigationController *navBDRootViewCol=[[UINavigationController alloc]initWithRootViewController:[[BDRootViewController alloc] init]];
+    navBDRootViewCol.navigationBar.hidden=YES;
+    self.window.rootViewController = navBDRootViewCol;
     NSLog(@"Hello world");
     
     [self.window makeKeyAndVisible];

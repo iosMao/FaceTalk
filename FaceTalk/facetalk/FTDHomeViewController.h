@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface FTDHomeViewController : UIViewController
+- (IBAction)menuclick:(id)sender;
 
 @end

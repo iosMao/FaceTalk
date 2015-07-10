@@ -1,22 +1,21 @@
 //
-//  FTDHomeViewController.m
+//  FTDCreatMenuViewController.m
 //  FaceTalk
 //
-//  Created by Mao-MacPro on 15/7/9.
+//  Created by Mao-MacPro on 15/7/10.
 //  Copyright (c) 2015年 wen. All rights reserved.
 //
 
-#import "FTDHomeViewController.h"
-#import "FTDMenuViewController.h"
-@interface FTDHomeViewController ()
+#import "FTDCreatMenuViewController.h"
+
+@interface FTDCreatMenuViewController ()
 
 @end
 
-@implementation FTDHomeViewController
+@implementation FTDCreatMenuViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -35,8 +34,4 @@
 }
 */
 
-- (IBAction)menuclick:(id)sender {
-    FTDMenuViewController *FTDMenuViewCol=[[FTDMenuViewController alloc]init];
-    [self.navigationController pushViewController:FTDMenuViewCol animated:YES];
-}
 @end

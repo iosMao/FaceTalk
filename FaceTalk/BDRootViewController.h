@@ -10,6 +10,7 @@
 
 @interface BDRootViewController : UIViewController
 
+- (IBAction)ftdhomeviewclick:(id)sender;
 
 
 @end
