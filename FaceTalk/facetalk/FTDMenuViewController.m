@@ -36,6 +36,7 @@
 */
 
 - (IBAction)workelementclick:(id)sender {
+    
 }
 
 - (IBAction)goodagentclick:(id)sender {
@@ -44,8 +45,17 @@
 }
 
 - (IBAction)aiaelementclick:(id)sender {
+    
 }
 
 - (IBAction)personalteamclick:(id)sender {
+    FTDPersonalHomeController *FTDPersonalHome=[[FTDPersonalHomeController alloc]init];
+    [self.navigationController pushViewController:FTDPersonalHome animated:YES];
+    
+    
+    
+    
+    
+    
 }
 @end
