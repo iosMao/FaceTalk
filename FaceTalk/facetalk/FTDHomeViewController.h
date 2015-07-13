@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface FTDHomeViewController : UIViewController
+@property(nonatomic,strong)UIButton *btn;
 - (IBAction)menuclick:(id)sender;
 
 @end

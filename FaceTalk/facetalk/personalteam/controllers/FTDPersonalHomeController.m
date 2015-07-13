@@ -9,13 +9,18 @@
 #import "FTDPersonalHomeController.h"
 
 @interface FTDPersonalHomeController ()
-
+{
+    UIButton *btn;
+}
 @end
 
 @implementation FTDPersonalHomeController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
+    
     // Do any additional setup after loading the view from its nib.
 }
 

@@ -50,9 +50,15 @@
                         <action selector="personalteamclick:" destination="-1" eventType="touchUpInside" id="m89-0g-ucI"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="菜单页" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9s2-Ke-k8K">
+                    <rect key="frame" x="278" y="45" width="51" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-            <point key="canvasLocation" x="319" y="332"/>
+            <point key="canvasLocation" x="-176" y="114"/>
         </view>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
