@@ -10,6 +10,7 @@
 
 @interface FTDHomeViewController : UIViewController
 @property(nonatomic,strong)UIButton *btn;
-- (IBAction)menuclick:(id)sender;
+@property (strong, nonatomic) IBOutlet UIButton *btnKey;
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollBG;
 
 @end
