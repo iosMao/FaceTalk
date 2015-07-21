@@ -8,9 +8,15 @@
 
 #import "FTDHomeLeadViewController.h"
 #import "FTDGoodAgentHomeController.h"
-@interface FTDHomeLeadViewController ()
+#import "FTDHomeAlertView.h"
+#import "FTDbackgroundView.h"
+#import "FTDHomAlertFinishView.h"
+@interface FTDHomeLeadViewController ()<FTDHomeAlertViewDeledate,FTDHomeAlertFinishViewDeledate>
 {
     int imgIndex;
+    FTDHomeAlertView *homeAlertView;
+    FTDHomAlertFinishView *homeAlertFinishView;
+    FTDbackgroundView *backgroundView;
 }
 @end
 
@@ -19,6 +25,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     imgIndex=0;
+    
+    backgroundView= [[FTDbackgroundView alloc]initWithFrame:self.view.frame];
+    
+    homeAlertView= [FTDHomeAlertView initCustomview];
+    homeAlertView.delegate= self;
+    homeAlertView.center=CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2);
+    
+    homeAlertFinishView= [FTDHomAlertFinishView initCustomview];
+    homeAlertFinishView.delegate= self;
+    homeAlertFinishView.center=CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2);
+    
     [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(loadimglead) userInfo:nil repeats:YES];
     // Do any additional setup after loading the view from its nib.
 }
@@ -36,32 +53,51 @@
         
     }];
 }
+-(void)homeAlertCancelClick
+{
+    [backgroundView removeFromSuperview];
+    [homeAlertView removeFromSuperview];
+}
+-(void)homeAlertCreatclick
+{
+    [homeAlertView removeFromSuperview];
+    [self.view addSubview: homeAlertFinishView];
+    
+}
+-(void)homeAlertFinishCancelClick
+{
+    [backgroundView removeFromSuperview];
+    [homeAlertFinishView removeFromSuperview];
+}
 
-
-
+-(void)gotoCreatMenu
+{
+    
+}
+-(void)gotoMenu
+{
+    FTDGoodAgentHomeController *FTDHomeLeadViewCol=[[FTDGoodAgentHomeController alloc]init];
+        CATransition *  tran=[CATransition animation];
+        tran.type = @"pageCurl";
+        tran.subtype = kCATransitionFromRight;
+        tran.duration=1;
+        tran.delegate=self;
+        [self.view.superview.layer addAnimation:tran forKey:@"mao"];
+        [self.navigationController pushViewController:FTDHomeLeadViewCol animated:YES];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 - (IBAction)nextbtnclick:(id)sender {
-    FTDGoodAgentHomeController *FTDHomeLeadViewCol=[[FTDGoodAgentHomeController alloc]init];
-    CATransition *  tran=[CATransition animation];
-    tran.type = @"pageCurl";
-    tran.subtype = kCATransitionFromRight;
-    tran.duration=1;
-    tran.delegate=self;
-    [self.view.superview.layer addAnimation:tran forKey:@"kongyu"];
-    [self.navigationController pushViewController:FTDHomeLeadViewCol animated:YES];
+    [self.view addSubview:backgroundView];
+    [self.view addSubview:homeAlertView];
+    
+    
+    
+//
 }
 @end

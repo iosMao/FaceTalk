@@ -16,6 +16,11 @@
 		18291B671B57A16C003E180D /* FTDHomeLeadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18291B651B57A16C003E180D /* FTDHomeLeadViewController.m */; };
 		18291B681B57A16C003E180D /* FTDHomeLeadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18291B661B57A16C003E180D /* FTDHomeLeadViewController.xib */; };
 		18291B6A1B57AAF9003E180D /* FT_home_leadpage.png in Resources */ = {isa = PBXBuildFile; fileRef = 18291B691B57AAF9003E180D /* FT_home_leadpage.png */; };
+		1839420B1B5DE5950088BA1D /* FTDHomeAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1839420A1B5DE5950088BA1D /* FTDHomeAlertView.m */; };
+		1839420D1B5DE5A30088BA1D /* FTDHomeAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1839420C1B5DE5A30088BA1D /* FTDHomeAlertView.xib */; };
+		183942101B5DF6790088BA1D /* FTDbackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1839420F1B5DF6790088BA1D /* FTDbackgroundView.m */; };
+		183942131B5E2E710088BA1D /* FTDHomAlertFinishView.m in Sources */ = {isa = PBXBuildFile; fileRef = 183942121B5E2E710088BA1D /* FTDHomAlertFinishView.m */; };
+		183942151B5E2EDC0088BA1D /* FTDHomAlertFinishView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 183942141B5E2EDC0088BA1D /* FTDHomAlertFinishView.xib */; };
 		187FC4F31B58A19A00E2EC10 /* FTD_homelead_imageH.png in Resources */ = {isa = PBXBuildFile; fileRef = 187FC4F21B58A19900E2EC10 /* FTD_homelead_imageH.png */; };
 		187FC4F71B58ADAD00E2EC10 /* FTD_homelead_nextbtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 187FC4F61B58ADAD00E2EC10 /* FTD_homelead_nextbtn.png */; };
 		187FC4F91B58B78B00E2EC10 /* FTD_IMO_home.png in Resources */ = {isa = PBXBuildFile; fileRef = 187FC4F81B58B78B00E2EC10 /* FTD_IMO_home.png */; };
@@ -58,6 +63,14 @@
 		18291B651B57A16C003E180D /* FTDHomeLeadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTDHomeLeadViewController.m; sourceTree = "<group>"; };
 		18291B661B57A16C003E180D /* FTDHomeLeadViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FTDHomeLeadViewController.xib; sourceTree = "<group>"; };
 		18291B691B57AAF9003E180D /* FT_home_leadpage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FT_home_leadpage.png; sourceTree = "<group>"; };
+		183942091B5DE5950088BA1D /* FTDHomeAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTDHomeAlertView.h; sourceTree = "<group>"; };
+		1839420A1B5DE5950088BA1D /* FTDHomeAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTDHomeAlertView.m; sourceTree = "<group>"; };
+		1839420C1B5DE5A30088BA1D /* FTDHomeAlertView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FTDHomeAlertView.xib; sourceTree = "<group>"; };
+		1839420E1B5DF6790088BA1D /* FTDbackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTDbackgroundView.h; sourceTree = "<group>"; };
+		1839420F1B5DF6790088BA1D /* FTDbackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTDbackgroundView.m; sourceTree = "<group>"; };
+		183942111B5E2E710088BA1D /* FTDHomAlertFinishView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTDHomAlertFinishView.h; sourceTree = "<group>"; };
+		183942121B5E2E710088BA1D /* FTDHomAlertFinishView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTDHomAlertFinishView.m; sourceTree = "<group>"; };
+		183942141B5E2EDC0088BA1D /* FTDHomAlertFinishView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FTDHomAlertFinishView.xib; sourceTree = "<group>"; };
 		187FC4F21B58A19900E2EC10 /* FTD_homelead_imageH.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FTD_homelead_imageH.png; sourceTree = "<group>"; };
 		187FC4F61B58ADAD00E2EC10 /* FTD_homelead_nextbtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FTD_homelead_nextbtn.png; sourceTree = "<group>"; };
 		187FC4F81B58B78B00E2EC10 /* FTD_IMO_home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FTD_IMO_home.png; sourceTree = "<group>"; };
@@ -136,6 +149,21 @@
 				18291B531B577AED003E180D /* FT_home_back.png */,
 			);
 			path = homeViewImage;
+			sourceTree = "<group>";
+		};
+		183942081B5DE55F0088BA1D /* shareviews */ = {
+			isa = PBXGroup;
+			children = (
+				183942091B5DE5950088BA1D /* FTDHomeAlertView.h */,
+				1839420A1B5DE5950088BA1D /* FTDHomeAlertView.m */,
+				1839420C1B5DE5A30088BA1D /* FTDHomeAlertView.xib */,
+				183942111B5E2E710088BA1D /* FTDHomAlertFinishView.h */,
+				183942121B5E2E710088BA1D /* FTDHomAlertFinishView.m */,
+				183942141B5E2EDC0088BA1D /* FTDHomAlertFinishView.xib */,
+				1839420E1B5DF6790088BA1D /* FTDbackgroundView.h */,
+				1839420F1B5DF6790088BA1D /* FTDbackgroundView.m */,
+			);
+			path = shareviews;
 			sourceTree = "<group>";
 		};
 		187FC4FA1B58C42000E2EC10 /* goodAgentImage */ = {
@@ -380,6 +408,7 @@
 				18CD4BB21B4F69DE00D20B74 /* FTDMenuViewController.h */,
 				18CD4BB31B4F69DE00D20B74 /* FTDMenuViewController.m */,
 				18CD4BB41B4F69DE00D20B74 /* FTDMenuViewController.xib */,
+				183942081B5DE55F0088BA1D /* shareviews */,
 			);
 			name = share;
 			sourceTree = "<group>";
@@ -471,6 +500,7 @@
 				187FC5011B58C53A00E2EC10 /* FTD_goodagentHome_companyJob.png in Resources */,
 				18CD4BA71B4F674200D20B74 /* FTDGoodAgentHomeController.xib in Resources */,
 				189786FA1B4E53260013AAE6 /* FTDHomeViewController.xib in Resources */,
+				183942151B5E2EDC0088BA1D /* FTDHomAlertFinishView.xib in Resources */,
 				187FC4FF1B58C53A00E2EC10 /* FTD_btnNextModel.png in Resources */,
 				18291B5A1B578187003E180D /* FT_home_key@2x.png in Resources */,
 				18291B6A1B57AAF9003E180D /* FT_home_leadpage.png in Resources */,
@@ -478,6 +508,7 @@
 				18CD4BC31B4F6B2D00D20B74 /* FTDPersonalHomeController.xib in Resources */,
 				187FC4F71B58ADAD00E2EC10 /* FTD_homelead_nextbtn.png in Resources */,
 				189786F21B4E13E00013AAE6 /* BDRootViewController.xib in Resources */,
+				1839420D1B5DE5A30088BA1D /* FTDHomeAlertView.xib in Resources */,
 				187FC5001B58C53A00E2EC10 /* FTD_goodagentHome_careerJob.png in Resources */,
 				18CD4BB61B4F69DE00D20B74 /* FTDMenuViewController.xib in Resources */,
 				A2615A821B4D22C00098EC30 /* Images.xcassets in Resources */,
@@ -530,7 +561,9 @@
 			files = (
 				18CD4BBA1B4F6A2D00D20B74 /* FTDCreatMenuViewController.m in Sources */,
 				189786F91B4E53260013AAE6 /* FTDHomeViewController.m in Sources */,
+				183942131B5E2E710088BA1D /* FTDHomAlertFinishView.m in Sources */,
 				A2615A7D1B4D22C00098EC30 /* BDRootViewController.m in Sources */,
+				1839420B1B5DE5950088BA1D /* FTDHomeAlertView.m in Sources */,
 				A2615AAD1B4D274E0098EC30 /* UIView+AutoLayout.m in Sources */,
 				A2615A7A1B4D22C00098EC30 /* AppDelegate.m in Sources */,
 				18CD4BC21B4F6B2D00D20B74 /* FTDPersonalHomeController.m in Sources */,
@@ -538,6 +571,7 @@
 				18CD4BA61B4F674200D20B74 /* FTDGoodAgentHomeController.m in Sources */,
 				A2615A771B4D22C00098EC30 /* main.m in Sources */,
 				18CD4BB01B4F67E300D20B74 /* FTDGoodAgentListController.m in Sources */,
+				183942101B5DF6790088BA1D /* FTDbackgroundView.m in Sources */,
 				18291B671B57A16C003E180D /* FTDHomeLeadViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

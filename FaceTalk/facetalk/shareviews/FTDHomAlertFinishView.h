@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+@protocol FTDHomeAlertFinishViewDeledate <NSObject>
 
+- (void)homeAlertFinishCancelClick;
+-(void)gotoCreatMenu;
+-(void)gotoMenu;
+@end
 @interface FTDHomAlertFinishView : UIView
-
+@property(nonatomic, weak)id<FTDHomeAlertFinishViewDeledate> delegate;
++(FTDHomAlertFinishView *)initCustomview;
+- (IBAction)gotoCreatMenuclick:(id)sender;
+- (IBAction)gotoMenuclick:(id)sender;
+- (IBAction)cancelclick:(id)sender;
 @end
