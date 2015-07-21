@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface FTDHomeLeadViewController : UIViewController
-@property (strong, nonatomic) IBOutlet UIView *viewImageH;
+@property (strong, nonatomic) IBOutlet UIImageView *imgLeadH;
+- (IBAction)nextbtnclick:(id)sender;
 
 @end

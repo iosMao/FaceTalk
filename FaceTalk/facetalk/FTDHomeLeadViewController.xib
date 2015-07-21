@@ -6,8 +6,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FTDHomeLeadViewController">
             <connections>
+                <outlet property="imgLeadH" destination="tXG-kn-3Bp" id="jXb-05-mAM"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
-                <outlet property="viewImageH" destination="2Oc-44-MaW" id="3OH-pM-90G"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -18,10 +18,18 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="FT_home_leadpage.png" translatesAutoresizingMaskIntoConstraints="NO" id="xsB-dz-9Kf">
                     <rect key="frame" x="0.0" y="21" width="1024" height="748"/>
                 </imageView>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Oc-44-MaW">
-                    <rect key="frame" x="313" y="586" width="108" height="93"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="FTD_homelead_imageH.png" translatesAutoresizingMaskIntoConstraints="NO" id="tXG-kn-3Bp">
+                    <rect key="frame" x="306" y="581" width="123" height="105"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DdY-Ge-Bhp">
+                    <rect key="frame" x="801" y="588" width="136" height="136"/>
+                    <state key="normal" title="Button" image="FTD_homelead_nextbtn.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="nextbtnclick:" destination="-1" eventType="touchUpInside" id="1al-TU-zRg"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -29,6 +37,8 @@
         </view>
     </objects>
     <resources>
+        <image name="FTD_homelead_imageH.png" width="240" height="203"/>
+        <image name="FTD_homelead_nextbtn.png" width="300" height="300"/>
         <image name="FT_home_leadpage.png" width="2046" height="1498"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

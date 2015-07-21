@@ -7,20 +7,37 @@
 //
 
 #import "FTDHomeLeadViewController.h"
-
+#import "FTDGoodAgentHomeController.h"
 @interface FTDHomeLeadViewController ()
-
+{
+    int imgIndex;
+}
 @end
 
 @implementation FTDHomeLeadViewController
-@synthesize viewImageH;
+@synthesize imgLeadH;
 - (void)viewDidLoad {
     [super viewDidLoad];
-    viewImageH.alpha=0;
-    [viewImageH.layer setBorderWidth:1];
-    [viewImageH.layer setBorderColor:[[UIColor whiteColor] CGColor]];
+    imgIndex=0;
+    [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(loadimglead) userInfo:nil repeats:YES];
     // Do any additional setup after loading the view from its nib.
 }
+-(void)loadimglead
+{
+    imgIndex=imgIndex+1;
+    if (imgIndex>3) {
+        imgIndex=0;
+    }
+ 
+    [UIView animateKeyframesWithDuration:1 delay:0 options:UIViewKeyframeAnimationOptionLayoutSubviews animations:^{
+        imgLeadH.frame=CGRectMake(305+(imgIndex*121), 581, 123, 105);
+        
+    } completion:^(BOOL finished) {
+        
+    }];
+}
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -37,4 +54,14 @@
 }
 */
 
+- (IBAction)nextbtnclick:(id)sender {
+    FTDGoodAgentHomeController *FTDHomeLeadViewCol=[[FTDGoodAgentHomeController alloc]init];
+    CATransition *  tran=[CATransition animation];
+    tran.type = @"pageCurl";
+    tran.subtype = kCATransitionFromRight;
+    tran.duration=1;
+    tran.delegate=self;
+    [self.view.superview.layer addAnimation:tran forKey:@"kongyu"];
+    [self.navigationController pushViewController:FTDHomeLeadViewCol animated:YES];
+}
 @end
