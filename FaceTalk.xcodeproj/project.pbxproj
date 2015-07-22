@@ -42,6 +42,7 @@
 		18CD4BBB1B4F6A2D00D20B74 /* FTDCreatMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18CD4BB91B4F6A2D00D20B74 /* FTDCreatMenuViewController.xib */; };
 		18CD4BC21B4F6B2D00D20B74 /* FTDPersonalHomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CD4BC01B4F6B2D00D20B74 /* FTDPersonalHomeController.m */; };
 		18CD4BC31B4F6B2D00D20B74 /* FTDPersonalHomeController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18CD4BC11B4F6B2D00D20B74 /* FTDPersonalHomeController.xib */; };
+		18D358511B5F37930008764E /* FTDCustomerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D358501B5F37930008764E /* FTDCustomerModel.m */; };
 		848E790F68979E8FF351EDC4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E8EDE843218ECDD1C97B2E90 /* libPods.a */; };
 		A2615A771B4D22C00098EC30 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A2615A761B4D22C00098EC30 /* main.m */; };
 		A2615A7A1B4D22C00098EC30 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A2615A791B4D22C00098EC30 /* AppDelegate.m */; };
@@ -98,6 +99,8 @@
 		18CD4BBF1B4F6B2D00D20B74 /* FTDPersonalHomeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTDPersonalHomeController.h; sourceTree = "<group>"; };
 		18CD4BC01B4F6B2D00D20B74 /* FTDPersonalHomeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTDPersonalHomeController.m; sourceTree = "<group>"; };
 		18CD4BC11B4F6B2D00D20B74 /* FTDPersonalHomeController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FTDPersonalHomeController.xib; sourceTree = "<group>"; };
+		18D3584F1B5F37930008764E /* FTDCustomerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTDCustomerModel.h; sourceTree = "<group>"; };
+		18D358501B5F37930008764E /* FTDCustomerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTDCustomerModel.m; sourceTree = "<group>"; };
 		53741FB2FED2E104B0749630 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		A2615A711B4D22C00098EC30 /* FaceTalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FaceTalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2615A751B4D22C00098EC30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -227,6 +230,15 @@
 			children = (
 			);
 			path = views;
+			sourceTree = "<group>";
+		};
+		18D3584E1B5F375F0008764E /* sharemodels */ = {
+			isa = PBXGroup;
+			children = (
+				18D3584F1B5F37930008764E /* FTDCustomerModel.h */,
+				18D358501B5F37930008764E /* FTDCustomerModel.m */,
+			);
+			path = sharemodels;
 			sourceTree = "<group>";
 		};
 		18E066AA1B5386310013FEF2 /* controllers */ = {
@@ -409,6 +421,7 @@
 				18CD4BB31B4F69DE00D20B74 /* FTDMenuViewController.m */,
 				18CD4BB41B4F69DE00D20B74 /* FTDMenuViewController.xib */,
 				183942081B5DE55F0088BA1D /* shareviews */,
+				18D3584E1B5F375F0008764E /* sharemodels */,
 			);
 			name = share;
 			sourceTree = "<group>";
@@ -571,6 +584,7 @@
 				18CD4BA61B4F674200D20B74 /* FTDGoodAgentHomeController.m in Sources */,
 				A2615A771B4D22C00098EC30 /* main.m in Sources */,
 				18CD4BB01B4F67E300D20B74 /* FTDGoodAgentListController.m in Sources */,
+				18D358511B5F37930008764E /* FTDCustomerModel.m in Sources */,
 				183942101B5DF6790088BA1D /* FTDbackgroundView.m in Sources */,
 				18291B671B57A16C003E180D /* FTDHomeLeadViewController.m in Sources */,
 			);

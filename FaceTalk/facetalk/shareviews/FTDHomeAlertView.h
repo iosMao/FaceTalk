@@ -23,6 +23,8 @@
 @property (strong, nonatomic) IBOutlet UITextField *textSex;
 @property (strong, nonatomic) IBOutlet UITextField *textBirthday;
 @property (strong, nonatomic) IBOutlet UITableView *tableName;
+@property (strong, nonatomic) IBOutlet UITableView *tableSex;
+
 - (IBAction)cancelclick:(id)sender;
 - (IBAction)creatclick:(id)sender;
 

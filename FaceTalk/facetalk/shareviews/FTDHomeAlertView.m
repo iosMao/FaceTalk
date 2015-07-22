@@ -7,20 +7,9 @@
 //
 
 #import "FTDHomeAlertView.h"
-
+#import "FTDCustomerModel.h"
 @implementation FTDHomeAlertView
-@synthesize tableName,textBirthday,textName,textSex;
-- (IBAction)cancelclick:(id)sender {
-    if ([self.delegate respondsToSelector:@selector(homeAlertCancelClick)]) {
-        [self.delegate homeAlertCancelClick];
-    }
-}
-
-- (IBAction)creatclick:(id)sender {
-    if ([self.delegate respondsToSelector:@selector(homeAlertCreatclick)]) {
-        [self.delegate homeAlertCreatclick];
-    }
-}
+@synthesize tableName,tableSex,textBirthday,textName,textSex;
 
 +(FTDHomeAlertView *)initCustomview
 {
@@ -30,21 +19,36 @@
     
 }
 - (void)drawRect:(CGRect)rect {
-    tableName.delegate=self;
-    tableName.dataSource=self;
-    textName.delegate=self;
-    [textName addTarget:self action:@selector(textchange:) forControlEvents:UIControlEventEditingChanged];
-    tableName.hidden=YES;
     arrayList=[[NSMutableArray alloc]init];
     
+    tableName.delegate=self;
+    tableName.dataSource=self;
+    tableName.hidden=YES;
+    
+    tableSex.delegate=self;
+    tableSex.dataSource=self;
+    tableSex.hidden=YES;
+    
+    textName.delegate=self;
+    [textName addTarget:self action:@selector(textchange:) forControlEvents:UIControlEventEditingChanged];
+    
+    
+    
+    
 }
+
 - (void)textchange:(UITextField *)textField
 {
     if (textField.text.length>0) {
         [self searchAgentList:textField.text];
     }
+    else{
+        [arrayList removeAllObjects];
+        [tableName reloadData];
+    }
     
 }
+
 -(void)searchAgentList:(NSString *)agentName//此处调用本地数据库查询接口
 {
     [arrayList removeAllObjects];
@@ -58,9 +62,14 @@
     }
     
 }
+-(void)addAgent:(FTDCustomerModel *)model//此处调用本地数据库新增人才接口
+{
+    
+    
+    
+}
 
-
-
+#pragma mark tableviewdelegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     //#warning Potentially incomplete method implementation.
@@ -72,6 +81,9 @@
 {
     //#warning Incomplete method implementation.
     // Return the number of rows in the section.
+    if (tableView==tableSex) {
+        return 2;
+    }
     return arrayList.count;
 }
 
@@ -79,22 +91,46 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //    UITableViewCell *cell = [tableView
-    //                             dequeueReusableCellWithIdentifier:@"Cell"];
-    static NSString *identifier = @"Identifier";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+    if (tableView==tableName) {
+        static NSString *identifier = @"tableNameIdentifier";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+            
+            
+        }
+        cell.textLabel.font=[UIFont systemFontOfSize:14.0];
+        cell.textLabel.text=[arrayList objectAtIndex:indexPath.row];
         
         
+        
+        // Configure the cell...
+        return cell;
     }
-    cell.textLabel.font=[UIFont systemFontOfSize:14.0];
-    cell.textLabel.text=[arrayList objectAtIndex:indexPath.row];
+    else if (tableView==tableSex)
+    {
+        static NSString *identifier = @"tableSexIdentifier";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+            
+            
+        }
+        cell.textLabel.font=[UIFont systemFontOfSize:14.0];
+        if (indexPath.row==0) {
+            cell.textLabel.text=@"男";
+        }
+        else{
+            cell.textLabel.text=@"女";
+        }
+        
+        
+        
+        // Configure the cell...
+        return cell;
+    }
+    return nil;
     
-    
-    
-    // Configure the cell...
-    return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
@@ -109,16 +145,39 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 
 {
-    textName.text=[arrayList objectAtIndex:indexPath.row];
-    tableName.hidden=YES;
+    if (tableView==tableName) {
+        textName.text=[arrayList objectAtIndex:indexPath.row];
+        tableName.hidden=YES;
+    }
+    else if (tableView==tableSex)
+    {
+        if (indexPath.row==0) {
+            textSex.text=@"男";
+        }
+        else{
+            textSex.text=@"女";
+        }
+        tableSex.hidden=YES;
+        
+        
+        
+    }
+    
     
 }
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+#pragma mark FTDHomeAlertdelegate
+- (IBAction)cancelclick:(id)sender {
+    if ([self.delegate respondsToSelector:@selector(homeAlertCancelClick)]) {
+        [self.delegate homeAlertCancelClick];
+    }
 }
-*/
+
+- (IBAction)creatclick:(id)sender {
+    if ([self.delegate respondsToSelector:@selector(homeAlertCreatclick)]) {
+        [self.delegate homeAlertCreatclick];
+    }
+}
+
+
 
 @end
