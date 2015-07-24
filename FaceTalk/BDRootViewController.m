@@ -28,6 +28,7 @@
 
 - (IBAction)ftdhomeviewclick:(id)sender {
     FTDHomeViewController *FTDHomeViewCol=[[FTDHomeViewController alloc]init];
+    
     [self.navigationController pushViewController:FTDHomeViewCol animated:YES];
 }
 @end

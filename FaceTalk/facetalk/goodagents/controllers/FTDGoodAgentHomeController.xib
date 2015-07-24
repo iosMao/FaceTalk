@@ -9,6 +9,13 @@
                 <outlet property="btnCareer" destination="b6D-dw-9CY" id="Oxw-Wd-aRb"/>
                 <outlet property="btnCompany" destination="YeL-gk-Hyg" id="HyB-uq-GYD"/>
                 <outlet property="btnFreedom" destination="0TR-uC-Ub5" id="dEi-ne-xFs"/>
+                <outlet property="imgBG" destination="3sp-9K-5TT" id="ix0-gC-jGg"/>
+                <outlet property="imgCamera" destination="pbE-5a-JP4" id="wWs-Yf-Avl"/>
+                <outlet property="imgCup" destination="1Rz-VV-Nfm" id="WeM-al-OZ7"/>
+                <outlet property="imgGlass" destination="v8k-WI-NmT" id="1s9-8m-Jkh"/>
+                <outlet property="imgKey" destination="tzl-HD-P9C" id="OeW-zB-IMI"/>
+                <outlet property="imgPen" destination="0OB-fI-JkA" id="hEb-fT-dAn"/>
+                <outlet property="imgPenBox" destination="FBI-AN-7tp" id="5l3-ZD-3Pc"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -17,26 +24,50 @@
             <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="FTD_goodagentHomePage.png" translatesAutoresizingMaskIntoConstraints="NO" id="3sp-9K-5TT">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="FTDbackgroundImage.png" translatesAutoresizingMaskIntoConstraints="NO" id="3sp-9K-5TT">
                     <rect key="frame" x="0.0" y="20" width="1024" height="748"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gyc-D1-3GX">
+                    <rect key="frame" x="109" y="75" width="42" height="41"/>
+                    <state key="normal" image="FTD_back.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="真英才 傲人风采" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PIt-uH-QBt">
+                    <rect key="frame" x="147" y="76" width="233" height="39"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                    <color key="textColor" red="0.76862745099999996" green="0.0" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="FTD_goodAgentPen.png" translatesAutoresizingMaskIntoConstraints="NO" id="0OB-fI-JkA">
+                    <rect key="frame" x="478" y="165" width="223" height="76"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YeL-gk-Hyg">
                     <rect key="frame" x="158" y="249" width="225" height="290"/>
                     <state key="normal" image="FTD_goodagentHome_companyJob.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="companyclick:" destination="-1" eventType="touchUpInside" id="mXD-dX-0mE"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0TR-uC-Ub5">
                     <rect key="frame" x="414" y="249" width="225" height="290"/>
                     <state key="normal" image="FTD_goodagentHome_freedomJob.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="freedomclick:" destination="-1" eventType="touchUpInside" id="LE0-1r-Sgt"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b6D-dw-9CY">
                     <rect key="frame" x="675" y="249" width="225" height="290"/>
                     <state key="normal" image="FTD_goodagentHome_careerJob.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="careerclick:" destination="-1" eventType="touchUpInside" id="av3-Iw-aEQ"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jIG-ZP-vuX">
                     <rect key="frame" x="820" y="597" width="136" height="136"/>
@@ -45,7 +76,7 @@
                     </state>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TqX-gE-DaL">
-                    <rect key="frame" x="117" y="67" width="279" height="64"/>
+                    <rect key="frame" x="104" y="59" width="279" height="64"/>
                     <state key="normal">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -53,6 +84,21 @@
                         <action selector="backclick:" destination="-1" eventType="touchUpInside" id="db3-bR-OpY"/>
                     </connections>
                 </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="FTD_goodAgentKey.png" translatesAutoresizingMaskIntoConstraints="NO" id="tzl-HD-P9C">
+                    <rect key="frame" x="571" y="552" width="168" height="176"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="FTD_goodAgentGlass.png" translatesAutoresizingMaskIntoConstraints="NO" id="v8k-WI-NmT">
+                    <rect key="frame" x="303" y="542" width="206" height="206"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="FTD_goodAgentCamera.png" translatesAutoresizingMaskIntoConstraints="NO" id="pbE-5a-JP4">
+                    <rect key="frame" x="28" y="494" width="267" height="274"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="FTD_goodAgentCup.png" translatesAutoresizingMaskIntoConstraints="NO" id="1Rz-VV-Nfm">
+                    <rect key="frame" x="43" y="125" width="150" height="154"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="FTD_goodAgentPenBox.png" translatesAutoresizingMaskIntoConstraints="NO" id="FBI-AN-7tp">
+                    <rect key="frame" x="675" y="105" width="166" height="193"/>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -60,11 +106,18 @@
         </view>
     </objects>
     <resources>
+        <image name="FTD_back.png" width="90" height="90"/>
         <image name="FTD_btnNextModel.png" width="300" height="300"/>
-        <image name="FTD_goodagentHomePage.png" width="2046" height="1500"/>
+        <image name="FTD_goodAgentCamera.png" width="550" height="545"/>
+        <image name="FTD_goodAgentCup.png" width="300" height="300"/>
+        <image name="FTD_goodAgentGlass.png" width="400" height="400"/>
+        <image name="FTD_goodAgentKey.png" width="340" height="340"/>
+        <image name="FTD_goodAgentPen.png" width="463" height="161"/>
+        <image name="FTD_goodAgentPenBox.png" width="370" height="465"/>
         <image name="FTD_goodagentHome_careerJob.png" width="470" height="600"/>
         <image name="FTD_goodagentHome_companyJob.png" width="470" height="600"/>
         <image name="FTD_goodagentHome_freedomJob.png" width="470" height="600"/>
+        <image name="FTDbackgroundImage.png" width="2046" height="1500"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

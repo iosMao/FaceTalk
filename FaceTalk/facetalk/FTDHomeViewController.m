@@ -20,30 +20,30 @@
     [super viewDidLoad];
     scrollBG.contentSize=CGSizeMake(1024*3, 748);
     scrollBG.pagingEnabled=YES;
-    [btnKey  addTarget:self action:@selector(dragMoving:withEvent: ) forControlEvents:UIControlEventTouchDragInside];
-    [btnKey addTarget:self action:@selector(dragEnded:withEvent: )forControlEvents: UIControlEventTouchUpInside |
-     UIControlEventTouchUpOutside];
+     [btnKey  addTarget:self action:@selector(homeLeadViewclick) forControlEvents:UIControlEventTouchUpInside];
+//    [btnKey addTarget:self action:@selector(dragEnded:withEvent: )forControlEvents: UIControlEventTouchUpInside |
+//     UIControlEventTouchUpOutside];
     // Do any additional setup after loading the view from its nib.
 }
-- (void) dragMoving: (UIControl *) c withEvent:ev
-{
-    
-    CGPoint point=[[[ev allTouches] anyObject] locationInView:self.view];
-    point.y=440;
-    c.center =point;
-    
-    if (point.x<520) {
-        [self gotoHomeinterView];
-    }
-    
-}
-- (void) dragEnded: (UIControl *) c withEvent:ev
-{
-    CGPoint point=[[[ev allTouches] anyObject] locationInView:self.view];
-     point.y=440;
-    c.center =point;
-    
-}
+//- (void) dragMoving: (UIControl *) c withEvent:ev
+//{
+//    
+//    CGPoint point=[[[ev allTouches] anyObject] locationInView:self.view];
+//    point.y=440;
+//    c.center =point;
+//    
+//    if (point.x<520) {
+//        [self gotoHomeinterView];
+//    }
+//    
+//}
+//- (void) dragEnded: (UIControl *) c withEvent:ev
+//{
+//    CGPoint point=[[[ev allTouches] anyObject] locationInView:self.view];
+//     point.y=440;
+//    c.center =point;
+//    
+//}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -59,13 +59,13 @@
 }
 */
 
--(void)gotoHomeinterView
+-(void)homeLeadViewclick
 {
  
     FTDHomeLeadViewController *FTDHomeLeadViewCol=[[FTDHomeLeadViewController alloc]init];
     CATransition *  tran=[CATransition animation];
-    tran.type = @"pageCurl";
-    tran.subtype = kCATransitionFromRight;
+    tran.type =kCATransitionFade;
+     tran.subtype = kCATransitionFromRight;
     tran.duration=1;
     tran.delegate=self;
     [self.view.superview.layer addAnimation:tran forKey:@"kongyu"];

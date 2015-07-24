@@ -12,6 +12,18 @@
 @property (strong, nonatomic) IBOutlet UIButton *btnCompany;
 @property (strong, nonatomic) IBOutlet UIButton *btnFreedom;
 @property (strong, nonatomic) IBOutlet UIButton *btnCareer;
-- (IBAction)backclick:(id)sender;
+@property (strong, nonatomic) IBOutlet UIImageView *imgBG;
+@property (strong, nonatomic) IBOutlet UIImageView *imgCup;
+@property (strong, nonatomic) IBOutlet UIImageView *imgPen;
+@property (strong, nonatomic) IBOutlet UIImageView *imgKey;
+@property (strong, nonatomic) IBOutlet UIImageView *imgPenBox;
 
+@property (strong, nonatomic) IBOutlet UIImageView *imgCamera;
+@property (strong, nonatomic) IBOutlet UIImageView *imgGlass;
+
+
+- (IBAction)backclick:(id)sender;
+- (IBAction)companyclick:(id)sender;
+- (IBAction)freedomclick:(id)sender;
+- (IBAction)careerclick:(id)sender;
 @end

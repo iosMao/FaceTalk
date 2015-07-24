@@ -18,6 +18,7 @@
     NSMutableArray *arrayList;
 }
 @property(nonatomic, weak)id<FTDHomeAlertViewDeledate> delegate;
+@property (strong, nonatomic) IBOutlet UIView *viewBG;
 
 @property (strong, nonatomic) IBOutlet UITextField *textName;
 @property (strong, nonatomic) IBOutlet UITextField *textSex;
@@ -27,6 +28,7 @@
 
 - (IBAction)cancelclick:(id)sender;
 - (IBAction)creatclick:(id)sender;
+- (IBAction)showSexListClick:(id)sender;
 
 +(FTDHomeAlertView *)initCustomview;
 @end

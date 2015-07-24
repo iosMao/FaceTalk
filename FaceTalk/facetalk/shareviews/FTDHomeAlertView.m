@@ -19,6 +19,9 @@
     
 }
 - (void)drawRect:(CGRect)rect {
+    self.backgroundColor=[UIColor clearColor];
+    [self.viewBG.layer setMasksToBounds:YES];
+    [self.viewBG.layer setCornerRadius:5];
     arrayList=[[NSMutableArray alloc]init];
     
     tableName.delegate=self;
@@ -27,13 +30,11 @@
     
     tableSex.delegate=self;
     tableSex.dataSource=self;
+    [tableSex reloadData];
     tableSex.hidden=YES;
     
     textName.delegate=self;
     [textName addTarget:self action:@selector(textchange:) forControlEvents:UIControlEventEditingChanged];
-    
-    
-    
     
 }
 
@@ -175,6 +176,15 @@
 - (IBAction)creatclick:(id)sender {
     if ([self.delegate respondsToSelector:@selector(homeAlertCreatclick)]) {
         [self.delegate homeAlertCreatclick];
+    }
+}
+
+- (IBAction)showSexListClick:(id)sender {
+    if (tableSex.hidden==YES) {
+        tableSex.hidden=NO;
+    }
+    else{
+        tableSex.hidden=YES;
     }
 }
 

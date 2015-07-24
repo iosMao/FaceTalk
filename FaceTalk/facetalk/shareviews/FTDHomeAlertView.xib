@@ -6,72 +6,104 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="FTDHomeAlertView">
-            <rect key="frame" x="-1" y="0.0" width="293" height="348"/>
-            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+        <view contentMode="scaleToFill" id="m5D-yB-yBe" customClass="FTDHomeAlertView">
+            <rect key="frame" x="5" y="0.0" width="333" height="481"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="创建面谈对象" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rm3-Qi-tKN">
-                    <rect key="frame" x="95" y="36" width="102" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="输入姓名" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UMw-vt-bwc">
-                    <rect key="frame" x="33" y="77" width="227" height="30"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iby-a9-7ga">
-                    <rect key="frame" x="33" y="144" width="227" height="30"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="x5h-KY-LIF">
-                    <rect key="frame" x="33" y="211" width="227" height="30"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="C2N-g4-HXy">
-                    <rect key="frame" x="33" y="174" width="227" height="88"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="FTD_creatPerson_photo.png" translatesAutoresizingMaskIntoConstraints="NO" id="OOb-cM-Mes">
+                    <rect key="frame" x="97" y="0.0" width="140" height="140"/>
+                </imageView>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yTT-nk-iZI">
+                    <rect key="frame" x="0.0" y="91" width="333" height="390"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bYl-PY-2g8">
+                            <rect key="frame" x="292" y="1" width="41" height="41"/>
+                            <state key="normal" image="FTD_creatPerson_cancel.png">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="cancelclick:" destination="m5D-yB-yBe" eventType="touchUpInside" id="bPD-SP-o0h"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eOE-ui-RYo">
+                            <rect key="frame" x="70" y="159" width="227" height="30"/>
+                            <state key="normal">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="showSexListClick:" destination="m5D-yB-yBe" eventType="touchUpInside" id="e6e-s1-WHM"/>
+                            </connections>
+                        </button>
+                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jss-8Q-tkl">
+                            <rect key="frame" x="0.0" y="284" width="333" height="106"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Ew-sW-GhF">
+                                    <rect key="frame" x="16" y="30" width="300" height="49"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                    <state key="normal" image="FTD_creatPerson_creatNow.png">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="creatclick:" destination="m5D-yB-yBe" eventType="touchUpInside" id="ZKJ-6X-mUm"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" red="0.73725490199999999" green="0.0" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        </view>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="FTD_creatPerson_name.png" translatesAutoresizingMaskIntoConstraints="NO" id="9Ip-Of-cAM">
+                            <rect key="frame" x="23" y="92" width="290" height="49"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="FTD_creatPerson_birthday.png" translatesAutoresizingMaskIntoConstraints="NO" id="TSd-xZ-y7H">
+                            <rect key="frame" x="23" y="206" width="290" height="49"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="FTD_creatPerson_sex.png" translatesAutoresizingMaskIntoConstraints="NO" id="zFv-UR-7FF">
+                            <rect key="frame" x="23" y="149" width="290" height="49"/>
+                        </imageView>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="eBI-dX-EMb">
+                            <rect key="frame" x="70" y="188" width="227" height="88"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </tableView>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="psD-MS-uVI">
+                            <rect key="frame" x="70" y="135" width="227" height="141"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </tableView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="创建面谈对象" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KBs-2Z-bKq">
+                            <rect key="frame" x="102" y="51" width="133" height="21"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入姓名" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PnP-uu-jUf">
+                            <rect key="frame" x="70" y="102" width="227" height="30"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="性别" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8BY-ke-HCS">
+                            <rect key="frame" x="70" y="159" width="227" height="30"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="生日" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6E9-pH-eLK">
+                            <rect key="frame" x="70" y="216" width="227" height="30"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                    </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                </tableView>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bYl-PY-2g8">
-                    <rect key="frame" x="240" y="0.0" width="53" height="46"/>
-                    <state key="normal" title="x">
-                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="cancelclick:" destination="iN0-l3-epB" eventType="touchUpInside" id="J02-aK-KTX"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="75v-Ix-TYr">
-                    <rect key="frame" x="33" y="291" width="227" height="30"/>
-                    <color key="backgroundColor" red="0.76862745099999996" green="0.0" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                    <state key="normal" title="立即创建">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="creatclick:" destination="iN0-l3-epB" eventType="touchUpInside" id="qVl-BK-2A1"/>
-                    </connections>
-                </button>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="JLO-xs-dag">
-                    <rect key="frame" x="33" y="108" width="227" height="141"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                </tableView>
+                </view>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-            <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="tableName" destination="JLO-xs-dag" id="tXv-xC-6ri"/>
-                <outlet property="tableSex" destination="C2N-g4-HXy" id="lsD-ZU-PYn"/>
-                <outlet property="textBirthday" destination="x5h-KY-LIF" id="xRq-H5-Dop"/>
-                <outlet property="textName" destination="UMw-vt-bwc" id="D0a-km-x9J"/>
-                <outlet property="textSex" destination="iby-a9-7ga" id="4EO-aN-ILH"/>
+                <outlet property="tableName" destination="psD-MS-uVI" id="pCk-l6-ziD"/>
+                <outlet property="tableSex" destination="eBI-dX-EMb" id="Gk4-Tz-aAx"/>
+                <outlet property="textBirthday" destination="6E9-pH-eLK" id="gEf-eq-xhZ"/>
+                <outlet property="textName" destination="PnP-uu-jUf" id="v5c-aI-pSl"/>
+                <outlet property="textSex" destination="8BY-ke-HCS" id="ssc-br-pTj"/>
+                <outlet property="viewBG" destination="yTT-nk-iZI" id="nbp-k6-4sN"/>
             </connections>
-            <point key="canvasLocation" x="209.5" y="445"/>
+            <point key="canvasLocation" x="317.5" y="219.5"/>
         </view>
         <view contentMode="scaleToFill" id="pbS-mD-1Sa">
             <rect key="frame" x="0.0" y="0.0" width="268" height="149"/>
@@ -86,9 +118,17 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="590" y="577.5"/>
+            <point key="canvasLocation" x="690" y="709.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="FTD_creatPerson_birthday.png" width="570" height="96"/>
+        <image name="FTD_creatPerson_cancel.png" width="70" height="70"/>
+        <image name="FTD_creatPerson_creatNow.png" width="570" height="96"/>
+        <image name="FTD_creatPerson_name.png" width="570" height="96"/>
+        <image name="FTD_creatPerson_photo.png" width="250" height="250"/>
+        <image name="FTD_creatPerson_sex.png" width="570" height="96"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
