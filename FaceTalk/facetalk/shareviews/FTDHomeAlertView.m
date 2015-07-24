@@ -18,7 +18,9 @@
     
     
 }
-- (void)drawRect:(CGRect)rect {
+
+-(void)awakeFromNib
+{
     self.backgroundColor=[UIColor clearColor];
     [self.viewBG.layer setMasksToBounds:YES];
     [self.viewBG.layer setCornerRadius:5];
@@ -35,8 +37,8 @@
     
     textName.delegate=self;
     [textName addTarget:self action:@selector(textchange:) forControlEvents:UIControlEventEditingChanged];
-    
 }
+
 
 - (void)textchange:(UITextField *)textField
 {
