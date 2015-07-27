@@ -30,17 +30,17 @@
                     </state>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ggt-BE-cn5">
-                    <rect key="frame" x="45" y="503" width="42" height="96"/>
+                    <rect key="frame" x="53" y="503" width="42" height="96"/>
                     <state key="normal" image="FTD_goodAgetnkind.png"/>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LkJ-rX-NpK">
-                    <rect key="frame" x="45" y="599" width="42" height="96"/>
+                    <rect key="frame" x="53" y="599" width="42" height="96"/>
                     <state key="normal" image="FTD_goodAgetnkind.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uAB-mu-ZUs">
-                    <rect key="frame" x="44" y="407" width="43" height="96"/>
+                    <rect key="frame" x="52" y="407" width="43" height="96"/>
                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                     <state key="normal" backgroundImage="FTD_goodAgentskindH.png">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -48,25 +48,25 @@
                     </state>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="自由职业" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9dc-kt-HfS">
-                    <rect key="frame" x="58" y="414" width="20" height="83"/>
+                    <rect key="frame" x="66" y="414" width="20" height="83"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="事业单位" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lvz-bS-Cac">
-                    <rect key="frame" x="58" y="511" width="20" height="83"/>
+                    <rect key="frame" x="66" y="511" width="20" height="83"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="企业单位" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="plp-Zo-lXT">
-                    <rect key="frame" x="58" y="605" width="20" height="83"/>
+                    <rect key="frame" x="66" y="605" width="20" height="83"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="自由职业" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zU8-l1-geb">
-                    <rect key="frame" x="135" y="94" width="153" height="31"/>
+                    <rect key="frame" x="134" y="94" width="153" height="31"/>
                     <fontDescription key="fontDescription" type="system" pointSize="32"/>
                     <color key="textColor" red="0.76862745099999996" green="0.0" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -75,7 +75,7 @@
                     <rect key="frame" x="460" y="424" width="370" height="293"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="FTD_Image2.png" translatesAutoresizingMaskIntoConstraints="NO" id="TZq-mC-2UR">
-                    <rect key="frame" x="106" y="397" width="334" height="320"/>
+                    <rect key="frame" x="106" y="397" width="338" height="320"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="FTD_Image1.png" translatesAutoresizingMaskIntoConstraints="NO" id="OPv-G8-Qgp">
                     <rect key="frame" x="460" y="134" width="370" height="275"/>
@@ -88,6 +88,15 @@
                         <outlet property="delegate" destination="-1" id="0EY-aY-odK"/>
                     </connections>
                 </tableView>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iKy-ly-gIL">
+                    <rect key="frame" x="80" y="66" width="279" height="64"/>
+                    <state key="normal">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="backclick:" destination="-1" eventType="touchUpInside" id="pd8-Hz-hao"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>

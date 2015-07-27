@@ -30,11 +30,11 @@
     
     homeAlertView= [FTDHomeAlertView initCustomview];
     homeAlertView.delegate= self;
-    homeAlertView.center=CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2);
+    homeAlertView.center=CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2-80);
     
     homeAlertFinishView= [FTDHomAlertFinishView initCustomview];
     homeAlertFinishView.delegate= self;
-    homeAlertFinishView.center=CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2);
+    homeAlertFinishView.center=CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2-80);
     
     [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(loadimglead) userInfo:nil repeats:YES];
     // Do any additional setup after loading the view from its nib.

@@ -15,6 +15,7 @@
 @end
 @interface FTDHomAlertFinishView : UIView
 @property(nonatomic, weak)id<FTDHomeAlertFinishViewDeledate> delegate;
+@property (strong, nonatomic) IBOutlet UIView *viewBG;
 +(FTDHomAlertFinishView *)initCustomview;
 - (IBAction)gotoCreatMenuclick:(id)sender;
 - (IBAction)gotoMenuclick:(id)sender;

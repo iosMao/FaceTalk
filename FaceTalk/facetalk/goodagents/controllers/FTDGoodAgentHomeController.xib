@@ -39,9 +39,6 @@
                     <color key="textColor" red="0.76862745099999996" green="0.0" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="FTD_goodAgentPen.png" translatesAutoresizingMaskIntoConstraints="NO" id="0OB-fI-JkA">
-                    <rect key="frame" x="478" y="165" width="223" height="76"/>
-                </imageView>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YeL-gk-Hyg">
                     <rect key="frame" x="158" y="249" width="225" height="290"/>
                     <state key="normal" image="FTD_goodagentHome_companyJob.png">
@@ -84,6 +81,9 @@
                         <action selector="backclick:" destination="-1" eventType="touchUpInside" id="db3-bR-OpY"/>
                     </connections>
                 </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="FTD_goodAgentPen.png" translatesAutoresizingMaskIntoConstraints="NO" id="0OB-fI-JkA">
+                    <rect key="frame" x="478" y="165" width="223" height="76"/>
+                </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="FTD_goodAgentKey.png" translatesAutoresizingMaskIntoConstraints="NO" id="tzl-HD-P9C">
                     <rect key="frame" x="571" y="552" width="168" height="176"/>
                 </imageView>

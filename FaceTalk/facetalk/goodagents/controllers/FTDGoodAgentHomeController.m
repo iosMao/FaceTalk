@@ -60,8 +60,6 @@
             transform = CGAffineTransformScale(transform, 0.5,0.5);
             btnCompany.transform = transform;
             
-            
-            
             btnCareer.alpha=1;
             CGAffineTransform transform1 = btnCareer.transform;
             transform1 = CGAffineTransformScale(transform1, 0.5,0.5);

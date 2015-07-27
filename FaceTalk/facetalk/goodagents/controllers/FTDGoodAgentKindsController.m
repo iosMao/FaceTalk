@@ -26,15 +26,13 @@
     NSString *file = [[NSBundle mainBundle] pathForResource:@"test_movie" ofType:@"mp4"];
     NSURL *url = [NSURL fileURLWithPath:file];
     
-        MoviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:url];
-    
-    
+    MoviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:url];
     MoviePlayer.controlStyle = MPMovieControlStyleDefault;
     MoviePlayer.shouldAutoplay = YES;
     MoviePlayer.repeatMode = MPMovieRepeatModeOne;
     [MoviePlayer setFullscreen:YES animated:YES];
     MoviePlayer.scalingMode = MPMovieScalingModeAspectFit;
-    MoviePlayer.view.frame=CGRectMake(106, 134, 328, 250);
+    MoviePlayer.view.frame=CGRectMake(106, 134, 338, 250);
     [self.view addSubview:MoviePlayer.view];
     [MoviePlayer play];
     
@@ -122,4 +120,7 @@
 }
 */
 
+- (IBAction)backclick:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
 @end

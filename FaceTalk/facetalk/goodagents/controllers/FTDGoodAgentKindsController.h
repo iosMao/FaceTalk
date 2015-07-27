@@ -16,5 +16,6 @@
 @property (strong, nonatomic) IBOutlet UIImageView *imgTitle1;
 @property (strong, nonatomic) IBOutlet UIImageView *imgTitle2;
 @property (strong, nonatomic) IBOutlet UIImageView *imgTitle3;
+- (IBAction)backclick:(id)sender;
 
 @end

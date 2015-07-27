@@ -9,12 +9,19 @@
 #import "FTDHomAlertFinishView.h"
 
 @implementation FTDHomAlertFinishView
+@synthesize viewBG;
 +(FTDHomAlertFinishView *)initCustomview
 {
     NSArray* nibView =  [[NSBundle mainBundle] loadNibNamed:@"FTDHomAlertFinishView" owner:nil options:nil];
     return [nibView objectAtIndex:0];
 }
- 
+-(void)awakeFromNib
+{
+    self.backgroundColor=[UIColor clearColor];
+    [self.viewBG.layer setMasksToBounds:YES];
+    [self.viewBG.layer setCornerRadius:5];
+    
+}
 
 - (IBAction)gotoCreatMenuclick:(id)sender {
     if ([self.delegate respondsToSelector:@selector(gotoCreatMenu)]) {
