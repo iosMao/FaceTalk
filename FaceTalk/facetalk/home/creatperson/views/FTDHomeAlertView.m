@@ -68,10 +68,10 @@
 -(void)searchAgentList:(NSString *)agentName//fix me 此处调用本地数据库查询接口
 {
     [arrayList removeAllObjects];
-//    for (int i=0; i<6; i++) {
-//        NSDictionary *dicInfo=@{@"name":@"nick",@"sex":@"男",@"birthday":@"1978-01-18"};
-//        [arrayList addObject:dicInfo];
-//    }
+    for (int i=0; i<6; i++) {
+        NSDictionary *dicInfo=@{@"name":@"nick",@"sex":@"男",@"birthday":@"1978-01-18"};
+        [arrayList addObject:dicInfo];
+    }
     
     if (arrayList.count>0) {
         tableName.hidden=NO;
