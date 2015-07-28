@@ -14,8 +14,6 @@
 		18291B611B5784E7003E180D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18291B601B5784E7003E180D /* UIKit.framework */; };
 		18291B631B5784FA003E180D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18291B621B5784FA003E180D /* Foundation.framework */; };
 		18291B6A1B57AAF9003E180D /* FT_home_leadpage.png in Resources */ = {isa = PBXBuildFile; fileRef = 18291B691B57AAF9003E180D /* FT_home_leadpage.png */; };
-		185D64381B661DFD00845F21 /* FTDGoodAgentDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185D64361B661DFD00845F21 /* FTDGoodAgentDetailController.m */; };
-		185D64391B661DFD00845F21 /* FTDGoodAgentDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 185D64371B661DFD00845F21 /* FTDGoodAgentDetailController.xib */; };
 		185D643C1B66213A00845F21 /* FTD_goodAgentPhotoBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 185D643A1B66213A00845F21 /* FTD_goodAgentPhotoBG.png */; };
 		185D643D1B66213A00845F21 /* FTD_goodAgentRedRect.png in Resources */ = {isa = PBXBuildFile; fileRef = 185D643B1B66213A00845F21 /* FTD_goodAgentRedRect.png */; };
 		185D64421B663D9200845F21 /* FTD_home_lead1.png in Resources */ = {isa = PBXBuildFile; fileRef = 185D643E1B663D9200845F21 /* FTD_home_lead1.png */; };
@@ -204,9 +202,6 @@
 		18291B601B5784E7003E180D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		18291B621B5784FA003E180D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		18291B691B57AAF9003E180D /* FT_home_leadpage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FT_home_leadpage.png; sourceTree = "<group>"; };
-		185D64351B661DFD00845F21 /* FTDGoodAgentDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTDGoodAgentDetailController.h; sourceTree = "<group>"; };
-		185D64361B661DFD00845F21 /* FTDGoodAgentDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTDGoodAgentDetailController.m; sourceTree = "<group>"; };
-		185D64371B661DFD00845F21 /* FTDGoodAgentDetailController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FTDGoodAgentDetailController.xib; sourceTree = "<group>"; };
 		185D643A1B66213A00845F21 /* FTD_goodAgentPhotoBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FTD_goodAgentPhotoBG.png; sourceTree = "<group>"; };
 		185D643B1B66213A00845F21 /* FTD_goodAgentRedRect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FTD_goodAgentRedRect.png; sourceTree = "<group>"; };
 		185D643E1B663D9200845F21 /* FTD_home_lead1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FTD_home_lead1.png; sourceTree = "<group>"; };
@@ -853,9 +848,6 @@
 				18D3585F1B5F9EC40008764E /* FTDAgentListCell.h */,
 				18D358601B5F9EC40008764E /* FTDAgentListCell.m */,
 				18D358611B5F9EC40008764E /* FTDAgentListCell.xib */,
-				185D64351B661DFD00845F21 /* FTDGoodAgentDetailController.h */,
-				185D64361B661DFD00845F21 /* FTDGoodAgentDetailController.m */,
-				185D64371B661DFD00845F21 /* FTDGoodAgentDetailController.xib */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -1208,7 +1200,6 @@
 				185D64A51B6671B500845F21 /* tfw_rs_socity@2x.png in Resources */,
 				18F32A381B6089F80018A3C8 /* FTD_NewGraduates.png in Resources */,
 				185D65991B6673C300845F21 /* tfw_sf_next.png in Resources */,
-				185D64391B661DFD00845F21 /* FTDGoodAgentDetailController.xib in Resources */,
 				185D65661B6673BC00845F21 /* tfw_cf_realnumber2.png in Resources */,
 				185D64A31B6671B500845F21 /* tfw_rs_pan@2x.png in Resources */,
 				185D64961B6671B500845F21 /* tfw_rs_income_gray.png in Resources */,
@@ -1339,7 +1330,6 @@
 				18CD4BC21B4F6B2D00D20B74 /* FTDPersonalHomeController.m in Sources */,
 				18CD4BA61B4F674200D20B74 /* FTDGoodAgentHomeController.m in Sources */,
 				A2615A771B4D22C00098EC30 /* main.m in Sources */,
-				185D64381B661DFD00845F21 /* FTDGoodAgentDetailController.m in Sources */,
 				185D65A81B667A3000845F21 /* TFDNavViewController.m in Sources */,
 				18D358551B5F704F0008764E /* FTDGoodAgentKindsController.m in Sources */,
 				185D64D51B6671DF00845F21 /* TFWSCItemView.m in Sources */,
