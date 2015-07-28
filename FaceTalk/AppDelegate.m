@@ -22,9 +22,9 @@
     // Override point for customization after application launch.
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    TFDNavViewController *navBDRootViewCol=[[TFDNavViewController alloc]initWithRootViewController:[[BDRootViewController alloc] init]];
-    navBDRootViewCol.navigationBar.hidden=YES;
-    self.window.rootViewController = navBDRootViewCol;
+    //TFDNavViewController *navBDRootViewCol=[[TFDNavViewController alloc]initWithRootViewController:[[BDRootViewController alloc] init]];
+    //navBDRootViewCol.navigationBar.hidden=YES;
+    self.window.rootViewController = [[BDRootViewController alloc] init];
     NSLog(@"Hello world");
     
     [self.window makeKeyAndVisible];

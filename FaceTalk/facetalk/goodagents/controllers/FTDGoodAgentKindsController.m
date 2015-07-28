@@ -35,10 +35,17 @@
     MoviePlayer.scalingMode = MPMovieScalingModeAspectFit;
     MoviePlayer.view.frame=CGRectMake(106, 134, 338, 250);
     [self.view addSubview:MoviePlayer.view];
-    [MoviePlayer play];
+    
     
 }
-
+-(void)viewWillAppear:(BOOL)animated
+{
+    [MoviePlayer play];
+}
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [MoviePlayer stop];
+}
 
 
 - (void)didReceiveMemoryWarning {
