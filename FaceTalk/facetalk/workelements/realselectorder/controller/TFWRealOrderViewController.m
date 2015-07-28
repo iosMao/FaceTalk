@@ -9,7 +9,7 @@
 #import "TFWRealOrderViewController.h"
 #import "TFWRSCenterView.h"
 #import "TFWRSButtonView.h"
-
+#import "TFWRealMarkViewController.h"
 @interface TFWRealOrderViewController ()
 
 @property (nonatomic,strong) UILabel *titleLabel;
@@ -63,7 +63,7 @@
     UIButton *bt = [UIButton buttonWithType:UIButtonTypeCustom];
     bt.frame = CGRectMake(822, 600, 103, 107);
     [bt setImage:[UIImage imageNamed:@"tfw_rs_next"] forState:UIControlStateNormal];
-    [bt addTarget:self action:@selector(okAction) forControlEvents:UIControlEventTouchUpOutside];
+    [bt addTarget:self action:@selector(okAction) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:bt];
 }
 
@@ -74,7 +74,7 @@
     _panView.frame = CGRectMake(235, 375, 601, 416);
     _panView.image = [UIImage imageNamed:@"tfw_rs_pan"];
     [self.view addSubview:_panView];
-    [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(panRound) userInfo:nil repeats:YES];
+    [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(panRound) userInfo:nil repeats:YES];
 }
 
 -(void)buildCenterView
@@ -91,7 +91,7 @@
     [bt_brand setTapBlock:^(UIButton *bt){
         [weak elementAction:bt];
     }];
-    [bt_brand setTapBlock:^(UIButton *bt){
+    [bt_brand setAddBlock:^(UIButton *bt){
         [weak addAction:bt];
     }];
     [self.view addSubview:bt_brand];
@@ -100,7 +100,7 @@
     [bt_free setTapBlock:^(UIButton *bt){
         [weak elementAction:bt];
     }];
-    [bt_free setTapBlock:^(UIButton *bt){
+    [bt_free setAddBlock:^(UIButton *bt){
         [weak addAction:bt];
     }];
     [self.view addSubview:bt_free];
@@ -109,7 +109,7 @@
     [bt_honour setTapBlock:^(UIButton *bt){
         [weak elementAction:bt];
     }];
-    [bt_honour setTapBlock:^(UIButton *bt){
+    [bt_honour setAddBlock:^(UIButton *bt){
         [weak addAction:bt];
     }];
     [self.view addSubview:bt_honour];
@@ -118,7 +118,7 @@
     [bt_income setTapBlock:^(UIButton *bt){
         [weak elementAction:bt];
     }];
-    [bt_income setTapBlock:^(UIButton *bt){
+    [bt_income setAddBlock:^(UIButton *bt){
         [weak addAction:bt];
     }];
     [self.view addSubview:bt_income];
@@ -127,7 +127,7 @@
     [bt_learn setTapBlock:^(UIButton *bt){
         [weak elementAction:bt];
     }];
-    [bt_learn setTapBlock:^(UIButton *bt){
+    [bt_learn setAddBlock:^(UIButton *bt){
         [weak addAction:bt];
     }];
     [self.view addSubview:bt_learn];
@@ -136,7 +136,7 @@
     [bt_life setTapBlock:^(UIButton *bt){
         [weak elementAction:bt];
     }];
-    [bt_life setTapBlock:^(UIButton *bt){
+    [bt_life setAddBlock:^(UIButton *bt){
         [weak addAction:bt];
     }];
     [self.view addSubview:bt_life];
@@ -145,7 +145,7 @@
     [bt_socity setTapBlock:^(UIButton *bt){
         [weak elementAction:bt];
     }];
-    [bt_socity setTapBlock:^(UIButton *bt){
+    [bt_socity setAddBlock:^(UIButton *bt){
         [weak addAction:bt];
     }];
     [self.view addSubview:bt_socity];
@@ -154,7 +154,7 @@
     [bt_space setTapBlock:^(UIButton *bt){
         [weak elementAction:bt];
     }];
-    [bt_space setTapBlock:^(UIButton *bt){
+    [bt_space setAddBlock:^(UIButton *bt){
         [weak addAction:bt];
     }];
     [self.view addSubview:bt_space];
@@ -163,7 +163,7 @@
     [bt_suit setTapBlock:^(UIButton *bt){
         [weak elementAction:bt];
     }];
-    [bt_suit setTapBlock:^(UIButton *bt){
+    [bt_suit setAddBlock:^(UIButton *bt){
         [weak addAction:bt];
     }];
     [self.view addSubview:bt_suit];
@@ -172,7 +172,7 @@
     [bt_work setTapBlock:^(UIButton *bt){
         [weak elementAction:bt];
     }];
-    [bt_work setTapBlock:^(UIButton *bt){
+    [bt_work setAddBlock:^(UIButton *bt){
         [weak addAction:bt];
     }];
     [self.view addSubview:bt_work];
@@ -232,11 +232,15 @@
 
 -(void)back:(UIButton *)button
 {
+    [self.navigationController popViewControllerAnimated:YES];
     NSLog(@"back");
 }
 
 -(void)okAction
 {
+    TFWRealMarkViewController *vc=[[TFWRealMarkViewController
+                                    alloc]init];
+    [self.navigationController pushViewController:vc animated:YES];
     NSLog(@"OK");
 }
 

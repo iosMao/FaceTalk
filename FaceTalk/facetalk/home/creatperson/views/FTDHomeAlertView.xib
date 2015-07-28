@@ -64,6 +64,11 @@
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="生日" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6E9-pH-eLK">
+                            <rect key="frame" x="70" y="216" width="227" height="30"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eOE-ui-RYo">
                             <rect key="frame" x="70" y="159" width="227" height="30"/>
                             <state key="normal">
@@ -73,17 +78,21 @@
                                 <action selector="showSexListClick:" destination="m5D-yB-yBe" eventType="touchUpInside" id="e6e-s1-WHM"/>
                             </connections>
                         </button>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="生日" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6E9-pH-eLK">
-                            <rect key="frame" x="70" y="216" width="227" height="30"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
-                        </textField>
-                        <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="psD-MS-uVI">
-                            <rect key="frame" x="70" y="135" width="227" height="141"/>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bU5-R3-QpO">
+                            <rect key="frame" x="77" y="216" width="225" height="30"/>
+                            <state key="normal">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="showBirthdayPickClick:" destination="m5D-yB-yBe" eventType="touchUpInside" id="LRr-pS-X96"/>
+                            </connections>
+                        </button>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="eBI-dX-EMb">
+                            <rect key="frame" x="70" y="197" width="227" height="88"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </tableView>
-                        <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="eBI-dX-EMb">
-                            <rect key="frame" x="70" y="188" width="227" height="88"/>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="psD-MS-uVI">
+                            <rect key="frame" x="70" y="135" width="227" height="141"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </tableView>
                     </subviews>
@@ -96,29 +105,31 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="datePick" destination="dZ5-EK-H4t" id="B3B-F9-ueR"/>
                 <outlet property="tableName" destination="psD-MS-uVI" id="pCk-l6-ziD"/>
                 <outlet property="tableSex" destination="eBI-dX-EMb" id="Gk4-Tz-aAx"/>
                 <outlet property="textBirthday" destination="6E9-pH-eLK" id="gEf-eq-xhZ"/>
                 <outlet property="textName" destination="PnP-uu-jUf" id="v5c-aI-pSl"/>
                 <outlet property="textSex" destination="8BY-ke-HCS" id="ssc-br-pTj"/>
                 <outlet property="viewBG" destination="yTT-nk-iZI" id="nbp-k6-4sN"/>
+                <outlet property="viewPick" destination="pbS-mD-1Sa" id="p7x-R9-fsa"/>
             </connections>
             <point key="canvasLocation" x="317.5" y="219.5"/>
         </view>
         <view contentMode="scaleToFill" id="pbS-mD-1Sa">
-            <rect key="frame" x="0.0" y="0.0" width="268" height="149"/>
+            <rect key="frame" x="0.0" y="5" width="328" height="167"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="o7G-yc-Oaj">
-                    <rect key="frame" x="0.0" y="0.0" width="268" height="149"/>
-                    <date key="date" timeIntervalSinceReferenceDate="459152531.86532801">
-                        <!--2015-07-21 06:22:11 +0000-->
+                <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="dZ5-EK-H4t">
+                    <rect key="frame" x="0.0" y="0.0" width="328" height="167"/>
+                    <date key="date" timeIntervalSinceReferenceDate="459745449.77356201">
+                        <!--2015-07-28 03:04:09 +0000-->
                     </date>
                 </datePicker>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="690" y="709.5"/>
+            <point key="canvasLocation" x="320" y="610.5"/>
         </view>
     </objects>
     <resources>

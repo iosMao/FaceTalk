@@ -10,7 +10,7 @@
 #import "TFWCFLeftToolView.h"
 #import "TFWCFModelView.h"
 #import "TFWCFPickerView.h"
-
+#import "TFWStartTalkViewController.h"
 @interface TFWCustomTalkViewController ()
 
 @property (nonatomic,strong) TFWCFLeftToolView *leftToolView;
@@ -132,17 +132,20 @@
     UIButton *bt = [UIButton buttonWithType:UIButtonTypeCustom];
     bt.frame = CGRectMake(800, 588, 127, 125);
     [bt setImage:[UIImage imageNamed:@"tfw_tf_setting"] forState:UIControlStateNormal];
-    [bt addTarget:self action:@selector(okAction) forControlEvents:UIControlEventTouchUpOutside];
+    [bt addTarget:self action:@selector(okAction) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:bt];
 }
 
 -(void)back:(UIButton *)button
 {
     NSLog(@"back");
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(void)okAction
 {
+    TFWStartTalkViewController *TFWStartTalkViewCol=[[TFWStartTalkViewController alloc]init];
+    [self.navigationController pushViewController:TFWStartTalkViewCol animated:YES];
     NSLog(@"OK");
 }
 

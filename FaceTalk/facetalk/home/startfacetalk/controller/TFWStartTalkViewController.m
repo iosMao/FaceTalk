@@ -8,7 +8,7 @@
 
 #import "TFWStartTalkViewController.h"
 #import "TFWSTOrderView.h"
-
+#import "TFWRealOrderViewController.h"
 @interface TFWStartTalkViewController ()
 
 @property (nonatomic,strong) UILabel *titleLabel;
@@ -59,7 +59,7 @@
     UIButton *bt = [UIButton buttonWithType:UIButtonTypeCustom];
     bt.frame = CGRectMake(800, 588, 127, 125);
     [bt setImage:[UIImage imageNamed:@"tfw_sf_next"] forState:UIControlStateNormal];
-    [bt addTarget:self action:@selector(okAction) forControlEvents:UIControlEventTouchUpOutside];
+    [bt addTarget:self action:@selector(okAction) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:bt];
 }
 
@@ -72,11 +72,14 @@
 
 -(void)back:(UIButton *)button
 {
+    [self.navigationController popViewControllerAnimated:YES];
     NSLog(@"back");
 }
 
 -(void)okAction
 {
+    TFWRealOrderViewController *vc=[[TFWRealOrderViewController alloc]init];
+    [self.navigationController pushViewController:vc animated:YES];
     NSLog(@"OK");
 }
 

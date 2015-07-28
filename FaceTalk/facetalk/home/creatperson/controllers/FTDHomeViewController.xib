@@ -23,7 +23,7 @@
                     <rect key="frame" x="0.0" y="20" width="1024" height="748"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ivG-rD-PzH">
-                    <rect key="frame" x="700" y="350" width="259" height="180"/>
+                    <rect key="frame" x="700" y="350" width="260" height="180"/>
                     <state key="normal" image="FT_home_key.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>

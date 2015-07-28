@@ -7,7 +7,7 @@
 //
 
 #import "FTDHomeAlertView.h"
-#import "FTDCustomerModel.h"
+
 @implementation FTDHomeAlertView
 @synthesize tableName,tableSex,textBirthday,textName,textSex;
 
@@ -21,11 +21,21 @@
 
 -(void)awakeFromNib
 {
+    isLock=YES;
+    agentModel=[[FTDCustomerModel alloc]init];
     self.backgroundColor=[UIColor clearColor];
     [self.viewBG.layer setMasksToBounds:YES];
     [self.viewBG.layer setCornerRadius:5];
     arrayList=[[NSMutableArray alloc]init];
+    textName.delegate=self;
+    [textName addTarget:self action:@selector(textchange:) forControlEvents:UIControlEventEditingChanged];
     
+    [self initTable];
+    [self initPick];
+    
+}
+-(void)initTable
+{
     tableName.delegate=self;
     tableName.dataSource=self;
     tableName.hidden=YES;
@@ -34,11 +44,14 @@
     tableSex.dataSource=self;
     [tableSex reloadData];
     tableSex.hidden=YES;
-    
-    textName.delegate=self;
-    [textName addTarget:self action:@selector(textchange:) forControlEvents:UIControlEventEditingChanged];
 }
-
+-(void)initPick
+{
+    self.viewPick.center=CGPointMake(self.center.x, self.center.y+200);
+    self.viewPick.hidden=YES;
+    [self.datePick addTarget:self action:@selector(datechange) forControlEvents:UIControlEventValueChanged];
+    [self addSubview:self.viewPick];
+}
 
 - (void)textchange:(UITextField *)textField
 {
@@ -52,24 +65,48 @@
     
 }
 
--(void)searchAgentList:(NSString *)agentName//此处调用本地数据库查询接口
+-(void)searchAgentList:(NSString *)agentName//fix me 此处调用本地数据库查询接口
 {
     [arrayList removeAllObjects];
-    for (int i=0; i<6; i++) {
-        [arrayList addObject:@"小李"];
-    }
+//    for (int i=0; i<6; i++) {
+//        NSDictionary *dicInfo=@{@"name":@"nick",@"sex":@"男",@"birthday":@"1978-01-18"};
+//        [arrayList addObject:dicInfo];
+//    }
     
     if (arrayList.count>0) {
         tableName.hidden=NO;
+        isLock=YES;
         [tableName reloadData];
     }
+    else{
+        tableName.hidden=YES;
+        isLock=NO;
+    }
+    
+    
+    
+    
     
 }
--(void)addAgent:(FTDCustomerModel *)model//此处调用本地数据库新增人才接口
+-(void)addAgent:(FTDCustomerModel *)model//fix me 此处调用本地数据库新增人才接口
 {
     
     
     
+    
+}
+
+-(void)datechange
+{
+    NSDate *selectedDate = [self.datePick date];
+    NSTimeZone *timeZone = [NSTimeZone timeZoneForSecondsFromGMT:3600*8];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    
+    [formatter setTimeZone:timeZone];
+    [formatter setDateFormat:@"YYYY-MM-dd"];
+ 
+    
+    textBirthday.text=[formatter stringFromDate:selectedDate];
 }
 
 #pragma mark tableviewdelegate
@@ -103,7 +140,7 @@
             
         }
         cell.textLabel.font=[UIFont systemFontOfSize:14.0];
-        cell.textLabel.text=[arrayList objectAtIndex:indexPath.row];
+        cell.textLabel.text=[[arrayList objectAtIndex:indexPath.row] objectForKey:@"name"];
         
         
         
@@ -149,7 +186,13 @@
 
 {
     if (tableView==tableName) {
-        textName.text=[arrayList objectAtIndex:indexPath.row];
+        agentModel.name=[[arrayList objectAtIndex:indexPath.row] objectForKey:@"name"];
+        agentModel.sex=[[arrayList objectAtIndex:indexPath.row] objectForKey:@"sex"];
+        agentModel.birthday=[[arrayList objectAtIndex:indexPath.row] objectForKey:@"birthday"];
+        textName.text=agentModel.name;
+        textSex.text=agentModel.sex;
+        textBirthday.text=agentModel.birthday;
+        
         tableName.hidden=YES;
     }
     else if (tableView==tableSex)
@@ -169,6 +212,20 @@
     
 }
 #pragma mark FTDHomeAlertdelegate
+- (IBAction)showBirthdayPickClick:(id)sender {
+    if (isLock) {
+        return;
+    }
+    
+    
+    if (self.viewPick.hidden==YES) {
+         self.viewPick.hidden=NO;
+    }else{
+         self.viewPick.hidden=YES;
+    }
+   
+}
+
 - (IBAction)cancelclick:(id)sender {
     if ([self.delegate respondsToSelector:@selector(homeAlertCancelClick)]) {
         [self.delegate homeAlertCancelClick];
@@ -176,12 +233,25 @@
 }
 
 - (IBAction)creatclick:(id)sender {
-    if ([self.delegate respondsToSelector:@selector(homeAlertCreatclick)]) {
-        [self.delegate homeAlertCreatclick];
+    if (textName.text.length>0&&textSex.text.length>0&&textBirthday.text.length>0) {
+        
+        //fix me 此处要进行数据操作
+        
+        if ([self.delegate respondsToSelector:@selector(homeAlertCreatclick)]) {
+            [self.delegate homeAlertCreatclick];
+        }
     }
+    else{
+        return;
+    }
+    
+    
 }
 
 - (IBAction)showSexListClick:(id)sender {
+    if (isLock) {
+        return;
+    }
     if (tableSex.hidden==YES) {
         tableSex.hidden=NO;
     }

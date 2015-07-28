@@ -8,7 +8,7 @@
 
 #import "TFWRealMarkViewController.h"
 #import "TFWSCItemView.h"
-
+#import "FTDGoodAgentHomeController.h"
 @interface TFWRealMarkViewController ()
 
 @property (nonatomic,strong) UILabel *titleLabel;
@@ -70,18 +70,21 @@
     UIButton *bt = [UIButton buttonWithType:UIButtonTypeCustom];
     bt.frame = CGRectMake(822, 600, 103, 107);
     [bt setImage:[UIImage imageNamed:@"tfw_rs_next"] forState:UIControlStateNormal];
-    [bt addTarget:self action:@selector(okAction) forControlEvents:UIControlEventTouchUpOutside];
+    [bt addTarget:self action:@selector(okAction) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:bt];
 }
 
 
 -(void)back:(UIButton *)button
 {
+    [self.navigationController popViewControllerAnimated:YES];
     NSLog(@"back");
 }
 
 -(void)okAction
 {
+    FTDGoodAgentHomeController *vc=[[FTDGoodAgentHomeController alloc]init];
+    [self.navigationController pushViewController:vc animated:YES];
     NSLog(@"OK");
 }
 

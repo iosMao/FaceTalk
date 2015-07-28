@@ -11,6 +11,8 @@
 #import "FTDHomeAlertView.h"
 #import "FTDbackgroundView.h"
 #import "FTDHomAlertFinishView.h"
+#import "TFWCustomTalkViewController.h"
+#import "TFWStartTalkViewController.h"
 @interface FTDHomeLeadViewController ()<FTDHomeAlertViewDeledate,FTDHomeAlertFinishViewDeledate>
 {
     int imgIndex;
@@ -72,18 +74,27 @@
 
 -(void)gotoCreatMenu
 {
-    
+    TFWCustomTalkViewController *TFWCustomTalkViewCol=[[TFWCustomTalkViewController alloc]init];
+//    CATransition *  tran=[CATransition animation];
+//    tran.type = @"pageCurl";
+//    tran.subtype = kCATransitionFromRight;
+//    tran.duration=1;
+//    tran.delegate=self;
+//    [self.view.superview.layer addAnimation:tran forKey:@"mao"];
+    [self.navigationController pushViewController:TFWCustomTalkViewCol animated:YES];
 }
 -(void)gotoMenu
 {
-    FTDGoodAgentHomeController *FTDHomeLeadViewCol=[[FTDGoodAgentHomeController alloc]init];
-        CATransition *  tran=[CATransition animation];
-        tran.type = @"pageCurl";
-        tran.subtype = kCATransitionFromRight;
-        tran.duration=1;
-        tran.delegate=self;
-        [self.view.superview.layer addAnimation:tran forKey:@"mao"];
-        [self.navigationController pushViewController:FTDHomeLeadViewCol animated:YES];
+    TFWStartTalkViewController *TFWStartTalkViewCol=[[TFWStartTalkViewController alloc]init];
+    [self.navigationController pushViewController:TFWStartTalkViewCol animated:YES];
+    //FTDGoodAgentHomeController *FTDHomeLeadViewCol=[[FTDGoodAgentHomeController alloc]init];
+//        CATransition *  tran=[CATransition animation];
+//        tran.type = @"pageCurl";
+//        tran.subtype = kCATransitionFromRight;
+//        tran.duration=1;
+//        tran.delegate=self;
+//        [self.view.superview.layer addAnimation:tran forKey:@"mao"];
+        //[self.navigationController pushViewController:FTDHomeLeadViewCol animated:YES];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

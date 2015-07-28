@@ -45,34 +45,50 @@
     transformbtnCareer = CGAffineTransformScale(transformbtnCareer, 2,2);
     btnCareer.transform = transformbtnCareer;
     
-    [UIView animateKeyframesWithDuration:2 delay:1 options:UIViewKeyframeAnimationOptionLayoutSubviews animations:^{
-        imgCamera.alpha=1;
+    [UIView animateKeyframesWithDuration:1 delay:1 options:UIViewKeyframeAnimationOptionLayoutSubviews animations:^{
+        
         imgCup.alpha=1;
         imgGlass.alpha=1;
-        imgKey.alpha=1;
+        
         imgPen.alpha=1;
-        imgPenBox.alpha=1;
+        
         
     } completion:^(BOOL finished) {
-        [UIView animateKeyframesWithDuration:0.8 delay:0 options:UIViewKeyframeAnimationOptionLayoutSubviews animations:^{
-            btnCompany.alpha=1;
-            CGAffineTransform transform = btnCompany.transform;
-            transform = CGAffineTransformScale(transform, 0.5,0.5);
-            btnCompany.transform = transform;
-            
-            btnCareer.alpha=1;
-            CGAffineTransform transform1 = btnCareer.transform;
-            transform1 = CGAffineTransformScale(transform1, 0.5,0.5);
-            btnCareer.transform = transform1;
-            
-            btnFreedom.alpha=1;
-            CGAffineTransform transform2 = btnFreedom.transform;
-            transform2 = CGAffineTransformScale(transform2, 0.5,0.5);
-            btnFreedom.transform = transform2;
+        [UIView animateKeyframesWithDuration:1 delay:0 options:UIViewKeyframeAnimationOptionLayoutSubviews animations:^{
+            imgCamera.alpha=1;
+            imgKey.alpha=1;
             
         } completion:^(BOOL finished) {
+            [UIView animateKeyframesWithDuration:1 delay:0 options:UIViewKeyframeAnimationOptionLayoutSubviews animations:^{
+                imgPenBox.alpha=1;
+                
+            } completion:^(BOOL finished) {
+                [UIView animateKeyframesWithDuration:0.8 delay:0 options:UIViewKeyframeAnimationOptionLayoutSubviews animations:^{
+                    btnCompany.alpha=1;
+                    CGAffineTransform transform = btnCompany.transform;
+                    transform = CGAffineTransformScale(transform, 0.5,0.5);
+                    btnCompany.transform = transform;
+                    
+                    btnCareer.alpha=1;
+                    CGAffineTransform transform1 = btnCareer.transform;
+                    transform1 = CGAffineTransformScale(transform1, 0.5,0.5);
+                    btnCareer.transform = transform1;
+                    
+                    btnFreedom.alpha=1;
+                    CGAffineTransform transform2 = btnFreedom.transform;
+                    transform2 = CGAffineTransformScale(transform2, 0.5,0.5);
+                    btnFreedom.transform = transform2;
+                    
+                } completion:^(BOOL finished) {
+                    
+                }];
+            }];
             
         }];
+        
+        
+        
+        
     }];
 }
  
@@ -98,23 +114,23 @@
 
 - (IBAction)backclick:(id)sender {
     
-    CATransition *  tran=[CATransition animation];
-    tran.type = @"pageCurl";
-    tran.subtype = kCATransitionFromLeft;
-    tran.duration=1;
-    tran.delegate=self;
-    [self.view.superview.layer addAnimation:tran forKey:@"kongyu"];
+//    CATransition *  tran=[CATransition animation];
+//    tran.type = @"pageCurl";
+//    tran.subtype = kCATransitionFromLeft;
+//    tran.duration=1;
+//    tran.delegate=self;
+//    [self.view.superview.layer addAnimation:tran forKey:@"kongyu"];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (IBAction)companyclick:(id)sender {
     FTDGoodAgentKindsController *FTDGoodAgentKindsCol=[[FTDGoodAgentKindsController alloc]init];
-    CATransition *  tran=[CATransition animation];
-    tran.type = @"pageCurl";
-    tran.subtype = kCATransitionFromRight;
-    tran.duration=1;
-    tran.delegate=self;
-    [self.view.superview.layer addAnimation:tran forKey:@"mao"];
+//    CATransition *  tran=[CATransition animation];
+//    tran.type = @"pageCurl";
+//    tran.subtype = kCATransitionFromRight;
+//    tran.duration=1;
+//    tran.delegate=self;
+//    [self.view.superview.layer addAnimation:tran forKey:@"mao"];
     [self.navigationController pushViewController:FTDGoodAgentKindsCol animated:YES];
 }
 
