@@ -8,6 +8,7 @@
 
 #import "FTDGoodAgentKindsController.h"
 #import "FTDAgentListCell.h"
+#import "FTDGoodAgentDetailController.h"
 @interface FTDGoodAgentKindsController ()
 
 @end
@@ -108,7 +109,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    FTDGoodAgentDetailController *vc=[[FTDGoodAgentDetailController alloc]init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 /*
 #pragma mark - Navigation

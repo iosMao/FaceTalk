@@ -158,6 +158,8 @@
 		189A1ED51B61DC19002F99F9 /* FTD_creatPerson_photo.png in Resources */ = {isa = PBXBuildFile; fileRef = 189A1ECF1B61DC19002F99F9 /* FTD_creatPerson_photo.png */; };
 		189A1ED61B61DC19002F99F9 /* FTD_creatPerson_sex.png in Resources */ = {isa = PBXBuildFile; fileRef = 189A1ED01B61DC19002F99F9 /* FTD_creatPerson_sex.png */; };
 		189A1ED91B622D9B002F99F9 /* UIView+MaterialDesign.m in Sources */ = {isa = PBXBuildFile; fileRef = 189A1ED81B622D9B002F99F9 /* UIView+MaterialDesign.m */; };
+		189BAC311B677050009356A9 /* FTDGoodAgentDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 189BAC2F1B677050009356A9 /* FTDGoodAgentDetailController.m */; };
+		189BAC321B677050009356A9 /* FTDGoodAgentDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 189BAC301B677050009356A9 /* FTDGoodAgentDetailController.xib */; };
 		18CD4BA61B4F674200D20B74 /* FTDGoodAgentHomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CD4BA41B4F674200D20B74 /* FTDGoodAgentHomeController.m */; };
 		18CD4BA71B4F674200D20B74 /* FTDGoodAgentHomeController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18CD4BA51B4F674200D20B74 /* FTDGoodAgentHomeController.xib */; };
 		18CD4BC21B4F6B2D00D20B74 /* FTDPersonalHomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CD4BC01B4F6B2D00D20B74 /* FTDPersonalHomeController.m */; };
@@ -370,6 +372,9 @@
 		189A1ED01B61DC19002F99F9 /* FTD_creatPerson_sex.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FTD_creatPerson_sex.png; sourceTree = "<group>"; };
 		189A1ED71B622D9B002F99F9 /* UIView+MaterialDesign.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MaterialDesign.h"; sourceTree = "<group>"; };
 		189A1ED81B622D9B002F99F9 /* UIView+MaterialDesign.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MaterialDesign.m"; sourceTree = "<group>"; };
+		189BAC2E1B677050009356A9 /* FTDGoodAgentDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTDGoodAgentDetailController.h; sourceTree = "<group>"; };
+		189BAC2F1B677050009356A9 /* FTDGoodAgentDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTDGoodAgentDetailController.m; sourceTree = "<group>"; };
+		189BAC301B677050009356A9 /* FTDGoodAgentDetailController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FTDGoodAgentDetailController.xib; sourceTree = "<group>"; };
 		18CD4BA31B4F674200D20B74 /* FTDGoodAgentHomeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTDGoodAgentHomeController.h; sourceTree = "<group>"; };
 		18CD4BA41B4F674200D20B74 /* FTDGoodAgentHomeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTDGoodAgentHomeController.m; sourceTree = "<group>"; };
 		18CD4BA51B4F674200D20B74 /* FTDGoodAgentHomeController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FTDGoodAgentHomeController.xib; sourceTree = "<group>"; };
@@ -848,6 +853,9 @@
 				18D3585F1B5F9EC40008764E /* FTDAgentListCell.h */,
 				18D358601B5F9EC40008764E /* FTDAgentListCell.m */,
 				18D358611B5F9EC40008764E /* FTDAgentListCell.xib */,
+				189BAC2E1B677050009356A9 /* FTDGoodAgentDetailController.h */,
+				189BAC2F1B677050009356A9 /* FTDGoodAgentDetailController.m */,
+				189BAC301B677050009356A9 /* FTDGoodAgentDetailController.xib */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -1166,6 +1174,7 @@
 				185D64431B663D9200845F21 /* FTD_home_lead2.png in Resources */,
 				185D649C1B6671B500845F21 /* tfw_rs_life.png in Resources */,
 				189A1ED41B61DC19002F99F9 /* FTD_creatPerson_name.png in Resources */,
+				189BAC321B677050009356A9 /* FTDGoodAgentDetailController.xib in Resources */,
 				185D64F81B66738100845F21 /* FTDHomAlertFinishView.xib in Resources */,
 				185D656F1B6673BC00845F21 /* tfw_tf_realborder@2x.png in Resources */,
 				185D65951B6673C300845F21 /* tfw_sf_cup.png in Resources */,
@@ -1318,6 +1327,7 @@
 				185D65A31B6673C300845F21 /* TFWSTOrderItem.m in Sources */,
 				185D64831B6671B500845F21 /* TFWRealOrderViewController.m in Sources */,
 				185D64F61B66738100845F21 /* FTDbackgroundView.m in Sources */,
+				189BAC311B677050009356A9 /* FTDGoodAgentDetailController.m in Sources */,
 				185D65921B6673C300845F21 /* TFWStartTalkViewController.m in Sources */,
 				185D64F51B66738100845F21 /* FTDCustomerModel.m in Sources */,
 				185D64CB1B6671DF00845F21 /* TFWRealMarkViewController.m in Sources */,
