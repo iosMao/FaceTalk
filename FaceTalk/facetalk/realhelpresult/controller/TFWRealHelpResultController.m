@@ -1,25 +1,23 @@
 //
-//  TFWRealMarkViewController.m
+//  TFWRealHelpResultController.m
 //  demo
 //
-//  Created by wen on 15/7/26.
+//  Created by wen on 15/8/2.
 //  Copyright (c) 2015年 wen. All rights reserved.
 //
 
-#import "TFWRealMarkViewController.h"
-#import "TFWSCItemView.h"
-#import "FTDGoodAgentHomeController.h"
-#import "TFWSRResultViewController.h"
+#import "TFWRealHelpResultController.h"
+#import "TFWHelpResultMenuView.h"
 
-@interface TFWRealMarkViewController ()
+@interface TFWRealHelpResultController ()
 
 @property (nonatomic,strong) UILabel *titleLabel;
-@property (nonatomic,strong) TFWSCItemView *leftItem;
-@property (nonatomic,strong) TFWSCItemView *rightItem;
+@property (nonatomic,strong) TFWHelpResultMenuView *menu;
+@property (nonatomic,strong) UIImageView *imageView;
 
 @end
 
-@implementation TFWRealMarkViewController
+@implementation TFWRealHelpResultController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -28,14 +26,14 @@
     [self buildBackGround];
     [self buildBackButton];
     [self buildTitleLabel];
-    [self buildItem];
-    [self buildOkButton];
+    [self buildMenu];
+    [self buildImageView];
 }
 
 -(void)buildBackGround
 {
     UIImageView *back = [[UIImageView alloc] initWithFrame:CGRectMake(0, 20, 1024, 748)];
-    back.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"tfw_sc_back" ofType:@"png"]];
+    back.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ft_ten_back" ofType:@"png"]];
     [self.view addSubview:back];
 }
 
@@ -51,43 +49,38 @@
 -(void)buildTitleLabel
 {
     self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(296 / 2.0, 148 / 2.0, 600 / 2.0, 30)];
-    self.titleLabel.text = @"真选择成就事业";
+    self.titleLabel.text = @"真精彩 友邦帮你";
     self.titleLabel.font = [UIFont systemFontOfSize:32];
     self.titleLabel.textColor = [UIColor colorWithRed:188 / 255.0 green:0 / 255.0 blue:52 / 255.0 alpha:1];
     [self.view addSubview:self.titleLabel];
 }
 
--(void)buildItem
+-(void)buildMenu
 {
-    self.leftItem = [TFWSCItemView createItemWithCenter:CGPointMake(308, 370) andItemArray:@[@"适合度",@"生活平衡",@"学习成长",@"发展空间",@"收入丰厚"] isHope:NO];
-    [self.view addSubview:self.leftItem];
-    
-    self.rightItem = [TFWSCItemView createItemWithCenter:CGPointMake(308 + 440, 370) andItemArray:@[@"适合度",@"生活平衡",@"学习成长",@"发展空间",@"收入丰厚"] isHope:YES];
-    [self.view addSubview:self.rightItem];
-
+    _menu = [TFWHelpResultMenuView createMenuwithArray:@[@"职涯规划",@"行业潜力",@"公司五年规划",@"渠道定位"] andBottom:CGPointMake(78, 745)];
+    __weak TFWRealHelpResultController *weakSelf = self;
+    [_menu setResultMenuTapBlock:^(NSInteger index){
+        [weakSelf menuClickAction:index];
+    }];
+    [self.view addSubview:_menu];
 }
 
--(void)buildOkButton
+-(void)buildImageView
 {
-    UIButton *bt = [UIButton buttonWithType:UIButtonTypeCustom];
-    bt.frame = CGRectMake(822, 600, 103, 107);
-    [bt setImage:[UIImage imageNamed:@"tfw_rs_next"] forState:UIControlStateNormal];
-    [bt addTarget:self action:@selector(okAction) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:bt];
+    _imageView = [[UIImageView alloc] initWithFrame:CGRectMake(95, 138, 890, 604)];
+    _imageView.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ft_ten_demo" ofType:@"png"]];
+    [self.view addSubview:_imageView];
 }
-
 
 -(void)back:(UIButton *)button
 {
-    [self.navigationController popViewControllerAnimated:YES];
     NSLog(@"back");
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
--(void)okAction
+-(void)menuClickAction:(NSInteger)index
 {
-    TFWSRResultViewController *VC = [[TFWSRResultViewController alloc] init];
-    [self.navigationController pushViewController:VC animated:YES];
-    NSLog(@"OK");
+    NSLog(@"index : %d",index);
 }
 
 - (void)didReceiveMemoryWarning {

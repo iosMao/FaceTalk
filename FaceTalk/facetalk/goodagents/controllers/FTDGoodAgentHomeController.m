@@ -8,6 +8,8 @@
 
 #import "FTDGoodAgentHomeController.h"
 #import "FTDGoodAgentKindsController.h"
+#import "TFWRealHelpViewController.h"
+
 @interface FTDGoodAgentHomeController ()
 
 @end
@@ -111,6 +113,11 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (IBAction)nextAction:(id)sender {
+    TFWRealHelpViewController *Vc= [[TFWRealHelpViewController alloc] init];
+    [self.navigationController pushViewController:Vc animated:YES];
+}
 
 - (IBAction)backclick:(id)sender {
     

@@ -33,6 +33,16 @@
     return self;
 }
 
+-(void)layoutSubviews
+{
+    [super layoutSubviews];
+    for (UIView *view in _pickView.subviews) {
+        if (view.subviews.count == 0) {
+            view.hidden = YES;
+        }
+    }
+}
+
 -(void)buildView
 {
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.bounds];

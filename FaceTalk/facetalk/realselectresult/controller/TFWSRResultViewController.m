@@ -1,25 +1,26 @@
 //
-//  TFWRealMarkViewController.m
+//  TFWSRViewController.m
 //  demo
 //
-//  Created by wen on 15/7/26.
+//  Created by wen on 15/8/2.
 //  Copyright (c) 2015年 wen. All rights reserved.
 //
 
-#import "TFWRealMarkViewController.h"
-#import "TFWSCItemView.h"
-#import "FTDGoodAgentHomeController.h"
 #import "TFWSRResultViewController.h"
+#import "TFWScrollView.h"
+#import "FTDGoodAgentHomeController.h"
 
-@interface TFWRealMarkViewController ()
+@interface TFWSRResultViewController ()
 
 @property (nonatomic,strong) UILabel *titleLabel;
-@property (nonatomic,strong) TFWSCItemView *leftItem;
-@property (nonatomic,strong) TFWSCItemView *rightItem;
+@property (nonatomic,strong) TFWScrollView *mainScroll;
+@property (nonatomic,strong) UILabel *totalRateLabel;
+@property (nonatomic,strong) UILabel *modeRateLabel;
+@property (nonatomic,strong) UILabel *suggestLabel;
 
 @end
 
-@implementation TFWRealMarkViewController
+@implementation TFWSRResultViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -28,14 +29,19 @@
     [self buildBackGround];
     [self buildBackButton];
     [self buildTitleLabel];
-    [self buildItem];
     [self buildOkButton];
+    [self buildScrollView];
+    
+    [self buildRateLabel];
+    [self buildModeRateLabel];
+    [self buildSuggestLabel];
+    
 }
 
 -(void)buildBackGround
 {
     UIImageView *back = [[UIImageView alloc] initWithFrame:CGRectMake(0, 20, 1024, 748)];
-    back.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"tfw_sc_back" ofType:@"png"]];
+    back.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"tfw_sr_background" ofType:@"png"]];
     [self.view addSubview:back];
 }
 
@@ -57,38 +63,59 @@
     [self.view addSubview:self.titleLabel];
 }
 
--(void)buildItem
-{
-    self.leftItem = [TFWSCItemView createItemWithCenter:CGPointMake(308, 370) andItemArray:@[@"适合度",@"生活平衡",@"学习成长",@"发展空间",@"收入丰厚"] isHope:NO];
-    [self.view addSubview:self.leftItem];
-    
-    self.rightItem = [TFWSCItemView createItemWithCenter:CGPointMake(308 + 440, 370) andItemArray:@[@"适合度",@"生活平衡",@"学习成长",@"发展空间",@"收入丰厚"] isHope:YES];
-    [self.view addSubview:self.rightItem];
-
-}
-
 -(void)buildOkButton
 {
     UIButton *bt = [UIButton buttonWithType:UIButtonTypeCustom];
     bt.frame = CGRectMake(822, 600, 103, 107);
-    [bt setImage:[UIImage imageNamed:@"tfw_rs_next"] forState:UIControlStateNormal];
+    [bt setImage:[UIImage imageNamed:@"ft_ten_next"] forState:UIControlStateNormal];
     [bt addTarget:self action:@selector(okAction) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:bt];
 }
 
+-(void)buildScrollView
+{
+    _mainScroll = [TFWScrollView createScrollWithCenter:CGPointMake(550, 350)];
+    [self.view addSubview:_mainScroll];
+}
+
+-(void)buildRateLabel
+{
+    _totalRateLabel = [[UILabel alloc] initWithFrame:CGRectMake(130, 620, 125, 100)];
+    _totalRateLabel.textAlignment = NSTextAlignmentCenter;
+    _totalRateLabel.font = [UIFont systemFontOfSize:58];
+    _totalRateLabel.textColor = [UIColor whiteColor];
+    _totalRateLabel.text = [NSString stringWithFormat:@"%d%@",32,@"%"];
+    [self.view addSubview:_totalRateLabel];
+}
+
+-(void)buildModeRateLabel
+{
+    _modeRateLabel = [[UILabel alloc] initWithFrame:CGRectMake(290, 620, 125, 100)];
+    _modeRateLabel.textAlignment = NSTextAlignmentCenter;
+    _modeRateLabel.font = [UIFont systemFontOfSize:58];
+    _modeRateLabel.textColor = [UIColor whiteColor];
+    _modeRateLabel.text = [NSString stringWithFormat:@"%d%@",32,@"%"];
+    [self.view addSubview:_modeRateLabel];
+}
+
+-(void)buildSuggestLabel
+{
+    
+}
 
 -(void)back:(UIButton *)button
 {
-    [self.navigationController popViewControllerAnimated:YES];
     NSLog(@"back");
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(void)okAction
 {
-    TFWSRResultViewController *VC = [[TFWSRResultViewController alloc] init];
-    [self.navigationController pushViewController:VC animated:YES];
     NSLog(@"OK");
+    FTDGoodAgentHomeController *vc = [[FTDGoodAgentHomeController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

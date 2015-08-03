@@ -31,8 +31,8 @@
     TFWRSButtonView *btView = [[TFWRSButtonView alloc] initWithFrame:CGRectMake(0, 0, 120, 120)];
     btView.backgroundColor = [UIColor clearColor];
     btView.center = center;
-
     [btView bulidViewwithTag:tag];
+    btView.alpha = 0.0f;
     
     return btView;
 }
@@ -101,8 +101,8 @@
 {
     _centerBt = [UIButton buttonWithType:UIButtonTypeCustom];
     _centerBt.tag = TenElementTypeBrand;
-    [_centerBt setBackgroundImage:[UIImage imageNamed:name] forState:UIControlStateNormal];
-    [_centerBt setBackgroundImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@_gray",name]] forState:UIControlStateSelected];
+    [_centerBt setBackgroundImage:[UIImage imageNamed:name] forState:UIControlStateSelected];
+    [_centerBt setBackgroundImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@_gray",name]] forState:UIControlStateNormal];
     [_centerBt setShowsTouchWhenHighlighted:NO];
     _centerBt.frame = CGRectMake(0, 0, size.width, size.height);
     _centerBt.center = CGPointMake(self.bounds.size.width / 2.0, self.bounds.size.height / 2.0);
@@ -147,5 +147,7 @@
         self.addBlock(bt);
     }
 }
+
+
 
 @end

@@ -16,6 +16,9 @@
 @property (nonatomic,strong) UIImageView *panView;
 @property (nonatomic,strong) TFWRSCenterView *centerView;
 @property (nonatomic,assign) int number;
+@property (nonatomic,assign) int index;
+@property (nonatomic,assign) int animation_index;
+@property (nonatomic,strong) NSMutableArray *viewArray;
 
 @end
 
@@ -23,6 +26,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    _viewArray = [[NSMutableArray alloc] init];
+    _index = 0;
+    _animation_index = 0;
     // Do any additional setup after loading the view.
     [self buildBackGround];
     [self buildPan];
@@ -31,6 +38,11 @@
     [self buildOkButton];
     [self buildCenterView];
     [self buildTenElements];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [self startAnimation];
 }
 
 -(void)buildBackGround
@@ -94,6 +106,7 @@
     [bt_brand setAddBlock:^(UIButton *bt){
         [weak addAction:bt];
     }];
+    [_viewArray addObject:bt_brand];
     [self.view addSubview:bt_brand];
     
     TFWRSButtonView *bt_free = [TFWRSButtonView createButtonWithTag:TenElementTypeFree andCenter:CGPointMake(337, 512)];
@@ -103,6 +116,7 @@
     [bt_free setAddBlock:^(UIButton *bt){
         [weak addAction:bt];
     }];
+    [_viewArray addObject:bt_free];
     [self.view addSubview:bt_free];
     
     TFWRSButtonView *bt_honour = [TFWRSButtonView createButtonWithTag:TenElementTypeHonour andCenter:CGPointMake(747, 511)];
@@ -112,6 +126,7 @@
     [bt_honour setAddBlock:^(UIButton *bt){
         [weak addAction:bt];
     }];
+    [_viewArray addObject:bt_honour];
     [self.view addSubview:bt_honour];
     
     TFWRSButtonView *bt_income = [TFWRSButtonView createButtonWithTag:TenElementTypeIncome andCenter:CGPointMake(646, 152)];
@@ -121,6 +136,7 @@
     [bt_income setAddBlock:^(UIButton *bt){
         [weak addAction:bt];
     }];
+    [_viewArray addObject:bt_income];
     [self.view addSubview:bt_income];
     
     TFWRSButtonView *bt_learn = [TFWRSButtonView createButtonWithTag:TenElementTypeLearn andCenter:CGPointMake(253, 228)];
@@ -130,6 +146,7 @@
     [bt_learn setAddBlock:^(UIButton *bt){
         [weak addAction:bt];
     }];
+    [_viewArray addObject:bt_learn];
     [self.view addSubview:bt_learn];
     
     TFWRSButtonView *bt_life = [TFWRSButtonView createButtonWithTag:TenElementTypeBrand andCenter:CGPointMake(145, 394)];
@@ -139,6 +156,7 @@
     [bt_life setAddBlock:^(UIButton *bt){
         [weak addAction:bt];
     }];
+    [_viewArray addObject:bt_life];
     [self.view addSubview:bt_life];
     
     TFWRSButtonView *bt_socity = [TFWRSButtonView createButtonWithTag:TenElementTypeBrand andCenter:CGPointMake(408, 253)];
@@ -148,6 +166,7 @@
     [bt_socity setAddBlock:^(UIButton *bt){
         [weak addAction:bt];
     }];
+    [_viewArray addObject:bt_socity];
     [self.view addSubview:bt_socity];
     
     TFWRSButtonView *bt_space = [TFWRSButtonView createButtonWithTag:TenElementTypeSpace andCenter:CGPointMake(858, 372)];
@@ -157,6 +176,7 @@
     [bt_space setAddBlock:^(UIButton *bt){
         [weak addAction:bt];
     }];
+    [_viewArray addObject:bt_space];
     [self.view addSubview:bt_space];
     
     TFWRSButtonView *bt_suit = [TFWRSButtonView createButtonWithTag:TenElementTypeSuit andCenter:CGPointMake(805, 190)];
@@ -166,6 +186,7 @@
     [bt_suit setAddBlock:^(UIButton *bt){
         [weak addAction:bt];
     }];
+    [_viewArray addObject:bt_suit];
     [self.view addSubview:bt_suit];
     
     TFWRSButtonView *bt_work = [TFWRSButtonView createButtonWithTag:TenElementTypeWork andCenter:CGPointMake(215, 610)];
@@ -175,9 +196,83 @@
     [bt_work setAddBlock:^(UIButton *bt){
         [weak addAction:bt];
     }];
+    [_viewArray addObject:bt_work];
     [self.view addSubview:bt_work];
 
+}
+
+-(void)startAnimation
+{
+    [NSTimer scheduledTimerWithTimeInterval:0.6 target:self selector:@selector(timerAction:) userInfo:self repeats:YES];
+}
+
+-(void)timerAction:(NSTimer *)timer
+{
+    if (_animation_index == 4) {
+        [timer invalidate];
+    }
+    UIView *view1 = nil;
+    UIView *view2 = nil;
+    UIView *view3 = nil;
     
+    switch (_animation_index) {
+        case 0:
+        {
+            view1 = (UIView *)[self.viewArray objectAtIndex:0];
+            view2 = (UIView *)[self.viewArray objectAtIndex:5];
+            view3 = (UIView *)[self.viewArray objectAtIndex:8];
+            [UIView animateWithDuration:1.0 animations:^{
+                view1.alpha = 1.0;
+                view2.alpha = 1.0;
+                view3.alpha = 1.0;
+            }];
+        }
+            break;
+            
+        case 1:
+        {
+            view1 = (UIView *)[self.viewArray objectAtIndex:1];
+            view2 = (UIView *)[self.viewArray objectAtIndex:4];
+            view3 = (UIView *)[self.viewArray objectAtIndex:9];
+            [UIView animateWithDuration:1.0 animations:^{
+                view1.alpha = 1.0;
+                view2.alpha = 1.0;
+                view3.alpha = 1.0;
+            }];
+        }
+            break;
+            
+        case 2:
+        {
+            view1 = (UIView *)[self.viewArray objectAtIndex:2];
+            view2 = (UIView *)[self.viewArray objectAtIndex:7];
+            view3 = (UIView *)[self.viewArray objectAtIndex:8];
+            [UIView animateWithDuration:1.0 animations:^{
+                view1.alpha = 1.0;
+                view2.alpha = 1.0;
+                view3.alpha = 1.0;
+            }];
+        }
+            break;
+            
+        case 3:
+        {
+            view1 = (UIView *)[self.viewArray objectAtIndex:3];
+            view2 = (UIView *)[self.viewArray objectAtIndex:6];
+            view3 = (UIView *)[self.viewArray objectAtIndex:9];
+            [UIView animateWithDuration:1.0 animations:^{
+                view1.alpha = 1.0;
+                view2.alpha = 1.0;
+                view3.alpha = 1.0;
+            }];
+        }
+            break;
+            
+        default:
+            break;
+    }
+    
+    _animation_index++;
 }
 
 -(void)elementAction:(UIButton *)bt
@@ -225,8 +320,7 @@
 
 -(void)panRound
 {
-    static int index = 0;
-    _panView.transform = CGAffineTransformMakeRotation(-M_PI / 50 * index++);
+    _panView.transform = CGAffineTransformMakeRotation(-M_PI / 50 * _index++);
     
 }
 

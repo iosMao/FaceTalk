@@ -21,6 +21,7 @@
 @property (strong, nonatomic) IBOutlet UIImageView *imgCamera;
 @property (strong, nonatomic) IBOutlet UIImageView *imgGlass;
 
+- (IBAction)nextAction:(id)sender;
 
 - (IBAction)backclick:(id)sender;
 - (IBAction)companyclick:(id)sender;
