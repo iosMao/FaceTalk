@@ -26,6 +26,7 @@
 @synthesize imgLeadH;
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     imgIndex=0;
     
     backgroundView= [[FTDbackgroundView alloc]initWithFrame:self.view.frame];

@@ -8,6 +8,7 @@
 
 #import "BDRootViewController.h"
 #import "FTDHomeViewController.h"
+#import "TFDNavViewController.h"
 @interface BDRootViewController ()
 
 @end
@@ -29,7 +30,7 @@
 - (IBAction)ftdhomeviewclick:(id)sender {
     
     FTDHomeViewController *FTDHomeViewCol=[[FTDHomeViewController alloc]init];
-    UINavigationController *navFTDHomeViewCol=[[UINavigationController alloc]initWithRootViewController:FTDHomeViewCol];
+    TFDNavViewController *navFTDHomeViewCol=[[TFDNavViewController alloc]initWithRootViewController:FTDHomeViewCol];
     navFTDHomeViewCol.navigationBar.hidden=YES;
     [self presentViewController:navFTDHomeViewCol animated:YES completion:nil];
     //[self.navigationController pushViewController:navFTDHomeViewCol animated:YES];

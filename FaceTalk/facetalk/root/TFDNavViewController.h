@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TFDNavViewController : UINavigationController
+@interface TFDNavViewController : UINavigationController<UITableViewDataSource,UITableViewDelegate>
 
+@property(nonatomic,strong)UITableView *tableMenu;
+@property(nonatomic,strong)UIButton *btnSlider;
 @end
