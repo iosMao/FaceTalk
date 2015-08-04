@@ -6,6 +6,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FTDGoodAgentDetailController">
             <connections>
+                <outlet property="imgBigPhoto" destination="qhg-Pb-eS7" id="UPk-3e-u8O"/>
+                <outlet property="lblDesc" destination="rFQ-Nx-Qzf" id="q7K-nT-znk"/>
+                <outlet property="lblName" destination="BLQ-UG-prq" id="utF-yo-2Jg"/>
+                <outlet property="lblOldJob" destination="15u-x8-2Ec" id="6tv-if-hoz"/>
+                <outlet property="lblTime" destination="mKM-Lc-Num" id="OWB-xm-hbE"/>
+                <outlet property="tableAgentList" destination="tGy-DU-1Rc" id="kUx-yW-aaM"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -32,7 +38,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MeI-3X-OiO">
-                    <rect key="frame" x="96" y="74" width="279" height="64"/>
+                    <rect key="frame" x="96" y="65" width="279" height="64"/>
                     <state key="normal">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -40,74 +46,81 @@
                         <action selector="backclick:" destination="-1" eventType="touchUpInside" id="rFS-6E-jUH"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qhg-Pb-eS7">
-                    <rect key="frame" x="103" y="146" width="326" height="187"/>
-                </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="FTD_goodAgentRedRect.png" translatesAutoresizingMaskIntoConstraints="NO" id="det-QH-hYR">
-                    <rect key="frame" x="103" y="364" width="326" height="91"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="FTD_goodAgentPhoto.png" translatesAutoresizingMaskIntoConstraints="NO" id="qhg-Pb-eS7">
+                    <rect key="frame" x="125" y="125" width="347" height="259"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="文爱清" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BLQ-UG-prq">
-                    <rect key="frame" x="124" y="388" width="51" height="21"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <rect key="frame" x="146" y="456" width="108" height="21"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="入司时间：2012年" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mKM-Lc-Num">
-                    <rect key="frame" x="124" y="412" width="141" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <rect key="frame" x="146" y="480" width="141" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="入司前职业：自营业主" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="15u-x8-2Ec">
-                    <rect key="frame" x="273" y="412" width="147" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <rect key="frame" x="301" y="480" width="147" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="感悟及分享" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zpY-zZ-Rjh">
-                    <rect key="frame" x="110" y="487" width="103" height="27"/>
+                    <rect key="frame" x="129" y="546" width="103" height="27"/>
                     <color key="backgroundColor" red="0.76862745099999996" green="0.0" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="昨天与今日" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gVf-z6-eCx">
-                    <rect key="frame" x="472" y="105" width="103" height="27"/>
+                    <rect key="frame" x="510" y="98" width="103" height="27"/>
                     <color key="backgroundColor" red="0.77254901960784317" green="0.0" blue="0.21176470588235294" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="你好" translatesAutoresizingMaskIntoConstraints="NO" id="rFQ-Nx-Qzf">
-                    <rect key="frame" x="110" y="542" width="310" height="108"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好" translatesAutoresizingMaskIntoConstraints="NO" id="rFQ-Nx-Qzf">
+                    <rect key="frame" x="124" y="591" width="347" height="108"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="tGy-DU-1Rc">
-                    <rect key="frame" x="862" y="47" width="117" height="695"/>
+                    <rect key="frame" x="875" y="47" width="103" height="695"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="sOL-m2-I03"/>
+                        <outlet property="delegate" destination="-1" id="tAt-Am-c7B"/>
+                    </connections>
                 </tableView>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dNQ-5z-Scu">
-                    <rect key="frame" x="751" y="121" width="12" height="12"/>
+                    <rect key="frame" x="773" y="113" width="12" height="12"/>
                     <color key="backgroundColor" red="0.7725490196" green="0.0" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="进入友邦" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iLy-1c-rEo">
-                    <rect key="frame" x="771" y="116" width="68" height="21"/>
+                    <rect key="frame" x="793" y="108" width="68" height="21"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                     <color key="textColor" red="0.7725490196" green="0.0" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9xH-TN-ozM">
-                    <rect key="frame" x="665" y="121" width="12" height="12"/>
+                    <rect key="frame" x="687" y="113" width="12" height="12"/>
                     <color key="backgroundColor" red="0.5607843137254902" green="0.56470588235294117" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="之前职业" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BMp-mb-bR6">
-                    <rect key="frame" x="685" y="116" width="68" height="21"/>
+                    <rect key="frame" x="707" y="108" width="68" height="21"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                     <color key="textColor" red="0.56078431370000004" green="0.56470588239999997" blue="0.56862745100000001" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="FTD_goodAgentPhotoBG.png" translatesAutoresizingMaskIntoConstraints="NO" id="wMK-dI-gmB">
+                    <rect key="frame" x="125" y="117" width="347" height="275"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="FTD_goodAgentRedRect.png" translatesAutoresizingMaskIntoConstraints="NO" id="det-QH-hYR">
+                    <rect key="frame" x="122" y="430" width="350" height="91"/>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -116,6 +129,8 @@
     </objects>
     <resources>
         <image name="FTD_back.png" width="90" height="90"/>
+        <image name="FTD_goodAgentPhoto.png" width="188" height="142"/>
+        <image name="FTD_goodAgentPhotoBG.png" width="697" height="529"/>
         <image name="FTD_goodAgentRedRect.png" width="695" height="207"/>
         <image name="FTDbackgroundImage.png" width="2046" height="1500"/>
     </resources>

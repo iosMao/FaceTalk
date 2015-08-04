@@ -35,17 +35,21 @@
     imgKey.alpha=0;
     imgPen.alpha=0;
     imgPenBox.alpha=0;
-    CGAffineTransform transformbtnCompany = btnCompany.transform;
-    transformbtnCompany = CGAffineTransformScale(transformbtnCompany, 2,2);
-    btnCompany.transform = transformbtnCompany;
     
-    CGAffineTransform transformbtnFreedom = btnFreedom.transform;
-    transformbtnFreedom = CGAffineTransformScale(transformbtnFreedom, 2,2);
-    btnFreedom.transform = transformbtnFreedom;
-    
-    CGAffineTransform transformbtnCareer = btnCareer.transform;
-    transformbtnCareer = CGAffineTransformScale(transformbtnCareer, 2,2);
-    btnCareer.transform = transformbtnCareer;
+    btnCompany.center=CGPointMake(270*3, 394);
+    btnFreedom.center=CGPointMake(526*3, 394);
+    btnCareer.center=CGPointMake(787*3, 394);
+//    CGAffineTransform transformbtnCompany = btnCompany.transform;
+//    transformbtnCompany = CGAffineTransformScale(transformbtnCompany, 2,2);
+//    btnCompany.transform = transformbtnCompany;
+//    
+//    CGAffineTransform transformbtnFreedom = btnFreedom.transform;
+//    transformbtnFreedom = CGAffineTransformScale(transformbtnFreedom, 2,2);
+//    btnFreedom.transform = transformbtnFreedom;
+//    
+//    CGAffineTransform transformbtnCareer = btnCareer.transform;
+//    transformbtnCareer = CGAffineTransformScale(transformbtnCareer, 2,2);
+//    btnCareer.transform = transformbtnCareer;
     
     [UIView animateKeyframesWithDuration:1 delay:1 options:UIViewKeyframeAnimationOptionLayoutSubviews animations:^{
         
@@ -67,19 +71,25 @@
             } completion:^(BOOL finished) {
                 [UIView animateKeyframesWithDuration:0.8 delay:0 options:UIViewKeyframeAnimationOptionLayoutSubviews animations:^{
                     btnCompany.alpha=1;
-                    CGAffineTransform transform = btnCompany.transform;
-                    transform = CGAffineTransformScale(transform, 0.5,0.5);
-                    btnCompany.transform = transform;
-                    
                     btnCareer.alpha=1;
-                    CGAffineTransform transform1 = btnCareer.transform;
-                    transform1 = CGAffineTransformScale(transform1, 0.5,0.5);
-                    btnCareer.transform = transform1;
-                    
                     btnFreedom.alpha=1;
-                    CGAffineTransform transform2 = btnFreedom.transform;
-                    transform2 = CGAffineTransformScale(transform2, 0.5,0.5);
-                    btnFreedom.transform = transform2;
+                    btnCompany.center=CGPointMake(270, 394);
+                    btnFreedom.center=CGPointMake(526, 394);
+                    btnCareer.center=CGPointMake(787, 394);
+                     
+//                    CGAffineTransform transform = btnCompany.transform;
+//                    transform = CGAffineTransformScale(transform, 0.5,0.5);
+//                    btnCompany.transform = transform;
+//                    
+                     
+//                    CGAffineTransform transform1 = btnCareer.transform;
+//                    transform1 = CGAffineTransformScale(transform1, 0.5,0.5);
+//                    btnCareer.transform = transform1;
+//                    
+                    
+//                    CGAffineTransform transform2 = btnFreedom.transform;
+//                    transform2 = CGAffineTransformScale(transform2, 0.5,0.5);
+//                    btnFreedom.transform = transform2;
                     
                 } completion:^(BOOL finished) {
                     
@@ -115,8 +125,8 @@
 */
 
 - (IBAction)nextAction:(id)sender {
-    TFWRealHelpViewController *Vc= [[TFWRealHelpViewController alloc] init];
-    [self.navigationController pushViewController:Vc animated:YES];
+    TFWRealHelpViewController *vc=[[TFWRealHelpViewController alloc]init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (IBAction)backclick:(id)sender {

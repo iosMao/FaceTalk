@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="FTDAgentDetailScoreView">
+            <rect key="frame" x="0.0" y="0.0" width="340" height="110"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="丰厚收入" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6XX-La-3SA">
+                    <rect key="frame" x="4" y="1" width="68" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                    <color key="textColor" red="0.7725490196" green="0.0" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TFD_goodAgent_scoreSlider.png" id="Lmr-EW-Fue">
+                    <rect key="frame" x="8" y="31" width="328" height="29"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TFD_goodAgent_SliderRect.png" id="a8P-U6-KH4">
+                    <rect key="frame" x="0.0" y="63" width="336" height="49"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TFD_goodAgent_redbtn.png" id="e2j-Gf-rgF">
+                    <rect key="frame" x="249" y="27" width="40" height="40"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TFD_goodAgent_whitebtn.png" id="0JQ-mY-Xsh">
+                    <rect key="frame" x="68" y="27" width="40" height="40"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TFD_goodAgent_redtriangle.png" id="ifS-1d-FyM">
+                    <rect key="frame" x="260" y="17" width="18" height="18"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TFD_goodAgent_graytriangle.png" id="08J-mN-akc">
+                    <rect key="frame" x="161" y="16" width="18" height="18"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8分" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vyR-dN-Mfa">
+                    <rect key="frame" x="154" y="4" width="33" height="20"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                    <color key="textColor" red="0.56470588235294117" green="0.56470588235294117" blue="0.56470588235294117" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10分" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vha-MC-J4v">
+                    <rect key="frame" x="253" y="4" width="33" height="20"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                    <color key="textColor" red="0.7725490196" green="0.0" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="的呵呵屌丝的护额是的是的话是的是的话说的是对的撒打算打算十大" id="PkS-Jj-sj4">
+                    <rect key="frame" x="8" y="63" width="324" height="39"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="imgBtnRed" destination="e2j-Gf-rgF" id="k6v-I5-WMh"/>
+                <outlet property="imgBtnWhite" destination="0JQ-mY-Xsh" id="jRl-6L-F2K"/>
+                <outlet property="imgGrayTriangle" destination="08J-mN-akc" id="SSd-cf-eM4"/>
+                <outlet property="imgRedTriangle" destination="ifS-1d-FyM" id="APh-JM-eR3"/>
+                <outlet property="lblGrayScore" destination="vyR-dN-Mfa" id="cPm-wZ-Hw1"/>
+                <outlet property="lblRedScore" destination="vha-MC-J4v" id="k2W-Qc-8Hl"/>
+                <outlet property="lblTitle" destination="6XX-La-3SA" id="i0p-6m-8OB"/>
+                <outlet property="textDesc" destination="PkS-Jj-sj4" id="51w-gI-V6S"/>
+            </connections>
+            <point key="canvasLocation" x="376.5" y="292"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="TFD_goodAgent_SliderRect.png" width="708" height="82"/>
+        <image name="TFD_goodAgent_graytriangle.png" width="40" height="40"/>
+        <image name="TFD_goodAgent_redbtn.png" width="76" height="77"/>
+        <image name="TFD_goodAgent_redtriangle.png" width="40" height="40"/>
+        <image name="TFD_goodAgent_scoreSlider.png" width="708" height="66"/>
+        <image name="TFD_goodAgent_whitebtn.png" width="76" height="77"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination"/>
+    </simulatedMetricsContainer>
+</document>
