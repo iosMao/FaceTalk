@@ -79,24 +79,47 @@
 {
     TFWCFModelView *view = [TFWCFModelView createModelViewwithX:210 / 2.0 Y:585 / 2.0 title:@"真选择" subTitle:@"成就事业" index:1];
     [self.view addSubview:view];
+    view.layer.anchorPoint = CGPointMake(0, 0);
+    view.center = CGPointMake(210 / 2.0, 585 / 2.0 + 200);
+    [UIView animateWithDuration:1.5 animations:^{
+        view.center = CGPointMake(210 / 2.0, 585 / 2.0);
+    }];
 }
 
 -(void)createTwo
 {
     TFWCFModelView *view = [TFWCFModelView createModelViewwithX:374 Y:150 title:@"真英才" subTitle:@"傲人风采" index:2];
     [self.view addSubview:view];
+    
+    view.layer.anchorPoint = CGPointMake(0, 0);
+    view.center = CGPointMake(374, -50);
+    [UIView animateWithDuration:1.5 animations:^{
+        view.center = CGPointMake(374, 150);
+    }];
 }
 
 -(void)createThree
 {
     TFWCFModelView *view = [TFWCFModelView createModelViewwithX:620 Y:240 title:@"真精彩" subTitle:@"友邦有你" index:3];
     [self.view addSubview:view];
+    
+    view.layer.anchorPoint = CGPointMake(0, 0);
+    view.center = CGPointMake(620, 440);
+    [UIView animateWithDuration:1.5 animations:^{
+        view.center = CGPointMake(620, 240);
+    }];
 }
 
 -(void)createFour
 {
     TFWCFModelView *view = [TFWCFModelView createModelViewwithX:855 Y:175 title:@"真成就" subTitle:@"我在友邦" index:4];
     [self.view addSubview:view];
+    
+    view.layer.anchorPoint = CGPointMake(0, 0);
+    view.center = CGPointMake(855, -25);
+    [UIView animateWithDuration:1.5 animations:^{
+        view.center = CGPointMake(855, 175);
+    }];
 }
 
 -(void)buildguideImage

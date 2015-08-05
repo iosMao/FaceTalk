@@ -60,7 +60,7 @@
 {
     [UIView animateKeyframesWithDuration:0.3 delay:0 options:UIViewKeyframeAnimationOptionLayoutSubviews animations:^{
         tableMenu.frame=CGRectMake(0, 20, 120, self.view.frame.size.height);
-        
+        btnSlider.frame = CGRectMake(120,20,50,748);
     } completion:^(BOOL finished) {
         
     }];
