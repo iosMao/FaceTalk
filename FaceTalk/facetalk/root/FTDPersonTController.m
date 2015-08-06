@@ -1,26 +1,21 @@
 //
-//  FTDPersonalHomeController.m
+//  FTDPersonTController.m
 //  FaceTalk
 //
-//  Created by Mao-MacPro on 15/7/10.
+//  Created by Mao-MacPro on 15/8/5.
 //  Copyright (c) 2015年 wen. All rights reserved.
 //
 
-#import "FTDPersonalHomeController.h"
+#import "FTDPersonTController.h"
 
-@interface FTDPersonalHomeController ()
-{
-    UIButton *btn;
-}
+@interface FTDPersonTController ()
+
 @end
 
-@implementation FTDPersonalHomeController
+@implementation FTDPersonTController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    
-    
     // Do any additional setup after loading the view from its nib.
 }
 
