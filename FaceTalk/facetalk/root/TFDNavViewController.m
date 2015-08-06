@@ -87,7 +87,7 @@
         btnScreen.hidden=YES;
         
  
-        btnSlider.frame = CGRectMake(120,20,50,748);
+        //btnSlider.frame = CGRectMake(120,20,50,748);
  
     } completion:^(BOOL finished) {
         

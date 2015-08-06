@@ -64,14 +64,28 @@
     }
     
 }
+//////////////////////////以下两个由quix提供
+-(NSArray *)searchTalentsWithKeyWords:(NSString *)keywords//这个方法由quix提供
+{
+    NSMutableArray *array=[[NSMutableArray alloc]init];
+    for (int i=0; i<6; i++) {
+        NSDictionary *dicInfo=@{@"id":@"800008",@"name":@"nick",@"sex":@"男",@"birthday":@"1978-01-18"};
+        [array addObject:dicInfo];
+    }
+    return array;
+}
+-(BOOL)addTalent:(FTDCustomerModel *)talent//这个方法由quix提供,增加用户
+{
+    return YES;
+}
+//////////////////////////
+
+
 
 -(void)searchAgentList:(NSString *)agentName//fix me 此处调用本地数据库查询接口
 {
     [arrayList removeAllObjects];
-    for (int i=0; i<6; i++) {
-        NSDictionary *dicInfo=@{@"name":@"nick",@"sex":@"男",@"birthday":@"1978-01-18"};
-        [arrayList addObject:dicInfo];
-    }
+     arrayList=[NSMutableArray arrayWithArray:[self searchTalentsWithKeyWords:agentName]];//这里调查询数据库接口
     
     if (arrayList.count>0) {
         tableName.hidden=NO;
@@ -82,18 +96,23 @@
         tableName.hidden=YES;
         isLock=NO;
     }
-    
-    
-    
-    
-    
 }
+
 -(void)addAgent:(FTDCustomerModel *)model//fix me 此处调用本地数据库新增人才接口
 {
+    BOOL isSuccess;
+    isSuccess=[self addTalent:model];
     
-    
-    
-    
+    if (isSuccess) {
+        NSLog(@"用户插入成功");
+        if ([self.delegate respondsToSelector:@selector(homeAlertCreatclick)]) {
+            [self.delegate homeAlertCreatclick];
+        }
+    }
+    else
+    {
+        NSLog(@"用户插入失败");
+    }
 }
 
 -(void)datechange
@@ -234,12 +253,22 @@
 
 - (IBAction)creatclick:(id)sender {
     if (textName.text.length>0&&textSex.text.length>0&&textBirthday.text.length>0) {
-        
+        if (arrayList.count==0) {
+            agentModel.name=textName.text;
+            agentModel.sex=textSex.text;
+            agentModel.birthday=textBirthday.text;
+            agentModel.userid=nil;
+            [self addAgent:agentModel];
+        }
+        else
+        {
+            if ([self.delegate respondsToSelector:@selector(homeAlertCreatclick)]) {
+                [self.delegate homeAlertCreatclick];
+            }
+        }
         //fix me 此处要进行数据操作
         
-        if ([self.delegate respondsToSelector:@selector(homeAlertCreatclick)]) {
-            [self.delegate homeAlertCreatclick];
-        }
+        
     }
     else{
         return;

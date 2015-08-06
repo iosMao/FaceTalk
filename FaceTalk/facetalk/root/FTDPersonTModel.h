@@ -10,5 +10,5 @@
 
 @interface FTDPersonTModel : NSObject
 @property(nonatomic,strong)NSString *strDesc;
-
+@property(nonatomic,strong)NSData *imgData;
 @end

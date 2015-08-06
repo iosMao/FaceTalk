@@ -16,8 +16,8 @@
 
 @interface FTDHomeAlertView : UIView<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate>
 {
-    NSMutableArray *arrayList;
-    BOOL isLock;
+    NSMutableArray *arrayList;//数据库查询到的用户列表
+    BOOL isLock;//若能查询到用户，则性别与生日为锁定状态
     FTDCustomerModel *agentModel;
 }
 @property(nonatomic, weak)id<FTDHomeAlertViewDeledate> delegate;

@@ -7,13 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface FTDPersonTController : UIViewController<UICollectionViewDelegate,UICollectionViewDataSource,UIActionSheetDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate>
+ 
+@interface FTDPersonTController : UIViewController<UICollectionViewDelegate,UICollectionViewDataSource,UIActionSheetDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate,UITextFieldDelegate>
 {
-    int indexId;
+    int indexId;//记录是第几个的id
     NSMutableArray *arrayPhoto;
-     
+    NSMutableArray *arrayDesc;
+    
 }
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionPhoto;
 @property(strong,nonatomic)UIPopoverController *imagePicker;
+- (IBAction)backclick:(id)sender;
 @end

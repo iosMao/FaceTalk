@@ -185,6 +185,7 @@
 		189A1ED51B61DC19002F99F9 /* FTD_creatPerson_photo.png in Resources */ = {isa = PBXBuildFile; fileRef = 189A1ECF1B61DC19002F99F9 /* FTD_creatPerson_photo.png */; };
 		189A1ED61B61DC19002F99F9 /* FTD_creatPerson_sex.png in Resources */ = {isa = PBXBuildFile; fileRef = 189A1ED01B61DC19002F99F9 /* FTD_creatPerson_sex.png */; };
 		189A1ED91B622D9B002F99F9 /* UIView+MaterialDesign.m in Sources */ = {isa = PBXBuildFile; fileRef = 189A1ED81B622D9B002F99F9 /* UIView+MaterialDesign.m */; };
+		18C280781B734D0D002848D2 /* FTDBigImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C280771B734D0D002848D2 /* FTDBigImageView.m */; };
 		18D358581B5F776C0008764E /* FTDbackgroundImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 18D358571B5F776C0008764E /* FTDbackgroundImage.png */; };
 		18D3585A1B5F87360008764E /* FTD_back.png in Resources */ = {isa = PBXBuildFile; fileRef = 18D358591B5F87360008764E /* FTD_back.png */; };
 		18D3585D1B5F8A5B0008764E /* FTD_goodAgentskindH.png in Resources */ = {isa = PBXBuildFile; fileRef = 18D3585B1B5F8A5B0008764E /* FTD_goodAgentskindH.png */; };
@@ -487,6 +488,8 @@
 		189A1ED01B61DC19002F99F9 /* FTD_creatPerson_sex.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FTD_creatPerson_sex.png; sourceTree = "<group>"; };
 		189A1ED71B622D9B002F99F9 /* UIView+MaterialDesign.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MaterialDesign.h"; sourceTree = "<group>"; };
 		189A1ED81B622D9B002F99F9 /* UIView+MaterialDesign.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MaterialDesign.m"; sourceTree = "<group>"; };
+		18C280761B734D0D002848D2 /* FTDBigImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FTDBigImageView.h; path = FaceTalk/facetalk/library/FTDBigImageView.h; sourceTree = SOURCE_ROOT; };
+		18C280771B734D0D002848D2 /* FTDBigImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FTDBigImageView.m; path = FaceTalk/facetalk/library/FTDBigImageView.m; sourceTree = SOURCE_ROOT; };
 		18D358571B5F776C0008764E /* FTDbackgroundImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FTDbackgroundImage.png; sourceTree = "<group>"; };
 		18D358591B5F87360008764E /* FTD_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FTD_back.png; sourceTree = "<group>"; };
 		18D3585B1B5F8A5B0008764E /* FTD_goodAgentskindH.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FTD_goodAgentskindH.png; sourceTree = "<group>"; };
@@ -1114,6 +1117,8 @@
 				18EFA58B1B71B74F005ABEF1 /* FTDCollectionPhotoCell.h */,
 				18EFA58C1B71B74F005ABEF1 /* FTDCollectionPhotoCell.m */,
 				18EFA58D1B71B74F005ABEF1 /* FTDCollectionPhotoCell.xib */,
+				18C280761B734D0D002848D2 /* FTDBigImageView.h */,
+				18C280771B734D0D002848D2 /* FTDBigImageView.m */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -1805,6 +1810,7 @@
 				A2E7CDD01B6F9C2100FD28FB /* TFWScrollView.m in Sources */,
 				185D64F71B66738100845F21 /* FTDHomAlertFinishView.m in Sources */,
 				185D64D41B6671DF00845F21 /* TFWSCFiveView.m in Sources */,
+				18C280781B734D0D002848D2 /* FTDBigImageView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
