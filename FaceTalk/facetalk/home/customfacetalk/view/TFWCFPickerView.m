@@ -11,6 +11,7 @@
 @interface TFWCFPickerView ()
 
 @property (nonatomic,strong) UIPickerView *pickView;
+@property (nonatomic,assign) int index;
 
 @end
 
@@ -27,6 +28,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        self.index = 0;
         [self buildView];
     }
     
@@ -58,9 +60,41 @@
     [self addSubview:_pickView];
     
     for (int i = 0; i < 4; i++) {
-        [_pickView selectRow:5000 inComponent:i animated:NO];
+        [_pickView selectRow:5000 + i inComponent:i animated:NO];
     }
+    
+//    [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(animationPicker:) userInfo:nil repeats:YES];
 }
+
+//-(void)animationPicker:(NSTimer *)timer
+//{
+//    switch (_index % 4) {
+//        case 0:
+//                [_pickView selectRow:5000 + _index / 4 + 0 inComponent:0 animated:YES];
+//            break;
+//            
+//        case 1:
+//                [_pickView selectRow:5000 + _index / 4 + 1 inComponent:1 animated:YES];
+//            break;
+//            
+//        case 2:
+//                [_pickView selectRow:5000 + _index / 4 + 2 inComponent:2 animated:YES];
+//            break;
+//            
+//        case 3:
+//                [_pickView selectRow:5000 + _index / 4 + 3 inComponent:3 animated:YES];
+//            break;
+//            
+//        default:
+//            break;
+//    }
+//    
+//    _index++;
+//    if (_index > 40) {
+//        [timer invalidate];
+//    }
+//    
+//}
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {

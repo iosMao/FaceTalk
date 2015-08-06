@@ -64,12 +64,12 @@
 {
     UIImageView *back    = [[UIImageView alloc] initWithFrame:CGRectMake(0, self.frame.size.height - 191 / 2.0, 191 / 2.0, 230 / 2.0)];
     back.image           = [UIImage imageNamed:@"tfw_tf_realborder"];
-    back.alpha = 0.0;
+    back.alpha = 1.0;
     [self addSubview:back];
     
-    [UIView animateWithDuration:1.3 animations:^{
-        back.alpha = 1.0;
-    }];
+//    [UIView animateWithDuration:1.3 animations:^{
+//        back.alpha = 1.0;
+//    }];
 }
 
 -(void)buildNumber
@@ -79,10 +79,10 @@
     [self.numberImageView sizeToFit];
     self.numberImageView.center = CGPointMake(50, 15);
     [self addSubview:self.numberImageView];
-    self.numberImageView.alpha = 0.0;
-    [UIView animateWithDuration:1.3 animations:^{
-        self.numberImageView.alpha = 1.0;
-    }];
+    self.numberImageView.alpha = 1.0;
+//    [UIView animateWithDuration:1.3 animations:^{
+//        self.numberImageView.alpha = 1.0;
+//    }];
 
 }
 
@@ -102,19 +102,19 @@
     self.subTitleLabel.textColor = [UIColor colorWithRed:188 / 255.0 green:0 / 255.0 blue:52 / 255.0 alpha:1];
     [self addSubview:self.subTitleLabel];
     
-    CGAffineTransform title_trans = self.titleLabel.transform;
-    CGAffineTransform subtitle_trans = self.subTitleLabel.transform;
-    self.titleLabel.transform = CGAffineTransformScale(title_trans, 0, 0);
-    self.subTitleLabel.transform = CGAffineTransformScale(subtitle_trans, 0, 0);
-    [UIView animateWithDuration:0.8 animations:^{
-        self.titleLabel.transform = CGAffineTransformScale(title_trans, 1.3, 1.3);
-        self.subTitleLabel.transform = CGAffineTransformScale(subtitle_trans, 1.3, 1.3);
-    } completion:^(BOOL finished) {
-        [UIView animateWithDuration:0.5 animations:^{
-            self.titleLabel.transform = CGAffineTransformScale(title_trans, 1.0, 1.0);
-            self.subTitleLabel.transform = CGAffineTransformScale(subtitle_trans, 1.0, 1.0);
-        }];
-    }];
+//    CGAffineTransform title_trans = self.titleLabel.transform;
+//    CGAffineTransform subtitle_trans = self.subTitleLabel.transform;
+//    self.titleLabel.transform = CGAffineTransformScale(title_trans, 0, 0);
+//    self.subTitleLabel.transform = CGAffineTransformScale(subtitle_trans, 0, 0);
+//    [UIView animateWithDuration:0.8 animations:^{
+//        self.titleLabel.transform = CGAffineTransformScale(title_trans, 1.3, 1.3);
+//        self.subTitleLabel.transform = CGAffineTransformScale(subtitle_trans, 1.3, 1.3);
+//    } completion:^(BOOL finished) {
+//        [UIView animateWithDuration:0.5 animations:^{
+//            self.titleLabel.transform = CGAffineTransformScale(title_trans, 1.0, 1.0);
+//            self.subTitleLabel.transform = CGAffineTransformScale(subtitle_trans, 1.0, 1.0);
+//        }];
+//    }];
 }
 
 @end

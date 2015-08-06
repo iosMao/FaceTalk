@@ -30,7 +30,7 @@
 
 - (IBAction)ftdhomeviewclick:(id)sender {
     
-    FTDPersonTController *FTDHomeViewCol=[[FTDPersonTController alloc]init];
+    FTDHomeViewController *FTDHomeViewCol=[[FTDHomeViewController alloc]init];
     TFDNavViewController *navFTDHomeViewCol=[[TFDNavViewController alloc]initWithRootViewController:FTDHomeViewCol];
     navFTDHomeViewCol.navigationBar.hidden=YES;
     [self presentViewController:navFTDHomeViewCol animated:YES completion:nil];
