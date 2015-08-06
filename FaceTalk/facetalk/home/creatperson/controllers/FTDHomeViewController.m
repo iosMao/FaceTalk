@@ -17,9 +17,11 @@
 @synthesize btnKey,scrollBG;
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     scrollBG.contentSize=CGSizeMake(1024*3, 748);
     scrollBG.pagingEnabled=YES;
-     [btnKey  addTarget:self action:@selector(homeLeadViewclick:event:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [btnKey addTarget:self action:@selector(homeLeadViewclick:event:) forControlEvents:UIControlEventTouchUpInside];
 //    [btnKey addTarget:self action:@selector(dragEnded:withEvent: )forControlEvents: UIControlEventTouchUpInside |
 //     UIControlEventTouchUpOutside];
     // Do any additional setup after loading the view from its nib.

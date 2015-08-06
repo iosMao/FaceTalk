@@ -13,19 +13,25 @@
 @end
 
 @implementation TFDNavViewController
-@synthesize tableMenu,btnSlider;
+@synthesize tableMenu,btnSlider,btnScreen;
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self buildSliderBtn];
     [self buildSliderTable];
     
+    self.delegate=self;
     
-    [self.view insertSubview:tableMenu atIndex:10002];
-    [self.view insertSubview:btnSlider atIndex:10001];
- 
+    [self.view insertSubview:btnSlider atIndex:10000];
+    [self.view insertSubview:tableMenu atIndex:10001];
+    [self.view insertSubview:btnScreen atIndex:10002];
     // Do any additional setup after loading the view.
     
     
+}
+- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
+    
+    NSLog(@"sdsdsdsdsd");
 }
 -(void)buildSliderTable
 {
@@ -37,7 +43,7 @@
     tableMenu.layer.shadowOffset = CGSizeMake(0,-3);
     tableMenu.layer.shadowOpacity = 0.9;
     tableMenu.layer.shadowColor = [UIColor blackColor].CGColor;
-    [self.view addSubview:tableMenu];
+    //[self.view addSubview:tableMenu];
     
     UIView *viewBG=[[UIView alloc]initWithFrame:CGRectMake(0, 0, 120, 120)];
     viewBG.backgroundColor=[UIColor colorWithRed:0.72 green:0.01 blue:0.21 alpha:1];
@@ -46,26 +52,43 @@
     [viewBG addSubview:imageView];
     tableMenu.tableHeaderView=viewBG;
     
+    btnScreen=[[UIButton alloc]initWithFrame:CGRectMake(120, 20, self.view.frame.size.width, self.view.frame.size.height)];
+    [btnScreen addTarget:self action:@selector(removetable) forControlEvents:UIControlEventTouchUpInside];
+    btnScreen.backgroundColor=[UIColor clearColor];
+    btnScreen.hidden=YES;
+    
+    
+    
+    
 }
 -(void)buildSliderBtn
 {
-    btnSlider=[[UIButton alloc]initWithFrame:CGRectMake(0,20,50,748)];
+    btnSlider=[[UIButton alloc]initWithFrame:CGRectMake(0,20,40,748)];
     [btnSlider setImage:[UIImage imageNamed:@"FTD_slider_btn.png"] forState:UIControlStateNormal];
     [btnSlider addTarget:self action:@selector(showtable) forControlEvents:UIControlEventTouchUpInside];
     btnSlider.backgroundColor=[UIColor clearColor];
-    [self.view addSubview:btnSlider];
+    //[self.view addSubview:btnSlider];
     
 }
 -(void)showtable
 {
     [UIView animateKeyframesWithDuration:0.3 delay:0 options:UIViewKeyframeAnimationOptionLayoutSubviews animations:^{
         tableMenu.frame=CGRectMake(0, 20, 120, self.view.frame.size.height);
+        btnScreen.hidden=NO;
+    } completion:^(BOOL finished) {
+        
+    }];
+}
+-(void)removetable
+{
+    [UIView animateKeyframesWithDuration:0.3 delay:0 options:UIViewKeyframeAnimationOptionLayoutSubviews animations:^{
+        tableMenu.frame=CGRectMake(-120, 20, 120, self.view.frame.size.height);
+        btnScreen.hidden=YES;
         
     } completion:^(BOOL finished) {
         
     }];
 }
-
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {

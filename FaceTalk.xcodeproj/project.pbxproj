@@ -42,7 +42,6 @@
 		18291B611B5784E7003E180D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18291B601B5784E7003E180D /* UIKit.framework */; };
 		18291B631B5784FA003E180D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18291B621B5784FA003E180D /* Foundation.framework */; };
 		18291B6A1B57AAF9003E180D /* FT_home_leadpage.png in Resources */ = {isa = PBXBuildFile; fileRef = 18291B691B57AAF9003E180D /* FT_home_leadpage.png */; };
-		185D643C1B66213A00845F21 /* FTD_goodAgentPhotoBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 185D643A1B66213A00845F21 /* FTD_goodAgentPhotoBG.png */; };
 		185D643D1B66213A00845F21 /* FTD_goodAgentRedRect.png in Resources */ = {isa = PBXBuildFile; fileRef = 185D643B1B66213A00845F21 /* FTD_goodAgentRedRect.png */; };
 		185D64421B663D9200845F21 /* FTD_home_lead1.png in Resources */ = {isa = PBXBuildFile; fileRef = 185D643E1B663D9200845F21 /* FTD_home_lead1.png */; };
 		185D64431B663D9200845F21 /* FTD_home_lead2.png in Resources */ = {isa = PBXBuildFile; fileRef = 185D643F1B663D9200845F21 /* FTD_home_lead2.png */; };
@@ -186,12 +185,23 @@
 		189A1ED51B61DC19002F99F9 /* FTD_creatPerson_photo.png in Resources */ = {isa = PBXBuildFile; fileRef = 189A1ECF1B61DC19002F99F9 /* FTD_creatPerson_photo.png */; };
 		189A1ED61B61DC19002F99F9 /* FTD_creatPerson_sex.png in Resources */ = {isa = PBXBuildFile; fileRef = 189A1ED01B61DC19002F99F9 /* FTD_creatPerson_sex.png */; };
 		189A1ED91B622D9B002F99F9 /* UIView+MaterialDesign.m in Sources */ = {isa = PBXBuildFile; fileRef = 189A1ED81B622D9B002F99F9 /* UIView+MaterialDesign.m */; };
-		18CD4BC21B4F6B2D00D20B74 /* FTDPersonalHomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CD4BC01B4F6B2D00D20B74 /* FTDPersonalHomeController.m */; };
-		18CD4BC31B4F6B2D00D20B74 /* FTDPersonalHomeController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18CD4BC11B4F6B2D00D20B74 /* FTDPersonalHomeController.xib */; };
 		18D358581B5F776C0008764E /* FTDbackgroundImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 18D358571B5F776C0008764E /* FTDbackgroundImage.png */; };
 		18D3585A1B5F87360008764E /* FTD_back.png in Resources */ = {isa = PBXBuildFile; fileRef = 18D358591B5F87360008764E /* FTD_back.png */; };
 		18D3585D1B5F8A5B0008764E /* FTD_goodAgentskindH.png in Resources */ = {isa = PBXBuildFile; fileRef = 18D3585B1B5F8A5B0008764E /* FTD_goodAgentskindH.png */; };
 		18D3585E1B5F8A5B0008764E /* FTD_goodAgetnkind.png in Resources */ = {isa = PBXBuildFile; fileRef = 18D3585C1B5F8A5B0008764E /* FTD_goodAgetnkind.png */; };
+		18EFA57C1B71B2B9005ABEF1 /* FTDPersonTController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EFA57A1B71B2B9005ABEF1 /* FTDPersonTController.m */; };
+		18EFA57D1B71B2B9005ABEF1 /* FTDPersonTController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18EFA57B1B71B2B9005ABEF1 /* FTDPersonTController.xib */; };
+		18EFA5861B71B2FA005ABEF1 /* FTD_personalteam_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 18EFA5801B71B2FA005ABEF1 /* FTD_personalteam_bg.png */; };
+		18EFA5871B71B2FA005ABEF1 /* FTD_personalteam_btnG.png in Resources */ = {isa = PBXBuildFile; fileRef = 18EFA5811B71B2FA005ABEF1 /* FTD_personalteam_btnG.png */; };
+		18EFA5881B71B2FA005ABEF1 /* FTD_personalteam_btnR.png in Resources */ = {isa = PBXBuildFile; fileRef = 18EFA5821B71B2FA005ABEF1 /* FTD_personalteam_btnR.png */; };
+		18EFA5891B71B2FA005ABEF1 /* FTD_personalteam_editdesc.png in Resources */ = {isa = PBXBuildFile; fileRef = 18EFA5831B71B2FA005ABEF1 /* FTD_personalteam_editdesc.png */; };
+		18EFA58A1B71B2FA005ABEF1 /* FTD_personalteam_editphoto.png in Resources */ = {isa = PBXBuildFile; fileRef = 18EFA5841B71B2FA005ABEF1 /* FTD_personalteam_editphoto.png */; };
+		18EFA58E1B71B74F005ABEF1 /* FTDCollectionPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EFA58C1B71B74F005ABEF1 /* FTDCollectionPhotoCell.m */; };
+		18EFA58F1B71B74F005ABEF1 /* FTDCollectionPhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18EFA58D1B71B74F005ABEF1 /* FTDCollectionPhotoCell.xib */; };
+		18EFA5921B71B9C4005ABEF1 /* FTD_personalteam_add.png in Resources */ = {isa = PBXBuildFile; fileRef = 18EFA5901B71B9C4005ABEF1 /* FTD_personalteam_add.png */; };
+		18EFA5931B71B9C4005ABEF1 /* FTD_personalteam_editall.png in Resources */ = {isa = PBXBuildFile; fileRef = 18EFA5911B71B9C4005ABEF1 /* FTD_personalteam_editall.png */; };
+		18EFA5951B71BD25005ABEF1 /* FTD_goodAgentPhotoBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 18EFA5941B71BD25005ABEF1 /* FTD_goodAgentPhotoBG.png */; };
+		18EFA5981B71E17C005ABEF1 /* FTDPersonTModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EFA5971B71E17C005ABEF1 /* FTDPersonTModel.m */; };
 		18F32A371B6089F80018A3C8 /* FTD_HomeWoman.png in Resources */ = {isa = PBXBuildFile; fileRef = 18F32A331B6089F80018A3C8 /* FTD_HomeWoman.png */; };
 		18F32A381B6089F80018A3C8 /* FTD_NewGraduates.png in Resources */ = {isa = PBXBuildFile; fileRef = 18F32A341B6089F80018A3C8 /* FTD_NewGraduates.png */; };
 		18F32A391B6089F80018A3C8 /* FTD_Other.png in Resources */ = {isa = PBXBuildFile; fileRef = 18F32A351B6089F80018A3C8 /* FTD_Other.png */; };
@@ -310,7 +320,6 @@
 		18291B601B5784E7003E180D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		18291B621B5784FA003E180D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		18291B691B57AAF9003E180D /* FT_home_leadpage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FT_home_leadpage.png; sourceTree = "<group>"; };
-		185D643A1B66213A00845F21 /* FTD_goodAgentPhotoBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FTD_goodAgentPhotoBG.png; sourceTree = "<group>"; };
 		185D643B1B66213A00845F21 /* FTD_goodAgentRedRect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FTD_goodAgentRedRect.png; sourceTree = "<group>"; };
 		185D643E1B663D9200845F21 /* FTD_home_lead1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FTD_home_lead1.png; sourceTree = "<group>"; };
 		185D643F1B663D9200845F21 /* FTD_home_lead2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FTD_home_lead2.png; sourceTree = "<group>"; };
@@ -478,13 +487,26 @@
 		189A1ED01B61DC19002F99F9 /* FTD_creatPerson_sex.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FTD_creatPerson_sex.png; sourceTree = "<group>"; };
 		189A1ED71B622D9B002F99F9 /* UIView+MaterialDesign.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MaterialDesign.h"; sourceTree = "<group>"; };
 		189A1ED81B622D9B002F99F9 /* UIView+MaterialDesign.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MaterialDesign.m"; sourceTree = "<group>"; };
-		18CD4BBF1B4F6B2D00D20B74 /* FTDPersonalHomeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTDPersonalHomeController.h; sourceTree = "<group>"; };
-		18CD4BC01B4F6B2D00D20B74 /* FTDPersonalHomeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTDPersonalHomeController.m; sourceTree = "<group>"; };
-		18CD4BC11B4F6B2D00D20B74 /* FTDPersonalHomeController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FTDPersonalHomeController.xib; sourceTree = "<group>"; };
 		18D358571B5F776C0008764E /* FTDbackgroundImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FTDbackgroundImage.png; sourceTree = "<group>"; };
 		18D358591B5F87360008764E /* FTD_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FTD_back.png; sourceTree = "<group>"; };
 		18D3585B1B5F8A5B0008764E /* FTD_goodAgentskindH.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FTD_goodAgentskindH.png; sourceTree = "<group>"; };
 		18D3585C1B5F8A5B0008764E /* FTD_goodAgetnkind.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FTD_goodAgetnkind.png; sourceTree = "<group>"; };
+		18EFA5791B71B2B9005ABEF1 /* FTDPersonTController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FTDPersonTController.h; path = FaceTalk/facetalk/root/FTDPersonTController.h; sourceTree = SOURCE_ROOT; };
+		18EFA57A1B71B2B9005ABEF1 /* FTDPersonTController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FTDPersonTController.m; path = FaceTalk/facetalk/root/FTDPersonTController.m; sourceTree = SOURCE_ROOT; };
+		18EFA57B1B71B2B9005ABEF1 /* FTDPersonTController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FTDPersonTController.xib; path = FaceTalk/facetalk/root/FTDPersonTController.xib; sourceTree = SOURCE_ROOT; };
+		18EFA5801B71B2FA005ABEF1 /* FTD_personalteam_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FTD_personalteam_bg.png; sourceTree = "<group>"; };
+		18EFA5811B71B2FA005ABEF1 /* FTD_personalteam_btnG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FTD_personalteam_btnG.png; sourceTree = "<group>"; };
+		18EFA5821B71B2FA005ABEF1 /* FTD_personalteam_btnR.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FTD_personalteam_btnR.png; sourceTree = "<group>"; };
+		18EFA5831B71B2FA005ABEF1 /* FTD_personalteam_editdesc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FTD_personalteam_editdesc.png; sourceTree = "<group>"; };
+		18EFA5841B71B2FA005ABEF1 /* FTD_personalteam_editphoto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FTD_personalteam_editphoto.png; sourceTree = "<group>"; };
+		18EFA58B1B71B74F005ABEF1 /* FTDCollectionPhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FTDCollectionPhotoCell.h; path = FaceTalk/facetalk/root/FTDCollectionPhotoCell.h; sourceTree = SOURCE_ROOT; };
+		18EFA58C1B71B74F005ABEF1 /* FTDCollectionPhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FTDCollectionPhotoCell.m; path = FaceTalk/facetalk/root/FTDCollectionPhotoCell.m; sourceTree = SOURCE_ROOT; };
+		18EFA58D1B71B74F005ABEF1 /* FTDCollectionPhotoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FTDCollectionPhotoCell.xib; path = FaceTalk/facetalk/root/FTDCollectionPhotoCell.xib; sourceTree = SOURCE_ROOT; };
+		18EFA5901B71B9C4005ABEF1 /* FTD_personalteam_add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FTD_personalteam_add.png; sourceTree = "<group>"; };
+		18EFA5911B71B9C4005ABEF1 /* FTD_personalteam_editall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FTD_personalteam_editall.png; sourceTree = "<group>"; };
+		18EFA5941B71BD25005ABEF1 /* FTD_goodAgentPhotoBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FTD_goodAgentPhotoBG.png; sourceTree = "<group>"; };
+		18EFA5961B71E17C005ABEF1 /* FTDPersonTModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FTDPersonTModel.h; path = FaceTalk/facetalk/root/FTDPersonTModel.h; sourceTree = SOURCE_ROOT; };
+		18EFA5971B71E17C005ABEF1 /* FTDPersonTModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FTDPersonTModel.m; path = FaceTalk/facetalk/root/FTDPersonTModel.m; sourceTree = SOURCE_ROOT; };
 		18F32A331B6089F80018A3C8 /* FTD_HomeWoman.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FTD_HomeWoman.png; sourceTree = "<group>"; };
 		18F32A341B6089F80018A3C8 /* FTD_NewGraduates.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FTD_NewGraduates.png; sourceTree = "<group>"; };
 		18F32A351B6089F80018A3C8 /* FTD_Other.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FTD_Other.png; sourceTree = "<group>"; };
@@ -1038,7 +1060,6 @@
 				18126A901B70BD8800BACB3F /* TFD_goodAgent_redtriangle.png */,
 				18126A911B70BD8800BACB3F /* TFD_goodAgent_SliderRect.png */,
 				18126A921B70BD8800BACB3F /* TFD_goodAgent_whitebtn.png */,
-				185D643A1B66213A00845F21 /* FTD_goodAgentPhotoBG.png */,
 				185D643B1B66213A00845F21 /* FTD_goodAgentRedRect.png */,
 				18F32A451B60E22D0018A3C8 /* FTD_goodAgentCamera.png */,
 				18F32A461B60E22D0018A3C8 /* FTD_goodAgentCup.png */,
@@ -1050,6 +1071,7 @@
 				18F32A3B1B608A110018A3C8 /* FTD_Image1.png */,
 				18F32A3C1B608A110018A3C8 /* FTD_Image2.png */,
 				18F32A3D1B608A110018A3C8 /* FTD_Image3.png */,
+				18EFA5941B71BD25005ABEF1 /* FTD_goodAgentPhotoBG.png */,
 				18D3585B1B5F8A5B0008764E /* FTD_goodAgentskindH.png */,
 				18F32A331B6089F80018A3C8 /* FTD_HomeWoman.png */,
 				18F32A341B6089F80018A3C8 /* FTD_NewGraduates.png */,
@@ -1070,9 +1092,9 @@
 		18CD4BBC1B4F6ACC00D20B74 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
-				18CD4BBF1B4F6B2D00D20B74 /* FTDPersonalHomeController.h */,
-				18CD4BC01B4F6B2D00D20B74 /* FTDPersonalHomeController.m */,
-				18CD4BC11B4F6B2D00D20B74 /* FTDPersonalHomeController.xib */,
+				18EFA5791B71B2B9005ABEF1 /* FTDPersonTController.h */,
+				18EFA57A1B71B2B9005ABEF1 /* FTDPersonTController.m */,
+				18EFA57B1B71B2B9005ABEF1 /* FTDPersonTController.xib */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -1080,6 +1102,8 @@
 		18CD4BBD1B4F6ACC00D20B74 /* models */ = {
 			isa = PBXGroup;
 			children = (
+				18EFA5961B71E17C005ABEF1 /* FTDPersonTModel.h */,
+				18EFA5971B71E17C005ABEF1 /* FTDPersonTModel.m */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -1087,8 +1111,25 @@
 		18CD4BBE1B4F6ACC00D20B74 /* views */ = {
 			isa = PBXGroup;
 			children = (
+				18EFA58B1B71B74F005ABEF1 /* FTDCollectionPhotoCell.h */,
+				18EFA58C1B71B74F005ABEF1 /* FTDCollectionPhotoCell.m */,
+				18EFA58D1B71B74F005ABEF1 /* FTDCollectionPhotoCell.xib */,
 			);
 			path = views;
+			sourceTree = "<group>";
+		};
+		18EFA57E1B71B2FA005ABEF1 /* personalteam */ = {
+			isa = PBXGroup;
+			children = (
+				18EFA5901B71B9C4005ABEF1 /* FTD_personalteam_add.png */,
+				18EFA5911B71B9C4005ABEF1 /* FTD_personalteam_editall.png */,
+				18EFA5801B71B2FA005ABEF1 /* FTD_personalteam_bg.png */,
+				18EFA5811B71B2FA005ABEF1 /* FTD_personalteam_btnG.png */,
+				18EFA5821B71B2FA005ABEF1 /* FTD_personalteam_btnR.png */,
+				18EFA5831B71B2FA005ABEF1 /* FTD_personalteam_editdesc.png */,
+				18EFA5841B71B2FA005ABEF1 /* FTD_personalteam_editphoto.png */,
+			);
+			path = personalteam;
 			sourceTree = "<group>";
 		};
 		A2615A681B4D22C00098EC30 = {
@@ -1209,6 +1250,7 @@
 		A2615AB81B4D29C50098EC30 /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				18EFA57E1B71B2FA005ABEF1 /* personalteam */,
 				18126A7A1B70AB2200BACB3F /* Msliderbar */,
 				187FC4FA1B58C42000E2EC10 /* goodAgentImage */,
 				18291B521B577A7B003E180D /* homeViewImage */,
@@ -1458,14 +1500,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18EFA5921B71B9C4005ABEF1 /* FTD_personalteam_add.png in Resources */,
 				18126A941B70BD8800BACB3F /* TFD_goodAgent_redbtn.png in Resources */,
 				A2E7CD621B6F9BE700FD28FB /* ft_ten_demo.png in Resources */,
 				A2E7CDC71B6F9C2100FD28FB /* tfw_sr_key_gray.png in Resources */,
+				18EFA58F1B71B74F005ABEF1 /* FTDCollectionPhotoCell.xib in Resources */,
 				185D64CC1B6671DF00845F21 /* tfw_sc_back.png in Resources */,
 				A2E7CD8A1B6F9C0C00FD28FB /* ft_ten_back.png in Resources */,
 				185D64F01B66738100845F21 /* BDRootViewController.xib in Resources */,
 				185D65A01B6673C300845F21 /* tfw_sf_round@2x.png in Resources */,
-				185D643C1B66213A00845F21 /* FTD_goodAgentPhotoBG.png in Resources */,
 				187FC4F31B58A19A00E2EC10 /* FTD_homelead_imageH.png in Resources */,
 				185D659A1B6673C300845F21 /* tfw_sf_next@2x.png in Resources */,
 				185D65971B6673C300845F21 /* tfw_sf_head.png in Resources */,
@@ -1477,6 +1520,7 @@
 				187FC5041B58C86C00E2EC10 /* FTD_goodagentHomePage.png in Resources */,
 				A2E7CDC81B6F9C2100FD28FB /* tfw_sr_key_gray@2x.png in Resources */,
 				185D64AE1B6671B500845F21 /* tfw_rs_suit_gray.png in Resources */,
+				18EFA5931B71B9C4005ABEF1 /* FTD_personalteam_editall.png in Resources */,
 				18126A991B70BDA900BACB3F /* FTD_goodAgentPhoto.png in Resources */,
 				185D656D1B6673BC00845F21 /* tfw_tf_back@2x.png in Resources */,
 				185D64AA1B6671B500845F21 /* tfw_rs_space_gray.png in Resources */,
@@ -1524,6 +1568,7 @@
 				185D65951B6673C300845F21 /* tfw_sf_cup.png in Resources */,
 				185D64A81B6671B500845F21 /* tfw_rs_space.png in Resources */,
 				185D65941B6673C300845F21 /* tfw_sf_back@2x.png in Resources */,
+				18EFA57D1B71B2B9005ABEF1 /* FTDPersonTController.xib in Resources */,
 				185D64911B6671B500845F21 /* tfw_rs_honour@2x.png in Resources */,
 				185D649D1B6671B500845F21 /* tfw_rs_life@2x.png in Resources */,
 				185D64B01B6671B500845F21 /* tfw_rs_work.png in Resources */,
@@ -1553,6 +1598,7 @@
 				18D3585D1B5F8A5B0008764E /* FTD_goodAgentskindH.png in Resources */,
 				185D65631B6673BC00845F21 /* tfw_cf_numberpickerback@2x.png in Resources */,
 				A2E7CD8B1B6F9C0C00FD28FB /* ft_ten_back@2x.png in Resources */,
+				18EFA5891B71B2FA005ABEF1 /* FTD_personalteam_editdesc.png in Resources */,
 				A2E7CD8F1B6F9C0C00FD28FB /* ft_ten_clock@2x.png in Resources */,
 				185D648B1B6671B500845F21 /* tfw_rs_brand_gray@2x.png in Resources */,
 				185D656E1B6673BC00845F21 /* tfw_tf_realborder.png in Resources */,
@@ -1573,6 +1619,7 @@
 				185D64A31B6671B500845F21 /* tfw_rs_pan@2x.png in Resources */,
 				185D64961B6671B500845F21 /* tfw_rs_income_gray.png in Resources */,
 				185D64891B6671B500845F21 /* tfw_rs_brand@2x.png in Resources */,
+				18EFA5871B71B2FA005ABEF1 /* FTD_personalteam_btnG.png in Resources */,
 				18291B5A1B578187003E180D /* FT_home_key@2x.png in Resources */,
 				185D65711B6673BC00845F21 /* tfw_tf_setting@2x.png in Resources */,
 				185D64F41B66738100845F21 /* FTDHomeViewController.xib in Resources */,
@@ -1597,7 +1644,6 @@
 				A2615A851B4D22C00098EC30 /* LaunchScreen.xib in Resources */,
 				185D64AB1B6671B500845F21 /* tfw_rs_space_gray@2x.png in Resources */,
 				185D64AC1B6671B500845F21 /* tfw_rs_suit.png in Resources */,
-				18CD4BC31B4F6B2D00D20B74 /* FTDPersonalHomeController.xib in Resources */,
 				185D64CE1B6671DF00845F21 /* tfw_sc_movebt.png in Resources */,
 				18126A771B70739E00BACB3F /* FTDGoodAgentKindsController.xib in Resources */,
 				18126A6F1B70739E00BACB3F /* FTDAgentImageCell.xib in Resources */,
@@ -1628,6 +1674,7 @@
 				185D64D11B6671DF00845F21 /* tfw_sc_movepie@2x.png in Resources */,
 				18126A971B70BD8800BACB3F /* TFD_goodAgent_whitebtn.png in Resources */,
 				187FC5001B58C53A00E2EC10 /* FTD_goodagentHome_careerJob.png in Resources */,
+				18EFA5861B71B2FA005ABEF1 /* FTD_personalteam_bg.png in Resources */,
 				18F32A3E1B608A110018A3C8 /* FTD_Image1.png in Resources */,
 				A2E7CD9A1B6F9C0C00FD28FB /* ft_ten_next.png in Resources */,
 				18F32A391B6089F80018A3C8 /* FTD_Other.png in Resources */,
@@ -1635,6 +1682,7 @@
 				185D64B11B6671B500845F21 /* tfw_rs_work@2x.png in Resources */,
 				18F32A4D1B60E22D0018A3C8 /* FTD_goodAgentKey.png in Resources */,
 				185D64A11B6671B500845F21 /* tfw_rs_next@2x.png in Resources */,
+				18EFA58A1B71B2FA005ABEF1 /* FTD_personalteam_editphoto.png in Resources */,
 				185D64AD1B6671B500845F21 /* tfw_rs_suit@2x.png in Resources */,
 				185D649E1B6671B500845F21 /* tfw_rs_life_gray.png in Resources */,
 				185D656B1B6673BC00845F21 /* tfw_cf_realnumber4@2x.png in Resources */,
@@ -1662,8 +1710,10 @@
 				185D64871B6671B500845F21 /* tfw_rs_background@2x.png in Resources */,
 				185D65A21B6673C300845F21 /* tfw_sf_tie@2x.png in Resources */,
 				A2E7CD921B6F9C0C00FD28FB /* ft_ten_honour.png in Resources */,
+				18EFA5881B71B2FA005ABEF1 /* FTD_personalteam_btnR.png in Resources */,
 				18F32A511B60ECE70018A3C8 /* FTD_goodAgentPen.png in Resources */,
 				A2E7CD9B1B6F9C0C00FD28FB /* ft_ten_next@2x.png in Resources */,
+				18EFA5951B71BD25005ABEF1 /* FTD_goodAgentPhotoBG.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1723,6 +1773,8 @@
 				185D64CB1B6671DF00845F21 /* TFWRealMarkViewController.m in Sources */,
 				A2E7CD651B6F9BE700FD28FB /* TFWHelpResultMenuView.m in Sources */,
 				185D655B1B6673BC00845F21 /* TFWCustomTalkViewController.m in Sources */,
+				18EFA57C1B71B2B9005ABEF1 /* FTDPersonTController.m in Sources */,
+				18EFA58E1B71B74F005ABEF1 /* FTDCollectionPhotoCell.m in Sources */,
 				18126A6E1B70739E00BACB3F /* FTDAgentImageCell.m in Sources */,
 				A2615AAD1B4D274E0098EC30 /* UIView+AutoLayout.m in Sources */,
 				A2E7CDD11B6F9C2100FD28FB /* TFWSRKeyView.m in Sources */,
@@ -1731,7 +1783,6 @@
 				185D64D61B6671DF00845F21 /* TFWSCPipeView.m in Sources */,
 				A2615A7A1B4D22C00098EC30 /* AppDelegate.m in Sources */,
 				185D65A51B6673C300845F21 /* TFWSTOrderView.m in Sources */,
-				18CD4BC21B4F6B2D00D20B74 /* FTDPersonalHomeController.m in Sources */,
 				18126A781B70739E00BACB3F /* FTDAgentDetailScoreView.m in Sources */,
 				A2E7CD641B6F9BE700FD28FB /* TFWHelpResultButton.m in Sources */,
 				A2615A771B4D22C00098EC30 /* main.m in Sources */,
@@ -1744,6 +1795,7 @@
 				185D64B51B6671B500845F21 /* TFWRSCenterView.m in Sources */,
 				18126A8A1B70AD8800BACB3F /* FTDNavTableCell.m in Sources */,
 				185D64EF1B66738100845F21 /* BDRootViewController.m in Sources */,
+				18EFA5981B71E17C005ABEF1 /* FTDPersonTModel.m in Sources */,
 				189A1ED91B622D9B002F99F9 /* UIView+MaterialDesign.m in Sources */,
 				185D65A41B6673C300845F21 /* TFWSTOrderRoundItem.m in Sources */,
 				185D65731B6673BC00845F21 /* TFWCFModelView.m in Sources */,
@@ -1857,9 +1909,12 @@
 			baseConfigurationReference = 53741FB2FED2E104B0749630 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: American International Assurance Company Limited Shanghai Branch";
 				INFOPLIST_FILE = FaceTalk/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "649440ab-56aa-4fe3-9468-72990586a768";
 			};
 			name = Debug;
 		};
@@ -1868,9 +1923,12 @@
 			baseConfigurationReference = 02B80C077EFE4DCF271585BE /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: American International Assurance Company Limited Shanghai Branch";
 				INFOPLIST_FILE = FaceTalk/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "649440ab-56aa-4fe3-9468-72990586a768";
 			};
 			name = Release;
 		};

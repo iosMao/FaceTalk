@@ -9,5 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface FTDPersonTModel : NSObject
+@property(nonatomic,strong)NSString *strDesc;
 
 @end

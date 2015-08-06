@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FTDPersonTController : UIViewController
-
+@interface FTDPersonTController : UIViewController<UICollectionViewDelegate,UICollectionViewDataSource,UIActionSheetDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate>
+{
+    int indexId;
+    NSMutableArray *arrayPhoto;
+     
+}
+@property (strong, nonatomic) IBOutlet UICollectionView *collectionPhoto;
+@property(strong,nonatomic)UIPopoverController *imagePicker;
 @end
