@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "TFDNavViewController.h"
 @interface FTDHomeViewController : UIViewController
 @property(nonatomic,strong)UIButton *btn;
 @property (strong, nonatomic) IBOutlet UIButton *btnKey;

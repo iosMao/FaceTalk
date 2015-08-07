@@ -13,4 +13,7 @@
 @property(nonatomic,strong)UITableView *tableMenu;
 @property(nonatomic,strong)UIButton *btnSlider;
 @property(nonatomic,strong)UIButton *btnScreen;
+
+@property(nonatomic,strong)UIButton *btnRightMenu;
+@property(nonatomic,strong)UIView *viewRightMenu;
 @end

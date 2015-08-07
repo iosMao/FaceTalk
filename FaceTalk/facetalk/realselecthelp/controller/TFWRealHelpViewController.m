@@ -9,7 +9,7 @@
 #import "TFWRealHelpViewController.h"
 #import "TFWRealHelpImageView.h"
 #import "TFWRealHelpResultController.h"
-
+#import "FTDPersonTController.h"
 @interface TFWRealHelpViewController ()
 
 @property (nonatomic,strong) NSTimer *timer;
@@ -229,13 +229,17 @@
 
 -(void)okAction
 {
-    NSLog(@"OK");
-    TFWRealHelpResultController *vc = [[TFWRealHelpResultController alloc] init];
-    [self.navigationController pushViewController:vc animated:YES];
+    FTDPersonTController *VC=[[FTDPersonTController alloc]init];
+    [self.navigationController pushViewController:VC animated:YES];
+//    NSLog(@"OK");
+//    TFWRealHelpResultController *vc = [[TFWRealHelpResultController alloc] init];
+//    [self.navigationController pushViewController:vc animated:YES];
 }
 
 -(void)tapAction:(NSInteger)tag
 {
+    TFWRealHelpResultController *vc = [[TFWRealHelpResultController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
     NSLog(@"%ld",tag);
 }
 

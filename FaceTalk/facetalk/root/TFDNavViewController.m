@@ -13,26 +13,80 @@
 @end
 
 @implementation TFDNavViewController
-@synthesize tableMenu,btnSlider,btnScreen;
+@synthesize tableMenu,btnSlider,btnScreen,btnRightMenu,viewRightMenu;
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self buildSliderBtn];
     [self buildSliderTable];
-    
-    self.delegate=self;
+    [self buildRightBtn];
+    [self buildRightViewMenu];
     
     [self.view insertSubview:btnSlider atIndex:10000];
     [self.view insertSubview:tableMenu atIndex:10001];
     [self.view insertSubview:btnScreen atIndex:10002];
+    [self.view insertSubview:btnRightMenu atIndex:10003];
+    [self.view insertSubview:viewRightMenu atIndex:10004];
     // Do any additional setup after loading the view.
     
     
 }
-- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
+-(void)buildRightBtn
 {
+    btnRightMenu=[[UIButton alloc]initWithFrame:CGRectMake(1024-249/1.8, 70, 249/1.8, 109/1.8)];
+    [btnRightMenu setImage:[UIImage imageNamed:@"FTD_shortBG.png"] forState:UIControlStateNormal];
+    [btnRightMenu addTarget:self action:@selector(showRightMenu) forControlEvents:UIControlEventTouchUpInside];
     
-    NSLog(@"sdsdsdsdsd");
 }
+-(void)buildRightViewMenu
+{
+    viewRightMenu=[[UIView alloc]initWithFrame:CGRectMake(1024-249/1.8, 70, 653/1.8, 109/1.8)];
+    UIImageView *imageView=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 653/1.8, 109/1.8)];
+    imageView.image=[UIImage imageNamed:@"FTD_longBG.png"];
+    [viewRightMenu addSubview:imageView];
+   
+    UIButton *btnHidden=[[UIButton alloc]initWithFrame:CGRectMake(0,0,100,109/1.8)];
+    [btnHidden addTarget:self action:@selector(hiddenRightMenu) forControlEvents:UIControlEventTouchUpInside];
+    [viewRightMenu addSubview:btnHidden];
+    
+    for (int i=0; i<5; i++) {
+        UIButton *btnMenu=[[UIButton alloc]initWithFrame:CGRectMake(100+i*(90/1.8),0,90/1.8,100/1.8)];
+        switch (i) {
+            case 0:
+                [btnMenu setImage:[UIImage imageNamed:@"FTD_creatreport.png"] forState:UIControlStateNormal];
+                break;
+            case 1:
+                [btnMenu setImage:[UIImage imageNamed:@"FTD_firstpart.png"] forState:UIControlStateNormal];
+                break;
+            case 2:
+                [btnMenu setImage:[UIImage imageNamed:@"FTD_secondpart.png"] forState:UIControlStateNormal];
+                break;
+            case 3:
+                [btnMenu setImage:[UIImage imageNamed:@"FTD_thirdpart.png"] forState:UIControlStateNormal];
+                break;
+            case 4:
+                [btnMenu setImage:[UIImage imageNamed:@"FTD_fourpart.png"] forState:UIControlStateNormal];
+                break;
+                
+            default:
+                break;
+        }
+        [btnMenu addTarget:self action:@selector(hiddenRightMenu) forControlEvents:UIControlEventTouchUpInside];
+        [viewRightMenu addSubview:btnMenu];
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+     viewRightMenu.hidden=YES;
+    
+}
+
 -(void)buildSliderTable
 {
     tableMenu=[[UITableView alloc]initWithFrame:CGRectMake(-120, 20, 120, self.view.frame.size.height)];
@@ -40,9 +94,7 @@
     tableMenu.dataSource=self;
     tableMenu.separatorColor=[UIColor clearColor];
     tableMenu.backgroundColor=[UIColor colorWithRed:0.72 green:0.01 blue:0.21 alpha:1];
-    tableMenu.layer.shadowOffset = CGSizeMake(0,-3);
-    tableMenu.layer.shadowOpacity = 0.9;
-    tableMenu.layer.shadowColor = [UIColor blackColor].CGColor;
+    tableMenu.hidden=YES;
     //[self.view addSubview:tableMenu];
     
     UIView *viewBG=[[UIView alloc]initWithFrame:CGRectMake(0, 0, 120, 120)];
@@ -70,9 +122,30 @@
     //[self.view addSubview:btnSlider];
     
 }
+-(void)showRightMenu
+{
+    [UIView animateKeyframesWithDuration:0.3 delay:0 options:UIViewKeyframeAnimationOptionLayoutSubviews animations:^{
+        viewRightMenu.hidden=NO;
+        viewRightMenu.frame= CGRectMake(1024-653/1.8, 70, 653/1.8, 109/1.8);
+    } completion:^(BOOL finished) {
+        
+    }];
+}
+-(void)hiddenRightMenu
+{
+    [UIView animateKeyframesWithDuration:0.3 delay:0 options:UIViewKeyframeAnimationOptionLayoutSubviews animations:^{
+        
+        viewRightMenu.frame= CGRectMake(1024-249/1.8, 70, 653/1.8, 109/1.8);
+    } completion:^(BOOL finished) {
+        viewRightMenu.hidden=YES;
+    }];
+
+}
+
 -(void)showtable
 {
     [UIView animateKeyframesWithDuration:0.3 delay:0 options:UIViewKeyframeAnimationOptionLayoutSubviews animations:^{
+        tableMenu.hidden=NO;
         tableMenu.frame=CGRectMake(0, 20, 120, self.view.frame.size.height);
  
         btnScreen.hidden=NO;
@@ -85,11 +158,9 @@
     [UIView animateKeyframesWithDuration:0.3 delay:0 options:UIViewKeyframeAnimationOptionLayoutSubviews animations:^{
         tableMenu.frame=CGRectMake(-120, 20, 120, self.view.frame.size.height);
         btnScreen.hidden=YES;
-        
- 
         //btnSlider.frame = CGRectMake(120,20,50,748);
- 
     } completion:^(BOOL finished) {
+        tableMenu.hidden=YES;
         
     }];
 }

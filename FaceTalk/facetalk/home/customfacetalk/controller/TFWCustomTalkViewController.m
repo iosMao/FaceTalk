@@ -22,9 +22,8 @@
 @implementation TFWCustomTalkViewController
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
+    // Do any additional setup after loading the view.
     [self buildBackGround];
     [self buildBackButton];
     [self buildTitleLabel];
@@ -34,6 +33,8 @@
     [self buildPickerBack];
     [self buildPickerView];
     [self buildOkButton];
+    
+    [super viewDidLoad];
 }
 
 -(void)buildBackGround

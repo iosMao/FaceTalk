@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "TFDNavViewController.h"
 @interface FTDHomeLeadViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UIImageView *imgLeadH;
 - (IBAction)nextbtnclick:(id)sender;
