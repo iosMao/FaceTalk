@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+//客观十大要素结果页
 @interface TFWSRResultViewController : UIViewController
 
 @end

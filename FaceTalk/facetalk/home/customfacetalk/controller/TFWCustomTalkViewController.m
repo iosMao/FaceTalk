@@ -11,6 +11,7 @@
 #import "TFWCFModelView.h"
 #import "TFWCFPickerView.h"
 #import "TFWStartTalkViewController.h"
+#import "TFDNavViewController.h"
 @interface TFWCustomTalkViewController ()
 
 @property (nonatomic,strong) TFWCFLeftToolView *leftToolView;
@@ -22,7 +23,10 @@
 @implementation TFWCustomTalkViewController
 
 - (void)viewDidLoad {
-    
+    NSLog(@"%@",self.navigationController);
+    TFDNavViewController *nav=(TFDNavViewController *)self.navigationController;
+    nav.btnSlider.hidden=NO;
+    nav.btnRightMenu.hidden=NO;
     // Do any additional setup after loading the view.
     [self buildBackGround];
     [self buildBackButton];

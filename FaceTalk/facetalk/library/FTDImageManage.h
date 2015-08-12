@@ -7,7 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import <UIKit/UIKit.h>
 @interface FTDImageManage : NSObject
-
++(NSString *)getImageLocalUrl;
++(NSArray *)getImageArray;
++(BOOL)saveImageToDocument:(UIImage *)image imageName:(NSString *)imagename;
++(BOOL)removeImage:(NSString *)imagename;
 @end

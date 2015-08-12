@@ -39,7 +39,7 @@
 
 -(void)createFiveRound
 {
-    CGFloat num = 140.0f;
+    CGFloat num = 150.0f;
     CGFloat start = 85.0f;
     TFWSRResultView *first = [TFWSRResultView createResultViewCenter:CGPointMake(start, 80) andTitle:@"学习成长" andText:@"满意度" andRate:0.35 roundTitle:@"dawdaw" roundScore:8];
     TFWSRResultView *second = [TFWSRResultView createResultViewCenter:CGPointMake(start + num, 80) andTitle:@"学习成长" andText:@"满意度" andRate:0.35 roundTitle:@"dawdaw" roundScore:8];
@@ -64,7 +64,7 @@
 
 -(void)createMessage
 {
-    UIView *back = [[UIView alloc] initWithFrame:CGRectMake(20, 180, 680, 135)];
+    UIView *back = [[UIView alloc] initWithFrame:CGRectMake(20, 180, 735, 135)];
     back.backgroundColor = [UIColor colorWithRed:211 / 255.0 green:17 / 255.0 blue:69 / 255.0 alpha:1.0];
     [self.contentView addSubview:back];
     

@@ -47,7 +47,7 @@
     _titleLabel = [[UILabel alloc] init];
     _titleLabel.backgroundColor = [UIColor redColor];
     _titleLabel.backgroundColor = [UIColor colorWithRed:211 / 255.0 green:17 / 255.0 blue:69 / 255.0 alpha:1.0];
-    _titleLabel.font = [UIFont systemFontOfSize:18];
+    _titleLabel.font = [UIFont boldSystemFontOfSize:18];
     _titleLabel.textColor = [UIColor whiteColor];
     [self.contentView addSubview:_titleLabel];
     

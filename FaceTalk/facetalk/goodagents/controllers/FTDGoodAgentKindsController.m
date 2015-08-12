@@ -9,7 +9,10 @@
 #import "FTDGoodAgentKindsController.h"
 #import "FTDAgentListCell.h"
 #import "FTDGoodAgentDetailController.h"
+#import "TFWHelpResultMenuView.h"
 @interface FTDGoodAgentKindsController ()
+
+@property (nonatomic,strong) TFWHelpResultMenuView *menu;
 
 @end
 
@@ -18,8 +21,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     tableKind.separatorColor=[UIColor clearColor];
+    tableKind.contentInset=UIEdgeInsetsMake(100, 0, 0, 0);
     tableKind.backgroundColor=[UIColor colorWithRed:0.82 green:0.1 blue:0.28 alpha:1];
     [self CreatMoviePlayer];
+    [self  buildMenu];
     // Do any additional setup after loading the view from its nib.
 }
 -(void)CreatMoviePlayer
@@ -46,8 +51,19 @@
 {
     [MoviePlayer stop];
 }
-
-
+-(void)buildMenu
+{
+    _menu = [TFWHelpResultMenuView createMenuwithArray:@[@"自由职业",@"事业单位",@"企业单位"] andBottom:CGPointMake(76, 730)];
+    __weak FTDGoodAgentKindsController *weakSelf = self;
+    [_menu setResultMenuTapBlock:^(NSInteger index){
+        [weakSelf menuClickAction:index];
+    }];
+    [self.view addSubview:_menu];
+}
+-(void)menuClickAction:(NSInteger)index
+{
+    NSLog(@"index : %d",index);
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

@@ -10,6 +10,8 @@
 #import "FTDCollectionPhotoCell.h"
 #import "FTDbackgroundView.h"
 #import "FTDBigImageView.h"
+#import "FTDImageManage.h"
+#import "TFWReportViewController.h"
 #define KCellID @"CollectionCell"
 
 #define remove_sp(a) [[NSUserDefaults standardUserDefaults] removeObjectForKey:a]
@@ -29,6 +31,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     indexId=10000;
+    isEditPhoto=NO;
+      
     
     [collectionPhoto registerClass:[FTDCollectionPhotoCell class] forCellWithReuseIdentifier:KCellID];
     
@@ -46,14 +50,23 @@
     for (int i; i<100; i++) {
         [arrayDesc addObject:@""];
     }
-    if (get_sp(@"FTDPhoto")!=nil) {
-        arrayPhoto=[NSMutableArray arrayWithArray:get_sp(@"FTDPhoto")];
-    }
+    [self getimage];
     if (get_sp(@"FTDDesc")!=nil) {
         arrayDesc=[NSMutableArray arrayWithArray:get_sp(@"FTDDesc")];
     }
     // Do any additional setup after loading the view from its nib.
 }
+-(void)getimage
+{
+    NSArray *file = [FTDImageManage getImageArray];
+    if (file.count>0) {
+        arrayPhoto=[NSMutableArray arrayWithArray:file];
+    }
+    
+}
+
+
+
 -(void)hiddenImageView
 {
 
@@ -111,7 +124,13 @@
     }else{
         cell.btnG.hidden=NO;
         cell.textDesc.hidden=NO;
-        cell.imgPhoto.image=[UIImage imageWithData: [arrayPhoto objectAtIndex:indexPath.row]];
+        //cell.imgPhoto.image=[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[arrayPhoto objectAtIndex:indexPath.row]]]];
+        
+        NSString *imagePath = [[FTDImageManage getImageLocalUrl] stringByAppendingPathComponent:[arrayPhoto objectAtIndex:indexPath.row]];
+         cell.imgPhoto.image=[UIImage imageWithContentsOfFile:imagePath] ;
+        
+        
+             
         if (arrayDesc.count>0) {
             cell.textDesc.text=[arrayDesc objectAtIndex:indexPath.row];
         }
@@ -136,6 +155,7 @@
         [collectionPhoto reloadData];
     }
      else if (indexPath.row==arrayPhoto.count) {
+         indexId=indexPath.row;
  
         _actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:@"打开图库",@"拍照",nil];
         [_actionSheet showInView:self.view];
@@ -144,7 +164,9 @@
         UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
         
         backgroundView.hidden=NO;
-        bigImageView.imgBig.image=[UIImage imageWithData:[arrayPhoto objectAtIndex:indexPath.row]];
+        NSString *imagePath = [[FTDImageManage getImageLocalUrl] stringByAppendingPathComponent:[arrayPhoto objectAtIndex:indexPath.row]];
+        
+        bigImageView.imgBig.image=[UIImage imageWithContentsOfFile:imagePath];
         bigImageView.lblDesc.text=[arrayDesc objectAtIndex:indexPath.row];
         bigImageView.hidden=NO;
         bigImageView.center = cell.center;
@@ -170,10 +192,6 @@
         if (buttonIndex==0) {
             imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
             imagePicker.allowsEditing=NO;
-            
-            
-            
-            
             UIPopoverController *pop=[[UIPopoverController alloc]initWithContentViewController:imagePicker];
             [pop presentPopoverFromRect:CGRectMake(self.view.frame.size.width/2-100, self.view.frame.size.height-100, 300,300) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionDown animated:YES];
         }
@@ -204,19 +222,64 @@
 {
     
     [picker dismissViewControllerAnimated:YES completion:nil];
+    
     UIImage *photoImage = [info objectForKey:UIImagePickerControllerOriginalImage];
      NSData *imageData = UIImagePNGRepresentation(photoImage);
+    
+    NSDate *senddate=[NSDate date];
+    
+    NSDateFormatter *dateformatter=[[NSDateFormatter alloc] init];
+    
+    [dateformatter setDateFormat:@"YYYYMMddhhmmss"];
+    
+    NSString *locationString=[dateformatter stringFromDate:senddate];
+    
+    if (isEditPhoto) {//如果是编辑照片，那么名字不变，资源变掉
+        
+        BOOL isSuccess= [FTDImageManage saveImageToDocument:photoImage imageName:[arrayPhoto objectAtIndex:indexId]];
+        
+        if (isSuccess) {
+            NSArray *file = [FTDImageManage getImageArray];
+            if (file.count>0) {
+                arrayPhoto=[NSMutableArray arrayWithArray:file];
+            }
+            else{
+                [arrayPhoto removeAllObjects];
+            }
+            
+            isEditPhoto=NO;
+            indexId=10000;
+            [collectionPhoto reloadData];
+        }
+    }
+    else{
+        BOOL isSuccess= [FTDImageManage saveImageToDocument:photoImage imageName:[NSString stringWithFormat:@"%@.png",locationString]];
+        
+        if (isSuccess) {
+            NSArray *file = [FTDImageManage getImageArray];
+            if (file.count>0) {
+                arrayPhoto=[NSMutableArray arrayWithArray:file];
+            }
+            else{
+                [arrayPhoto removeAllObjects];
+            }
+            
+            
+            indexId=10000;
+            [collectionPhoto reloadData];
+        }
+    }
 //    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
 //    NSString *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"imagecache"]];
 //    
 //    imageData writeToFile:<#(NSString *)#> atomically:<#(BOOL)#>
-    if (indexId!=10000) {
-        [arrayPhoto replaceObjectAtIndex:indexId withObject:imageData];
-    }
-    else{
-        [arrayPhoto addObject:imageData];
-    }
-    set_sp(@"FTDPhoto",arrayPhoto);
+//    if (indexId!=10000) {
+//        [arrayPhoto replaceObjectAtIndex:indexId withObject:strUrl];
+//    }
+//    else{
+//        [arrayPhoto addObject:strUrl];
+//    }
+    //set_sp(@"FTDPhoto",arrayPhoto);
     indexId=10000;
     [collectionPhoto reloadData];
     // 如果是相机拍照的，保存在本地
@@ -225,6 +288,32 @@
         UIImageWriteToSavedPhotosAlbum(photoImage, nil, nil, nil);
     }
 }
+
+
+//-(void)saveImageToDocument:(UIImage *)image imageName:(NSString *)imagename
+//{
+//    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+//    NSString *documentsDirectory = [paths objectAtIndex:0];
+//    NSLog(@"documentsDirectory%@",documentsDirectory);
+//    NSFileManager *fileManager = [NSFileManager defaultManager];
+//    NSString *testDirectory = [documentsDirectory stringByAppendingPathComponent:@"Mimage"];
+//    // 创建目录
+//    [fileManager createDirectoryAtPath:testDirectory withIntermediateDirectories:YES attributes:nil error:nil];
+//    
+//    NSString *imagePath = [testDirectory stringByAppendingPathComponent:imagename];
+//    
+//    
+//     //NSFileManager *fileManager = [NSFileManager defaultManager];
+//    
+//    
+//    [fileManager createFileAtPath:imagePath contents:UIImagePNGRepresentation(image) attributes:nil];
+//    
+////    NSArray *paths =NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES);
+////    NSString *filePath = [[paths objectAtIndex:0]stringByAppendingPathComponent:[NSString stringWithFormat:imagename,nil]];  // 保存文件的名称
+////    [UIImagePNGRepresentation(image)writeToFile: filePath atomically:YES];
+//}
+
+
 
 -(void)editclick:(UIButton *)sender
 {
@@ -240,6 +329,7 @@
     NSIndexPath *indexPath=[collectionPhoto indexPathForCell:cell];
     NSLog(@"%ld",(long)indexPath.row);
     indexId=indexPath.row;
+    isEditPhoto=YES;
     _actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:@"打开图库",@"拍照",nil];
     [_actionSheet showInView:self.view];
     
@@ -249,8 +339,18 @@
     FTDCollectionPhotoCell *cell= (FTDCollectionPhotoCell *)[[[sender superview] superview]superview];
     NSIndexPath *indexPath=[collectionPhoto indexPathForCell:cell];
     NSLog(@"%ld",(long)indexPath.row);
-    [arrayPhoto removeObjectAtIndex:indexPath.row];
-    set_sp(@"FTDPhoto",arrayPhoto);
+    [arrayDesc removeObjectAtIndex:indexPath.row];
+    [FTDImageManage removeImage:[arrayPhoto objectAtIndex:indexPath.row]];
+    
+    NSArray *file = [FTDImageManage getImageArray];
+    if (file.count>0) {
+        arrayPhoto=[NSMutableArray arrayWithArray:file];
+    }
+    else{
+        [arrayPhoto removeAllObjects];
+    }
+    
+    
     indexId=10000;
     [collectionPhoto reloadData];
 }
@@ -278,7 +378,9 @@
     
 }
 
-
+-(void)dealloc{
+    NSLog(@"个人团队释放");
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -295,6 +397,11 @@
 */
 
 - (IBAction)backclick:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    //[self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)nextclick:(id)sender {
+    TFWReportViewController *vc=[[TFWReportViewController alloc]init];
+    [self.navigationController setViewControllers:@[vc] animated:YES];
 }
 @end

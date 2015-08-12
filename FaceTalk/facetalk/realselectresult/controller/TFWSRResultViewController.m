@@ -113,7 +113,8 @@
 {
     NSLog(@"OK");
     FTDGoodAgentHomeController *vc = [[FTDGoodAgentHomeController alloc] init];
-    [self.navigationController pushViewController:vc animated:YES];
+    [self.navigationController setViewControllers:@[vc] animated:YES];
+    //[self.navigationController pushViewController:vc animated:YES];
 }
 
 

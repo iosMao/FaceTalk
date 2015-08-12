@@ -43,7 +43,7 @@ static NSString *cellSuggestIdentifier = @"cellSuggestIdentifier";
 
 -(id)initWithFrame:(CGRect)frame
 {
-    self = [super initWithFrame:CGRectMake(0, 0, 771, 550)];
+    self = [super initWithFrame:CGRectMake(0, 0, 771, 570)];
     
     if (self) {
         [self initView];
@@ -64,6 +64,7 @@ static NSString *cellSuggestIdentifier = @"cellSuggestIdentifier";
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     _tableView.dataSource = self;
     _tableView.delegate = self;
+    //_tableView.backgroundColor=[UIColor blueColor];
     
     [self createHeadView];
     
@@ -138,7 +139,41 @@ static NSString *cellSuggestIdentifier = @"cellSuggestIdentifier";
     }else if (indexPath.section == 1){
         TFWReportTenElementCell *cell = [tableView dequeueReusableCellWithIdentifier:cellTenElementIdentifier forIndexPath:indexPath];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        [cell configImageName:@"ftw_share_pro" Title:@"         收入丰厚" SubTitle:@"dadwadwadwadwadwa dacawaawdadawxawxawdawadxwxdawxawxdawawxawxawdawxdawxawwaawxawawxawxaw" andCheck:NO];
+        switch (indexPath.row) {
+            case 0:
+                [cell configImageName:@"ftw_share_money" Title:@"         收入丰厚" SubTitle:@"dadwadwadwadwadwa dacawaawdadawxawxawdawadxwxdawxawxdawawxawxawdawxdawxawwaawxawawxawxaw" andCheck:NO];
+                break;
+            case 1:
+                [cell configImageName:@"ftw_share_key" Title:@"         收入丰厚" SubTitle:@"dadwadwadwadwadwa dacawaawdadawxawxawdawadxwxdawxawxdawawxawxawdawxdawxawwaawxawawxawxaw" andCheck:NO];
+                break;
+            case 2:
+                [cell configImageName:@"ftw_share_book" Title:@"         学习成长" SubTitle:@"dadwadwadwadwadwa dacawaawdadawxawxawdawadxwxdawxawxdawawxawxawdawxdawxawwaawxawawxawxaw" andCheck:NO];
+                break;
+            case 3:
+                [cell configImageName:@"ftw_share_clock" Title:@"         工作自主" SubTitle:@"dadwadwadwadwadwa dacawaawdadawxawxawdawadxwxdawxawxdawawxawxawdawxdawxawwaawxawawxawxaw" andCheck:NO];
+                break;
+            case 4:
+                [cell configImageName:@"ftw_share_start" Title:@"         社会贡献" SubTitle:@"dadwadwadwadwadwa dacawaawdadawxawxawdawadxwxdawxawxdawawxawxawdawxdawxawwaawxawawxawxaw" andCheck:NO];
+                break;
+            case 5:
+                [cell configImageName:@"ftw_share_heart" Title:@"         适合度" SubTitle:@"dadwadwadwadwadwa dacawaawdadawxawxawdawadxwxdawxawxdawawxawxawdawxdawxawwaawxawawxawxaw" andCheck:NO];
+                break;
+            case 6:
+                [cell configImageName:@"ftw_share_pro" Title:@"         发展空间" SubTitle:@"dadwadwadwadwadwa dacawaawdadawxawxawdawadxwxdawxawxdawawxawxawdawxdawxawwaawxawawxawxaw" andCheck:NO];
+                break;
+            case 7:
+                [cell configImageName:@"ftw_share_honour" Title:@"         荣誉奖励" SubTitle:@"dadwadwadwadwadwa dacawaawdadawxawxawdawadxwxdawxawxdawawxawxawdawxdawxawwaawxawawxawxaw" andCheck:NO];
+                break;
+            case 8:
+                [cell configImageName:@"ftw_share_flower" Title:@"         生活平衡" SubTitle:@"dadwadwadwadwadwa dacawaawdadawxawxawdawadxwxdawxawxdawawxawxawdawxdawxawwaawxawawxawxaw" andCheck:NO];
+                break;
+            case 9:
+                [cell configImageName:@"ftw_share_plane" Title:@"         自由晋级" SubTitle:@"dadwadwadwadwadwa dacawaawdadawxawxawdawadxwxdawxawxdawawxawxawdawxdawxawwaawxawawxawxaw" andCheck:NO];
+                break;
+            default:
+                break;
+        }
+        //[cell configImageName:@"ftw_share_pro" Title:@"         收入丰厚" SubTitle:@"dadwadwadwadwadwa dacawaawdadawxawxawdawadxwxdawxawxdawawxawxawdawxdawxawwaawxawawxawxaw" andCheck:NO];
         return cell;
     }
     else{

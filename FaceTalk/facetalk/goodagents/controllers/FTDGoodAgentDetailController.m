@@ -9,8 +9,9 @@
 #import "FTDGoodAgentDetailController.h"
 #import "FTDAgentImageCell.h"
 #import "FTDAgentDetailScoreView.h"
+#import "TFWHelpResultMenuView.h"
 @interface FTDGoodAgentDetailController ()
-
+@property (nonatomic,strong) TFWHelpResultMenuView *menu;
 @end
 
 @implementation FTDGoodAgentDetailController
@@ -19,10 +20,12 @@
     [super viewDidLoad];
     indexid=1000000;
     tableAgentList.separatorColor=[UIColor clearColor];
-    [self initScoreView];
+    tableAgentList.contentInset=UIEdgeInsetsMake(100, 0, 0, 0);
+    [self buildScoreView];
+    [self buildMenu];
     // Do any additional setup after loading the view from its nib.
 }
--(void)initScoreView
+-(void)buildScoreView
 {
     for (int i=0; i<5; i++) {
         FTDAgentDetailScoreView *ScoreView=[FTDAgentDetailScoreView setCustomview];
@@ -30,10 +33,24 @@
         ScoreView.frame=CGRectMake(510, 137+112*i, 340, 110);
         [self.view addSubview:ScoreView];
     }
-    
-    
-    
 }
+
+-(void)buildMenu
+{
+    _menu = [TFWHelpResultMenuView createMenuwithArray:@[@"自由职业",@"应届毕业生",@"家庭主妇",@"其他"] andBottom:CGPointMake(76, 730)];
+    __weak FTDGoodAgentDetailController *weakSelf = self;
+    [_menu setResultMenuTapBlock:^(NSInteger index){
+        [weakSelf menuClickAction:index];
+    }];
+    [self.view addSubview:_menu];
+}
+-(void)menuClickAction:(NSInteger)index
+{
+    NSLog(@"index : %d",index);
+}
+
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

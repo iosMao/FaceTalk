@@ -8,14 +8,16 @@
 
 #import "TFWReportViewController.h"
 #import "TFWReportView.h"
-
-@interface TFWReportViewController ()
+#import "FTDShareView.h"
+#import "FTDbackgroundView.h"
+@interface TFWReportViewController ()<FTDShareViewDeledate>
 
 @property (nonatomic,strong) UILabel *titleLabel;
 @property (nonatomic,strong) UILabel *customNameLabel;
 @property (nonatomic,strong) UILabel *adviserNameLabel;
 @property (nonatomic,strong) TFWReportView *reportView;
-
+@property (nonatomic,strong) FTDShareView *shareView;
+@property (nonatomic,strong) FTDbackgroundView *backgroundView;
 @end
 
 @implementation TFWReportViewController
@@ -25,14 +27,25 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
     [self buildBackGround];
-    [self buildBackButton];
+    //[self buildBackButton];
     [self buildTitleLabel];
     [self buildNameLabel];
     [self buildReportView];
-    [self buildPopButton];
+    //[self buildPopButton];
     [self buildShadow];
+    [self buildOkButton];
+    [self buildShareButton];
+    [self buildShareView];
 }
-
+-(void)buildShareView
+{
+    _backgroundView= [[FTDbackgroundView alloc]initWithFrame:self.view.frame];
+    _shareView=[FTDShareView initCustomview];
+    _shareView.delegate=self;
+    _shareView.center=CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2-80);
+    
+    
+}
 -(void)buildBackGround
 {
     UIImageView *back = [[UIImageView alloc] initWithFrame:CGRectMake(0, 20, 2046 / 2.0, 1496 / 2.0)];
@@ -52,7 +65,7 @@
 -(void)buildTitleLabel
 {
     self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(296 / 2.0, 148 / 2.0, 389 / 2.0, 30)];
-    self.titleLabel.text = @"定制面谈流程";
+    self.titleLabel.text = @"生成职业评估报告";
     self.titleLabel.font = [UIFont systemFontOfSize:32];
     self.titleLabel.textColor = [UIColor colorWithRed:188 / 255.0 green:0 / 255.0 blue:52 / 255.0 alpha:1];
     [self.view addSubview:self.titleLabel];
@@ -97,19 +110,61 @@
     [self.view addSubview:_reportView];
 }
 
+-(void)buildOkButton
+{
+    UIButton *bt = [UIButton buttonWithType:UIButtonTypeCustom];
+    bt.frame = CGRectMake(822, 600, 150/1.2,154/1.2);
+    [bt setImage:[UIImage imageNamed:@"ftw_share_continue"] forState:UIControlStateNormal];
+    [bt addTarget:self action:@selector(continueAction) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:bt];
+}
+-(void)buildShareButton
+{
+    UIButton *bt = [UIButton buttonWithType:UIButtonTypeCustom];
+    bt.frame = CGRectMake(672, 600, 150/1.2,154/1.2);
+    [bt setImage:[UIImage imageNamed:@"ftw_share_share"] forState:UIControlStateNormal];
+    [bt addTarget:self action:@selector(ShareAction) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:bt];
+}
+
+
 -(void)popAction:(UIButton *)button
 {
-    [UIView animateWithDuration:1.0 animations:^{
-        _reportView.center = CGPointMake(CGRectGetMidX(_customNameLabel.frame), 295);
-        _reportView.alpha = 1.0f;
-    }];
+//    [UIView animateWithDuration:1.0 animations:^{
+//        _reportView.center = CGPointMake(CGRectGetMidX(_customNameLabel.frame), 295);
+//        _reportView.alpha = 1.0f;
+//    }];
 }
 
 -(void)back:(UIButton *)button
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
+-(void)ShareAction
+{
+    [self.view addSubview:_backgroundView];
+    [self.view addSubview:_shareView];
+}
 
+-(void)continueAction
+{
+    
+}
+-(void)shareQQ{
+    NSLog(@"qq分享");
+}
+-(void)shareWeChat{
+    NSLog(@"wechat分享");
+}
+-(void)sendtextEmail:(NSString *)textEmail
+{
+    NSLog(@"%@",textEmail);
+}
+-(void)cancelview
+{
+    [_backgroundView removeFromSuperview];
+    [_shareView removeFromSuperview];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

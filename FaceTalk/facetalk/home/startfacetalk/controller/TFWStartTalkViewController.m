@@ -9,6 +9,7 @@
 #import "TFWStartTalkViewController.h"
 #import "TFWSTOrderView.h"
 #import "TFWRealOrderViewController.h"
+#import "TFDNavViewController.h"
 @interface TFWStartTalkViewController ()
 
 @property (nonatomic,strong) UILabel *titleLabel;
@@ -20,7 +21,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    TFDNavViewController *nav=(TFDNavViewController *)self.navigationController;
+    nav.btnSlider.hidden=NO;
+    nav.btnRightMenu.hidden=NO;
     [self buildBackGround];
     [self buildBackButton];
     [self buildTitleLabel];
@@ -79,7 +82,8 @@
 -(void)okAction
 {
     TFWRealOrderViewController *vc=[[TFWRealOrderViewController alloc]init];
-    [self.navigationController pushViewController:vc animated:YES];
+    [self.navigationController setViewControllers:@[vc] animated:YES];
+    //[self.navigationController pushViewController:vc animated:YES];
     NSLog(@"OK");
 }
 

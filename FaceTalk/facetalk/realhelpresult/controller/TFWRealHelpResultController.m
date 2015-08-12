@@ -33,7 +33,7 @@
 -(void)buildBackGround
 {
     UIImageView *back = [[UIImageView alloc] initWithFrame:CGRectMake(0, 20, 1024, 748)];
-    back.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ft_ten_back" ofType:@"png"]];
+    back.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"FTDbackgroundImage" ofType:@"png"]];
     [self.view addSubview:back];
 }
 

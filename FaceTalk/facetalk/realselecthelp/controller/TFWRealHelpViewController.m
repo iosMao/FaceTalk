@@ -49,7 +49,7 @@
 -(void)buildBackGround
 {
     UIImageView *back = [[UIImageView alloc] initWithFrame:CGRectMake(0, 20, 1024, 748)];
-    back.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ft_ten_back" ofType:@"png"]];
+    back.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"FTDbackgroundImage" ofType:@"png"]];
     [self.view addSubview:back];
 }
 
@@ -229,8 +229,9 @@
 
 -(void)okAction
 {
-    FTDPersonTController *VC=[[FTDPersonTController alloc]init];
-    [self.navigationController pushViewController:VC animated:YES];
+    FTDPersonTController *vc=[[FTDPersonTController alloc]init];
+    [self.navigationController setViewControllers:@[vc] animated:YES];
+    //[self.navigationController pushViewController:VC animated:YES];
 //    NSLog(@"OK");
 //    TFWRealHelpResultController *vc = [[TFWRealHelpResultController alloc] init];
 //    [self.navigationController pushViewController:vc animated:YES];
@@ -245,6 +246,7 @@
 
 -(void)dealloc
 {
+    NSLog(@"友邦十大要素释放");
     if (_timer) {
         [_timer invalidate];
         _timer = nil;

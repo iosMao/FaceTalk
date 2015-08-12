@@ -10,6 +10,8 @@
 #import "FTDHomeViewController.h"
 #import "TFDNavViewController.h"
 #import "FTDPersonTController.h"
+#import "FTDHomeLeadViewController.h"
+#import "TFWRealOrderViewController.h"
 @interface BDRootViewController ()
 
 @end

@@ -13,20 +13,27 @@
 #import "FTDHomAlertFinishView.h"
 #import "TFWCustomTalkViewController.h"
 #import "TFWStartTalkViewController.h"
+#import "TFDNavViewController.h"
 @interface FTDHomeLeadViewController ()<FTDHomeAlertViewDeledate,FTDHomeAlertFinishViewDeledate>
 {
     int imgIndex;
     FTDHomeAlertView *homeAlertView;
     FTDHomAlertFinishView *homeAlertFinishView;
     FTDbackgroundView *backgroundView;
-}
+    
+   }
+@property(nonatomic,strong) NSTimer *loadTimer;
+
 @end
 
 @implementation FTDHomeLeadViewController
-@synthesize imgLeadH;
+@synthesize imgLeadH,loadTimer;
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    NSLog(@"%@",self.navigationController);
+    TFDNavViewController *nav=(TFDNavViewController *)self.navigationController;
+    nav.btnSlider.hidden=NO;
+    nav.btnRightMenu.hidden=YES;
     imgIndex=0;
     
     backgroundView= [[FTDbackgroundView alloc]initWithFrame:self.view.frame];
@@ -39,8 +46,18 @@
     homeAlertFinishView.delegate= self;
     homeAlertFinishView.center=CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2-80);
     
-    [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(loadimg) userInfo:nil repeats:YES];
+    
+//    [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(loadimg) userInfo:nil repeats:YES];
     // Do any additional setup after loading the view from its nib.
+}
+-(void)viewWillAppear:(BOOL)animated
+{
+    loadTimer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(loadimg) userInfo:nil repeats:YES];
+    [loadTimer fire];
+}
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [loadTimer invalidate];
 }
 -(void)loadimg
 {

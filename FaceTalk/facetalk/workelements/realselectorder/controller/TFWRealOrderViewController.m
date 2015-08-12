@@ -19,6 +19,8 @@
 @property (nonatomic,assign) int index;
 @property (nonatomic,assign) int animation_index;
 @property (nonatomic,strong) NSMutableArray *viewArray;
+@property (nonatomic,strong) NSTimer *circleTimer;
+@property (nonatomic,strong) NSTimer *animationTimer;
 
 @end
 
@@ -38,11 +40,20 @@
     [self buildOkButton];
     [self buildCenterView];
     [self buildTenElements];
+    [self.view.layer setMasksToBounds:YES];
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [self startAnimation];
+    _circleTimer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(panRound) userInfo:nil repeats:YES];
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    NSLog(@"%@ viewWillDisappear",[self class]);
+    [_circleTimer invalidate];
+    [_animationTimer invalidate];
 }
 
 -(void)buildBackGround
@@ -81,12 +92,16 @@
 
 -(void)buildPan
 {
+    UIView *back = [[UIView alloc] initWithFrame:CGRectMake(0, 43, 1024, 768 - 68)];
+    back.backgroundColor = [UIColor clearColor];
+    back.layer.masksToBounds = YES;
+    [self.view addSubview:back];
     _panView = [UIImageView new];
     _panView.layer.anchorPoint = CGPointMake(0.5, 0);
-    _panView.frame = CGRectMake(235, 375, 601, 416);
+    _panView.frame = CGRectMake(235, 340, 601, 416);
     _panView.image = [UIImage imageNamed:@"tfw_rs_pan"];
-    [self.view addSubview:_panView];
-    [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(panRound) userInfo:nil repeats:YES];
+    [back addSubview:_panView];
+    
 }
 
 -(void)buildCenterView
@@ -203,7 +218,7 @@
 
 -(void)startAnimation
 {
-    [NSTimer scheduledTimerWithTimeInterval:0.6 target:self selector:@selector(timerAction:) userInfo:self repeats:YES];
+    _animationTimer = [NSTimer scheduledTimerWithTimeInterval:0.6 target:self selector:@selector(timerAction:) userInfo:self repeats:YES];
 }
 
 -(void)timerAction:(NSTimer *)timer
@@ -344,6 +359,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)dealloc
+{
+    NSLog(@"%@",[self class]);
+}
 /*
 #pragma mark - Navigation
 

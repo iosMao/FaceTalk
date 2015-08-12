@@ -51,7 +51,7 @@
 //    transformbtnCareer = CGAffineTransformScale(transformbtnCareer, 2,2);
 //    btnCareer.transform = transformbtnCareer;
     
-    [UIView animateKeyframesWithDuration:1 delay:1 options:UIViewKeyframeAnimationOptionLayoutSubviews animations:^{
+    [UIView animateKeyframesWithDuration:0.5 delay:1 options:UIViewKeyframeAnimationOptionLayoutSubviews animations:^{
         
         imgCup.alpha=1;
         imgGlass.alpha=1;
@@ -60,40 +60,21 @@
         
         
     } completion:^(BOOL finished) {
-        [UIView animateKeyframesWithDuration:1 delay:0 options:UIViewKeyframeAnimationOptionLayoutSubviews animations:^{
+        [UIView animateKeyframesWithDuration:0.5 delay:0 options:UIViewKeyframeAnimationOptionLayoutSubviews animations:^{
             imgCamera.alpha=1;
             imgKey.alpha=1;
             
         } completion:^(BOOL finished) {
-            [UIView animateKeyframesWithDuration:1 delay:0 options:UIViewKeyframeAnimationOptionLayoutSubviews animations:^{
+            [UIView animateKeyframesWithDuration:0.8 delay:0 options:UIViewKeyframeAnimationOptionLayoutSubviews animations:^{
                 imgPenBox.alpha=1;
-                
+                btnCompany.alpha=1;
+                btnCareer.alpha=1;
+                btnFreedom.alpha=1;
+                btnCompany.center=CGPointMake(270, 394);
+                btnFreedom.center=CGPointMake(526, 394);
+                btnCareer.center=CGPointMake(787, 394);
             } completion:^(BOOL finished) {
-                [UIView animateKeyframesWithDuration:0.8 delay:0 options:UIViewKeyframeAnimationOptionLayoutSubviews animations:^{
-                    btnCompany.alpha=1;
-                    btnCareer.alpha=1;
-                    btnFreedom.alpha=1;
-                    btnCompany.center=CGPointMake(270, 394);
-                    btnFreedom.center=CGPointMake(526, 394);
-                    btnCareer.center=CGPointMake(787, 394);
-                     
-//                    CGAffineTransform transform = btnCompany.transform;
-//                    transform = CGAffineTransformScale(transform, 0.5,0.5);
-//                    btnCompany.transform = transform;
-//                    
-                     
-//                    CGAffineTransform transform1 = btnCareer.transform;
-//                    transform1 = CGAffineTransformScale(transform1, 0.5,0.5);
-//                    btnCareer.transform = transform1;
-//                    
-                    
-//                    CGAffineTransform transform2 = btnFreedom.transform;
-//                    transform2 = CGAffineTransformScale(transform2, 0.5,0.5);
-//                    btnFreedom.transform = transform2;
-                    
-                } completion:^(BOOL finished) {
-                    
-                }];
+                
             }];
             
         }];
@@ -126,7 +107,8 @@
 
 - (IBAction)nextAction:(id)sender {
     TFWRealHelpViewController *vc=[[TFWRealHelpViewController alloc]init];
-    [self.navigationController pushViewController:vc animated:YES];
+    [self.navigationController setViewControllers:@[vc] animated:YES];
+    //[self.navigationController pushViewController:vc animated:YES];
 }
 
 - (IBAction)backclick:(id)sender {
@@ -156,4 +138,10 @@
 
 - (IBAction)careerclick:(id)sender {
 }
+
+-(void)dealloc{
+    NSLog(@"优秀营销员释放");
+}
+
+
 @end

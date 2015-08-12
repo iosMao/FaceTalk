@@ -115,7 +115,7 @@
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-    NSLog(@"%@",[self getCurrentSelected]);
+    NSLog(@"sdsdsds%@",[self getCurrentSelected]);
 }
 
 -(NSArray *)getCurrentSelected

@@ -11,6 +11,7 @@
 @interface FTDPersonTController : UIViewController<UICollectionViewDelegate,UICollectionViewDataSource,UIActionSheetDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate,UITextFieldDelegate>
 {
     int indexId;//记录是第几个的id
+    BOOL isEditPhoto;
     NSMutableArray *arrayPhoto;
     NSMutableArray *arrayDesc;
     
@@ -18,4 +19,5 @@
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionPhoto;
 @property(strong,nonatomic)UIPopoverController *imagePicker;
 - (IBAction)backclick:(id)sender;
+- (IBAction)nextclick:(id)sender;
 @end

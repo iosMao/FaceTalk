@@ -9,6 +9,7 @@
 #import "FTDHomeViewController.h"
 #import "FTDHomeLeadViewController.h"
 #import "UIView+MaterialDesign.h"
+#import "TFDNavViewController.h"
 @interface FTDHomeViewController ()
 
 @end
@@ -17,11 +18,18 @@
 @synthesize btnKey,scrollBG;
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSLog(@"%@",self.navigationController);
+    TFDNavViewController *nav=(TFDNavViewController *) self.navigationController;
+    nav.btnSlider.hidden=YES;
+    nav.btnRightMenu.hidden=YES;
     
-    scrollBG.contentSize=CGSizeMake(1024*3, 748);
+    scrollBG.contentSize=CGSizeMake(1024, 748);
     scrollBG.pagingEnabled=YES;
-    
+    scrollBG.scrollEnabled=NO;
     [btnKey addTarget:self action:@selector(homeLeadViewclick:event:) forControlEvents:UIControlEventTouchUpInside];
+    UIImageView *scrollImage=[[UIImageView alloc]initWithFrame:CGRectMake(0,20, 1024,748)];
+    scrollImage.image=[UIImage imageNamed:@"FTD_home_aiaoffice.png"];
+    [scrollBG addSubview:scrollImage];
 //    [btnKey addTarget:self action:@selector(dragEnded:withEvent: )forControlEvents: UIControlEventTouchUpInside |
 //     UIControlEventTouchUpOutside];
     // Do any additional setup after loading the view from its nib.
@@ -56,6 +64,8 @@
 
 -(void)homeLeadViewclick:(UIButton *)sender event:(UIEvent *)event
 {
+    
+    __weak FTDHomeViewController *weak=self;
     [UIView animateKeyframesWithDuration:2 delay:0 options:UIViewKeyframeAnimationOptionLayoutSubviews animations:^{
         btnKey.center=CGPointMake(512, 440);
         btnKey.alpha=0;
@@ -66,7 +76,8 @@
         
         [UIView mdInflateTransitionFromView:self.view toView:FTDHomeLeadViewCol.view originalPoint:exactTouchPosition duration:1.5 completion:^{
             NSLog(@"completed!");
-            [self.navigationController pushViewController:FTDHomeLeadViewCol animated:YES];
+            [weak.navigationController pushViewController:FTDHomeLeadViewCol animated:YES];
+            
         }];
     }];
     

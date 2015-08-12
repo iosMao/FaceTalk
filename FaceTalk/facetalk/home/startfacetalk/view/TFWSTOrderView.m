@@ -53,7 +53,7 @@
     
     for (int i = 0; i < 4; i++) {
         NSInteger index = [[self.orderArray objectAtIndex:i] intValue];
-        TFWSTOrderItem *item = [TFWSTOrderItem createItemWithCenter:CGPointMake(150 + 200 * i, 190) andIndex:index delay:0.5 * i];
+        TFWSTOrderItem *item = [TFWSTOrderItem createItemWithCenter:CGPointMake(150 + 200 * i, 190) andIndex:index delay:0.0 * i];
         item.transform = CGAffineTransformScale(item.transform, 0.9, 0.9);
         [self addSubview:item];
         if (i < 3) {

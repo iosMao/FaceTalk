@@ -8,6 +8,11 @@
 
 #import "TFDNavViewController.h"
 #import "FTDNavTableCell.h"
+#import "TFWRealOrderViewController.h"
+#import "FTDGoodAgentHomeController.h"
+#import "TFWRealHelpViewController.h"
+#import "FTDPersonTController.h"
+#import "TFWReportViewController.h"
 @interface TFDNavViewController ()
 
 @end
@@ -50,6 +55,7 @@
     
     for (int i=0; i<5; i++) {
         UIButton *btnMenu=[[UIButton alloc]initWithFrame:CGRectMake(100+i*(90/1.8),0,90/1.8,100/1.8)];
+        btnMenu.tag=i+300;
         switch (i) {
             case 0:
                 [btnMenu setImage:[UIImage imageNamed:@"FTD_creatreport.png"] forState:UIControlStateNormal];
@@ -70,7 +76,7 @@
             default:
                 break;
         }
-        [btnMenu addTarget:self action:@selector(hiddenRightMenu) forControlEvents:UIControlEventTouchUpInside];
+        [btnMenu addTarget:self action:@selector(Menuclick:) forControlEvents:UIControlEventTouchUpInside];
         [viewRightMenu addSubview:btnMenu];
     }
     
@@ -120,8 +126,44 @@
     [btnSlider addTarget:self action:@selector(showtable) forControlEvents:UIControlEventTouchUpInside];
     btnSlider.backgroundColor=[UIColor clearColor];
     //[self.view addSubview:btnSlider];
+}
+
+-(void)Menuclick:(UIButton *)sender
+{
+    [self hiddenRightMenu];
+    NSLog(@"%ld",sender.tag-300);
+    if (sender.tag-300==0) {
+        TFWReportViewController *vc=[[TFWReportViewController alloc]init];
+        [self setViewControllers:@[vc] animated:YES];
+        NSLog(@"%@",self.viewControllers);
+    }
+    else if (sender.tag-300==1) {
+        TFWRealOrderViewController *vc=[[TFWRealOrderViewController alloc]init];
+        [self setViewControllers:@[vc] animated:YES];
+        NSLog(@"%@",self.viewControllers);
+    }
+    else if (sender.tag-300==2)
+    {
+        FTDGoodAgentHomeController *vc=[[FTDGoodAgentHomeController alloc]init];
+         [self setViewControllers:@[vc] animated:YES];
+    }
+    else if (sender.tag-300==3)
+    {
+        TFWRealHelpViewController *vc=[[TFWRealHelpViewController alloc]init];
+         [self setViewControllers:@[vc] animated:YES];
+    }
+    else if (sender.tag-300==4)
+    {
+        FTDPersonTController *vc=[[FTDPersonTController alloc]init];
+        [self setViewControllers:@[vc] animated:YES];
+
+    }
+    
+        
+     
     
 }
+
 -(void)showRightMenu
 {
     [UIView animateKeyframesWithDuration:0.3 delay:0 options:UIViewKeyframeAnimationOptionLayoutSubviews animations:^{
@@ -176,7 +218,7 @@
 {
     //#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 5;
+    return 6;
 }
 
 
@@ -191,7 +233,7 @@
         NSArray *nib=[[NSBundle mainBundle]loadNibNamed:@"FTDNavTableCell" owner:self options:nil];
         cell=[nib objectAtIndex:0];
         cell.selectionStyle=UITableViewCellSelectionStyleNone;
-         cell.backgroundColor=[UIColor colorWithRed:0.72 green:0.01 blue:0.21 alpha:1];
+        cell.backgroundColor=[UIColor colorWithRed:0.72 green:0.01 blue:0.21 alpha:1];
         
     }
     NSString *strImg=[NSString stringWithFormat:@"FTD_slider_image%ld.png",(long)indexPath.row];
@@ -199,18 +241,22 @@
     
     switch (indexPath.row) {
         case 0:
-            cell.lblTitle.text=@"职涯演示";
+            cell.lblTitle.text=@"首页";
+             cell.imgIcon.image=[UIImage imageNamed:@"FTD_slider_home.png"];
             break;
         case 1:
-            cell.lblTitle.text=@"培训导航";
+            cell.lblTitle.text=@"职涯演示";
             break;
         case 2:
-            cell.lblTitle.text=@"收入试算";
+            cell.lblTitle.text=@"培训导航";
             break;
         case 3:
-            cell.lblTitle.text=@"营销员的一天";
+            cell.lblTitle.text=@"收入试算";
             break;
         case 4:
+            cell.lblTitle.text=@"营销员的一天";
+            break;
+        case 5:
             cell.lblTitle.text=@"EOP报名";
             break;
         default:
@@ -234,6 +280,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (indexPath.row==0) {
+        [self popToRootViewControllerAnimated:NO];
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
     
 }
 - (void)didReceiveMemoryWarning {
