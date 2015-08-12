@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>831BF1AF-4DCF-461A-BB01-522F97E62D73</string>
+	<key>IDESourceControlProjectName</key>
+	<string>FaceTalk</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>35884EE26BF6D0E4415DD83D6EF9C9E204320131</key>
+		<string>https://github.com/iosMao/FaceTalk.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>FaceTalk.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>35884EE26BF6D0E4415DD83D6EF9C9E204320131</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/iosMao/FaceTalk.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>35884EE26BF6D0E4415DD83D6EF9C9E204320131</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>35884EE26BF6D0E4415DD83D6EF9C9E204320131</string>
+			<key>IDESourceControlWCCName</key>
+			<string>FaceTalk</string>
+		</dict>
+	</array>
+</dict>
+</plist>
