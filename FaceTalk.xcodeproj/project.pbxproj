@@ -1432,8 +1432,8 @@
 			isa = PBXGroup;
 			children = (
 				A2615AB71B4D29820098EC30 /* share */,
-				185D64D71B66725F00845F21 /* home */,
 				A2615AAC1B4D274E0098EC30 /* root */,
+				185D64D71B66725F00845F21 /* home */,
 				A2615A9B1B4D274E0098EC30 /* library */,
 				A2615AB61B4D297A0098EC30 /* workelements */,
 				18126A581B70739E00BACB3F /* goodagents */,

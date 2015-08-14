@@ -65,7 +65,7 @@
     
 }
 //////////////////////////以下两个由quix提供
--(NSArray *)searchTalentsWithKeyWords:(NSString *)keywords//这个方法由quix提供
+-(NSArray *)searchContactWithKeywords:(NSString *)keywords//这个方法由quix提供
 {
     NSMutableArray *array=[[NSMutableArray alloc]init];
     for (int i=0; i<6; i++) {
@@ -74,9 +74,14 @@
     }
     return array;
 }
--(BOOL)addTalent:(FTDCustomerModel *)talent//这个方法由quix提供,增加用户
+
+-(BOOL)createContact//这个方法由quix提供,增加用户  调用- (TblContact *)createContact 接口   说明下TblContact的结构
 {
     return YES;
+}
+-(void)saveLocalDBData//QUIX的保存数据库接口
+{
+    
 }
 //////////////////////////
 
@@ -85,7 +90,7 @@
 -(void)searchAgentList:(NSString *)agentName//fix me 此处调用本地数据库查询接口
 {
     [arrayList removeAllObjects];
-     arrayList=[NSMutableArray arrayWithArray:[self searchTalentsWithKeyWords:agentName]];//这里调查询数据库接口
+     arrayList=[NSMutableArray arrayWithArray:[self searchContactWithKeywords:agentName]];//这里调查询数据库接口
     
     if (arrayList.count>0) {
         tableName.hidden=NO;
@@ -101,10 +106,11 @@
 -(void)addAgent:(FTDCustomerModel *)model//fix me 此处调用本地数据库新增人才接口
 {
     BOOL isSuccess;
-    isSuccess=[self addTalent:model];
+    isSuccess=[self createContact];
     
     if (isSuccess) {
         NSLog(@"用户插入成功");
+        [self saveLocalDBData];
         if ([self.delegate respondsToSelector:@selector(homeAlertCreatclick)]) {
             [self.delegate homeAlertCreatclick];
         }

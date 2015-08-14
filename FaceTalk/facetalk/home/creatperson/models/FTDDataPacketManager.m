@@ -8,10 +8,11 @@
 
 #import "FTDDataPacketManager.h"
 #import <AFNetworking/AFHTTPRequestOperation.h>
-#define FILENAME @"MdataFile"
-#define ZIPNAME @"datafile.zip"
 #import <SVProgressHUD/SVProgressHUD.h>
 #import <ZipArchive/ZipArchive.h>
+
+#define FILENAME @"MdataFile"//文件夹名字
+#define ZIPNAME @"datafile.zip"//文件名字
 #define DATA_PACKET_URL @"http://static.bluedeer.com.cn/aiasalesplus/AIAResources.zip"
 @implementation FTDDataPacketManager
 + (FTDDataPacketManager *)sharedInstance
@@ -79,6 +80,7 @@
         [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
             NSLog(@"成功了");
             [self unzip];
+            
             //NSData *audioData = [NSData dataWithContentsOfFile:fileName];
             //设置下载数据到res字典对象中并用代理返回下载数据NSData
             //[self requestFinished:[NSDictionary dictionaryWithObject:audioData forKey:@"res"] tag:aTag];
@@ -127,6 +129,28 @@
     NSString *path = [NSString stringWithFormat:@"%@/%@",basePath, FILENAME];
     return path;
 }
+
+-(BOOL)removeFile:(NSString*)filePath{
+    BOOL ret =  NO;
+    
+    if ([filePath isKindOfClass:[NSString class]] && [filePath length] > 0) {
+        NSFileManager *fm = [NSFileManager defaultManager];
+        if ([fm fileExistsAtPath:filePath]) {
+            ret = [fm removeItemAtPath:filePath error:nil];
+        }
+    }
+    
+    return ret;
+}
+
+-(void)removeAllSourceFile
+{
+    [self removeFile:[self catchPath]];
+    [self removeFile:[self downloadDestinationPath]];
+}
+
+
+
 #pragma  mark zip delegate
 -(void)unzip
 {

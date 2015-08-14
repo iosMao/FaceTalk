@@ -20,7 +20,7 @@
 @synthesize btnKey,scrollBG;
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[FTDDataPacketManager sharedInstance]downloadFile];
+    //[[FTDDataPacketManager sharedInstance]downloadFile];
     
     NSLog(@"%@",self.navigationController);
     TFDNavViewController *nav=(TFDNavViewController *) self.navigationController;
@@ -34,29 +34,16 @@
     UIImageView *scrollImage=[[UIImageView alloc]initWithFrame:CGRectMake(0,20, 1024,748)];
     scrollImage.image=[UIImage imageNamed:@"FTD_home_aiaoffice.png"];
     [scrollBG addSubview:scrollImage];
-//    [btnKey addTarget:self action:@selector(dragEnded:withEvent: )forControlEvents: UIControlEventTouchUpInside |
-//     UIControlEventTouchUpOutside];
-    // Do any additional setup after loading the view from its nib.
+    [self getLoginUserInfo];
+ 
 }
-//- (void) dragMoving: (UIControl *) c withEvent:ev
-//{
-//    
-//    CGPoint point=[[[ev allTouches] anyObject] locationInView:self.view];
-//    point.y=440;
-//    c.center =point;
-//    
-//    if (point.x<520) {
-//        [self gotoHomeinterView];
-//    }
-//    
-//}
-//- (void) dragEnded: (UIControl *) c withEvent:ev
-//{
-//    CGPoint point=[[[ev allTouches] anyObject] locationInView:self.view];
-//     point.y=440;
-//    c.center =point;
-//    
-//}
+-(void)getLoginUserInfo//由QUIX协助调用获取登录信息接口  说明下“TblProfile”模型的结构
+{
+    
+}
+
+
+
 -(void)viewDidAppear:(BOOL)animated
 {
      //[SVProgressHUD showProgress:0.5 status:@"已下载50%" maskType:SVProgressHUDMaskTypeBlack];

@@ -11,4 +11,5 @@
 @interface FTDDataPacketManager : NSObject
 + (FTDDataPacketManager *)sharedInstance;
 -(void)downloadFile;
+-(void)removeAllSourceFile;
 @end
