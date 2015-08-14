@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-ZipArchive.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -22,17 +27,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>E424A9FF0FA72794B5FFA031</key>
+		<key>01C26114B41E138FBE2AE76B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F2F4F898786771E76F33B0C0</key>
+		<key>12621852340FDE3AB4D41328</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FA7385B0AB561367D7041980</key>
+		<key>B7FA911E72256E06145EEA93</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F9B4F474F84FCC4BD6FCF19D</key>
 		<dict>
 			<key>primary</key>
 			<true/>

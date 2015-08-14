@@ -13,6 +13,7 @@
 #import "TFWRealHelpViewController.h"
 #import "FTDPersonTController.h"
 #import "TFWReportViewController.h"
+#import <SVProgressHUD/SVProgressHUD.h>
 @interface TFDNavViewController ()
 
 @end
@@ -54,7 +55,7 @@
     [viewRightMenu addSubview:btnHidden];
     
     for (int i=0; i<5; i++) {
-        UIButton *btnMenu=[[UIButton alloc]initWithFrame:CGRectMake(100+i*(90/1.8),0,90/1.8,100/1.8)];
+        UIButton *btnMenu=[[UIButton alloc]initWithFrame:CGRectMake(100+i*(90/1.8),5,90/1.8,100/1.8)];
         btnMenu.tag=i+300;
         switch (i) {
             case 0:
@@ -133,6 +134,8 @@
     [self hiddenRightMenu];
     NSLog(@"%ld",sender.tag-300);
     if (sender.tag-300==0) {
+        
+         
         TFWReportViewController *vc=[[TFWReportViewController alloc]init];
         [self setViewControllers:@[vc] animated:YES];
         NSLog(@"%@",self.viewControllers);

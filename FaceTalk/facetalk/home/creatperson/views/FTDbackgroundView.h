@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+@protocol FTDbackgroundView <NSObject>
 
+- (void)downkeyboard;
+ 
+@end
 @interface FTDbackgroundView : UIView
-
+@property(nonatomic, weak)id<FTDbackgroundView> delegate;
 @end

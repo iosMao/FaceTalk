@@ -9,5 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface FTDDataPacketManager : NSObject
-
++ (FTDDataPacketManager *)sharedInstance;
+-(void)downloadFile;
 @end

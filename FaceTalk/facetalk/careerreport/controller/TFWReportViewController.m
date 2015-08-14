@@ -10,7 +10,7 @@
 #import "TFWReportView.h"
 #import "FTDShareView.h"
 #import "FTDbackgroundView.h"
-@interface TFWReportViewController ()<FTDShareViewDeledate>
+@interface TFWReportViewController ()<FTDShareViewDeledate,FTDbackgroundView>
 
 @property (nonatomic,strong) UILabel *titleLabel;
 @property (nonatomic,strong) UILabel *customNameLabel;
@@ -40,6 +40,7 @@
 -(void)buildShareView
 {
     _backgroundView= [[FTDbackgroundView alloc]initWithFrame:self.view.frame];
+    _backgroundView.delegate=self;
     _shareView=[FTDShareView initCustomview];
     _shareView.delegate=self;
     _shareView.center=CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2-80);
@@ -127,9 +128,12 @@
     [self.view addSubview:bt];
 }
 
-
+-(void)downkeyboard{
+    [_shareView.textEmail resignFirstResponder];
+}
 -(void)popAction:(UIButton *)button
 {
+    
 //    [UIView animateWithDuration:1.0 animations:^{
 //        _reportView.center = CGPointMake(CGRectGetMidX(_customNameLabel.frame), 295);
 //        _reportView.alpha = 1.0f;
@@ -144,6 +148,13 @@
 {
     [self.view addSubview:_backgroundView];
     [self.view addSubview:_shareView];
+    
+    CGAffineTransform transform = _shareView.transform;
+    _shareView.transform = CGAffineTransformScale(transform, 0.2, 0.2);
+    [UIView animateWithDuration:0.4 animations:^{
+        _shareView.transform = CGAffineTransformScale(transform, 1.0, 1.0);
+        _shareView.center=CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2-80);
+    }];
 }
 
 -(void)continueAction
@@ -162,8 +173,17 @@
 }
 -(void)cancelview
 {
-    [_backgroundView removeFromSuperview];
-    [_shareView removeFromSuperview];
+     CGAffineTransform transform = _shareView.transform;
+     [UIView animateWithDuration:0.4 animations:^{
+        _shareView.transform = CGAffineTransformScale(transform,0.01,0.01);
+    }
+                      completion:^(BOOL finished){
+                          [_backgroundView removeFromSuperview];
+                          [_shareView removeFromSuperview];
+                          _shareView.transform = CGAffineTransformScale(transform,1,1);
+                      }];
+    
+    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

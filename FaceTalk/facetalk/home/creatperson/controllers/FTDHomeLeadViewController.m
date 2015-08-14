@@ -14,7 +14,7 @@
 #import "TFWCustomTalkViewController.h"
 #import "TFWStartTalkViewController.h"
 #import "TFDNavViewController.h"
-@interface FTDHomeLeadViewController ()<FTDHomeAlertViewDeledate,FTDHomeAlertFinishViewDeledate>
+@interface FTDHomeLeadViewController ()<FTDHomeAlertViewDeledate,FTDHomeAlertFinishViewDeledate,FTDbackgroundView>
 {
     int imgIndex;
     FTDHomeAlertView *homeAlertView;
@@ -37,10 +37,11 @@
     imgIndex=0;
     
     backgroundView= [[FTDbackgroundView alloc]initWithFrame:self.view.frame];
-    
+    backgroundView.delegate=self;
     homeAlertView= [FTDHomeAlertView initCustomview];
     homeAlertView.delegate= self;
     homeAlertView.center=CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2-80);
+    
     
     homeAlertFinishView= [FTDHomAlertFinishView initCustomview];
     homeAlertFinishView.delegate= self;
@@ -73,11 +74,31 @@
         
     }];
 }
+-(void)downkeyboard{
+    [homeAlertView.textName resignFirstResponder];
+}
+
 -(void)homeAlertCancelClick
 {
-    [backgroundView removeFromSuperview];
-    [homeAlertView removeFromSuperview];
-}
+    CGAffineTransform transform = homeAlertView.transform;
+    //homeAlertView.transform = CGAffineTransformScale(transform, 1.0, 1.0);
+    
+    [UIView animateWithDuration:0.4 animations:^{
+        homeAlertView.transform = CGAffineTransformScale(transform,0.01,0.01);
+    }
+     completion:^(BOOL finished){
+         [backgroundView removeFromSuperview];
+        [homeAlertView removeFromSuperview];
+         homeAlertView.transform = CGAffineTransformScale(transform,1,1);
+     }];
+    
+//    [UIView animateWithDuration:0.4 animations:^{
+//        
+//        
+//        
+//
+//    }];
+    }
 -(void)homeAlertCreatclick
 {
     [homeAlertView removeFromSuperview];
@@ -86,8 +107,16 @@
 }
 -(void)homeAlertFinishCancelClick
 {
-    [backgroundView removeFromSuperview];
-    [homeAlertFinishView removeFromSuperview];
+    CGAffineTransform transform = homeAlertFinishView.transform;
+    [UIView animateWithDuration:0.4 animations:^{
+        homeAlertFinishView.transform = CGAffineTransformScale(transform,0.01,0.01);
+    }
+                     completion:^(BOOL finished){
+                         [backgroundView removeFromSuperview];
+                         [homeAlertFinishView removeFromSuperview];
+                         homeAlertFinishView.transform = CGAffineTransformScale(transform,1,1);
+                     }];
+    
 }
 
 -(void)gotoCreatMenu
@@ -124,6 +153,14 @@
 - (IBAction)nextbtnclick:(id)sender {
     [self.view addSubview:backgroundView];
     [self.view addSubview:homeAlertView];
+    CGAffineTransform transform = homeAlertView.transform;
+    homeAlertView.transform = CGAffineTransformScale(transform, 0.2, 0.2);
+    [UIView animateWithDuration:0.4 animations:^{
+        homeAlertView.transform = CGAffineTransformScale(transform, 1.0, 1.0);
+        homeAlertView.center=CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2-80);
+    }];
+    
+    
     
     
     

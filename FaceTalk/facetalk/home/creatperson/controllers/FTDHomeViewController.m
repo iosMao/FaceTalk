@@ -10,6 +10,8 @@
 #import "FTDHomeLeadViewController.h"
 #import "UIView+MaterialDesign.h"
 #import "TFDNavViewController.h"
+#import <SVProgressHUD/SVProgressHUD.h>
+#import "FTDDataPacketManager.h"
 @interface FTDHomeViewController ()
 
 @end
@@ -18,6 +20,8 @@
 @synthesize btnKey,scrollBG;
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[FTDDataPacketManager sharedInstance]downloadFile];
+    
     NSLog(@"%@",self.navigationController);
     TFDNavViewController *nav=(TFDNavViewController *) self.navigationController;
     nav.btnSlider.hidden=YES;
@@ -53,6 +57,10 @@
 //    c.center =point;
 //    
 //}
+-(void)viewDidAppear:(BOOL)animated
+{
+     //[SVProgressHUD showProgress:0.5 status:@"已下载50%" maskType:SVProgressHUDMaskTypeBlack];
+}
 -(void)viewDidDisappear:(BOOL)animated
 {
     btnKey.alpha=1;
@@ -66,13 +74,14 @@
 {
     
     __weak FTDHomeViewController *weak=self;
+    FTDHomeLeadViewController *FTDHomeLeadViewCol=[[FTDHomeLeadViewController alloc]init];
     [UIView animateKeyframesWithDuration:2 delay:0 options:UIViewKeyframeAnimationOptionLayoutSubviews animations:^{
         btnKey.center=CGPointMake(512, 440);
         btnKey.alpha=0;
     } completion:^(BOOL finished) {
         
         CGPoint exactTouchPosition = CGPointMake(512, 440);
-        FTDHomeLeadViewController *FTDHomeLeadViewCol=[[FTDHomeLeadViewController alloc]init];
+        
         
         [UIView mdInflateTransitionFromView:self.view toView:FTDHomeLeadViewCol.view originalPoint:exactTouchPosition duration:1.5 completion:^{
             NSLog(@"completed!");

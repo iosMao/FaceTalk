@@ -16,11 +16,19 @@
         self.alpha=0.5;
         self.backgroundColor=[UIColor blackColor];
         // Initialization code
+        UIButton *btnchange=[[UIButton alloc]initWithFrame:self.frame];
+        
+        [btnchange addTarget:self action:@selector(btnclick) forControlEvents:UIControlEventTouchUpInside];
+        btnchange.backgroundColor=[UIColor clearColor];
+        [self addSubview:btnchange];
         
     }
     return self;
 }
-
+-(void)btnclick
+{
+    [self.delegate downkeyboard];
+}
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect {
