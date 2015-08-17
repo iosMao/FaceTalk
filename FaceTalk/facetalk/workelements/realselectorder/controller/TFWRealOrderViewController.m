@@ -35,7 +35,7 @@
     // Do any additional setup after loading the view.
     [self buildBackGround];
     [self buildPan];
-    [self buildBackButton];
+    //[self buildBackButton];
     [self buildTitleLabel];
     [self buildOkButton];
     [self buildCenterView];

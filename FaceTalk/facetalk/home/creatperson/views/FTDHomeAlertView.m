@@ -106,7 +106,7 @@
 -(void)addAgent:(FTDCustomerModel *)model//fix me 此处调用本地数据库新增人才接口
 {
     BOOL isSuccess;
-    isSuccess=[self createContact];
+    isSuccess=[self createContact];//这里创建用户
     
     if (isSuccess) {
         NSLog(@"用户插入成功");
@@ -242,6 +242,7 @@
         return;
     }
     
+    //[self.delegate showDatePicker];
     
     if (self.viewPick.hidden==YES) {
          self.viewPick.hidden=NO;

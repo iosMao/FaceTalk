@@ -25,7 +25,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self buildBackGround];
-    [self buildBackButton];
+    //[self buildBackButton];
     [self buildTitleLabel];
     [self buildTenElement];
     [self buildOkButton];

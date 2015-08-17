@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TFWReportView : UIView
+@interface TFWReportView : UIView<UITableViewDataSource,UITableViewDelegate>
+
+@property (nonatomic,strong) UITableView *tableView;
 
 @end

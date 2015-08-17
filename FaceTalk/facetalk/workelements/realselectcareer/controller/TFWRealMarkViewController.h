@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+//客观十大要素评分页
 @interface TFWRealMarkViewController : UIViewController
 
 @end

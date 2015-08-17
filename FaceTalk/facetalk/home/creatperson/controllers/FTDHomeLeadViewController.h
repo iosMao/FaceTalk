@@ -16,5 +16,11 @@
 @property (strong, nonatomic) IBOutlet UIImageView *imgSmall3;
 @property (strong, nonatomic) IBOutlet UIImageView *imgSmall4;
 @property (strong, nonatomic) IBOutlet UIImageView *imgBig;
+@property (strong, nonatomic) IBOutlet UIView *viewDate;
+@property (strong, nonatomic) IBOutlet UIDatePicker *datePicker;
+- (IBAction)image1click:(id)sender;
+- (IBAction)image2click:(id)sender;
+- (IBAction)image3click:(id)sender;
+- (IBAction)image4click:(id)sender;
 
 @end

@@ -30,14 +30,12 @@
 @synthesize imgLeadH,loadTimer;
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLog(@"%@",self.navigationController);
-    TFDNavViewController *nav=(TFDNavViewController *)self.navigationController;
-    nav.btnSlider.hidden=NO;
-    nav.btnRightMenu.hidden=YES;
+    
     imgIndex=0;
     
     backgroundView= [[FTDbackgroundView alloc]initWithFrame:self.view.frame];
     backgroundView.delegate=self;
+    
     homeAlertView= [FTDHomeAlertView initCustomview];
     homeAlertView.delegate= self;
     homeAlertView.center=CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2-80);
@@ -46,6 +44,7 @@
     homeAlertFinishView= [FTDHomAlertFinishView initCustomview];
     homeAlertFinishView.delegate= self;
     homeAlertFinishView.center=CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2-80);
+   //self.viewDate.frame=CGRectMake(0, 768, 1024, 216);
     
     
 //    [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(loadimg) userInfo:nil repeats:YES];
@@ -53,7 +52,11 @@
 }
 -(void)viewWillAppear:(BOOL)animated
 {
-    loadTimer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(loadimg) userInfo:nil repeats:YES];
+    NSLog(@"%@",self.navigationController);
+    TFDNavViewController *nav=(TFDNavViewController *)self.navigationController;
+    nav.btnSlider.hidden=NO;
+    nav.btnRightMenu.hidden=YES;
+    loadTimer = [NSTimer scheduledTimerWithTimeInterval:7 target:self selector:@selector(loadimg) userInfo:nil repeats:YES];
     [loadTimer fire];
 }
 -(void)viewWillDisappear:(BOOL)animated
@@ -118,6 +121,20 @@
                      }];
     
 }
+//-(void)showDatePicker
+//{
+//    [UIView animateWithDuration:0.4 animations:^{
+//        
+//        [self.view addSubview:self.viewDate];
+//        
+//        self.viewDate.frame=CGRectMake(0, 768-216, 1024, 216);
+//    }
+//                     completion:^(BOOL finished){
+//                         
+//                     }];
+//}
+
+
 
 -(void)gotoCreatMenu
 {
@@ -159,11 +176,61 @@
         homeAlertView.transform = CGAffineTransformScale(transform, 1.0, 1.0);
         homeAlertView.center=CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2-80);
     }];
-    
-    
-    
-    
-    
 //
+}
+- (IBAction)image1click:(id)sender {
+    imgIndex=0;
+    if (imgIndex>3) {
+        imgIndex=0;
+    }
+    
+    [UIView animateKeyframesWithDuration:1 delay:0 options:UIViewKeyframeAnimationOptionLayoutSubviews animations:^{
+        imgLeadH.frame=CGRectMake(305+(imgIndex*121), 581, 123, 105);
+        
+    } completion:^(BOOL finished) {
+        
+    }];
+}
+
+- (IBAction)image2click:(id)sender {
+    imgIndex=1;
+    if (imgIndex>3) {
+        imgIndex=0;
+    }
+    
+    [UIView animateKeyframesWithDuration:1 delay:0 options:UIViewKeyframeAnimationOptionLayoutSubviews animations:^{
+        imgLeadH.frame=CGRectMake(305+(imgIndex*121), 581, 123, 105);
+        
+    } completion:^(BOOL finished) {
+        
+    }];
+}
+
+- (IBAction)image3click:(id)sender {
+    imgIndex=2;
+    if (imgIndex>3) {
+        imgIndex=0;
+    }
+    
+    [UIView animateKeyframesWithDuration:1 delay:0 options:UIViewKeyframeAnimationOptionLayoutSubviews animations:^{
+        imgLeadH.frame=CGRectMake(305+(imgIndex*121), 581, 123, 105);
+        
+    } completion:^(BOOL finished) {
+        
+    }];
+}
+
+- (IBAction)image4click:(id)sender {
+    imgIndex=3;
+    if (imgIndex>3) {
+        imgIndex=0;
+    }
+    
+    [UIView animateKeyframesWithDuration:1 delay:0 options:UIViewKeyframeAnimationOptionLayoutSubviews animations:^{
+        imgLeadH.frame=CGRectMake(305+(imgIndex*121), 581, 123, 105);
+        
+    } completion:^(BOOL finished) {
+        
+    }];
 }
 @end

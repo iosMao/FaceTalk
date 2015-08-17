@@ -15,9 +15,7 @@ static NSString *cellTenElementIdentifier = @"cellTenElementIdentifier";
 static NSString *cellCareerIdentifier = @"cellCareerIdentifier";
 static NSString *cellSuggestIdentifier = @"cellSuggestIdentifier";
 
-@interface TFWReportView ()<UITableViewDataSource,UITableViewDelegate>
-
-@property (nonatomic,strong) UITableView *tableView;
+@interface TFWReportView ()
 @property (nonatomic,strong) UIView *headView;
 @property (nonatomic,strong) UILabel *customNameLabel;
 @property (nonatomic,strong) UILabel *adviserNameLabel;

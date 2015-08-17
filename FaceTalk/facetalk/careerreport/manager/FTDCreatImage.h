@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 @interface FTDCreatImage : NSObject
-- (UIImage *)getImage:(UITableView *)tableview;
++(UIImage *)getImage:(UITableView *)tableview;
 @end

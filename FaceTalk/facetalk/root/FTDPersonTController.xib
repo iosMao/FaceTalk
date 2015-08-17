@@ -45,13 +45,6 @@
                         <outlet property="delegate" destination="-1" id="khs-A3-u0v"/>
                     </connections>
                 </collectionView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="uhl-5a-Mxg">
-                    <rect key="frame" x="100" y="62" width="42" height="41"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" image="FTD_back.png">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="真英才 傲人风采" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zF3-oB-hFC">
                     <rect key="frame" x="138" y="63" width="233" height="39"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -76,7 +69,6 @@
         </view>
     </objects>
     <resources>
-        <image name="FTD_back.png" width="90" height="90"/>
         <image name="FTD_btnNextModel.png" width="300" height="300"/>
         <image name="FTD_personalteam_bg.png" width="2046" height="1500"/>
     </resources>

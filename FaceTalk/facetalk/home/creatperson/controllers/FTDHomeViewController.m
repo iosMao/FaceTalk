@@ -70,7 +70,7 @@
         CGPoint exactTouchPosition = CGPointMake(512, 440);
         
         
-        [UIView mdInflateTransitionFromView:self.view toView:FTDHomeLeadViewCol.view originalPoint:exactTouchPosition duration:1.5 completion:^{
+        [UIView mdInflateTransitionFromView:weak.view toView:FTDHomeLeadViewCol.view originalPoint:exactTouchPosition duration:1.5 completion:^{
             NSLog(@"completed!");
             [weak.navigationController pushViewController:FTDHomeLeadViewCol animated:YES];
             

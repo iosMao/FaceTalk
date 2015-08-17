@@ -12,6 +12,7 @@
 
 - (void)homeAlertCancelClick;
 -(void)homeAlertCreatclick;
+//-(void)showDatePicker;
 @end
 
 @interface FTDHomeAlertView : UIView<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate>

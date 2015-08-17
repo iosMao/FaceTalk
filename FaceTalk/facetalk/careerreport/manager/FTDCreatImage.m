@@ -9,7 +9,7 @@
 #import "FTDCreatImage.h"
 
 @implementation FTDCreatImage
-- (UIImage *)getImage:(UITableView *)tableview {
++(UIImage *)getImage:(UITableView *)tableview {
     UIImage* viewImage = nil;
     UITableView *scrollView =tableview;
     UIGraphicsBeginImageContextWithOptions(scrollView.contentSize, scrollView.opaque, 0.0);

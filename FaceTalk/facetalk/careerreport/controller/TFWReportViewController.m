@@ -10,6 +10,8 @@
 #import "TFWReportView.h"
 #import "FTDShareView.h"
 #import "FTDbackgroundView.h"
+#import "FTDCreatImage.h"
+#import "FTDHomeViewController.h"
 @interface TFWReportViewController ()<FTDShareViewDeledate,FTDbackgroundView>
 
 @property (nonatomic,strong) UILabel *titleLabel;
@@ -65,7 +67,7 @@
 
 -(void)buildTitleLabel
 {
-    self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(296 / 2.0, 148 / 2.0, 389 / 2.0, 30)];
+    self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(296 / 2.0, 148 / 2.0, 700 / 2.0, 30)];
     self.titleLabel.text = @"生成职业评估报告";
     self.titleLabel.font = [UIFont systemFontOfSize:32];
     self.titleLabel.textColor = [UIColor colorWithRed:188 / 255.0 green:0 / 255.0 blue:52 / 255.0 alpha:1];
@@ -146,6 +148,9 @@
 }
 -(void)ShareAction
 {
+    [self CreatReportImage];
+    
+    
     [self.view addSubview:_backgroundView];
     [self.view addSubview:_shareView];
     
@@ -157,9 +162,22 @@
     }];
 }
 
+-(void)CreatReportImage
+{
+    UIImage *reportImage= [FTDCreatImage getImage:_reportView.tableView];
+    NSData *imgData=UIImagePNGRepresentation(reportImage);
+    [self SendReportImage:imgData];
+}
+-(void)SendReportImage:(NSData *)imgdata//这个接口用来向QUIX发送报告照片的data
+{
+    //NSLog(@"%@",imgdata);
+    
+}
+
 -(void)continueAction
 {
-    
+    FTDHomeViewController *vc=[[FTDHomeViewController alloc]init];
+    [self.navigationController setViewControllers:@[vc] animated:YES];
 }
 -(void)shareQQ{
     NSLog(@"qq分享");

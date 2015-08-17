@@ -80,16 +80,6 @@
         [btnMenu addTarget:self action:@selector(Menuclick:) forControlEvents:UIControlEventTouchUpInside];
         [viewRightMenu addSubview:btnMenu];
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
      viewRightMenu.hidden=YES;
     
 }
@@ -99,6 +89,7 @@
     tableMenu=[[UITableView alloc]initWithFrame:CGRectMake(-120, 20, 120, self.view.frame.size.height)];
     tableMenu.delegate=self;
     tableMenu.dataSource=self;
+    tableMenu.scrollEnabled=NO;
     tableMenu.separatorColor=[UIColor clearColor];
     tableMenu.backgroundColor=[UIColor colorWithRed:0.72 green:0.01 blue:0.21 alpha:1];
     tableMenu.hidden=YES;
@@ -239,8 +230,7 @@
         cell.backgroundColor=[UIColor colorWithRed:0.72 green:0.01 blue:0.21 alpha:1];
         
     }
-    NSString *strImg=[NSString stringWithFormat:@"FTD_slider_image%ld.png",(long)indexPath.row];
-    cell.imgIcon.image=[UIImage imageNamed:strImg];
+    
     
     switch (indexPath.row) {
         case 0:
@@ -249,18 +239,23 @@
             break;
         case 1:
             cell.lblTitle.text=@"职涯演示";
+            cell.imgIcon.image=[UIImage imageNamed:@"FTD_slider_image0.png"];
             break;
         case 2:
             cell.lblTitle.text=@"培训导航";
+            cell.imgIcon.image=[UIImage imageNamed:@"FTD_slider_image1.png"];
             break;
         case 3:
             cell.lblTitle.text=@"收入试算";
+            cell.imgIcon.image=[UIImage imageNamed:@"FTD_slider_image2.png"];
             break;
         case 4:
             cell.lblTitle.text=@"营销员的一天";
+            cell.imgIcon.image=[UIImage imageNamed:@"FTD_slider_image3.png"];
             break;
         case 5:
             cell.lblTitle.text=@"EOP报名";
+            cell.imgIcon.image=[UIImage imageNamed:@"FTD_slider_image4.png"];
             break;
         default:
             break;
