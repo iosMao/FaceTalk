@@ -109,7 +109,7 @@
 
 - (NSAttributedString *)pickerView:(UIPickerView *)pickerView attributedTitleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    NSAttributedString *str = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%d",row % 4 + 1] attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:30]}];
+    NSAttributedString *str = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%ld",row % 4 + 1] attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:30]}];
     return str;
 }
 
@@ -123,7 +123,7 @@
     NSMutableArray *array = [[NSMutableArray alloc] init];
     
     for (int i = 0; i < 4; i++) {
-        [array addObject:[NSString stringWithFormat:@"%d",[_pickView selectedRowInComponent:i] % 4 + 1]];
+        [array addObject:[NSString stringWithFormat:@"%ld",[_pickView selectedRowInComponent:i] % 4 + 1]];
     }
     
     return array;

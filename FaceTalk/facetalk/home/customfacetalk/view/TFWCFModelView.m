@@ -74,7 +74,7 @@
 
 -(void)buildNumber
 {
-    NSString *imageName = [NSString stringWithFormat:@"tfw_cf_realnumber%d",self.index];
+    NSString *imageName = [NSString stringWithFormat:@"tfw_cf_realnumber%ld",(long)self.index];
     self.numberImageView = [[UIImageView alloc] initWithImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:imageName ofType:@"png"]]];
     [self.numberImageView sizeToFit];
     self.numberImageView.center = CGPointMake(50, 15);

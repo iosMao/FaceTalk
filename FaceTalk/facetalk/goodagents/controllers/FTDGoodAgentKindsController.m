@@ -62,7 +62,7 @@
 }
 -(void)menuClickAction:(NSInteger)index
 {
-    NSLog(@"index : %d",index);
+    NSLog(@"index : %ld",(long)index);
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

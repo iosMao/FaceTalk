@@ -35,6 +35,7 @@
     scrollImage.image=[UIImage imageNamed:@"FTD_home_aiaoffice.png"];
     [scrollBG addSubview:scrollImage];
     [self getLoginUserInfo];
+    
  
 }
 -(void)getLoginUserInfo//由QUIX协助调用获取登录信息接口  说明下“TblProfile”模型的结构

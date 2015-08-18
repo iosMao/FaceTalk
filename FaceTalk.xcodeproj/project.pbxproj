@@ -240,6 +240,7 @@
 		18C04DF31B79D226009B1F6F /* FTD_share_wechat.png in Resources */ = {isa = PBXBuildFile; fileRef = 18C04DF11B79D226009B1F6F /* FTD_share_wechat.png */; };
 		18C04DF61B79ED6A009B1F6F /* FTDCreatImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C04DF51B79ED6A009B1F6F /* FTDCreatImage.m */; };
 		18C280781B734D0D002848D2 /* FTDBigImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C280771B734D0D002848D2 /* FTDBigImageView.m */; };
+		18CA16A41B82CBF400136ED8 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18CA16A31B82CBF400136ED8 /* MessageUI.framework */; };
 		18D358581B5F776C0008764E /* FTDbackgroundImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 18D358571B5F776C0008764E /* FTDbackgroundImage.png */; };
 		18D3585A1B5F87360008764E /* FTD_back.png in Resources */ = {isa = PBXBuildFile; fileRef = 18D358591B5F87360008764E /* FTD_back.png */; };
 		18D3585D1B5F8A5B0008764E /* FTD_goodAgentskindH.png in Resources */ = {isa = PBXBuildFile; fileRef = 18D3585B1B5F8A5B0008764E /* FTD_goodAgentskindH.png */; };
@@ -613,6 +614,7 @@
 		18C04DF51B79ED6A009B1F6F /* FTDCreatImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTDCreatImage.m; sourceTree = "<group>"; };
 		18C280761B734D0D002848D2 /* FTDBigImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FTDBigImageView.h; path = FaceTalk/facetalk/library/FTDBigImageView.h; sourceTree = SOURCE_ROOT; };
 		18C280771B734D0D002848D2 /* FTDBigImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FTDBigImageView.m; path = FaceTalk/facetalk/library/FTDBigImageView.m; sourceTree = SOURCE_ROOT; };
+		18CA16A31B82CBF400136ED8 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		18D358571B5F776C0008764E /* FTDbackgroundImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FTDbackgroundImage.png; sourceTree = "<group>"; };
 		18D358591B5F87360008764E /* FTD_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FTD_back.png; sourceTree = "<group>"; };
 		18D3585B1B5F8A5B0008764E /* FTD_goodAgentskindH.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FTD_goodAgentskindH.png; sourceTree = "<group>"; };
@@ -734,6 +736,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18CA16A41B82CBF400136ED8 /* MessageUI.framework in Frameworks */,
 				18D7CA2D1B74829200C35359 /* AssetsLibrary.framework in Frameworks */,
 				18F32A421B60906B0018A3C8 /* MediaPlayer.framework in Frameworks */,
 				18291B631B5784FA003E180D /* Foundation.framework in Frameworks */,
@@ -1691,6 +1694,7 @@
 		EE2BA49F3B8123A9D9002223 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				18CA16A31B82CBF400136ED8 /* MessageUI.framework */,
 				18D7CA2C1B74829200C35359 /* AssetsLibrary.framework */,
 				18F32A411B60906B0018A3C8 /* MediaPlayer.framework */,
 				18291B621B5784FA003E180D /* Foundation.framework */,
@@ -1744,6 +1748,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = A2615A681B4D22C00098EC30;
 			productRefGroup = A2615A721B4D22C00098EC30 /* Products */;
@@ -2230,9 +2235,20 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: American International Assurance Company Limited Shanghai Branch";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/FaceTalk/facetalk/ShareSDK/Connection",
+					"$(PROJECT_DIR)/FaceTalk/facetalk/ShareSDK/Core",
+					"$(PROJECT_DIR)/FaceTalk/facetalk/ShareSDK/Extend/QQConnectSDK",
+					"$(PROJECT_DIR)/FaceTalk/facetalk/ShareSDK",
+				);
 				INFOPLIST_FILE = FaceTalk/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/FaceTalk/facetalk/ShareSDK/Extend/WeChatSDK",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "649440ab-56aa-4fe3-9468-72990586a768";
 			};
@@ -2244,9 +2260,20 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: American International Assurance Company Limited Shanghai Branch";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/FaceTalk/facetalk/ShareSDK/Connection",
+					"$(PROJECT_DIR)/FaceTalk/facetalk/ShareSDK/Core",
+					"$(PROJECT_DIR)/FaceTalk/facetalk/ShareSDK/Extend/QQConnectSDK",
+					"$(PROJECT_DIR)/FaceTalk/facetalk/ShareSDK",
+				);
 				INFOPLIST_FILE = FaceTalk/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/FaceTalk/facetalk/ShareSDK/Extend/WeChatSDK",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "649440ab-56aa-4fe3-9468-72990586a768";
 			};

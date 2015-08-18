@@ -72,6 +72,7 @@
          NSLog(@"is download：%f", (float)totalBytesRead/totalBytesExpectedToRead);
              
              float percent= (float)totalBytesRead/totalBytesExpectedToRead;
+             
              [SVProgressHUD showProgress:percent status:[NSString stringWithFormat:@"下载资源%.0f%%",percent*100 ] maskType:SVProgressHUDMaskTypeBlack];
          }];
         

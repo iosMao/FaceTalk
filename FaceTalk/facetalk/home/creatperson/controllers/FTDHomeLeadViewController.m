@@ -79,6 +79,8 @@
 }
 -(void)downkeyboard{
     [homeAlertView.textName resignFirstResponder];
+    [homeAlertView.textSex resignFirstResponder];
+    [homeAlertView.textBirthday resignFirstResponder];
 }
 
 -(void)homeAlertCancelClick
