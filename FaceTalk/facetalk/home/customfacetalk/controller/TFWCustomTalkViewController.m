@@ -13,6 +13,7 @@
 #import "TFWStartTalkViewController.h"
 #import "TFDNavViewController.h"
 #import "FTWDataManager.h"
+#import <SVProgressHUD/SVProgressHUD.h>
 
 @interface TFWCustomTalkViewController ()
 
@@ -189,8 +190,11 @@
         }
     }
     
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"排序有误" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-    [alertView show];
+    [SVProgressHUD showInfoWithStatus:@"排序结果有误" maskType:SVProgressHUDMaskTypeBlack];
+    
+    
+//    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"排序有误" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//    [alertView show];
 }
 
 
