@@ -10,6 +10,9 @@
 #import "TFWSTOrderView.h"
 #import "TFWRealOrderViewController.h"
 #import "TFDNavViewController.h"
+#import "FTWDataManager.h"
+#import "FTWDataManager.h"
+
 @interface TFWStartTalkViewController ()
 
 @property (nonatomic,strong) UILabel *titleLabel;
@@ -68,7 +71,8 @@
 
 -(void)buildOrderView
 {
-    NSArray *order = [NSArray arrayWithObjects:@"1",@"3",@"2",@"4", nil];
+    TFWOrderModel *model = [[FTWDataManager shareManager] selectOrder];
+    NSArray *order = [NSArray arrayWithObjects:[NSString stringWithFormat:@"%d",model.first],[NSString stringWithFormat:@"%d",model.second],[NSString stringWithFormat:@"%d",model.third],[NSString stringWithFormat:@"%d",model.fourth], nil];
     TFWSTOrderView *orderView = [TFWSTOrderView createItemWithCenter:CGPointMake(530, 380) andIndex:order];
     [self.view addSubview:orderView];
 }

@@ -12,6 +12,8 @@
 #import "TFWCFPickerView.h"
 #import "TFWStartTalkViewController.h"
 #import "TFDNavViewController.h"
+#import "FTWDataManager.h"
+
 @interface TFWCustomTalkViewController ()
 
 @property (nonatomic,strong) TFWCFLeftToolView *leftToolView;
@@ -172,9 +174,23 @@
 
 -(void)okAction
 {
-    TFWStartTalkViewController *TFWStartTalkViewCol=[[TFWStartTalkViewController alloc]init];
-    [self.navigationController pushViewController:TFWStartTalkViewCol animated:YES];
-    NSLog(@"OK");
+    TFWOrderModel *model = [[TFWOrderModel alloc] init];
+    NSArray *orderArray = [_cspickerView getCurrentSelected];
+    if (orderArray.count == 4) {
+        model.first = [[orderArray objectAtIndex:0] integerValue];
+        model.second = [[orderArray objectAtIndex:1] integerValue];
+        model.third = [[orderArray objectAtIndex:2] integerValue];
+        model.fourth = [[orderArray objectAtIndex:3] integerValue];
+        
+        if ([[FTWDataManager shareManager] saveSelectOrder:model]) {
+            TFWStartTalkViewController *TFWStartTalkViewCol=[[TFWStartTalkViewController alloc]init];
+            [self.navigationController pushViewController:TFWStartTalkViewCol animated:YES];
+            return;
+        }
+    }
+    
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"排序有误" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    [alertView show];
 }
 
 
