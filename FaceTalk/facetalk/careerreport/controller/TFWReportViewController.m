@@ -12,7 +12,8 @@
 #import "FTDbackgroundView.h"
 #import "FTDCreatImage.h"
 #import "FTDHomeViewController.h"
-@interface TFWReportViewController ()<FTDShareViewDeledate,FTDbackgroundView>
+#import <MessageUI/MessageUI.h>
+@interface TFWReportViewController ()<FTDShareViewDeledate,FTDbackgroundView,MFMailComposeViewControllerDelegate>
 
 @property (nonatomic,strong) UILabel *titleLabel;
 @property (nonatomic,strong) UILabel *customNameLabel;
@@ -188,6 +189,15 @@
 -(void)sendtextEmail:(NSString *)textEmail
 {
     NSLog(@"%@",textEmail);
+    
+    MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
+    mc.mailComposeDelegate = self;
+    [self presentViewController:mc animated:YES completion:nil];
+    
+    
+    
+    
+    
 }
 -(void)cancelview
 {
@@ -203,6 +213,37 @@
     
     
 }
+
+
+- (void)mailComposeController:(MFMailComposeViewController*)controller
+          didFinishWithResult:(MFMailComposeResult)result
+                        error:(NSError*)error {
+    switch (result)
+    {
+        case MFMailComposeResultCancelled:
+            NSLog(@"Mail send canceled...");
+            break;
+        case MFMailComposeResultSaved:
+            NSLog(@"Mail saved...");
+            break;
+        case MFMailComposeResultSent:
+            NSLog(@"Mail sent...");
+            break;
+        case MFMailComposeResultFailed:
+            NSLog(@"Mail send errored: %@...", [error localizedDescription]);
+            break;
+        default:
+            break;
+    }
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+
+
+
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

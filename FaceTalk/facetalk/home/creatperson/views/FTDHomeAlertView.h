@@ -32,7 +32,7 @@
 @property (strong, nonatomic) IBOutlet UIDatePicker *datePick;
 @property (strong, nonatomic) IBOutlet UIView *viewPick;
 
-- (IBAction)showBirthdayPickClick:(id)sender;
+//- (IBAction)showBirthdayPickClick:(id)sender;
 - (IBAction)cancelclick:(id)sender;
 - (IBAction)creatclick:(id)sender;
 - (IBAction)showSexListClick:(id)sender;

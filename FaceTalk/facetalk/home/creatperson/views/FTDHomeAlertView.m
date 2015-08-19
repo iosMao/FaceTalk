@@ -50,7 +50,8 @@
     self.viewPick.center=CGPointMake(self.center.x, self.center.y+200);
     self.viewPick.hidden=YES;
     [self.datePick addTarget:self action:@selector(datechange) forControlEvents:UIControlEventValueChanged];
-    [self addSubview:self.viewPick];
+    [self.textBirthday setInputView:self.datePick];
+    //[self addSubview:self.viewPick];
 }
 
 - (void)textchange:(UITextField *)textField
@@ -95,6 +96,7 @@
     if (arrayList.count>0) {
         tableName.hidden=NO;
         isLock=YES;
+        textBirthday.enabled=NO;
         [tableName reloadData];
     }
     else{
@@ -237,20 +239,20 @@
     
 }
 #pragma mark FTDHomeAlertdelegate
-- (IBAction)showBirthdayPickClick:(id)sender {
-    if (isLock) {
-        return;
-    }
-    
-    //[self.delegate showDatePicker];
-    
-    if (self.viewPick.hidden==YES) {
-         self.viewPick.hidden=NO;
-    }else{
-         self.viewPick.hidden=YES;
-    }
-   
-}
+//- (IBAction)showBirthdayPickClick:(id)sender {
+//    if (isLock) {
+//        return;
+//    }
+//    
+//    //[self.delegate showDatePicker];
+//    
+//    if (self.viewPick.hidden==YES) {
+//         self.viewPick.hidden=NO;
+//    }else{
+//         self.viewPick.hidden=YES;
+//    }
+//   
+//}
 
 - (IBAction)cancelclick:(id)sender {
     if ([self.delegate respondsToSelector:@selector(homeAlertCancelClick)]) {

@@ -69,7 +69,7 @@
     label.font = [UIFont fontWithName:@"Arial-BoldItalicMT" size:77];
     label.textColor = [UIColor whiteColor];
     label.textAlignment = NSTextAlignmentCenter;
-    label.text = [NSString stringWithFormat:@"%d",self.index];
+    label.text = [NSString stringWithFormat:@"%ld",(long)self.index];
     [self addSubview:label];
 }
 

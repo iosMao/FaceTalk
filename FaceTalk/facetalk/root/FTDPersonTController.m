@@ -224,7 +224,7 @@
     [picker dismissViewControllerAnimated:YES completion:nil];
     
     UIImage *photoImage = [info objectForKey:UIImagePickerControllerOriginalImage];
-     NSData *imageData = UIImagePNGRepresentation(photoImage);
+     //NSData *imageData = UIImagePNGRepresentation(photoImage);
     
     NSDate *senddate=[NSDate date];
     
