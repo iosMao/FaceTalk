@@ -281,6 +281,9 @@
 		18F32A511B60ECE70018A3C8 /* FTD_goodAgentPen.png in Resources */ = {isa = PBXBuildFile; fileRef = 18F32A4F1B60ECE70018A3C8 /* FTD_goodAgentPen.png */; };
 		18F32A521B60ECE70018A3C8 /* FTD_goodAgentPenBox.png in Resources */ = {isa = PBXBuildFile; fileRef = 18F32A501B60ECE70018A3C8 /* FTD_goodAgentPenBox.png */; };
 		848E790F68979E8FF351EDC4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E8EDE843218ECDD1C97B2E90 /* libPods.a */; };
+		A252AC051B83691800E901FD /* FTWDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A252AC041B83691800E901FD /* FTWDataManager.m */; };
+		A252AC081B836BF900E901FD /* TFWOrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A252AC071B836BF900E901FD /* TFWOrderModel.m */; };
+		A252AC0B1B83771800E901FD /* FTWElementItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A252AC0A1B83771800E901FD /* FTWElementItem.m */; };
 		A2615A771B4D22C00098EC30 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A2615A761B4D22C00098EC30 /* main.m */; };
 		A2615A7A1B4D22C00098EC30 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A2615A791B4D22C00098EC30 /* AppDelegate.m */; };
 		A2615A821B4D22C00098EC30 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2615A811B4D22C00098EC30 /* Images.xcassets */; };
@@ -657,6 +660,12 @@
 		18F32A4F1B60ECE70018A3C8 /* FTD_goodAgentPen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FTD_goodAgentPen.png; sourceTree = "<group>"; };
 		18F32A501B60ECE70018A3C8 /* FTD_goodAgentPenBox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FTD_goodAgentPenBox.png; sourceTree = "<group>"; };
 		53741FB2FED2E104B0749630 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		A252AC031B83691800E901FD /* FTWDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTWDataManager.h; sourceTree = "<group>"; };
+		A252AC041B83691800E901FD /* FTWDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTWDataManager.m; sourceTree = "<group>"; };
+		A252AC061B836BF900E901FD /* TFWOrderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TFWOrderModel.h; path = FaceTalk/facetalk/manager/TFWOrderModel.h; sourceTree = SOURCE_ROOT; };
+		A252AC071B836BF900E901FD /* TFWOrderModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TFWOrderModel.m; path = FaceTalk/facetalk/manager/TFWOrderModel.m; sourceTree = SOURCE_ROOT; };
+		A252AC091B83771800E901FD /* FTWElementItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FTWElementItem.h; path = FaceTalk/facetalk/manager/FTWElementItem.h; sourceTree = SOURCE_ROOT; };
+		A252AC0A1B83771800E901FD /* FTWElementItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FTWElementItem.m; path = FaceTalk/facetalk/manager/FTWElementItem.m; sourceTree = SOURCE_ROOT; };
 		A2615A711B4D22C00098EC30 /* FaceTalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FaceTalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2615A751B4D22C00098EC30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A2615A761B4D22C00098EC30 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -1173,6 +1182,8 @@
 		185D658A1B6673C300845F21 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				A252AC061B836BF900E901FD /* TFWOrderModel.h */,
+				A252AC071B836BF900E901FD /* TFWOrderModel.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -1390,6 +1401,15 @@
 			path = personalteam;
 			sourceTree = "<group>";
 		};
+		A252AC021B8368C900E901FD /* manager */ = {
+			isa = PBXGroup;
+			children = (
+				A252AC031B83691800E901FD /* FTWDataManager.h */,
+				A252AC041B83691800E901FD /* FTWDataManager.m */,
+			);
+			path = manager;
+			sourceTree = "<group>";
+		};
 		A2615A681B4D22C00098EC30 = {
 			isa = PBXGroup;
 			children = (
@@ -1502,6 +1522,7 @@
 			children = (
 				A2615A781B4D22C00098EC30 /* AppDelegate.h */,
 				A2615A791B4D22C00098EC30 /* AppDelegate.m */,
+				A252AC021B8368C900E901FD /* manager */,
 			);
 			name = share;
 			sourceTree = "<group>";
@@ -1612,6 +1633,8 @@
 		A2E7CD851B6F9C0C00FD28FB /* model */ = {
 			isa = PBXGroup;
 			children = (
+				A252AC091B83771800E901FD /* FTWElementItem.h */,
+				A252AC0A1B83771800E901FD /* FTWElementItem.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -2094,11 +2117,13 @@
 				A2E7CDD11B6F9C2100FD28FB /* TFWSRKeyView.m in Sources */,
 				18126A721B70739E00BACB3F /* FTDGoodAgentDetailController.m in Sources */,
 				189D52081B78529100BB5876 /* TFWReportViewController.m in Sources */,
+				A252AC0B1B83771800E901FD /* FTWElementItem.m in Sources */,
 				A2E7CDCF1B6F9C2100FD28FB /* TFWSRRoundModel.m in Sources */,
 				185D64D61B6671DF00845F21 /* TFWSCPipeView.m in Sources */,
 				A2615A7A1B4D22C00098EC30 /* AppDelegate.m in Sources */,
 				185D65A51B6673C300845F21 /* TFWSTOrderView.m in Sources */,
 				18126A781B70739E00BACB3F /* FTDAgentDetailScoreView.m in Sources */,
+				A252AC081B836BF900E901FD /* TFWOrderModel.m in Sources */,
 				A2E7CD641B6F9BE700FD28FB /* TFWHelpResultButton.m in Sources */,
 				A2615A771B4D22C00098EC30 /* main.m in Sources */,
 				18126A761B70739E00BACB3F /* FTDGoodAgentKindsController.m in Sources */,
@@ -2125,6 +2150,7 @@
 				185D64D41B6671DF00845F21 /* TFWSCFiveView.m in Sources */,
 				18C280781B734D0D002848D2 /* FTDBigImageView.m in Sources */,
 				18C04DF61B79ED6A009B1F6F /* FTDCreatImage.m in Sources */,
+				A252AC051B83691800E901FD /* FTWDataManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

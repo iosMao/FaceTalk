@@ -77,8 +77,8 @@
 {
     TFWSTOrderRoundItem *item = [TFWSTOrderRoundItem createRoundItemWithNumber:1 andCenter:CGPointMake(STARTX, 190) andTitle:@"真英才" andSubtitle:@"傲人风采"];
     [self addSubview:item];
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(85, 50, 106, 219)];
-    imageView.image = [UIImage imageNamed:@"tfw_sf_tie"];
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(40, 0, 161, 157)];
+    imageView.image = [UIImage imageNamed:@"tfw_sf_head"];
     [self addSubview:imageView];
     
     CGAffineTransform transform = imageView.transform;
@@ -93,8 +93,8 @@
 {
     TFWSTOrderRoundItem *item = [TFWSTOrderRoundItem createRoundItemWithNumber:2 andCenter:CGPointMake(STARTX, 190) andTitle:@"真选择" andSubtitle:@"成就事业"];
     [self addSubview:item];
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(40, 0, 161, 157)];
-    imageView.image = [UIImage imageNamed:@"tfw_sf_head"];
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(85, 50, 106, 219)];
+    imageView.image = [UIImage imageNamed:@"tfw_sf_tie"];
     [self addSubview:imageView];
     
     CGAffineTransform transform = imageView.transform;
@@ -104,6 +104,7 @@
         imageView.transform = CGAffineTransformScale(transform, 1, 1);
     }];
 }
+
 
 -(void)createThree
 {

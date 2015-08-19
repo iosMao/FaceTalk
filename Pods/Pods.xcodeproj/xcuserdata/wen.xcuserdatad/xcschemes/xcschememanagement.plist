@@ -8,15 +8,39 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+		<key>Pods-SVProgressHUD.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+		<key>Pods-ZipArchive.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
 		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>1</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>01C26114B41E138FBE2AE76B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>12621852340FDE3AB4D41328</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>4DD444F83BA10625487B26B5</key>
 		<dict>
 			<key>primary</key>
@@ -32,7 +56,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>B7FA911E72256E06145EEA93</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>F7AFE50B5E944F06FFDE5F0E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F9B4F474F84FCC4BD6FCF19D</key>
 		<dict>
 			<key>primary</key>
 			<true/>

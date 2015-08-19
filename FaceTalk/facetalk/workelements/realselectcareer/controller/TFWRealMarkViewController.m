@@ -85,6 +85,8 @@
 
 -(void)okAction
 {
+    
+    
     TFWSRResultViewController *VC = [[TFWSRResultViewController alloc] init];
     [self.navigationController pushViewController:VC animated:YES];
     NSLog(@"OK");
