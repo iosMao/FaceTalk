@@ -10,6 +10,8 @@
 #import "TFWRSCenterView.h"
 #import "TFWRSButtonView.h"
 #import "TFWRealMarkViewController.h"
+#import "FTWDataManager.h"
+
 @interface TFWRealOrderViewController ()
 
 @property (nonatomic,strong) UILabel *titleLabel;
@@ -164,7 +166,7 @@
     [_viewArray addObject:bt_learn];
     [self.view addSubview:bt_learn];
     
-    TFWRSButtonView *bt_life = [TFWRSButtonView createButtonWithTag:TenElementTypeBrand andCenter:CGPointMake(145, 394)];
+    TFWRSButtonView *bt_life = [TFWRSButtonView createButtonWithTag:TenElementTypeLife andCenter:CGPointMake(145, 394)];
     [bt_life setTapBlock:^(UIButton *bt){
         [weak elementAction:bt];
     }];
@@ -174,7 +176,7 @@
     [_viewArray addObject:bt_life];
     [self.view addSubview:bt_life];
     
-    TFWRSButtonView *bt_socity = [TFWRSButtonView createButtonWithTag:TenElementTypeBrand andCenter:CGPointMake(408, 253)];
+    TFWRSButtonView *bt_socity = [TFWRSButtonView createButtonWithTag:TenElementTypeSocity andCenter:CGPointMake(408, 253)];
     [bt_socity setTapBlock:^(UIButton *bt){
         [weak elementAction:bt];
     }];
@@ -307,11 +309,14 @@
     bt.selected = !bt.selected;
     
     [self setCenterViewNumber:self.number * 20];
+    
+    ((FTWElementItem *)[FTWDataManager shareManager].tenElementArray[bt.tag]).selected = bt.selected;
+    NSLog(@"%d",bt.tag);
 }
 
 -(void)addAction:(UIButton *)bt
 {
-    
+    NSLog(@"%d",bt.tag);
 }
 
 -(void)setCenterViewNumber:(int)number
@@ -347,6 +352,20 @@
 
 -(void)okAction
 {
+    NSMutableArray *mutArray = [[NSMutableArray alloc] init];
+    for (FTWElementItem *item in [FTWDataManager shareManager].tenElementArray) {
+        if (item.selected) {
+            [mutArray addObject:item];
+        }
+    }
+    if (mutArray.count != 5) {
+        UIAlertView *alretView = [[UIAlertView alloc] initWithTitle:nil message:@"最少选择5个" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alretView show];
+        
+        return;
+    }
+
+    
     TFWRealMarkViewController *vc=[[TFWRealMarkViewController
                                     alloc]init];
     [self.navigationController pushViewController:vc animated:YES];

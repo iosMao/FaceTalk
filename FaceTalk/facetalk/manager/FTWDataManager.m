@@ -12,8 +12,6 @@
 
 @interface FTWDataManager ()
 
-@property (nonatomic,strong) NSArray *tenElementArray;
-
 @end
 
 static FTWDataManager *shareManager;
@@ -25,7 +23,7 @@ static FTWDataManager *shareManager;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         shareManager = [[FTWDataManager alloc] init];
-
+        [shareManager createTenElementArray];
     });
     
     return shareManager;
@@ -68,6 +66,83 @@ static FTWDataManager *shareManager;
 {
     NSMutableArray *array = [[NSMutableArray alloc] init];
     FTWElementItem *item1 = [[FTWElementItem alloc] init];
+    FTWElementItem *item2 = [[FTWElementItem alloc] init];
+    FTWElementItem *item3 = [[FTWElementItem alloc] init];
+    FTWElementItem *item4 = [[FTWElementItem alloc] init];
+    FTWElementItem *item5 = [[FTWElementItem alloc] init];
+    FTWElementItem *item6 = [[FTWElementItem alloc] init];
+    FTWElementItem *item7 = [[FTWElementItem alloc] init];
+    FTWElementItem *item8 = [[FTWElementItem alloc] init];
+    FTWElementItem *item9 = [[FTWElementItem alloc] init];
+    FTWElementItem *item10 = [[FTWElementItem alloc] init];
+    
+    [array addObject:item1];
+    [array addObject:item2];
+    [array addObject:item3];
+    [array addObject:item4];
+    [array addObject:item5];
+    [array addObject:item6];
+    [array addObject:item7];
+    [array addObject:item8];
+    [array addObject:item9];
+    [array addObject:item10];
+    
+    _tenElementArray = [NSArray arrayWithArray:array];
+    
+    item1.type = TenElementTypeBrand;
+    item2.type = TenElementTypeFree;
+    item3.type = TenElementTypeHonour;
+    item4.type = TenElementTypeIncome;
+    item5.type = TenElementTypeLearn;
+    item6.type = TenElementTypeLife;
+    item7.type = TenElementTypeSocity;
+    item8.type = TenElementTypeSpace;
+    item9.type = TenElementTypeSuit;
+    item10.type = TenElementTypeWork;
+    
+    item1.title = @"品牌实力";
+    item2.title = @"自由晋级";
+    item3.title = @"荣誉奖励";
+    item4.title = @"收入丰厚";
+    item5.title = @"学习成长";
+    item6.title = @"生活平衡";
+    item7.title = @"社会贡献";
+    item8.title = @"发展空间";
+    item9.title = @"适合度";
+    item10.title = @"工作自主";
+    
+    item1.iconName = @"tfw_rs_brand";
+    item2.iconName = @"tfw_rs_free";
+    item3.iconName = @"tfw_rs_honour";
+    item4.iconName = @"tfw_rs_income";
+    item5.iconName = @"tfw_rs_learn";
+    item6.iconName = @"tfw_rs_life";
+    item7.iconName = @"tfw_rs_socity";
+    item8.iconName = @"tfw_rs_space";
+    item9.iconName = @"tfw_rs_suit";
+    item10.iconName = @"tfw_rs_work";
+    
+    item1.currentScore = 5.0;
+    item2.currentScore = 5.0;
+    item3.currentScore = 5.0;
+    item4.currentScore = 5.0;
+    item5.currentScore = 5.0;
+    item6.currentScore = 5.0;
+    item7.currentScore = 5.0;
+    item8.currentScore = 5.0;
+    item9.currentScore = 5.0;
+    item10.currentScore = 5.0;
+    
+    item1.hopeScore = 5.0;
+    item2.hopeScore = 5.0;
+    item3.hopeScore = 5.0;
+    item4.hopeScore = 5.0;
+    item5.hopeScore = 5.0;
+    item6.hopeScore = 5.0;
+    item7.hopeScore = 5.0;
+    item8.hopeScore = 5.0;
+    item9.hopeScore = 5.0;
+    item10.hopeScore = 5.0;
 }
 
 @end

@@ -12,6 +12,8 @@
 
 @interface FTWDataManager : NSObject
 
+@property (nonatomic,strong) NSArray *tenElementArray;
+
 +(FTWDataManager *)shareManager;
 
 //定制面谈排序

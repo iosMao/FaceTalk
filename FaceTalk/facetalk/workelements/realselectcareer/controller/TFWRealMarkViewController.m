@@ -10,12 +10,14 @@
 #import "TFWSCItemView.h"
 #import "FTDGoodAgentHomeController.h"
 #import "TFWSRResultViewController.h"
+#import "FTWDataManager.h"
 
 @interface TFWRealMarkViewController ()
 
 @property (nonatomic,strong) UILabel *titleLabel;
 @property (nonatomic,strong) TFWSCItemView *leftItem;
 @property (nonatomic,strong) TFWSCItemView *rightItem;
+@property (nonatomic,strong) NSArray *dataSource;
 
 @end
 
@@ -24,12 +26,24 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    [self configData];
     [self buildBackGround];
     [self buildBackButton];
     [self buildTitleLabel];
     [self buildItem];
     [self buildOkButton];
+}
+
+-(void)configData
+{
+    NSMutableArray *mutArray = [[NSMutableArray alloc] init];
+    for (FTWElementItem *item in [FTWDataManager shareManager].tenElementArray) {
+        if (item.selected) {
+            [mutArray addObject:item];
+        }
+    }
+    
+    _dataSource = [NSArray arrayWithArray:mutArray];
 }
 
 -(void)buildBackGround
@@ -59,10 +73,10 @@
 
 -(void)buildItem
 {
-    self.leftItem = [TFWSCItemView createItemWithCenter:CGPointMake(308, 370) andItemArray:@[@"适合度",@"生活平衡",@"学习成长",@"发展空间",@"收入丰厚"] isHope:NO];
+    self.leftItem = [TFWSCItemView createItemWithCenter:CGPointMake(308, 370) andItemArray:_dataSource isHope:NO];
     [self.view addSubview:self.leftItem];
     
-    self.rightItem = [TFWSCItemView createItemWithCenter:CGPointMake(308 + 440, 370) andItemArray:@[@"适合度",@"生活平衡",@"学习成长",@"发展空间",@"收入丰厚"] isHope:YES];
+    self.rightItem = [TFWSCItemView createItemWithCenter:CGPointMake(308 + 440, 370) andItemArray:_dataSource isHope:YES];
     [self.view addSubview:self.rightItem];
 
 }
@@ -76,7 +90,6 @@
     [self.view addSubview:bt];
 }
 
-
 -(void)back:(UIButton *)button
 {
     [self.navigationController popViewControllerAnimated:YES];
@@ -85,8 +98,6 @@
 
 -(void)okAction
 {
-    
-    
     TFWSRResultViewController *VC = [[TFWSRResultViewController alloc] init];
     [self.navigationController pushViewController:VC animated:YES];
     NSLog(@"OK");
