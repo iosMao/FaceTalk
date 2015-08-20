@@ -7,11 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TFWRSButtonView.h"
 
 @interface FTWElementItem : NSObject
 
-@property (nonatomic,assign) int tid;
+@property (nonatomic,assign) TenElementType type;
+@property (nonatomic,assign) BOOL selected;
 @property (nonatomic,strong) NSString *title;
-@property (nonatomic,assign) float score;
+@property (nonatomic,strong) NSString *iconName;
+@property (nonatomic,assign) float currentScore;
+@property (nonatomic,assign) float hopeScore;
 
 @end

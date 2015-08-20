@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-typedef NS_ENUM(NSUInteger, TenElementType) {
-    TenElementTypeBrand = 12132,
+typedef NS_ENUM(NSInteger, TenElementType) {
+    TenElementTypeBrand = 0,
     TenElementTypeFree,
     TenElementTypeHonour,
     TenElementTypeIncome,

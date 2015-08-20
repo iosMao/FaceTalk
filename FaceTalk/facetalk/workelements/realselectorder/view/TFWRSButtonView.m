@@ -7,13 +7,16 @@
 //
 
 #import "TFWRSButtonView.h"
+#import "FTWElementItem.h"
+#import "FTWDataManager.h"
+#import "FTWElementItem.h"
 
 @interface TFWRSButtonView ()
 
 @property (nonatomic,strong) UIButton *centerBt;
 @property (nonatomic,strong) UIButton *addBt;
 @property (nonatomic,strong) UILabel *textLabel;
-
+@property (nonatomic,strong) FTWElementItem *item;
 @end
 
 @implementation TFWRSButtonView
@@ -29,65 +32,66 @@
 +(id)createButtonWithTag:(TenElementType)tag andCenter:(CGPoint)center
 {
     TFWRSButtonView *btView = [[TFWRSButtonView alloc] initWithFrame:CGRectMake(0, 0, 120, 120)];
+    btView.item = [FTWDataManager shareManager].tenElementArray[tag];
     btView.backgroundColor = [UIColor clearColor];
     btView.center = center;
-    [btView bulidViewwithTag:tag];
+    [btView bulidViewwithItem:btView.item];
     btView.alpha = 0.0f;
     
     return btView;
 }
 
--(void)bulidViewwithTag:(TenElementType)tag
+-(void)bulidViewwithItem:(FTWElementItem *)item
 {
-    switch (tag) {
+    switch (item.type) {
         case TenElementTypeBrand:
-            [self buildButtonwithSize:CGSizeMake(79, 78) andImageName:@"tfw_rs_brand"];
-            [self buildLabelwithText:@"品牌实力"];
+            [self buildButtonwithSize:CGSizeMake(79, 78) andImageName:item.iconName];
+            [self buildLabelwithText:item.title];
             break;
             
         case TenElementTypeFree:
-            [self buildButtonwithSize:CGSizeMake(98, 99) andImageName:@"tfw_rs_free"];
-            [self buildLabelwithText:@"自由晋级"];
+            [self buildButtonwithSize:CGSizeMake(98, 99) andImageName:item.iconName];
+            [self buildLabelwithText:item.title];
             break;
             
         case TenElementTypeHonour:
-            [self buildButtonwithSize:CGSizeMake(79, 78) andImageName:@"tfw_rs_honour"];
-            [self buildLabelwithText:@"荣誉奖励"];
+            [self buildButtonwithSize:CGSizeMake(79, 78) andImageName:item.iconName];
+            [self buildLabelwithText:item.title];
             break;
             
         case TenElementTypeIncome:
-            [self buildButtonwithSize:CGSizeMake(79, 79) andImageName:@"tfw_rs_income"];
-            [self buildLabelwithText:@"收入丰厚"];
+            [self buildButtonwithSize:CGSizeMake(79, 79) andImageName:item.iconName];
+            [self buildLabelwithText:item.title];
             break;
             
         case TenElementTypeLearn:
-            [self buildButtonwithSize:CGSizeMake(89, 89) andImageName:@"tfw_rs_learn"];
-            [self buildLabelwithText:@"学习成长"];
+            [self buildButtonwithSize:CGSizeMake(89, 89) andImageName:item.iconName];
+            [self buildLabelwithText:item.title];
             break;
             
         case TenElementTypeLife:
-            [self buildButtonwithSize:CGSizeMake(79, 78) andImageName:@"tfw_rs_life"];
-            [self buildLabelwithText:@"生活平衡"];
+            [self buildButtonwithSize:CGSizeMake(79, 78) andImageName:item.iconName];
+            [self buildLabelwithText:item.title];
             break;
             
         case TenElementTypeSocity:
-            [self buildButtonwithSize:CGSizeMake(59, 59) andImageName:@"tfw_rs_socity"];
-            [self buildLabelwithText:@"社会贡献"];
+            [self buildButtonwithSize:CGSizeMake(59, 59) andImageName:item.iconName];
+            [self buildLabelwithText:item.title];
             break;
             
         case TenElementTypeSpace:
-            [self buildButtonwithSize:CGSizeMake(79, 78) andImageName:@"tfw_rs_space"];
-            [self buildLabelwithText:@"发展空间"];
+            [self buildButtonwithSize:CGSizeMake(79, 78) andImageName:item.iconName];
+            [self buildLabelwithText:item.title];
             break;
             
         case TenElementTypeSuit:
-            [self buildButtonwithSize:CGSizeMake(78, 79) andImageName:@"tfw_rs_suit"];
-            [self buildLabelwithText:@"适合度"];
+            [self buildButtonwithSize:CGSizeMake(78, 79) andImageName:item.iconName];
+            [self buildLabelwithText:item.title];
             break;
             
         case TenElementTypeWork:
-            [self buildButtonwithSize:CGSizeMake(59, 59) andImageName:@"tfw_rs_work"];
-            [self buildLabelwithText:@"工作自主"];
+            [self buildButtonwithSize:CGSizeMake(59, 59) andImageName:item.iconName];
+            [self buildLabelwithText:item.title];
             break;
         
         default:
@@ -99,8 +103,7 @@
 
 -(void)buildButtonwithSize:(CGSize)size andImageName:(NSString *)name
 {
-    _centerBt = [UIButton buttonWithType:UIButtonTypeCustom];
-    _centerBt.tag = TenElementTypeBrand;
+    _centerBt = [UIButton new];
     [_centerBt setBackgroundImage:[UIImage imageNamed:name] forState:UIControlStateSelected];
     [_centerBt setBackgroundImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@_gray",name]] forState:UIControlStateNormal];
     [_centerBt setShowsTouchWhenHighlighted:NO];
@@ -108,12 +111,13 @@
     _centerBt.center = CGPointMake(self.bounds.size.width / 2.0, self.bounds.size.height / 2.0);
     [_centerBt addTarget:self action:@selector(elementAction:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:_centerBt];
+    _centerBt.tag = (NSInteger)_item.type;
 }
 
 -(void)buildAdd
 {
     _addBt = [UIButton buttonWithType:UIButtonTypeCustom];
-    _addBt.tag = TenElementTypeBrand;
+    _addBt.tag = _item.type;
     [_addBt setBackgroundImage:[UIImage imageNamed:@"tfw_rs_add"] forState:UIControlStateNormal];
     _addBt.frame = CGRectMake(0, 0, _centerBt.bounds.size.width / 10 * 3, _centerBt.bounds.size.width / 10 * 3);
     _addBt.center = CGPointMake(_centerBt.frame.origin.x + _centerBt.frame.size.width, _centerBt.frame.origin.y);

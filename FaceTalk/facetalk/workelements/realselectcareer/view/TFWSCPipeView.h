@@ -17,6 +17,6 @@ typedef void(^valueChangeBlock)(TFWSCPipeView *);
 @property (nonatomic,copy) valueChangeBlock valueChangeblock;
 
 +(id)createPipeWithCenter:(CGPoint)center Title:(NSString *)title isHope:(BOOL)is_hope;
--(void)setPipevalue:(CGFloat)pipevalue;
+-(void)setPipevalue:(float)pipevalue;
 
 @end

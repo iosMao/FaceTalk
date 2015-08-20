@@ -9,6 +9,7 @@
 #import "TFWSCItemView.h"
 #import "TFWSCFiveView.h"
 #import "TFWSCPipeView.h"
+#import "FTWElementItem.h"
 
 @interface TFWSCItemView ()
 
@@ -71,39 +72,78 @@
 -(void)createFiveView
 {
     self.fiveView = [TFWSCFiveView createFiveWithCenter:CGPointMake(220, 170) is_Hope:self.is_hope];
-    [self.fiveView setSubTitle1:[self.listArray objectAtIndex:0] Title2:[self.listArray objectAtIndex:1] Title3:[self.listArray objectAtIndex:2] Title4:[self.listArray objectAtIndex:3] Title:[self.listArray objectAtIndex:4]];
-    [self.fiveView setShadowwithRate1:0.5 withRate2:0.5 withRate3:0.5 withRate4:0.5 withRate5:0.5];
+    [self.fiveView setSubTitle1:((FTWElementItem *)[self.listArray objectAtIndex:0]).title Title2:((FTWElementItem *)[self.listArray objectAtIndex:1]).title Title3:((FTWElementItem *)[self.listArray objectAtIndex:2]).title Title4:((FTWElementItem *)[self.listArray objectAtIndex:3]).title Title:((FTWElementItem *)[self.listArray objectAtIndex:4]).title];
+    FTWElementItem * item0 = ((FTWElementItem *)[_listArray objectAtIndex:0]);
+    FTWElementItem * item1 = ((FTWElementItem *)[_listArray objectAtIndex:1]);
+    FTWElementItem * item2 = ((FTWElementItem *)[_listArray objectAtIndex:2]);
+    FTWElementItem * item3 = ((FTWElementItem *)[_listArray objectAtIndex:3]);
+    FTWElementItem * item4 = ((FTWElementItem *)[_listArray objectAtIndex:4]);
+    if (_is_hope) {
+        [self.fiveView setShadowwithRate1:item0.hopeScore / 10.0 withRate2:item1.hopeScore / 10.0 withRate3:item2.hopeScore / 10.0 withRate4:item3.hopeScore / 10.0 withRate5:item4.hopeScore / 10.0];
+    }else{
+        [self.fiveView setShadowwithRate1:item0.currentScore / 10.0 withRate2:item1.currentScore / 10.0 withRate3:item2.currentScore / 10.0 withRate4:item3.currentScore / 10.0 withRate5:item4.currentScore / 10.0];
+    }
+    
     [self addSubview:self.fiveView];
 }
 
 -(void)createPipeView
 {
     for (int i = 0; i < 5; i++) {
-        TFWSCPipeView *pipe = [TFWSCPipeView createPipeWithCenter:CGPointMake(82 + 64 * i, 390) Title:[self.listArray objectAtIndex:i] isHope:self.is_hope];
+        TFWSCPipeView *pipe = [TFWSCPipeView createPipeWithCenter:CGPointMake(82 + 64 * i, 390) Title:((FTWElementItem *)[self.listArray objectAtIndex:i]).title isHope:self.is_hope];
+        FTWElementItem *item = ((FTWElementItem *)[_listArray objectAtIndex:i]);
+        float value = _is_hope ? item.hopeScore : item.currentScore;
+        [pipe setPipevalue:value];
         pipe.pipevalue = 0.5;
         pipe.tag = 11111 + i;
         __weak TFWSCItemView *weakself = self;
         [pipe setValueChangeblock:^(TFWSCPipeView *pipeView)
         {
             int index = pipeView.tag - 11111;
+            FTWElementItem *item = [_listArray objectAtIndex:index];
             switch (index) {
                 case 0:
+                    if (_is_hope) {
+                        item.hopeScore = weakself.fiveView.rate0 * 10;
+                    }else{
+                        item.currentScore = weakself.fiveView.rate0 * 10;
+                    }
                     [weakself.fiveView setShadowwithRate1:pipeView.pipevalue withRate2:weakself.fiveView.rate1 withRate3:weakself.fiveView.rate2 withRate4:weakself.fiveView.rate3 withRate5:weakself.fiveView.rate4];
                     break;
                     
                 case 1:
+                    if (_is_hope) {
+                        item.hopeScore = weakself.fiveView.rate1 * 10;
+                    }else{
+                        item.currentScore = weakself.fiveView.rate1 * 10;
+                    }
                     [weakself.fiveView setShadowwithRate1:weakself.fiveView.rate0 withRate2:pipeView.pipevalue withRate3:weakself.fiveView.rate2 withRate4:weakself.fiveView.rate3 withRate5:weakself.fiveView.rate4];
                     break;
                     
                 case 2:
+                    if (_is_hope) {
+                        item.hopeScore = weakself.fiveView.rate2 * 10;
+                    }else{
+                        item.currentScore = weakself.fiveView.rate2 * 10;
+                    }
                     [weakself.fiveView setShadowwithRate1:weakself.fiveView.rate0 withRate2:weakself.fiveView.rate1 withRate3:pipeView.pipevalue withRate4:weakself.fiveView.rate3 withRate5:weakself.fiveView.rate4];
                     break;
                     
                 case 3:
+                    if (_is_hope) {
+                        item.hopeScore = weakself.fiveView.rate3 * 10;
+                    }else{
+                        item.currentScore = weakself.fiveView.rate3 * 10;
+                    }
                     [weakself.fiveView setShadowwithRate1:weakself.fiveView.rate0 withRate2:weakself.fiveView.rate1 withRate3:weakself.fiveView.rate2 withRate4:pipeView.pipevalue withRate5:weakself.fiveView.rate4];
                     break;
                     
                 case 4:
+                    if (_is_hope) {
+                        item.hopeScore = weakself.fiveView.rate4 * 10;
+                    }else{
+                        item.currentScore = weakself.fiveView.rate4 * 10;
+                    }
                     [weakself.fiveView setShadowwithRate1:weakself.fiveView.rate0 withRate2:weakself.fiveView.rate1 withRate3:weakself.fiveView.rate2 withRate4:weakself.fiveView.rate3 withRate5:pipeView.pipevalue];
                     break;
                     

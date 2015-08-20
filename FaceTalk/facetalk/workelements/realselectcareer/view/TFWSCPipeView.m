@@ -48,10 +48,11 @@
     return self;
 }
 
--(void)setPipevalue:(CGFloat)pipevalue
+-(void)setPipevalue:(float)pipevalue
 {
     _pipevalue = pipevalue;
     _btImageView.center = CGPointMake(self.bounds.size.width / 2.0, 32 + 112 * (1 - pipevalue));
+    [self setNeedsLayout];
 }
 
 -(void)buildView
