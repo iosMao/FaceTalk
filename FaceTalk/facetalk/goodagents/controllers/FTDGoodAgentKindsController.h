@@ -10,7 +10,7 @@
 #import <MediaPlayer/MediaPlayer.h>
 @interface FTDGoodAgentKindsController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 {
-    MPMoviePlayerController *MoviePlayer;
+    MPMoviePlayerController *moviePlayer;
 }
 @property (strong, nonatomic) IBOutlet UITableView *tableKind;
 @property (strong, nonatomic) IBOutlet UIImageView *imgTitle1;
