@@ -9,7 +9,8 @@
 #import "TFWSRResultViewController.h"
 #import "TFWScrollView.h"
 #import "FTDGoodAgentHomeController.h"
-
+#import "FTWDataManager.h"
+#import "TFWReportViewController.h"
 @interface TFWSRResultViewController ()
 
 @property (nonatomic,strong) UILabel *titleLabel;
@@ -112,7 +113,35 @@
 -(void)okAction
 {
     NSLog(@"OK");
-    FTDGoodAgentHomeController *vc = [[FTDGoodAgentHomeController alloc] init];
+//    id vc=[FTWDataManager shareManager].classArray objectAtIndex:<#(NSUInteger)#>
+    TFWOrderModel *orderModel = [[FTWDataManager shareManager] selectOrder];
+    NSInteger index = 0;
+    
+    switch ([FTWDataManager shareManager].currentIndex++ + 1) {
+        case 0:
+            index = orderModel.first;
+            break;
+        case 1:
+            index = orderModel.second;
+            break;
+        case 2:
+            index = orderModel.third;
+            break;
+        case 3:
+            index = orderModel.fourth;
+            break;
+            
+        default:
+            index = -1;
+            break;
+    }
+    id vc = nil;
+    if (index == -1) {
+        vc = [[TFWReportViewController alloc] init];
+    }else
+    {
+        vc = [[NSClassFromString([[FTWDataManager shareManager].classArray objectAtIndex:index - 1]) alloc] init];
+    }
     [self.navigationController setViewControllers:@[vc] animated:YES];
     //[self.navigationController pushViewController:vc animated:YES];
 }

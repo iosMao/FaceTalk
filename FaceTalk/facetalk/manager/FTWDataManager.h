@@ -13,9 +13,10 @@
 @interface FTWDataManager : NSObject
 
 @property (nonatomic,strong) NSArray *tenElementArray;
-
+@property (nonatomic,assign) NSInteger currentIndex;
+@property (nonatomic,strong) NSArray  *classArray;
 +(FTWDataManager *)shareManager;
-
+-(void)createTenElementArray;
 //定制面谈排序
 -(BOOL)saveSelectOrder:(TFWOrderModel *)order;
 -(TFWOrderModel *)selectOrder;

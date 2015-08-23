@@ -98,6 +98,8 @@
 
 -(void)okAction
 {
+    [[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"FTD_isFinishMark"];
+    
     TFWSRResultViewController *VC = [[TFWSRResultViewController alloc] init];
     [self.navigationController pushViewController:VC animated:YES];
     NSLog(@"OK");

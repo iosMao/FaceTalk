@@ -12,7 +12,7 @@
 +(UIImage *)getImage:(UITableView *)tableview {
     UIImage* viewImage = nil;
     UITableView *scrollView =tableview;
-    UIGraphicsBeginImageContextWithOptions(scrollView.contentSize, scrollView.opaque, 0.0);
+    UIGraphicsBeginImageContextWithOptions(CGSizeMake(scrollView.contentSize.width, scrollView.contentSize.height), scrollView.opaque, 0.0);
     {
         CGPoint savedContentOffset = scrollView.contentOffset;
         CGRect savedFrame = scrollView.frame;

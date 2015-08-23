@@ -21,12 +21,12 @@ typedef NS_ENUM(NSInteger, TenElementType) {
     TenElementTypeWork,
 };
 
-typedef void(^TapBlock)(UIButton *);
+typedef void(^TapBtBlock)(UIButton *);
 
 @interface TFWRSButtonView : UIView
 
-@property (nonatomic,copy) TapBlock tapBlock;
-@property (nonatomic,copy) TapBlock addBlock;
+@property (nonatomic,copy) TapBtBlock tapBlock;
+@property (nonatomic,copy) TapBtBlock addBlock;
 
 +(id)createButtonWithTag:(TenElementType)tag andCenter:(CGPoint)center;
 

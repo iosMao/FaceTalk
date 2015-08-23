@@ -107,6 +107,8 @@
 -(void)homeAlertCreatclick
 {
     [homeAlertView removeFromSuperview];
+    [[NSUserDefaults standardUserDefaults]setBool:NO forKey:@"FTD_isFinishMark"];
+    
     [self.view addSubview: homeAlertFinishView];
     
 }

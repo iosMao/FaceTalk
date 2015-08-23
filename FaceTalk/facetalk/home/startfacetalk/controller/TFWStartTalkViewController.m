@@ -85,8 +85,14 @@
 
 -(void)okAction
 {
-    TFWRealOrderViewController *vc=[[TFWRealOrderViewController alloc]init];
+    TFWOrderModel *orderModel = [[FTWDataManager shareManager] selectOrder];
+    NSInteger index = orderModel.first;
+    [FTWDataManager shareManager].currentIndex++;
+    id vc = nil;
+    vc = [[NSClassFromString([[FTWDataManager shareManager].classArray objectAtIndex:index - 1]) alloc] init];
     [self.navigationController setViewControllers:@[vc] animated:YES];
+//    TFWRealOrderViewController *vc=[[TFWRealOrderViewController alloc]init];
+//    [self.navigationController setViewControllers:@[vc] animated:YES];
     //[self.navigationController pushViewController:vc animated:YES];
     NSLog(@"OK");
 }

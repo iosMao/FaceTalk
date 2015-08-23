@@ -14,6 +14,8 @@
 #import "FTDPersonTController.h"
 #import "TFWReportViewController.h"
 #import <SVProgressHUD/SVProgressHUD.h>
+#import "FTWDataManager.h"
+#import "TFWOrderModel.h"
 @interface TFDNavViewController ()
 
 @end
@@ -124,37 +126,67 @@
 {
     [self hiddenRightMenu];
     NSLog(@"%ld",sender.tag-300);
+    NSString *classString = nil;
     if (sender.tag-300==0) {
-        
+        if (![[NSUserDefaults standardUserDefaults]objectForKey:@"FTD_isFinishMark"]) {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"提示" message:@"请完成十大要素评分！" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
+            [alert show];
+            return;
+        }
          
         TFWReportViewController *vc=[[TFWReportViewController alloc]init];
         [self setViewControllers:@[vc] animated:YES];
         NSLog(@"%@",self.viewControllers);
+        classString = [TFWReportViewController description];
     }
     else if (sender.tag-300==1) {
         TFWRealOrderViewController *vc=[[TFWRealOrderViewController alloc]init];
         [self setViewControllers:@[vc] animated:YES];
         NSLog(@"%@",self.viewControllers);
+        classString = [TFWRealOrderViewController description];
     }
     else if (sender.tag-300==2)
     {
         FTDGoodAgentHomeController *vc=[[FTDGoodAgentHomeController alloc]init];
          [self setViewControllers:@[vc] animated:YES];
+        classString = [FTDGoodAgentHomeController description];
     }
     else if (sender.tag-300==3)
     {
         TFWRealHelpViewController *vc=[[TFWRealHelpViewController alloc]init];
          [self setViewControllers:@[vc] animated:YES];
+        classString = [TFWRealHelpViewController description];
     }
     else if (sender.tag-300==4)
     {
         FTDPersonTController *vc=[[FTDPersonTController alloc]init];
         [self setViewControllers:@[vc] animated:YES];
+        classString = [FTDPersonTController description];
 
     }
-    
-        
-     
+    NSInteger index = 0;
+    for (NSString * item in [FTWDataManager shareManager].classArray) {
+        if ([item isEqualToString:classString]) {
+            break;
+        }
+        index++;
+    }
+    TFWOrderModel *model = [[FTWDataManager shareManager] selectOrder];
+    if (index < 4) {
+        if (index + 1 == model.first) {
+            index = 0;
+        }else if(index + 1 == model.second)
+        {
+            index = 1;
+        }else if(index + 1 == model.third)
+        {
+            index = 2;
+        }else if(index + 1 == model.fourth)
+        {
+            index = 3;
+        }
+        [FTWDataManager shareManager].currentIndex = index;
+    }
     
 }
 
@@ -282,8 +314,13 @@
         [self popToRootViewControllerAnimated:NO];
         [self dismissViewControllerAnimated:YES completion:nil];
     }
+    else if (indexPath.row==5)
+    {
+        
+    }
     
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

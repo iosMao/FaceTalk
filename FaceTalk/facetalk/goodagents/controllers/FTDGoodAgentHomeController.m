@@ -9,7 +9,8 @@
 #import "FTDGoodAgentHomeController.h"
 #import "FTDGoodAgentKindsController.h"
 #import "TFWRealHelpViewController.h"
-
+#import "FTWDataManager.h"
+#import "TFWReportViewController.h"
 @interface FTDGoodAgentHomeController ()
 
 @end
@@ -106,7 +107,42 @@
 */
 
 - (IBAction)nextAction:(id)sender {
-    TFWRealHelpViewController *vc=[[TFWRealHelpViewController alloc]init];
+    
+    TFWOrderModel *orderModel = [[FTWDataManager shareManager] selectOrder];
+    NSInteger index = 0;
+    
+    switch ([FTWDataManager shareManager].currentIndex++ + 1) {
+        case 0:
+            index = orderModel.first;
+            break;
+        case 1:
+            index = orderModel.second;
+            break;
+        case 2:
+            index = orderModel.third;
+            break;
+        case 3:
+            index = orderModel.fourth;
+            break;
+            
+        default:
+            index = -1;
+            break;
+    }
+    id vc = nil;
+    if (index == -1) {
+        if (![[NSUserDefaults standardUserDefaults]objectForKey:@"FTD_isFinishMark"]) {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"提示" message:@"请完成十大要素评分！" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
+            [alert show];
+            return;
+        }
+        vc = [[TFWReportViewController alloc] init];
+    }else
+    {
+        vc = [[NSClassFromString([[FTWDataManager shareManager].classArray objectAtIndex:index - 1]) alloc] init];
+    }
+    
+//    TFWRealHelpViewController *vc=[[TFWRealHelpViewController alloc]init];
     [self.navigationController setViewControllers:@[vc] animated:YES];
     //[self.navigationController pushViewController:vc animated:YES];
 }

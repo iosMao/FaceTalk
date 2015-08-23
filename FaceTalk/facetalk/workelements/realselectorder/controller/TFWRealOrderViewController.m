@@ -47,6 +47,7 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    [[FTWDataManager shareManager] createTenElementArray];
     [self startAnimation];
     _circleTimer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(panRound) userInfo:nil repeats:YES];
 }

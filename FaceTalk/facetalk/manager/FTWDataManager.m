@@ -23,6 +23,8 @@ static FTWDataManager *shareManager;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         shareManager = [[FTWDataManager alloc] init];
+        shareManager.currentIndex=-1;
+        shareManager.classArray=@[@"TFWRealOrderViewController",@"FTDGoodAgentHomeController",@"TFWRealHelpViewController",@"FTDPersonTController"];
         [shareManager createTenElementArray];
     });
     

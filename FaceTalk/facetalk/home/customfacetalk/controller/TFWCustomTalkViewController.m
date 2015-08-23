@@ -181,6 +181,7 @@
         model.first = [[orderArray objectAtIndex:0] integerValue];
         model.second = [[orderArray objectAtIndex:1] integerValue];
         model.third = [[orderArray objectAtIndex:2] integerValue];
+     
         model.fourth = [[orderArray objectAtIndex:3] integerValue];
         
         if ([[FTWDataManager shareManager] saveSelectOrder:model]) {
