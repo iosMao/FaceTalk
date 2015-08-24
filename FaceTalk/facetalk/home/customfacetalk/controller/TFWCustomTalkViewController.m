@@ -185,8 +185,15 @@
         model.fourth = [[orderArray objectAtIndex:3] integerValue];
         
         if ([[FTWDataManager shareManager] saveSelectOrder:model]) {
-            TFWStartTalkViewController *TFWStartTalkViewCol=[[TFWStartTalkViewController alloc]init];
-            [self.navigationController pushViewController:TFWStartTalkViewCol animated:YES];
+            if ([self.strType isEqualToString:@"first"]) {
+                TFWStartTalkViewController *TFWStartTalkViewCol=[[TFWStartTalkViewController alloc]init];
+                [self.navigationController pushViewController:TFWStartTalkViewCol animated:YES];
+            }
+            else{
+                [self.navigationController popViewControllerAnimated:YES];
+            }
+            
+            
             return;
         }
     }

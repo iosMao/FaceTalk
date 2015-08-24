@@ -21,8 +21,16 @@
     indexid=1000000;
     tableAgentList.separatorColor=[UIColor clearColor];
     tableAgentList.contentInset=UIEdgeInsetsMake(100, 0, 0, 0);
+    NSLog(@"%@",self.detailModel);
+    
+    
+    
     [self buildScoreView];
     [self buildMenu];
+    
+    
+    
+    
     // Do any additional setup after loading the view from its nib.
 }
 -(void)buildScoreView

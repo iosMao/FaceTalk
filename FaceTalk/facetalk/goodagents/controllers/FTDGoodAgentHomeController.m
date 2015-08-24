@@ -11,6 +11,7 @@
 #import "TFWRealHelpViewController.h"
 #import "FTWDataManager.h"
 #import "TFWReportViewController.h"
+#import "FTJsonManager.h"
 @interface FTDGoodAgentHomeController ()
 
 @end
@@ -110,7 +111,7 @@
     
     TFWOrderModel *orderModel = [[FTWDataManager shareManager] selectOrder];
     NSInteger index = 0;
-    
+    NSLog(@"%ld",(long)[FTWDataManager shareManager].currentIndex);
     switch ([FTWDataManager shareManager].currentIndex++ + 1) {
         case 0:
             index = orderModel.first;
@@ -131,7 +132,7 @@
     }
     id vc = nil;
     if (index == -1) {
-        if (![[NSUserDefaults standardUserDefaults]objectForKey:@"FTD_isFinishMark"]) {
+        if ( [[[NSUserDefaults standardUserDefaults]objectForKey:@"FTD_isFinishMark"]isEqualToString:@"0"]) {
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"提示" message:@"请完成十大要素评分！" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
             [alert show];
             return;
@@ -158,21 +159,22 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (IBAction)companyclick:(id)sender {
+- (IBAction)companyclick:(id)sender {//企业单位
     FTDGoodAgentKindsController *FTDGoodAgentKindsCol=[[FTDGoodAgentKindsController alloc]init];
-//    CATransition *  tran=[CATransition animation];
-//    tran.type = @"pageCurl";
-//    tran.subtype = kCATransitionFromRight;
-//    tran.duration=1;
-//    tran.delegate=self;
-//    [self.view.superview.layer addAnimation:tran forKey:@"mao"];
+    FTDGoodAgentKindsCol.index=0;
     [self.navigationController pushViewController:FTDGoodAgentKindsCol animated:YES];
 }
 
-- (IBAction)freedomclick:(id)sender {
+- (IBAction)freedomclick:(id)sender {//自由职业
+    FTDGoodAgentKindsController *FTDGoodAgentKindsCol=[[FTDGoodAgentKindsController alloc]init];
+    FTDGoodAgentKindsCol.index=2;
+    [self.navigationController pushViewController:FTDGoodAgentKindsCol animated:YES];
 }
 
-- (IBAction)careerclick:(id)sender {
+- (IBAction)careerclick:(id)sender {//事业单位
+    FTDGoodAgentKindsController *FTDGoodAgentKindsCol=[[FTDGoodAgentKindsController alloc]init];
+    FTDGoodAgentKindsCol.index=1;
+    [self.navigationController pushViewController:FTDGoodAgentKindsCol animated:YES];
 }
 
 -(void)dealloc{

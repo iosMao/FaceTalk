@@ -254,7 +254,7 @@
     }
     id vc = nil;
     if (index == -1) {
-        if (![[NSUserDefaults standardUserDefaults]objectForKey:@"FTD_isFinishMark"]) {
+        if ([[[NSUserDefaults standardUserDefaults]objectForKey:@"FTD_isFinishMark"]isEqualToString:@"0"]) {
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"提示" message:@"请完成十大要素评分！" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
             [alert show];
             return;
