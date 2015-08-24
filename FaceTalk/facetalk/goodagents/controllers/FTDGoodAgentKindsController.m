@@ -12,6 +12,7 @@
 #import "TFWHelpResultMenuView.h"
 #import "FTJsonManager.h"
 #import "FTJsonExcellentModel.h"
+#import "FTJsonSubClassModel.h"
 @interface FTDGoodAgentKindsController ()
 @property (nonatomic,strong)FTJsonExcellentModel *model;
 @property (nonatomic,strong) TFWHelpResultMenuView *menu;
@@ -93,7 +94,7 @@
 {
     //#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 4;
+    return self.model.subClass_count;
 }
 
 
@@ -111,6 +112,7 @@
         cell.backgroundColor=[UIColor colorWithRed:0.82 green:0.1 blue:0.28 alpha:1];
         
     }
+    FTJsonSubClassModel *subclassModel=[self.model.subClassArray objectAtIndex:indexPath.row];
     switch (indexPath.row) {
         case 0:
             cell.imgKind.image=[UIImage imageNamed:@"FTD_ownWork.png"];

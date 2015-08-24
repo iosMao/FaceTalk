@@ -21,14 +21,14 @@
     FTDHomeAlertView *homeAlertView;
     FTDHomAlertFinishView *homeAlertFinishView;
     FTDbackgroundView *backgroundView;
-    
+    NSArray *arrayImage;
    }
 @property(nonatomic,strong) NSTimer *loadTimer;
 
 @end
 
 @implementation FTDHomeLeadViewController
-@synthesize imgLeadH,loadTimer;
+@synthesize imgLeadH,loadTimer,imgBig,imgSmall1,imgSmall2,imgSmall3,imgSmall4;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -69,7 +69,12 @@
 }
 -(void)getImgData
 {
-   NSArray *array= [FTJsonManager shareManager].guide_page;
+   arrayImage=[[NSArray alloc]initWithArray:[FTJsonManager shareManager].guide_page];
+    
+    imgSmall1.image=[UIImage imageWithContentsOfFile:[arrayImage objectAtIndex:0]];
+    imgSmall2.image=[UIImage imageWithContentsOfFile:[arrayImage objectAtIndex:1]];
+    imgSmall3.image=[UIImage imageWithContentsOfFile:[arrayImage objectAtIndex:2]];
+    imgSmall4.image=[UIImage imageWithContentsOfFile:[arrayImage objectAtIndex:3]];
 }
 
 
@@ -78,7 +83,7 @@
 
 -(void)loadimg
 {
-    imgIndex=imgIndex+1;
+    
     if (imgIndex>3) {
         imgIndex=0;
     }
@@ -87,7 +92,8 @@
         imgLeadH.frame=CGRectMake(305+(imgIndex*121), 581, 123, 105);
         
     } completion:^(BOOL finished) {
-        
+        imgBig.image=[UIImage imageWithContentsOfFile:[arrayImage objectAtIndex:imgIndex]];
+        imgIndex=imgIndex+1;
     }];
 }
 -(void)downkeyboard{
@@ -196,7 +202,7 @@
         imgLeadH.frame=CGRectMake(305+(imgIndex*121), 581, 123, 105);
         
     } completion:^(BOOL finished) {
-        
+        imgBig.image=[UIImage imageWithContentsOfFile:[arrayImage objectAtIndex:0]];
     }];
 }
 
@@ -210,7 +216,7 @@
         imgLeadH.frame=CGRectMake(305+(imgIndex*121), 581, 123, 105);
         
     } completion:^(BOOL finished) {
-        
+        imgBig.image=[UIImage imageWithContentsOfFile:[arrayImage objectAtIndex:1]];
     }];
 }
 
@@ -224,6 +230,7 @@
         imgLeadH.frame=CGRectMake(305+(imgIndex*121), 581, 123, 105);
         
     } completion:^(BOOL finished) {
+        imgBig.image=[UIImage imageWithContentsOfFile:[arrayImage objectAtIndex:2]];
         
     }];
 }
@@ -238,6 +245,7 @@
         imgLeadH.frame=CGRectMake(305+(imgIndex*121), 581, 123, 105);
         
     } completion:^(BOOL finished) {
+        imgBig.image=[UIImage imageWithContentsOfFile:[arrayImage objectAtIndex:3]];
         
     }];
 }

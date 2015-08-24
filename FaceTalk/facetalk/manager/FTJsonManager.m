@@ -67,7 +67,7 @@ static FTJsonManager *shareManager;
     for (NSDictionary *dict in array) {
         FTJsonElementModel *model = [FTJsonElementModel new];
         model.name = [dict objectForKey:@"name"];
-        model.content = [NSString stringWithFormat:@"%@/%@",[self basePath],[dict objectForKey:@"content"]];
+        model.content = [NSString stringWithFormat:@"%@%@",[self basePath],[dict objectForKey:@"content"]];
         [mutArray addObject:model];
     }
     
@@ -79,7 +79,7 @@ static FTJsonManager *shareManager;
     NSArray *array = _ten_objective_elements;
     NSMutableArray *mutArray = [NSMutableArray new];
     for (NSString *str in array) {
-        [mutArray addObject: [NSString stringWithFormat:@"%@/%@",[self basePath],str]];
+        [mutArray addObject: [NSString stringWithFormat:@"%@%@",[self basePath],str]];
     }
     
     _ten_objective_elements = [NSArray arrayWithArray:mutArray];
@@ -87,7 +87,7 @@ static FTJsonManager *shareManager;
 
 -(void)setbackGround
 {
-    _index_background = [NSString stringWithFormat:@"%@/%@",[self basePath],_index_background];
+    _index_background = [NSString stringWithFormat:@"%@%@",[self basePath],_index_background];
 }
 
 -(void)setGuidePage
@@ -95,7 +95,7 @@ static FTJsonManager *shareManager;
     NSArray *array = _guide_page;
     NSMutableArray *mutArray = [NSMutableArray new];
     for (NSString *str in array) {
-        [mutArray addObject: [NSString stringWithFormat:@"%@/%@",[self basePath],str]];
+        [mutArray addObject: [NSString stringWithFormat:@"%@%@",[self basePath],str]];
     }
     
     _guide_page = [NSArray arrayWithArray:mutArray];
@@ -108,7 +108,7 @@ static FTJsonManager *shareManager;
     for (NSDictionary *dict in array) {
         FTJsonExcellentModel *model = [FTJsonExcellentModel new];
         model.name = [dict objectForKey:@"name"];
-        model.index = [NSString stringWithFormat:@"%@/%@",[self basePath],[[dict objectForKey:@"index"] objectForKey:@"video"]];
+        model.index = [NSString stringWithFormat:@"%@%@",[self basePath],[[dict objectForKey:@"index"] objectForKey:@"video"]];
         model.subClassArray = [dict objectForKey:@"sub_class"];
         [mutArray addObject:model];
     }
@@ -127,7 +127,8 @@ static FTJsonManager *shareManager;
 
 -(NSString *)basePath
 {
-    return @"";
+    NSString *file1=[[FTDDataPacketManager sharedInstance]basePath];
+    return file1;
 }
 
 @end

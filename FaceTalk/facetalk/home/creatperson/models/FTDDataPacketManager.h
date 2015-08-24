@@ -13,4 +13,5 @@
 -(void)downloadFile;
 -(void)removeAllSourceFile;
 -(NSString *)unzipDestinationPath;
+-(NSString *)basePath;
 @end

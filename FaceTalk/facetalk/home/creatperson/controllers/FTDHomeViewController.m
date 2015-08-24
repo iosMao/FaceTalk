@@ -22,7 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
+    [self getlocalResourse];
     NSLog(@"%@",self.navigationController);
     TFDNavViewController *nav=(TFDNavViewController *) self.navigationController;
     nav.btnSlider.hidden=YES;
@@ -62,8 +62,8 @@
 {
     NSString *strImg=[FTJsonManager shareManager].index_background;
     UIImageView *scrollImage=[[UIImageView alloc]initWithFrame:CGRectMake(0,20, 1024,748)];
-    
-    scrollImage.image=[UIImage imageNamed:@"FTD_home_aiaoffice.png"];
+     scrollImage.image=[UIImage imageWithContentsOfFile:strImg] ;
+     //scrollImage.image=[UIImage imageNamed:@"FTD_home_aiaoffice.png"];
     [scrollBG addSubview:scrollImage];
 }
 

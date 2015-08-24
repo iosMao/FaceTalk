@@ -11,7 +11,7 @@
 #import <SVProgressHUD/SVProgressHUD.h>
 #import <ZipArchive/ZipArchive.h>
 
-#define FILENAME @"MdataFile"//文件夹名字
+#define FILENAME @"attract"//文件夹名字
 #define ZIPNAME @"datafile.zip"//文件名字
 #define DATA_PACKET_URL @"http://imo.tohours.com/attract/resource.zip"
 @implementation FTDDataPacketManager

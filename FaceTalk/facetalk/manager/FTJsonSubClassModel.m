@@ -8,7 +8,7 @@
 
 #import "FTJsonSubClassModel.h"
 #import "FTJsonManager.h"
-
+#import "FTDDataPacketManager.h"
 @implementation FTJsonSubClassModel
 
 -(void)setPeoples:(NSArray *)peoples
@@ -22,8 +22,8 @@
         model.markArray = [dict objectForKey:@"newMark"];
         model.old_job = [dict objectForKey:@"old_job"];
         model.old_mark = [dict objectForKey:@"old_mark"];
-//        model.picture = [NSString stringWithFormat:@"%@/%@",[[FTJsonManager shareManager] basePath],[dict objectForKey:@"picture"]];
-        model.picture = [dict objectForKey:@"picture"];
+         model.picture = [NSString stringWithFormat:@"%@%@",[self basePath],[dict objectForKey:@"picture"]];
+        //model.picture = [dict objectForKey:@"picture"];
         model.share_word = [dict objectForKey:@"share_word"];
         [mutArray addObject:model];
     }
@@ -41,5 +41,9 @@
     _peoples_index = index;
     return [_peoples objectAtIndex:index];
 }
-
+-(NSString *)basePath
+{
+    NSString *file1=[[FTDDataPacketManager sharedInstance]basePath];
+    return file1;
+}
 @end
