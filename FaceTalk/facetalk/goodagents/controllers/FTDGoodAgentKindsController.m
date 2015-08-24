@@ -10,8 +10,10 @@
 #import "FTDAgentListCell.h"
 #import "FTDGoodAgentDetailController.h"
 #import "TFWHelpResultMenuView.h"
+#import "FTJsonManager.h"
+#import "FTJsonExcellentModel.h"
 @interface FTDGoodAgentKindsController ()
-
+@property (nonatomic,strong)FTJsonExcellentModel *model;
 @property (nonatomic,strong) TFWHelpResultMenuView *menu;
 
 @end
@@ -23,10 +25,22 @@
     tableKind.separatorColor=[UIColor clearColor];
     tableKind.contentInset=UIEdgeInsetsMake(100, 0, 0, 0);
     tableKind.backgroundColor=[UIColor colorWithRed:0.82 green:0.1 blue:0.28 alpha:1];
+    [self getClassModel];
     [self CreatMoviePlayer];
     [self  buildMenu];
     // Do any additional setup after loading the view from its nib.
 }
+
+-(void)getClassModel
+{
+     self.model=[[FTJsonManager shareManager]getElementItemAtIndex:self.index];
+    
+}
+
+
+
+
+
 -(void)CreatMoviePlayer
 {
     NSString *file = [[NSBundle mainBundle] pathForResource:@"test_movie" ofType:@"mp4"];
@@ -132,7 +146,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    
     FTDGoodAgentDetailController *vc=[[FTDGoodAgentDetailController alloc]init];
+    vc.detailModel=[self.model getSubClassItemAtIndex:indexPath.row];
     [self.navigationController pushViewController:vc animated:YES];
 }
 /*

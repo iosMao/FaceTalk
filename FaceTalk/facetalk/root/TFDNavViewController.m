@@ -16,6 +16,7 @@
 #import <SVProgressHUD/SVProgressHUD.h>
 #import "FTWDataManager.h"
 #import "TFWOrderModel.h"
+#import "TFWCustomTalkViewController.h"
 @interface TFDNavViewController ()
 
 @end
@@ -91,7 +92,7 @@
     tableMenu=[[UITableView alloc]initWithFrame:CGRectMake(-120, 20, 120, self.view.frame.size.height)];
     tableMenu.delegate=self;
     tableMenu.dataSource=self;
-    tableMenu.scrollEnabled=NO;
+    //tableMenu.scrollEnabled=NO;
     tableMenu.separatorColor=[UIColor clearColor];
     tableMenu.backgroundColor=[UIColor colorWithRed:0.72 green:0.01 blue:0.21 alpha:1];
     tableMenu.hidden=YES;
@@ -128,7 +129,9 @@
     NSLog(@"%ld",sender.tag-300);
     NSString *classString = nil;
     if (sender.tag-300==0) {
-        if (![[NSUserDefaults standardUserDefaults]objectForKey:@"FTD_isFinishMark"]) {
+        NSLog(@"UERdefaut%@",[[NSUserDefaults standardUserDefaults]objectForKey:@"FTD_isFinishMark"]);
+        
+        if ( [[[NSUserDefaults standardUserDefaults]objectForKey:@"FTD_isFinishMark"]isEqualToString:@"0"]) {
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"提示" message:@"请完成十大要素评分！" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
             [alert show];
             return;
@@ -244,7 +247,7 @@
 {
     //#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 6;
+    return 7;
 }
 
 
@@ -270,22 +273,26 @@
              cell.imgIcon.image=[UIImage imageNamed:@"FTD_slider_home.png"];
             break;
         case 1:
-            cell.lblTitle.text=@"职涯演示";
+            cell.lblTitle.text=@"个性编辑";
             cell.imgIcon.image=[UIImage imageNamed:@"FTD_slider_image0.png"];
             break;
         case 2:
+            cell.lblTitle.text=@"职涯演示";
+            cell.imgIcon.image=[UIImage imageNamed:@"FTD_slider_image0.png"];
+            break;
+        case 3:
             cell.lblTitle.text=@"培训导航";
             cell.imgIcon.image=[UIImage imageNamed:@"FTD_slider_image1.png"];
             break;
-        case 3:
+        case 4:
             cell.lblTitle.text=@"收入试算";
             cell.imgIcon.image=[UIImage imageNamed:@"FTD_slider_image2.png"];
             break;
-        case 4:
+        case 5:
             cell.lblTitle.text=@"营销员的一天";
             cell.imgIcon.image=[UIImage imageNamed:@"FTD_slider_image3.png"];
             break;
-        case 5:
+        case 6:
             cell.lblTitle.text=@"EOP报名";
             cell.imgIcon.image=[UIImage imageNamed:@"FTD_slider_image4.png"];
             break;
@@ -311,8 +318,18 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row==0) {
+        [FTWDataManager shareManager].currentIndex=-1;
         [self popToRootViewControllerAnimated:NO];
         [self dismissViewControllerAnimated:YES completion:nil];
+    }
+    else if (indexPath.row==1)
+    {
+        TFWCustomTalkViewController *vc=[[TFWCustomTalkViewController
+                                          alloc]init];
+        [self pushViewController:vc animated:YES];
+        [self removetable];
+        
+        
     }
     else if (indexPath.row==5)
     {

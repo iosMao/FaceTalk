@@ -12,4 +12,5 @@
 + (FTDDataPacketManager *)sharedInstance;
 -(void)downloadFile;
 -(void)removeAllSourceFile;
+-(NSString *)unzipDestinationPath;
 @end

@@ -13,7 +13,7 @@
 
 @property (nonatomic,copy) NSString *index;
 @property (nonatomic,copy) NSString *name;
-
+@property (nonatomic,copy) NSArray *subClassArray;
 @property (nonatomic,assign) int subClass_count;
 @property (nonatomic,assign) int subClass_index;
 -(FTJsonSubClassModel *)getSubClassItemAtIndex:(int)index;

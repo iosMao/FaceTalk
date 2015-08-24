@@ -12,6 +12,7 @@
 {
     MPMoviePlayerController *moviePlayer;
 }
+@property (assign) int index;
 @property (strong, nonatomic) IBOutlet UITableView *tableKind;
 @property (strong, nonatomic) IBOutlet UIImageView *imgTitle1;
 @property (strong, nonatomic) IBOutlet UIImageView *imgTitle2;

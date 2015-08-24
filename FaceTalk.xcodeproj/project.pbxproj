@@ -253,6 +253,13 @@
 		18D7CA291B745D9900C35359 /* FTD_thirdpart.png in Resources */ = {isa = PBXBuildFile; fileRef = 18D7CA221B745D9900C35359 /* FTD_thirdpart.png */; };
 		18D7CA2B1B74616F00C35359 /* FTD_shortBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 18D7CA2A1B74616F00C35359 /* FTD_shortBG.png */; };
 		18D7CA2D1B74829200C35359 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18D7CA2C1B74829200C35359 /* AssetsLibrary.framework */; };
+		18EC448D1B8AB86D0060B2A6 /* FTJsonElementModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EC44821B8AB86D0060B2A6 /* FTJsonElementModel.m */; };
+		18EC448E1B8AB86D0060B2A6 /* FTJsonExcellentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EC44841B8AB86D0060B2A6 /* FTJsonExcellentModel.m */; };
+		18EC448F1B8AB86D0060B2A6 /* FTJsonManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EC44861B8AB86D0060B2A6 /* FTJsonManager.m */; };
+		18EC44901B8AB86D0060B2A6 /* FTJsonMarkModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EC44881B8AB86D0060B2A6 /* FTJsonMarkModel.m */; };
+		18EC44911B8AB86D0060B2A6 /* FTJsonPeopleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EC448A1B8AB86D0060B2A6 /* FTJsonPeopleModel.m */; };
+		18EC44921B8AB86D0060B2A6 /* FTJsonSubClassModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EC448C1B8AB86D0060B2A6 /* FTJsonSubClassModel.m */; };
+		18EC44AA1B8B18090060B2A6 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 18EC44A91B8B18090060B2A6 /* data.json */; };
 		18EFA57C1B71B2B9005ABEF1 /* FTDPersonTController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EFA57A1B71B2B9005ABEF1 /* FTDPersonTController.m */; };
 		18EFA57D1B71B2B9005ABEF1 /* FTDPersonTController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18EFA57B1B71B2B9005ABEF1 /* FTDPersonTController.xib */; };
 		18EFA5861B71B2FA005ABEF1 /* FTD_personalteam_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 18EFA5801B71B2FA005ABEF1 /* FTD_personalteam_bg.png */; };
@@ -630,6 +637,19 @@
 		18D7CA221B745D9900C35359 /* FTD_thirdpart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FTD_thirdpart.png; sourceTree = "<group>"; };
 		18D7CA2A1B74616F00C35359 /* FTD_shortBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FTD_shortBG.png; sourceTree = "<group>"; };
 		18D7CA2C1B74829200C35359 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		18EC44811B8AB86D0060B2A6 /* FTJsonElementModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTJsonElementModel.h; sourceTree = "<group>"; };
+		18EC44821B8AB86D0060B2A6 /* FTJsonElementModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTJsonElementModel.m; sourceTree = "<group>"; };
+		18EC44831B8AB86D0060B2A6 /* FTJsonExcellentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTJsonExcellentModel.h; sourceTree = "<group>"; };
+		18EC44841B8AB86D0060B2A6 /* FTJsonExcellentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTJsonExcellentModel.m; sourceTree = "<group>"; };
+		18EC44851B8AB86D0060B2A6 /* FTJsonManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTJsonManager.h; sourceTree = "<group>"; };
+		18EC44861B8AB86D0060B2A6 /* FTJsonManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTJsonManager.m; sourceTree = "<group>"; };
+		18EC44871B8AB86D0060B2A6 /* FTJsonMarkModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTJsonMarkModel.h; sourceTree = "<group>"; };
+		18EC44881B8AB86D0060B2A6 /* FTJsonMarkModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTJsonMarkModel.m; sourceTree = "<group>"; };
+		18EC44891B8AB86D0060B2A6 /* FTJsonPeopleModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTJsonPeopleModel.h; sourceTree = "<group>"; };
+		18EC448A1B8AB86D0060B2A6 /* FTJsonPeopleModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTJsonPeopleModel.m; sourceTree = "<group>"; };
+		18EC448B1B8AB86D0060B2A6 /* FTJsonSubClassModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTJsonSubClassModel.h; sourceTree = "<group>"; };
+		18EC448C1B8AB86D0060B2A6 /* FTJsonSubClassModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTJsonSubClassModel.m; sourceTree = "<group>"; };
+		18EC44A91B8B18090060B2A6 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		18EFA5791B71B2B9005ABEF1 /* FTDPersonTController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FTDPersonTController.h; path = FaceTalk/facetalk/root/FTDPersonTController.h; sourceTree = SOURCE_ROOT; };
 		18EFA57A1B71B2B9005ABEF1 /* FTDPersonTController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FTDPersonTController.m; path = FaceTalk/facetalk/root/FTDPersonTController.m; sourceTree = SOURCE_ROOT; };
 		18EFA57B1B71B2B9005ABEF1 /* FTDPersonTController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FTDPersonTController.xib; path = FaceTalk/facetalk/root/FTDPersonTController.xib; sourceTree = SOURCE_ROOT; };
@@ -1409,6 +1429,18 @@
 			children = (
 				A252AC031B83691800E901FD /* FTWDataManager.h */,
 				A252AC041B83691800E901FD /* FTWDataManager.m */,
+				18EC44811B8AB86D0060B2A6 /* FTJsonElementModel.h */,
+				18EC44821B8AB86D0060B2A6 /* FTJsonElementModel.m */,
+				18EC44831B8AB86D0060B2A6 /* FTJsonExcellentModel.h */,
+				18EC44841B8AB86D0060B2A6 /* FTJsonExcellentModel.m */,
+				18EC44851B8AB86D0060B2A6 /* FTJsonManager.h */,
+				18EC44861B8AB86D0060B2A6 /* FTJsonManager.m */,
+				18EC44871B8AB86D0060B2A6 /* FTJsonMarkModel.h */,
+				18EC44881B8AB86D0060B2A6 /* FTJsonMarkModel.m */,
+				18EC44891B8AB86D0060B2A6 /* FTJsonPeopleModel.h */,
+				18EC448A1B8AB86D0060B2A6 /* FTJsonPeopleModel.m */,
+				18EC448B1B8AB86D0060B2A6 /* FTJsonSubClassModel.h */,
+				18EC448C1B8AB86D0060B2A6 /* FTJsonSubClassModel.m */,
 			);
 			path = manager;
 			sourceTree = "<group>";
@@ -1523,6 +1555,7 @@
 		A2615AB71B4D29820098EC30 /* share */ = {
 			isa = PBXGroup;
 			children = (
+				18EC44A91B8B18090060B2A6 /* data.json */,
 				A2615A781B4D22C00098EC30 /* AppDelegate.h */,
 				A2615A791B4D22C00098EC30 /* AppDelegate.m */,
 				A252AC021B8368C900E901FD /* manager */,
@@ -1971,6 +2004,7 @@
 				189D521D1B78529100BB5876 /* ftw_share_honour.png in Resources */,
 				A2E7CD9F1B6F9C0C00FD28FB /* ft_ten_pro@2x.png in Resources */,
 				187FC4F71B58ADAD00E2EC10 /* FTD_homelead_nextbtn.png in Resources */,
+				18EC44AA1B8B18090060B2A6 /* data.json in Resources */,
 				185D65671B6673BC00845F21 /* tfw_cf_realnumber2@2x.png in Resources */,
 				185D64D01B6671DF00845F21 /* tfw_sc_movepie.png in Resources */,
 				18126A961B70BD8800BACB3F /* TFD_goodAgent_SliderRect.png in Resources */,
@@ -2099,6 +2133,7 @@
 				185D65721B6673BC00845F21 /* TFWCFLeftToolView.m in Sources */,
 				185D64F91B66738100845F21 /* FTDHomeAlertView.m in Sources */,
 				182D793B1B74974600C2CD63 /* FTDImageManage.m in Sources */,
+				18EC44901B8AB86D0060B2A6 /* FTJsonMarkModel.m in Sources */,
 				185D65A31B6673C300845F21 /* TFWSTOrderItem.m in Sources */,
 				185D64831B6671B500845F21 /* TFWRealOrderViewController.m in Sources */,
 				185D64F61B66738100845F21 /* FTDbackgroundView.m in Sources */,
@@ -2120,6 +2155,7 @@
 				18126A6E1B70739E00BACB3F /* FTDAgentImageCell.m in Sources */,
 				A2615AAD1B4D274E0098EC30 /* UIView+AutoLayout.m in Sources */,
 				A2E7CDD11B6F9C2100FD28FB /* TFWSRKeyView.m in Sources */,
+				18EC448F1B8AB86D0060B2A6 /* FTJsonManager.m in Sources */,
 				18126A721B70739E00BACB3F /* FTDGoodAgentDetailController.m in Sources */,
 				189D52081B78529100BB5876 /* TFWReportViewController.m in Sources */,
 				A252AC0B1B83771800E901FD /* FTWElementItem.m in Sources */,
@@ -2134,11 +2170,13 @@
 				18126A761B70739E00BACB3F /* FTDGoodAgentKindsController.m in Sources */,
 				185D65A81B667A3000845F21 /* TFDNavViewController.m in Sources */,
 				A2E7CD611B6F9BE700FD28FB /* TFWRealHelpResultController.m in Sources */,
+				18EC448E1B8AB86D0060B2A6 /* FTJsonExcellentModel.m in Sources */,
 				A2E7CDD21B6F9C2100FD28FB /* TFWSRResultView.m in Sources */,
 				18C04DEA1B79D0BA009B1F6F /* FTDShareView.m in Sources */,
 				189D52341B78529100BB5876 /* TFWReportView.m in Sources */,
 				A2E7CDD31B6F9C2100FD28FB /* TFWSRRoundView.m in Sources */,
 				189D52321B78529100BB5876 /* TFWReportSuggestCell.m in Sources */,
+				18EC44921B8AB86D0060B2A6 /* FTJsonSubClassModel.m in Sources */,
 				185D64D51B6671DF00845F21 /* TFWSCItemView.m in Sources */,
 				185D64B51B6671B500845F21 /* TFWRSCenterView.m in Sources */,
 				18126A8A1B70AD8800BACB3F /* FTDNavTableCell.m in Sources */,
@@ -2153,6 +2191,8 @@
 				A2E7CDD01B6F9C2100FD28FB /* TFWScrollView.m in Sources */,
 				185D64F71B66738100845F21 /* FTDHomAlertFinishView.m in Sources */,
 				185D64D41B6671DF00845F21 /* TFWSCFiveView.m in Sources */,
+				18EC448D1B8AB86D0060B2A6 /* FTJsonElementModel.m in Sources */,
+				18EC44911B8AB86D0060B2A6 /* FTJsonPeopleModel.m in Sources */,
 				18C280781B734D0D002848D2 /* FTDBigImageView.m in Sources */,
 				18C04DF61B79ED6A009B1F6F /* FTDCreatImage.m in Sources */,
 				A252AC051B83691800E901FD /* FTWDataManager.m in Sources */,

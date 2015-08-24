@@ -11,7 +11,7 @@
 
 @interface FTJsonExcellentModel ()
 
-@property (nonatomic,copy) NSArray *subClassArray;
+
 
 @end
 

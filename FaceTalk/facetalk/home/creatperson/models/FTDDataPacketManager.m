@@ -13,7 +13,7 @@
 
 #define FILENAME @"MdataFile"//文件夹名字
 #define ZIPNAME @"datafile.zip"//文件名字
-#define DATA_PACKET_URL @"http://static.bluedeer.com.cn/aiasalesplus/AIAResources.zip"
+#define DATA_PACKET_URL @"http://imo.tohours.com/attract/resource.zip"
 @implementation FTDDataPacketManager
 + (FTDDataPacketManager *)sharedInstance
 {
@@ -27,10 +27,18 @@
 }
 -(void)downloadFile
 {
-    NSString *path = [self downloadDestinationPath];
-    NSLog(@"%@",path);
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSString *dstResourcePath = [self unzipDestinationPath];
     
-    [self downloadFileURL:DATA_PACKET_URL savePath:path fileName:ZIPNAME tag:1];
+    if ([fileManager fileExistsAtPath:dstResourcePath]) {
+        
+    }
+    else{
+        NSString *path = [self downloadDestinationPath];
+        NSLog(@"%@",path);
+        
+        [self downloadFileURL:DATA_PACKET_URL savePath:path fileName:ZIPNAME tag:1];
+     }
 }
 
 /**
@@ -158,6 +166,8 @@
     if ([self unzipFile:[NSString stringWithFormat:@"%@/%@",[self downloadDestinationPath],ZIPNAME
                          ] withDstPath:[self unzipDestinationPath]]) {
         NSLog(@"解压成功");
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"FTDUNZIPSUCCESS" object:nil ];
+        
         [SVProgressHUD dismiss];
         // parse json data
         

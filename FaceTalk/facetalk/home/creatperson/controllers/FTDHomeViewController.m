@@ -12,6 +12,7 @@
 #import "TFDNavViewController.h"
 #import <SVProgressHUD/SVProgressHUD.h>
 #import "FTDDataPacketManager.h"
+#import "FTJsonManager.h"
 @interface FTDHomeViewController ()
 
 @end
@@ -20,7 +21,7 @@
 @synthesize btnKey,scrollBG;
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //[[FTDDataPacketManager sharedInstance]downloadFile];
+    
     
     NSLog(@"%@",self.navigationController);
     TFDNavViewController *nav=(TFDNavViewController *) self.navigationController;
@@ -31,9 +32,8 @@
     scrollBG.pagingEnabled=YES;
     scrollBG.scrollEnabled=NO;
     [btnKey addTarget:self action:@selector(homeLeadViewclick:event:) forControlEvents:UIControlEventTouchUpInside];
-    UIImageView *scrollImage=[[UIImageView alloc]initWithFrame:CGRectMake(0,20, 1024,748)];
-    scrollImage.image=[UIImage imageNamed:@"FTD_home_aiaoffice.png"];
-    [scrollBG addSubview:scrollImage];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getlocalResourse) name:@"FTDUNZIPSUCCESS" object:nil];
+    
     [self getLoginUserInfo];
     
  
@@ -43,6 +43,29 @@
     
 }
 
+-(void)getlocalResourse
+{
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSString *dstResourcePath = [[FTDDataPacketManager sharedInstance]unzipDestinationPath];
+    
+    if ([fileManager fileExistsAtPath:dstResourcePath]) {
+        [self getbackgroundImg];
+        
+    }
+    else{
+        [[FTDDataPacketManager sharedInstance]downloadFile];
+    }
+}
+
+
+-(void)getbackgroundImg
+{
+    NSString *strImg=[FTJsonManager shareManager].index_background;
+    UIImageView *scrollImage=[[UIImageView alloc]initWithFrame:CGRectMake(0,20, 1024,748)];
+    
+    scrollImage.image=[UIImage imageNamed:@"FTD_home_aiaoffice.png"];
+    [scrollBG addSubview:scrollImage];
+}
 
 
 -(void)viewDidAppear:(BOOL)animated

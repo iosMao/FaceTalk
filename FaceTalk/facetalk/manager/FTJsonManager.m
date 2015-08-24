@@ -7,8 +7,7 @@
 //
 
 #import "FTJsonManager.h"
-#import "JSONKit.h"
-
+#import "FTDDataPacketManager.h"
 static FTJsonManager *shareManager;
 
 @interface FTJsonManager ()
@@ -33,8 +32,18 @@ static FTJsonManager *shareManager;
 
 -(void)initData
 {
-    NSString *string = [[NSString alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"data" ofType:@"json"] encoding:NSASCIIStringEncoding error:nil];
-    _jsonDic = [string objectFromJSONString];
+    NSString *file1=[[FTDDataPacketManager sharedInstance]unzipDestinationPath];
+    
+    file1 =[file1 stringByAppendingPathComponent:@"uploads"];
+    file1 =[file1 stringByAppendingPathComponent:@"data.json"];
+    
+    
+    
+     //NSString *file = [[NSBundle mainBundle] pathForResource:@"data" ofType:@"json"];
+    
+    NSData *data=[NSData dataWithContentsOfFile:file1];
+    _jsonDic=[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
+    //_jsonDic = [string objectFromJSONString];
     
     _ten_objective_elements = [_jsonDic objectForKey:@"ten_objective_elements"];
     _ten_aia_elements       = [_jsonDic objectForKey:@"ten_aia_elements"];
@@ -107,7 +116,7 @@ static FTJsonManager *shareManager;
     _excellence = [NSArray arrayWithArray:mutArray];
 }
 
--(FTJsonElementModel *)getElementItemAtIndex:(int)index
+-(FTJsonExcellentModel *)getElementItemAtIndex:(int)index
 {
     if (index >= _excellence_count) {
         return nil;

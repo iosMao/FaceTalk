@@ -14,6 +14,7 @@
 #import "TFWCustomTalkViewController.h"
 #import "TFWStartTalkViewController.h"
 #import "TFDNavViewController.h"
+#import "FTJsonManager.h"
 @interface FTDHomeLeadViewController ()<FTDHomeAlertViewDeledate,FTDHomeAlertFinishViewDeledate,FTDbackgroundView>
 {
     int imgIndex;
@@ -44,6 +45,9 @@
     homeAlertFinishView= [FTDHomAlertFinishView initCustomview];
     homeAlertFinishView.delegate= self;
     homeAlertFinishView.center=CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2-80);
+    
+    [self getImgData];
+    
    //self.viewDate.frame=CGRectMake(0, 768, 1024, 216);
     
     
@@ -63,6 +67,15 @@
 {
     [loadTimer invalidate];
 }
+-(void)getImgData
+{
+   NSArray *array= [FTJsonManager shareManager].guide_page;
+}
+
+
+
+
+
 -(void)loadimg
 {
     imgIndex=imgIndex+1;
@@ -107,10 +120,14 @@
 -(void)homeAlertCreatclick
 {
     [homeAlertView removeFromSuperview];
-    [[NSUserDefaults standardUserDefaults]setBool:NO forKey:@"FTD_isFinishMark"];
-    
-    [self.view addSubview: homeAlertFinishView];
-    
+    [[NSUserDefaults standardUserDefaults]setObject:@"0" forKey:@"FTD_isFinishMark"];//排序结果置位
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"TFWSelectOrderUserDefault"]!=nil) {
+        [self gotoMenu];
+        [backgroundView removeFromSuperview];
+    }
+    else{
+        [self.view addSubview: homeAlertFinishView];
+    }
 }
 -(void)homeAlertFinishCancelClick
 {
@@ -143,26 +160,13 @@
 -(void)gotoCreatMenu
 {
     TFWCustomTalkViewController *TFWCustomTalkViewCol=[[TFWCustomTalkViewController alloc]init];
-//    CATransition *  tran=[CATransition animation];
-//    tran.type = @"pageCurl";
-//    tran.subtype = kCATransitionFromRight;
-//    tran.duration=1;
-//    tran.delegate=self;
-//    [self.view.superview.layer addAnimation:tran forKey:@"mao"];
+    TFWCustomTalkViewCol.strType=@"first";
     [self.navigationController pushViewController:TFWCustomTalkViewCol animated:YES];
 }
 -(void)gotoMenu
 {
     TFWStartTalkViewController *TFWStartTalkViewCol=[[TFWStartTalkViewController alloc]init];
     [self.navigationController pushViewController:TFWStartTalkViewCol animated:YES];
-    //FTDGoodAgentHomeController *FTDHomeLeadViewCol=[[FTDGoodAgentHomeController alloc]init];
-//        CATransition *  tran=[CATransition animation];
-//        tran.type = @"pageCurl";
-//        tran.subtype = kCATransitionFromRight;
-//        tran.duration=1;
-//        tran.delegate=self;
-//        [self.view.superview.layer addAnimation:tran forKey:@"mao"];
-        //[self.navigationController pushViewController:FTDHomeLeadViewCol animated:YES];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
