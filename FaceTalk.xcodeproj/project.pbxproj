@@ -297,6 +297,9 @@
 		A2615A821B4D22C00098EC30 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2615A811B4D22C00098EC30 /* Images.xcassets */; };
 		A2615A851B4D22C00098EC30 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2615A831B4D22C00098EC30 /* LaunchScreen.xib */; };
 		A2615AAD1B4D274E0098EC30 /* UIView+AutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A2615A9E1B4D274E0098EC30 /* UIView+AutoLayout.m */; };
+		A2E58CAA1B8B57CB0016FC50 /* kgten_shd_06.png in Resources */ = {isa = PBXBuildFile; fileRef = A2E58CA91B8B57CB0016FC50 /* kgten_shd_06.png */; };
+		A2E58CAD1B8B7B1A0016FC50 /* ftw_share_complete.png in Resources */ = {isa = PBXBuildFile; fileRef = A2E58CAB1B8B7B1A0016FC50 /* ftw_share_complete.png */; };
+		A2E58CAE1B8B7B1A0016FC50 /* ftw_share_complete@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2E58CAC1B8B7B1A0016FC50 /* ftw_share_complete@2x.png */; };
 		A2E7CD611B6F9BE700FD28FB /* TFWRealHelpResultController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E7CD581B6F9BE700FD28FB /* TFWRealHelpResultController.m */; };
 		A2E7CD621B6F9BE700FD28FB /* ft_ten_demo.png in Resources */ = {isa = PBXBuildFile; fileRef = A2E7CD5A1B6F9BE700FD28FB /* ft_ten_demo.png */; };
 		A2E7CD631B6F9BE700FD28FB /* ft_ten_demo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2E7CD5B1B6F9BE700FD28FB /* ft_ten_demo@2x.png */; };
@@ -697,6 +700,9 @@
 		A2615A841B4D22C00098EC30 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		A2615A9D1B4D274E0098EC30 /* UIView+AutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AutoLayout.h"; sourceTree = "<group>"; };
 		A2615A9E1B4D274E0098EC30 /* UIView+AutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AutoLayout.m"; sourceTree = "<group>"; };
+		A2E58CA91B8B57CB0016FC50 /* kgten_shd_06.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kgten_shd_06.png; sourceTree = "<group>"; };
+		A2E58CAB1B8B7B1A0016FC50 /* ftw_share_complete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ftw_share_complete.png; sourceTree = "<group>"; };
+		A2E58CAC1B8B7B1A0016FC50 /* ftw_share_complete@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ftw_share_complete@2x.png"; sourceTree = "<group>"; };
 		A2E7CD571B6F9BE700FD28FB /* TFWRealHelpResultController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFWRealHelpResultController.h; sourceTree = "<group>"; };
 		A2E7CD581B6F9BE700FD28FB /* TFWRealHelpResultController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFWRealHelpResultController.m; sourceTree = "<group>"; };
 		A2E7CD5A1B6F9BE700FD28FB /* ft_ten_demo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ft_ten_demo.png; sourceTree = "<group>"; };
@@ -900,6 +906,7 @@
 		185D644C1B6671B500845F21 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				A2E58CA91B8B57CB0016FC50 /* kgten_shd_06.png */,
 				185D644D1B6671B500845F21 /* tfw_rs_add.png */,
 				185D644E1B6671B500845F21 /* tfw_rs_add@2x.png */,
 				185D644F1B6671B500845F21 /* tfw_rs_background.png */,
@@ -1286,6 +1293,8 @@
 		189D51D51B78529100BB5876 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				A2E58CAB1B8B7B1A0016FC50 /* ftw_share_complete.png */,
+				A2E58CAC1B8B7B1A0016FC50 /* ftw_share_complete@2x.png */,
 				189D51D61B78529100BB5876 /* ftw_share_aia.png */,
 				189D51D71B78529100BB5876 /* ftw_share_aia@2x.png */,
 				189D51D81B78529100BB5876 /* ftw_share_back.png */,
@@ -1902,6 +1911,7 @@
 				185D656F1B6673BC00845F21 /* tfw_tf_realborder@2x.png in Resources */,
 				185D65951B6673C300845F21 /* tfw_sf_cup.png in Resources */,
 				189D52201B78529100BB5876 /* ftw_share_key@2x.png in Resources */,
+				A2E58CAA1B8B57CB0016FC50 /* kgten_shd_06.png in Resources */,
 				185D64A81B6671B500845F21 /* tfw_rs_space.png in Resources */,
 				185D65941B6673C300845F21 /* tfw_sf_back@2x.png in Resources */,
 				18EFA57D1B71B2B9005ABEF1 /* FTDPersonTController.xib in Resources */,
@@ -1994,6 +2004,7 @@
 				189D52281B78529100BB5876 /* ftw_share_pro@2x.png in Resources */,
 				185D64B21B6671B500845F21 /* tfw_rs_work_gray.png in Resources */,
 				A2615A851B4D22C00098EC30 /* LaunchScreen.xib in Resources */,
+				A2E58CAD1B8B7B1A0016FC50 /* ftw_share_complete.png in Resources */,
 				189D520C1B78529100BB5876 /* ftw_share_back@2x.png in Resources */,
 				185D64AB1B6671B500845F21 /* tfw_rs_space_gray@2x.png in Resources */,
 				185D64AC1B6671B500845F21 /* tfw_rs_suit.png in Resources */,
@@ -2049,6 +2060,7 @@
 				185D656B1B6673BC00845F21 /* tfw_cf_realnumber4@2x.png in Resources */,
 				A2E7CD991B6F9C0C00FD28FB /* ft_ten_LOGO@2x.png in Resources */,
 				185D64971B6671B500845F21 /* tfw_rs_income_gray@2x.png in Resources */,
+				A2E58CAE1B8B7B1A0016FC50 /* ftw_share_complete@2x.png in Resources */,
 				18D7CA231B745D9900C35359 /* FTD_creatreport.png in Resources */,
 				189A1ED31B61DC19002F99F9 /* FTD_creatPerson_creatNow.png in Resources */,
 				185D65A11B6673C300845F21 /* tfw_sf_tie.png in Resources */,

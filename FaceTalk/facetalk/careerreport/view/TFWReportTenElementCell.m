@@ -73,6 +73,18 @@
     _checkButton.frame = CGRectMake(CGRectGetWidth(self.frame) - 50, CGRectGetMinY(_titleLabel.frame), 29, 29);
 }
 
+-(void)configImageName:(NSString *)imageName Title:(NSString *)title SubTitle:(NSString *)subTitle andCheck:(BOOL)check andHideCheck:(BOOL)isHide
+{
+    [self configImageName:imageName Title:title SubTitle:subTitle andCheck:check];
+    _checkButton.hidden = isHide;
+}
+
+-(void)configImageName:(NSString *)imageName Title:(NSString *)title SubTitle:(NSString *)subTitle andCheck:(BOOL)check andTag:(NSInteger)tag
+{
+    [self configImageName:imageName Title:title SubTitle:subTitle andCheck:check];
+    _checkButton.tag = tag;
+}
+
 -(void)configImageName:(NSString *)imageName Title:(NSString *)title SubTitle:(NSString *)subTitle andCheck:(BOOL)check
 {
     _leftImageView.image = [UIImage imageNamed:imageName];
@@ -84,6 +96,9 @@
 -(void)checkAction:(UIButton *)button
 {
     button.selected = !button.selected;
+    if (self.checkBlock) {
+        self.checkBlock(button);
+    }
 }
 
 @end

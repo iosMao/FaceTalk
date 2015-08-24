@@ -8,11 +8,13 @@
 
 #import "TFWScrollView.h"
 #import "TFWSRResultView.h"
+#import "FTWDataManager.h"
 
 @interface TFWScrollView ()
 
 @property (nonatomic,strong) NSMutableArray *viewArray;
 @property (nonatomic,strong) NSArray *pointArray;
+@property (nonatomic,strong) NSArray *dataSource;
 
 @end
 
@@ -29,6 +31,7 @@
 +(id)createScrollWithCenter:(CGPoint)center
 {
     TFWScrollView *sc = [[TFWScrollView alloc] initWithFrame:CGRectMake(0, 0, 880, 450)];
+    [sc configData];
     sc.center = center;
     [sc buildView];
     [sc buildLeftButton];
@@ -37,27 +40,36 @@
     return sc;
 }
 
+-(void)configData
+{
+    NSMutableArray *mutArray = [[NSMutableArray alloc] init];
+    for (FTWElementItem *item in [FTWDataManager shareManager].tenElementArray) {
+        if (item.selected) {
+            [mutArray addObject:item];
+        }
+    }
+    
+    _dataSource = [NSArray arrayWithArray:mutArray];
+}
+
 -(void)buildView
 {
     _viewArray = [[NSMutableArray alloc] init];
     _pointArray = @[@-130,@130,@420,@710,@970];
     self.layer.masksToBounds = YES;
     
-    [_viewArray addObject:[TFWSRResultView createResultViewCenter:CGPointMake([[_pointArray objectAtIndex:0] intValue], 220) andTitle:@"满意度" andText:@"学习成长" andRate:0.42 roundTitle:@"现状与\n期望相差" roundScore:3]];
-    
-    [_viewArray addObject:[TFWSRResultView createResultViewCenter:CGPointMake([[_pointArray objectAtIndex:1] intValue], 220) andTitle:@"满意度" andText:@"学习成长" andRate:0.42 roundTitle:@"现状与\n期望相差" roundScore:3]];
-    
-    [_viewArray addObject:[TFWSRResultView createResultViewCenter:CGPointMake([[_pointArray objectAtIndex:2] intValue], 220) andTitle:@"满意度" andText:@"学习成长" andRate:0.42 roundTitle:@"现状与\n期望相差" roundScore:3]];
-    
-    [_viewArray addObject:[TFWSRResultView createResultViewCenter:CGPointMake([[_pointArray objectAtIndex:3] intValue], 220) andTitle:@"满意度" andText:@"学习成长" andRate:0.42 roundTitle:@"现状与\n期望相差" roundScore:3]];
-    
-    [_viewArray addObject:[TFWSRResultView createResultViewCenter:CGPointMake([[_pointArray objectAtIndex:4] intValue], 220) andTitle:@"满意度" andText:@"学习成长" andRate:0.42 roundTitle:@"现状与\n期望相差" roundScore:3]];
+    for (int i = 0; i < 5; i++) {
+        [_viewArray addObject:[TFWSRResultView createResultViewCenter:CGPointMake([[_pointArray objectAtIndex:i] intValue], 240) andTitle:@"满意度" andText:((FTWElementItem *)[_dataSource objectAtIndex:i]).title andRate: ((FTWElementItem *)[_dataSource objectAtIndex:i]).currentScore / ((FTWElementItem *)[_dataSource objectAtIndex:i]).hopeScore roundTitle:@"现状与\n期望相差" roundScore:(int)(((FTWElementItem *)[_dataSource objectAtIndex:i]).hopeScore - ((FTWElementItem *)[_dataSource objectAtIndex:i]).currentScore)]];
+    }
     
     for (int i = 0; i < [_viewArray count]; i++) {
         if (i != 2) {
             CGAffineTransform trans = CGAffineTransformIdentity;
             trans = CGAffineTransformScale(trans, 0.3, 0.3);
             ((UIView *)[_viewArray objectAtIndex:i]).transform = trans;
+        }else{
+            CGAffineTransform trans = CGAffineTransformIdentity;
+            trans = CGAffineTransformScale(trans, 0.9, 0.9);
         }
         [self addSubview:[_viewArray objectAtIndex:i]];
     }

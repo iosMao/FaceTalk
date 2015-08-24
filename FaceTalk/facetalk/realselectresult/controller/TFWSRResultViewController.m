@@ -34,9 +34,8 @@
     [self buildScrollView];
     
     [self buildRateLabel];
-    [self buildModeRateLabel];
+//    [self buildModeRateLabel];
     [self buildSuggestLabel];
-    
 }
 
 -(void)buildBackGround
@@ -75,18 +74,31 @@
 
 -(void)buildScrollView
 {
-    _mainScroll = [TFWScrollView createScrollWithCenter:CGPointMake(550, 350)];
+    _mainScroll = [TFWScrollView createScrollWithCenter:CGPointMake(550, 330)];
     [self.view addSubview:_mainScroll];
 }
 
 -(void)buildRateLabel
 {
-    _totalRateLabel = [[UILabel alloc] initWithFrame:CGRectMake(130, 620, 125, 100)];
+    _totalRateLabel = [[UILabel alloc] initWithFrame:CGRectMake(120, 620, 160, 100)];
     _totalRateLabel.textAlignment = NSTextAlignmentCenter;
     _totalRateLabel.font = [UIFont systemFontOfSize:58];
     _totalRateLabel.textColor = [UIColor whiteColor];
     _totalRateLabel.text = [NSString stringWithFormat:@"%d%@",32,@"%"];
     [self.view addSubview:_totalRateLabel];
+    
+    NSMutableArray *mutArray = [[NSMutableArray alloc] init];
+    for (FTWElementItem *item in [FTWDataManager shareManager].tenElementArray) {
+        if (item.selected) {
+            [mutArray addObject:item];
+        }
+    }
+    float sum = 0.0f;
+    for (int i = 0; i < 5; i++) {
+        sum += ((FTWElementItem *)[mutArray objectAtIndex:i]).currentScore / 1.0 / ((FTWElementItem *)[mutArray objectAtIndex:i]).hopeScore;
+    }
+    sum /= 5.0;
+    _totalRateLabel.text = [NSString stringWithFormat:@"%d%@",(int)(sum * 100),@"%"];
 }
 
 -(void)buildModeRateLabel

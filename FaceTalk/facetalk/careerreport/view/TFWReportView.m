@@ -67,6 +67,19 @@ static NSString *cellSuggestIdentifier = @"cellSuggestIdentifier";
     [self createHeadView];
     
     [self addSubview:_tableView];
+    
+    _isShowSuggest = YES;
+    _isShowTenElement = YES;
+    _isShowCareer = YES;
+    [self initChoickArray];
+}
+
+-(void)initChoickArray
+{
+    _choiceArray = [NSMutableArray new];
+    for (int i = 0; i < 10; i++) {
+        [_choiceArray addObject:[NSNumber numberWithBool:_isShowTenElement]];
+    }
 }
 
 -(void)createHeadView
@@ -98,11 +111,31 @@ static NSString *cellSuggestIdentifier = @"cellSuggestIdentifier";
 #pragma mark - tableview delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (section == 1) {
-        return 10;
+    if (section == 0) {
+        if (_endEdit && _isShowCareer == NO) {
+            return 0;
+        }else{
+            return 1;
+        }
     }
-    
-    return 1;
+    else if (section == 1) {
+        if (_endEdit) {
+            if (_isShowTenElement) {
+                return _selectArray.count;
+            }else{
+                return 0;
+            }
+        }
+        else{
+            return 10;
+        }
+    }else{
+        if (_endEdit && _isShowSuggest == NO) {
+            return 0;
+        }else{
+            return 1;
+        }
+    }
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -112,7 +145,30 @@ static NSString *cellSuggestIdentifier = @"cellSuggestIdentifier";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 60.0;
+    if (_endEdit) {
+        if (section == 0) {
+            if (_isShowCareer) {
+                return 60;
+            }else{
+                return 0;
+            }
+        }else if(section == 1)
+        {
+            if (_isShowTenElement) {
+                return 60.0;
+            }else{
+                return 0;
+            }
+        }else{
+            if (_isShowSuggest) {
+                return 60.0;
+            }else{
+                return 0;
+            }
+        }
+    }
+    
+    return 60;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -137,40 +193,84 @@ static NSString *cellSuggestIdentifier = @"cellSuggestIdentifier";
     }else if (indexPath.section == 1){
         TFWReportTenElementCell *cell = [tableView dequeueReusableCellWithIdentifier:cellTenElementIdentifier forIndexPath:indexPath];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        switch (indexPath.row) {
-            case 0:
-                [cell configImageName:@"ftw_share_money" Title:@"         收入丰厚" SubTitle:@"dadwadwadwadwadwa dacawaawdadawxawxawdawadxwxdawxawxdawawxawxawdawxdawxawwaawxawawxawxaw" andCheck:NO];
-                break;
-            case 1:
-                [cell configImageName:@"ftw_share_key" Title:@"         收入丰厚" SubTitle:@"dadwadwadwadwadwa dacawaawdadawxawxawdawadxwxdawxawxdawawxawxawdawxdawxawwaawxawawxawxaw" andCheck:NO];
-                break;
-            case 2:
-                [cell configImageName:@"ftw_share_book" Title:@"         学习成长" SubTitle:@"dadwadwadwadwadwa dacawaawdadawxawxawdawadxwxdawxawxdawawxawxawdawxdawxawwaawxawawxawxaw" andCheck:NO];
-                break;
-            case 3:
-                [cell configImageName:@"ftw_share_clock" Title:@"         工作自主" SubTitle:@"dadwadwadwadwadwa dacawaawdadawxawxawdawadxwxdawxawxdawawxawxawdawxdawxawwaawxawawxawxaw" andCheck:NO];
-                break;
-            case 4:
-                [cell configImageName:@"ftw_share_start" Title:@"         社会贡献" SubTitle:@"dadwadwadwadwadwa dacawaawdadawxawxawdawadxwxdawxawxdawawxawxawdawxdawxawwaawxawawxawxaw" andCheck:NO];
-                break;
-            case 5:
-                [cell configImageName:@"ftw_share_heart" Title:@"         适合度" SubTitle:@"dadwadwadwadwadwa dacawaawdadawxawxawdawadxwxdawxawxdawawxawxawdawxdawxawwaawxawawxawxaw" andCheck:NO];
-                break;
-            case 6:
-                [cell configImageName:@"ftw_share_pro" Title:@"         发展空间" SubTitle:@"dadwadwadwadwadwa dacawaawdadawxawxawdawadxwxdawxawxdawawxawxawdawxdawxawwaawxawawxawxaw" andCheck:NO];
-                break;
-            case 7:
-                [cell configImageName:@"ftw_share_honour" Title:@"         荣誉奖励" SubTitle:@"dadwadwadwadwadwa dacawaawdadawxawxawdawadxwxdawxawxdawawxawxawdawxdawxawwaawxawawxawxaw" andCheck:NO];
-                break;
-            case 8:
-                [cell configImageName:@"ftw_share_flower" Title:@"         生活平衡" SubTitle:@"dadwadwadwadwadwa dacawaawdadawxawxawdawadxwxdawxawxdawawxawxawdawxdawxawwaawxawawxawxaw" andCheck:NO];
-                break;
-            case 9:
-                [cell configImageName:@"ftw_share_plane" Title:@"         自由晋级" SubTitle:@"dadwadwadwadwadwa dacawaawdadawxawxawdawadxwxdawxawxdawawxawxawdawxdawxawwaawxawawxawxaw" andCheck:NO];
-                break;
-            default:
-                break;
+        if (_endEdit) {
+            cell.userInteractionEnabled = NO;
+            switch ([[_selectArray objectAtIndex:indexPath.row] integerValue]) {
+                case 0:
+                    [cell configImageName:@"ftw_share_money" Title:@"         收入丰厚" SubTitle:@"dadwadwadwadwadwa dacawaawdadawxawxawdawadxwxdawxawxdawawxawxawdawxdawxawwaawxawawxawxaw" andCheck:NO andHideCheck:YES];
+                    break;
+                case 1:
+                    [cell configImageName:@"ftw_share_key" Title:@"         收入丰厚" SubTitle:@"dadwadwadwadwadwa dacawaawdadawxawxawdawadxwxdawxawxdawawxawxawdawxdawxawwaawxawawxawxaw" andCheck:NO andHideCheck:YES];
+                    break;
+                case 2:
+                    [cell configImageName:@"ftw_share_book" Title:@"         学习成长" SubTitle:@"dadwadwadwadwadwa dacawaawdadawxawxawdawadxwxdawxawxdawawxawxawdawxdawxawwaawxawawxawxaw" andCheck:NO andHideCheck:YES];
+                    break;
+                case 3:
+                    [cell configImageName:@"ftw_share_clock" Title:@"         工作自主" SubTitle:@"dadwadwadwadwadwa dacawaawdadawxawxawdawadxwxdawxawxdawawxawxawdawxdawxawwaawxawawxawxaw" andCheck:NO andHideCheck:YES];
+                    break;
+                case 4:
+                    [cell configImageName:@"ftw_share_start" Title:@"         社会贡献" SubTitle:@"dadwadwadwadwadwa dacawaawdadawxawxawdawadxwxdawxawxdawawxawxawdawxdawxawwaawxawawxawxaw" andCheck:NO andHideCheck:YES];
+                    break;
+                case 5:
+                    [cell configImageName:@"ftw_share_heart" Title:@"         适合度" SubTitle:@"dadwadwadwadwadwa dacawaawdadawxawxawdawadxwxdawxawxdawawxawxawdawxdawxawwaawxawawxawxaw" andCheck:NO andHideCheck:YES];
+                    break;
+                case 6:
+                    [cell configImageName:@"ftw_share_pro" Title:@"         发展空间" SubTitle:@"dadwadwadwadwadwa dacawaawdadawxawxawdawadxwxdawxawxdawawxawxawdawxdawxawwaawxawawxawxaw" andCheck:NO andHideCheck:YES];
+                    break;
+                case 7:
+                    [cell configImageName:@"ftw_share_honour" Title:@"         荣誉奖励" SubTitle:@"dadwadwadwadwadwa dacawaawdadawxawxawdawadxwxdawxawxdawawxawxawdawxdawxawwaawxawawxawxaw" andCheck:NO andHideCheck:YES];
+                    break;
+                case 8:
+                    [cell configImageName:@"ftw_share_flower" Title:@"         生活平衡" SubTitle:@"dadwadwadwadwadwa dacawaawdadawxawxawdawadxwxdawxawxdawawxawxawdawxdawxawwaawxawawxawxaw" andCheck:NO andHideCheck:YES];
+                    break;
+                case 9:
+                    [cell configImageName:@"ftw_share_plane" Title:@"         自由晋级" SubTitle:@"dadwadwadwadwadwa dacawaawdadawxawxawdawadxwxdawxawxdawawxawxawdawxdawxawwaawxawawxawxaw" andCheck:NO andHideCheck:YES];
+                    break;
+                default:
+                    break;
+            }
         }
+        else{
+            switch (indexPath.row) {
+                case 0:
+                    [cell configImageName:@"ftw_share_money" Title:@"         收入丰厚" SubTitle:@"dadwadwadwadwadwa dacawaawdadawxawxawdawadxwxdawxawxdawawxawxawdawxdawxawwaawxawawxawxaw" andCheck:_isShowTenElement andTag:indexPath.row];
+                    break;
+                case 1:
+                    [cell configImageName:@"ftw_share_key" Title:@"         收入丰厚" SubTitle:@"dadwadwadwadwadwa dacawaawdadawxawxawdawadxwxdawxawxdawawxawxawdawxdawxawwaawxawawxawxaw" andCheck:_isShowTenElement andTag:indexPath.row];
+                    break;
+                case 2:
+                    [cell configImageName:@"ftw_share_book" Title:@"         学习成长" SubTitle:@"dadwadwadwadwadwa dacawaawdadawxawxawdawadxwxdawxawxdawawxawxawdawxdawxawwaawxawawxawxaw" andCheck:_isShowTenElement andTag:indexPath.row];
+                    break;
+                case 3:
+                    [cell configImageName:@"ftw_share_clock" Title:@"         工作自主" SubTitle:@"dadwadwadwadwadwa dacawaawdadawxawxawdawadxwxdawxawxdawawxawxawdawxdawxawwaawxawawxawxaw" andCheck:_isShowTenElement andTag:indexPath.row];
+                    break;
+                case 4:
+                    [cell configImageName:@"ftw_share_start" Title:@"         社会贡献" SubTitle:@"dadwadwadwadwadwa dacawaawdadawxawxawdawadxwxdawxawxdawawxawxawdawxdawxawwaawxawawxawxaw" andCheck:_isShowTenElement andTag:indexPath.row];
+                    break;
+                case 5:
+                    [cell configImageName:@"ftw_share_heart" Title:@"         适合度" SubTitle:@"dadwadwadwadwadwa dacawaawdadawxawxawdawadxwxdawxawxdawawxawxawdawxdawxawwaawxawawxawxaw" andCheck:_isShowTenElement andTag:indexPath.row];
+                    break;
+                case 6:
+                    [cell configImageName:@"ftw_share_pro" Title:@"         发展空间" SubTitle:@"dadwadwadwadwadwa dacawaawdadawxawxawdawadxwxdawxawxdawawxawxawdawxdawxawwaawxawawxawxaw" andCheck:_isShowTenElement andTag:indexPath.row];
+                    break;
+                case 7:
+                    [cell configImageName:@"ftw_share_honour" Title:@"         荣誉奖励" SubTitle:@"dadwadwadwadwadwa dacawaawdadawxawxawdawadxwxdawxawxdawawxawxawdawxdawxawwaawxawawxawxaw" andCheck:_isShowTenElement andTag:indexPath.row];
+                    break;
+                case 8:
+                    [cell configImageName:@"ftw_share_flower" Title:@"         生活平衡" SubTitle:@"dadwadwadwadwadwa dacawaawdadawxawxawdawadxwxdawxawxdawawxawxawdawxdawxawwaawxawawxawxaw" andCheck:_isShowTenElement andTag:indexPath.row];
+                    break;
+                case 9:
+                    [cell configImageName:@"ftw_share_plane" Title:@"         自由晋级" SubTitle:@"dadwadwadwadwadwa dacawaawdadawxawxawdawadxwxdawxawxdawawxawxawdawxdawxawwaawxawawxawxaw" andCheck:_isShowTenElement andTag:indexPath.row];
+                    break;
+                default:
+                    break;
+            }
+            __weak TFWReportView *weakSelf = self;
+            [cell setCheckBlock:^(UIButton *bt) {
+                [weakSelf.choiceArray replaceObjectAtIndex:bt.tag withObject:[NSNumber numberWithBool:bt.selected]];
+            }];
+        }
+        
         //[cell configImageName:@"ftw_share_pro" Title:@"         收入丰厚" SubTitle:@"dadwadwadwadwadwa dacawaawdadawxawxawdawadxwxdawxawxdawawxawxawdawxdawxawwaawxawawxawxaw" andCheck:NO];
         return cell;
     }
@@ -210,12 +310,20 @@ static NSString *cellSuggestIdentifier = @"cellSuggestIdentifier";
     line.backgroundColor = [UIColor colorWithRed:211 / 255.0 green:17 / 255.0 blue:69 / 255.0 alpha:1.0];
     [headView addSubview:line];
     
-    UIButton *checkButton = [[UIButton alloc] init];
-    [checkButton setImage:[UIImage imageNamed:@"ftw_share_check_null"] forState:UIControlStateNormal];
-    [checkButton setImage:[UIImage imageNamed:@"ftw_share_check_ok"] forState:UIControlStateSelected];
-    [checkButton addTarget:self action:@selector(checkAction:) forControlEvents:UIControlEventTouchUpInside];
-    checkButton.frame = CGRectMake(CGRectGetWidth(headView.frame) - 50, 25, 29, 29);
-    [headView addSubview:checkButton];
+    if (_endEdit == NO) {
+        UIButton *checkButton = [[UIButton alloc] init];
+        [checkButton setImage:[UIImage imageNamed:@"ftw_share_check_null"] forState:UIControlStateNormal];
+        [checkButton setImage:[UIImage imageNamed:@"ftw_share_check_ok"] forState:UIControlStateSelected];
+        [checkButton addTarget:self action:@selector(checkAction:) forControlEvents:UIControlEventTouchUpInside];
+        checkButton.tag = section;
+        checkButton.frame = CGRectMake(CGRectGetWidth(headView.frame) - 50, 25, 29, 29);
+        if (section == 1) {
+            checkButton.selected = _isShowTenElement;
+        }else{
+            checkButton.selected = YES;
+        }
+        [headView addSubview:checkButton];
+    }
 
     
     return headView;
@@ -224,6 +332,28 @@ static NSString *cellSuggestIdentifier = @"cellSuggestIdentifier";
 -(void)checkAction:(UIButton *)button
 {
     button.selected = !button.selected;
+    if (button.tag == 0) {
+        if (button.selected) {
+            _isShowCareer = YES;
+        }else{
+            _isShowCareer = NO;
+        }
+    }else if (button.tag == 1)
+    {
+        if (button.selected) {
+            _isShowTenElement = YES;
+        }else{
+            _isShowTenElement = NO;
+        }
+        [self initChoickArray];
+        [_tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationNone];
+    }else{
+        if (button.selected) {
+            _isShowSuggest = YES;
+        }else{
+            _isShowSuggest = NO;
+        }
+    }
 }
 
 

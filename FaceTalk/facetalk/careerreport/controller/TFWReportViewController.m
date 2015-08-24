@@ -127,7 +127,8 @@
     UIButton *bt = [UIButton buttonWithType:UIButtonTypeCustom];
     bt.frame = CGRectMake(672, 600, 150/1.2,154/1.2);
     [bt setImage:[UIImage imageNamed:@"ftw_share_share"] forState:UIControlStateNormal];
-    [bt addTarget:self action:@selector(ShareAction) forControlEvents:UIControlEventTouchUpInside];
+    [bt setImage:[UIImage imageNamed:@"ftw_share_complete"] forState:UIControlStateSelected];
+    [bt addTarget:self action:@selector(ShareAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:bt];
 }
 
@@ -147,20 +148,38 @@
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
--(void)ShareAction
+-(void)ShareAction:(UIButton *)bt
 {
-    [self CreatReportImage];
-    
-    
-    [self.view addSubview:_backgroundView];
-    [self.view addSubview:_shareView];
-    
-    CGAffineTransform transform = _shareView.transform;
-    _shareView.transform = CGAffineTransformScale(transform, 0.2, 0.2);
-    [UIView animateWithDuration:0.4 animations:^{
-        _shareView.transform = CGAffineTransformScale(transform, 1.0, 1.0);
-        _shareView.center=CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2-80);
-    }];
+    if (_reportView.endEdit) {
+        [self CreatReportImage];
+        
+        
+        [self.view addSubview:_backgroundView];
+        [self.view addSubview:_shareView];
+        
+        CGAffineTransform transform = _shareView.transform;
+        _shareView.transform = CGAffineTransformScale(transform, 0.2, 0.2);
+        [UIView animateWithDuration:0.4 animations:^{
+            _shareView.transform = CGAffineTransformScale(transform, 1.0, 1.0);
+            _shareView.center=CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2-80);
+        }];
+    }else{
+        NSMutableArray *array = [NSMutableArray new];
+        for (int i = 0; i < 10; i++) {
+            if ([[_reportView.choiceArray objectAtIndex:i] boolValue]) {
+                [array addObject:[NSNumber numberWithInteger:i]];
+            }
+        }
+        _reportView.selectArray = [NSArray arrayWithArray:array];
+        if (_reportView.selectArray.count > 0) {
+            _reportView.isShowTenElement = YES;
+        }else{
+            _reportView.isShowTenElement = NO;
+        }
+        _reportView.endEdit = YES;
+        bt.selected = YES;
+        [_reportView.tableView reloadData];
+    }
 }
 
 -(void)CreatReportImage

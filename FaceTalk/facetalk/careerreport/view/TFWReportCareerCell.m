@@ -8,12 +8,14 @@
 
 #import "TFWReportCareerCell.h"
 #import "TFWSRResultView.h"
+#import "FTWDataManager.h"
 
 @interface TFWReportCareerCell ()
 
 @property (nonatomic,strong) NSArray *roundArray;
 @property (nonatomic,strong) UILabel *allRateLabel;
 @property (nonatomic,strong) UILabel *careerRateLabel;
+@property (nonatomic,strong) NSArray *dataSource;
 
 @end
 
@@ -41,25 +43,24 @@
 {
     CGFloat num = 150.0f;
     CGFloat start = 85.0f;
-    TFWSRResultView *first = [TFWSRResultView createResultViewCenter:CGPointMake(start, 80) andTitle:@"学习成长" andText:@"满意度" andRate:0.35 roundTitle:@"dawdaw" roundScore:8];
-    TFWSRResultView *second = [TFWSRResultView createResultViewCenter:CGPointMake(start + num, 80) andTitle:@"学习成长" andText:@"满意度" andRate:0.35 roundTitle:@"dawdaw" roundScore:8];
-    TFWSRResultView *third = [TFWSRResultView createResultViewCenter:CGPointMake(start + num * 2, 80) andTitle:@"学习成长" andText:@"满意度" andRate:0.35 roundTitle:@"dawdaw" roundScore:8];
-    TFWSRResultView *forth = [TFWSRResultView createResultViewCenter:CGPointMake(start + num * 3, 80) andTitle:@"学习成长" andText:@"满意度" andRate:0.35 roundTitle:@"dawdaw" roundScore:8];
-    TFWSRResultView *fifth = [TFWSRResultView createResultViewCenter:CGPointMake(start + num * 4, 80) andTitle:@"学习成长" andText:@"满意度" andRate:0.35 roundTitle:@"dawdaw" roundScore:8];
-    _roundArray = @[first,second,third,forth,fifth];
     
-    CGFloat scale = 0.30;
-    first.transform = CGAffineTransformMakeScale(scale, scale);
-    second.transform = CGAffineTransformMakeScale(scale, scale);
-    third.transform = CGAffineTransformMakeScale(scale, scale);
-    forth.transform = CGAffineTransformMakeScale(scale, scale);
-    fifth.transform = CGAffineTransformMakeScale(scale, scale);
+    NSMutableArray *mutArray = [[NSMutableArray alloc] init];
+    _dataSource = [NSArray arrayWithArray:mutArray];
+    for (FTWElementItem *item in [FTWDataManager shareManager].tenElementArray) {
+        if (item.selected) {
+            [mutArray addObject:item];
+        }
+    }
     
-    [self.contentView addSubview:first];
-    [self.contentView addSubview:second];
-    [self.contentView addSubview:third];
-    [self.contentView addSubview:forth];
-    [self.contentView addSubview:fifth];
+    NSMutableArray *round = [NSMutableArray new];
+    for (int i = 0; i < 5; i++) {
+        TFWSRResultView *first = [TFWSRResultView createResultViewCenter:CGPointMake(start + num * i, 80) andTitle:((FTWElementItem *)[mutArray objectAtIndex:i]).title andText:@"满意度" andRate:((FTWElementItem *)[mutArray objectAtIndex:i]).currentScore / ((FTWElementItem *)[mutArray objectAtIndex:i]).hopeScore roundTitle:@"现状与\n期望相差" roundScore:(int)(((FTWElementItem *)[mutArray objectAtIndex:i]).hopeScore - ((FTWElementItem *)[mutArray objectAtIndex:i]).currentScore)];
+        CGFloat scale = 0.30;
+        first.transform = CGAffineTransformMakeScale(scale, scale);
+        [round addObject:first];
+        [self.contentView addSubview:first];
+    }
+    _roundArray = [NSArray arrayWithArray:round];
 }
 
 -(void)createMessage
@@ -72,11 +73,11 @@
     line1.backgroundColor = [UIColor whiteColor];
     [back addSubview:line1];
     
-    UIView *line2 = [[UIView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(line1.frame) + 20, 20, 160, 4)];
-    line2.backgroundColor = [UIColor whiteColor];
-    [back addSubview:line2];
+//    UIView *line2 = [[UIView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(line1.frame) + 20, 20, 160, 4)];
+//    line2.backgroundColor = [UIColor whiteColor];
+//    [back addSubview:line2];
     
-    UIView *line3 = [[UIView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(line2.frame) + 25, 20, 284, 4)];
+    UIView *line3 = [[UIView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(line1.frame) + 25, 20, 284, 4)];
     line3.backgroundColor = [UIColor whiteColor];
     [back addSubview:line3];
     
@@ -87,12 +88,12 @@
     titleLable1.text = @"总体满意度";
     [back addSubview:titleLable1];
     
-    UILabel *titleLable2 = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMinX(line2.frame), CGRectGetMaxY(line2.frame) + 15, CGRectGetWidth(line2.frame), 25)];
-    titleLable2.font = [UIFont boldSystemFontOfSize:20];
-    titleLable2.textColor = [UIColor whiteColor];
-    titleLable2.textAlignment = NSTextAlignmentCenter;
-    titleLable2.text = @"职场满意度超越了";
-    [back addSubview:titleLable2];
+//    UILabel *titleLable2 = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMinX(line2.frame), CGRectGetMaxY(line2.frame) + 15, CGRectGetWidth(line2.frame), 25)];
+//    titleLable2.font = [UIFont boldSystemFontOfSize:20];
+//    titleLable2.textColor = [UIColor whiteColor];
+//    titleLable2.textAlignment = NSTextAlignmentCenter;
+//    titleLable2.text = @"职场满意度超越了";
+//    [back addSubview:titleLable2];
 
     
     UILabel *titleLable3 = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMinX(line3.frame), CGRectGetMaxY(line3.frame) + 15, CGRectGetWidth(line3.frame), 25)];
@@ -101,12 +102,12 @@
     titleLable3.text = @"专家建议您";
     [back addSubview:titleLable3];
 
-    UILabel *subLabel2 = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(titleLable2.frame) - 15, CGRectGetMaxY(titleLable2.frame) + 2, 16, 60)];
-    subLabel2.numberOfLines = 0;
-    subLabel2.font = [UIFont boldSystemFontOfSize:15];
-    subLabel2.textColor = [UIColor whiteColor];
-    subLabel2.text = @"参与者";
-    [back addSubview:subLabel2];
+//    UILabel *subLabel2 = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(titleLable2.frame) - 15, CGRectGetMaxY(titleLable2.frame) + 2, 16, 60)];
+//    subLabel2.numberOfLines = 0;
+//    subLabel2.font = [UIFont boldSystemFontOfSize:15];
+//    subLabel2.textColor = [UIColor whiteColor];
+//    subLabel2.text = @"参与者";
+//    [back addSubview:subLabel2];
     
     UILabel *subLabel3 = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMinX(titleLable3.frame), CGRectGetMaxY(titleLable3.frame) + 15, CGRectGetWidth(line3.frame), 25)];
     subLabel3.font = [UIFont boldSystemFontOfSize:18];
@@ -121,11 +122,24 @@
     _allRateLabel.text = [NSString stringWithFormat:@"36%@",@"%"];
     [back addSubview:_allRateLabel];
     
-    _careerRateLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMinX(titleLable2.frame), CGRectGetMaxY(titleLable2.frame), CGRectGetWidth(titleLable2.frame), 60)];
-    _careerRateLabel.textColor = [UIColor whiteColor];
-    _careerRateLabel.font = [UIFont boldSystemFontOfSize:59];
-    _careerRateLabel.text = [NSString stringWithFormat:@"36%@",@"%"];
-    [back addSubview:_careerRateLabel];
+    NSMutableArray *mutArray = [[NSMutableArray alloc] init];
+    for (FTWElementItem *item in [FTWDataManager shareManager].tenElementArray) {
+        if (item.selected) {
+            [mutArray addObject:item];
+        }
+    }
+    float sum = 0.0f;
+    for (int i = 0; i < 5; i++) {
+        sum += ((FTWElementItem *)[mutArray objectAtIndex:i]).currentScore / 1.0 / ((FTWElementItem *)[mutArray objectAtIndex:i]).hopeScore;
+    }
+    sum /= 5.0;
+    _allRateLabel.text = [NSString stringWithFormat:@"%d%@",(int)(sum * 100),@"%"];
+    
+//    _careerRateLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMinX(titleLable2.frame), CGRectGetMaxY(titleLable2.frame), CGRectGetWidth(titleLable2.frame), 60)];
+//    _careerRateLabel.textColor = [UIColor whiteColor];
+//    _careerRateLabel.font = [UIFont boldSystemFontOfSize:59];
+//    _careerRateLabel.text = [NSString stringWithFormat:@"36%@",@"%"];
+//    [back addSubview:_careerRateLabel];
 
 }
 

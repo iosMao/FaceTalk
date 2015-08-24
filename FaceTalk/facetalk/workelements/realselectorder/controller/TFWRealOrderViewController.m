@@ -23,6 +23,7 @@
 @property (nonatomic,strong) NSMutableArray *viewArray;
 @property (nonatomic,strong) NSTimer *circleTimer;
 @property (nonatomic,strong) NSTimer *animationTimer;
+@property (nonatomic,strong) UIImageView *showElementImageView;
 
 @end
 
@@ -42,6 +43,7 @@
     [self buildOkButton];
     [self buildCenterView];
     [self buildTenElements];
+    [self createImageView];
     [self.view.layer setMasksToBounds:YES];
 }
 
@@ -219,6 +221,34 @@
 
 }
 
+-(void)createImageView
+{
+    _showElementImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 548 / 2.0, 476 / 2.0)];
+    [self.view addSubview:_showElementImageView];
+    _showElementImageView.alpha = 0.0f;
+}
+
+-(void)showImageViewwithName:(NSString *)imageName andCenter:(CGPoint)center
+{
+    _showElementImageView.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"kgten_shd_06" ofType:@"png"]];
+    _showElementImageView.center = center;
+    UIButton *button = [[UIButton alloc] initWithFrame:self.view.bounds];
+    button.backgroundColor = [UIColor clearColor];
+    [self.view addSubview:button];
+    [button addTarget:self action:@selector(hideImageView:) forControlEvents:UIControlEventTouchUpInside];
+    [UIView animateWithDuration:0.6 animations:^{
+        _showElementImageView.alpha = 1.0f;
+    }];
+}
+
+-(void)hideImageView:(UIButton *)bt
+{
+    [UIView animateWithDuration:0.6 animations:^{
+        _showElementImageView.alpha = 0.0f;
+    }];
+    [bt removeFromSuperview];
+}
+
 -(void)startAnimation
 {
     _animationTimer = [NSTimer scheduledTimerWithTimeInterval:0.6 target:self selector:@selector(timerAction:) userInfo:self repeats:YES];
@@ -318,6 +348,50 @@
 -(void)addAction:(UIButton *)bt
 {
     NSLog(@"%d",bt.tag);
+    switch (bt.tag) {
+        case TenElementTypeBrand:
+            [self showImageViewwithName:@"" andCenter:CGPointMake(bt.superview.center.x + 190, bt.superview.center.y - 170)];
+            break;
+            
+        case TenElementTypeFree:
+            [self showImageViewwithName:@"" andCenter:CGPointMake(bt.superview.center.x + 200, bt.superview.center.y - 180)];
+            break;
+            
+        case TenElementTypeHonour:
+            [self showImageViewwithName:@"" andCenter:CGPointMake(bt.superview.center.x - 120, bt.superview.center.y - 170)];
+            break;
+            
+        case TenElementTypeIncome:
+            [self showImageViewwithName:@"" andCenter:CGPointMake(bt.superview.center.x - 120, bt.superview.center.y + 100)];
+            break;
+            
+        case TenElementTypeLearn:
+            [self showImageViewwithName:@"" andCenter:CGPointMake(bt.superview.center.x + 200, bt.superview.center.y + 100)];
+            break;
+            
+        case TenElementTypeLife:
+            [self showImageViewwithName:@"" andCenter:CGPointMake(bt.superview.center.x + 190, bt.superview.center.y + 100)];
+            break;
+            
+        case TenElementTypeSocity:
+            [self showImageViewwithName:@"" andCenter:CGPointMake(bt.superview.center.x + 180, bt.superview.center.y + 100)];
+            break;
+            
+        case TenElementTypeSpace:
+            [self showImageViewwithName:@"" andCenter:CGPointMake(bt.superview.center.x - 120, bt.superview.center.y + 100)];
+            break;
+            
+        case TenElementTypeSuit:
+            [self showImageViewwithName:@"" andCenter:CGPointMake(bt.superview.center.x - 120, bt.superview.center.y + 100)];
+            break;
+            
+        case TenElementTypeWork:
+            [self showImageViewwithName:@"" andCenter:CGPointMake(bt.superview.center.x + 180, bt.superview.center.y - 160)];
+            break;
+            
+        default:
+            break;
+    }
 }
 
 -(void)setCenterViewNumber:(int)number
