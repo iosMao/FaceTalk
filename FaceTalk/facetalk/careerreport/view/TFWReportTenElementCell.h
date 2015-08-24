@@ -10,6 +10,10 @@
 
 @interface TFWReportTenElementCell : UITableViewCell
 
+@property (nonatomic,copy) void(^checkBlock)(UIButton *bt);
+
 -(void)configImageName:(NSString *)imageName Title:(NSString *)title SubTitle:(NSString *)subTitle andCheck:(BOOL)check;
+-(void)configImageName:(NSString *)imageName Title:(NSString *)title SubTitle:(NSString *)subTitle andCheck:(BOOL)check andTag:(NSInteger)tag;
+-(void)configImageName:(NSString *)imageName Title:(NSString *)title SubTitle:(NSString *)subTitle andCheck:(BOOL)check andHideCheck:(BOOL)isHide;
 
 @end
