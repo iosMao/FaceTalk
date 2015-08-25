@@ -33,6 +33,14 @@
     [super viewDidLoad];
     
     imgIndex=0;
+    imgSmall1.contentMode= UIViewContentModeScaleAspectFill;
+    imgSmall2.contentMode= UIViewContentModeScaleAspectFill;
+    imgSmall3.contentMode= UIViewContentModeScaleAspectFill;
+    imgSmall4.contentMode= UIViewContentModeScaleAspectFill;
+    [imgSmall1.layer setMasksToBounds:YES];
+    [imgSmall2.layer setMasksToBounds:YES];
+    [imgSmall3.layer setMasksToBounds:YES];
+    [imgSmall4.layer setMasksToBounds:YES];
     
     backgroundView= [[FTDbackgroundView alloc]initWithFrame:self.view.frame];
     backgroundView.delegate=self;

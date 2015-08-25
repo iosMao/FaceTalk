@@ -8,6 +8,8 @@
 
 #import "FTJsonManager.h"
 #import "FTDDataPacketManager.h"
+ 
+
 static FTJsonManager *shareManager;
 
 @interface FTJsonManager ()

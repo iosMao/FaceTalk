@@ -56,8 +56,8 @@
 }
 
 -(void)buildMenu
-{
-    _menu = [TFWHelpResultMenuView createMenuwithArray:@[@"职涯规划",@"行业潜力",@"公司五年规划",@"渠道定位"] andBottom:CGPointMake(78, 745)];
+{_menu = [TFWHelpResultMenuView  createMenuwithArray:@[@"职涯规划",@"行业潜力",@"公司五年规划",@"渠道定位"] andBottom:CGPointMake(78, 745) andHightBtnIndex:0];
+     
     __weak TFWRealHelpResultController *weakSelf = self;
     [_menu setResultMenuTapBlock:^(NSInteger index){
         [weakSelf menuClickAction:index];

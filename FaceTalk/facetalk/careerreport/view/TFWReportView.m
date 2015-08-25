@@ -197,34 +197,34 @@ static NSString *cellSuggestIdentifier = @"cellSuggestIdentifier";
             cell.userInteractionEnabled = NO;
             switch ([[_selectArray objectAtIndex:indexPath.row] integerValue]) {
                 case 0:
-                    [cell configImageName:@"ftw_share_money" Title:@"         收入丰厚" SubTitle:@"dadwadwadwadwadwa dacawaawdadawxawxawdawadxwxdawxawxdawawxawxawdawxdawxawwaawxawawxawxaw" andCheck:NO andHideCheck:YES];
+                    [cell configImageName:@"ftw_share_money" Title:@"         收入丰厚" SubTitle:@"我们会继续投资在Agency,因为你们是业界最优秀的营销员，我们要把更多的精英吸引在友邦，我相信未来Agency将会继续成为友邦带领整个保险行业的旗帜，我们仍然要拓宽渠道" andCheck:NO andHideCheck:YES];
                     break;
                 case 1:
-                    [cell configImageName:@"ftw_share_key" Title:@"         收入丰厚" SubTitle:@"dadwadwadwadwadwa dacawaawdadawxawxawdawadxwxdawxawxdawawxawxawdawxdawxawwaawxawawxawxaw" andCheck:NO andHideCheck:YES];
+                    [cell configImageName:@"ftw_share_key" Title:@"         收入丰厚" SubTitle:@"我们会继续投资在Agency,因为你们是业界最优秀的营销员，我们要把更多的精英吸引在友邦，我相信未来Agency将会继续成为友邦带领整个保险行业的旗帜，我们仍然要拓宽渠道" andCheck:NO andHideCheck:YES];
                     break;
                 case 2:
-                    [cell configImageName:@"ftw_share_book" Title:@"         学习成长" SubTitle:@"dadwadwadwadwadwa dacawaawdadawxawxawdawadxwxdawxawxdawawxawxawdawxdawxawwaawxawawxawxaw" andCheck:NO andHideCheck:YES];
+                    [cell configImageName:@"ftw_share_book" Title:@"         学习成长" SubTitle:@"我们会继续投资在Agency,因为你们是业界最优秀的营销员，我们要把更多的精英吸引在友邦，我相信未来Agency将会继续成为友邦带领整个保险行业的旗帜，我们仍然要拓宽渠道" andCheck:NO andHideCheck:YES];
                     break;
                 case 3:
-                    [cell configImageName:@"ftw_share_clock" Title:@"         工作自主" SubTitle:@"dadwadwadwadwadwa dacawaawdadawxawxawdawadxwxdawxawxdawawxawxawdawxdawxawwaawxawawxawxaw" andCheck:NO andHideCheck:YES];
+                    [cell configImageName:@"ftw_share_clock" Title:@"         工作自主" SubTitle:@"我们会继续投资在Agency,因为你们是业界最优秀的营销员，我们要把更多的精英吸引在友邦，我相信未来Agency将会继续成为友邦带领整个保险行业的旗帜，我们仍然要拓宽渠道" andCheck:NO andHideCheck:YES];
                     break;
                 case 4:
-                    [cell configImageName:@"ftw_share_start" Title:@"         社会贡献" SubTitle:@"dadwadwadwadwadwa dacawaawdadawxawxawdawadxwxdawxawxdawawxawxawdawxdawxawwaawxawawxawxaw" andCheck:NO andHideCheck:YES];
+                    [cell configImageName:@"ftw_share_start" Title:@"         社会贡献" SubTitle:@"我们会继续投资在Agency,因为你们是业界最优秀的营销员，我们要把更多的精英吸引在友邦，我相信未来Agency将会继续成为友邦带领整个保险行业的旗帜，我们仍然要拓宽渠道" andCheck:NO andHideCheck:YES];
                     break;
                 case 5:
-                    [cell configImageName:@"ftw_share_heart" Title:@"         适合度" SubTitle:@"dadwadwadwadwadwa dacawaawdadawxawxawdawadxwxdawxawxdawawxawxawdawxdawxawwaawxawawxawxaw" andCheck:NO andHideCheck:YES];
+                    [cell configImageName:@"ftw_share_heart" Title:@"         适合度" SubTitle:@"我们会继续投资在Agency,因为你们是业界最优秀的营销员，我们要把更多的精英吸引在友邦，我相信未来Agency将会继续成为友邦带领整个保险行业的旗帜，我们仍然要拓宽渠道" andCheck:NO andHideCheck:YES];
                     break;
                 case 6:
-                    [cell configImageName:@"ftw_share_pro" Title:@"         发展空间" SubTitle:@"dadwadwadwadwadwa dacawaawdadawxawxawdawadxwxdawxawxdawawxawxawdawxdawxawwaawxawawxawxaw" andCheck:NO andHideCheck:YES];
+                    [cell configImageName:@"ftw_share_pro" Title:@"         发展空间" SubTitle:@"我们会继续投资在Agency,因为你们是业界最优秀的营销员，我们要把更多的精英吸引在友邦，我相信未来Agency将会继续成为友邦带领整个保险行业的旗帜，我们仍然要拓宽渠道" andCheck:NO andHideCheck:YES];
                     break;
                 case 7:
-                    [cell configImageName:@"ftw_share_honour" Title:@"         荣誉奖励" SubTitle:@"dadwadwadwadwadwa dacawaawdadawxawxawdawadxwxdawxawxdawawxawxawdawxdawxawwaawxawawxawxaw" andCheck:NO andHideCheck:YES];
+                    [cell configImageName:@"ftw_share_honour" Title:@"         荣誉奖励" SubTitle:@"我们会继续投资在Agency,因为你们是业界最优秀的营销员，我们要把更多的精英吸引在友邦，我相信未来Agency将会继续成为友邦带领整个保险行业的旗帜，我们仍然要拓宽渠道" andCheck:NO andHideCheck:YES];
                     break;
                 case 8:
-                    [cell configImageName:@"ftw_share_flower" Title:@"         生活平衡" SubTitle:@"dadwadwadwadwadwa dacawaawdadawxawxawdawadxwxdawxawxdawawxawxawdawxdawxawwaawxawawxawxaw" andCheck:NO andHideCheck:YES];
+                    [cell configImageName:@"ftw_share_flower" Title:@"         生活平衡" SubTitle:@"我们会继续投资在Agency,因为你们是业界最优秀的营销员，我们要把更多的精英吸引在友邦，我相信未来Agency将会继续成为友邦带领整个保险行业的旗帜，我们仍然要拓宽渠道" andCheck:NO andHideCheck:YES];
                     break;
                 case 9:
-                    [cell configImageName:@"ftw_share_plane" Title:@"         自由晋级" SubTitle:@"dadwadwadwadwadwa dacawaawdadawxawxawdawadxwxdawxawxdawawxawxawdawxdawxawwaawxawawxawxaw" andCheck:NO andHideCheck:YES];
+                    [cell configImageName:@"ftw_share_plane" Title:@"         自由晋级" SubTitle:@"我们会继续投资在Agency,因为你们是业界最优秀的营销员，我们要把更多的精英吸引在友邦，我相信未来Agency将会继续成为友邦带领整个保险行业的旗帜，我们仍然要拓宽渠道" andCheck:NO andHideCheck:YES];
                     break;
                 default:
                     break;
@@ -233,34 +233,34 @@ static NSString *cellSuggestIdentifier = @"cellSuggestIdentifier";
         else{
             switch (indexPath.row) {
                 case 0:
-                    [cell configImageName:@"ftw_share_money" Title:@"         收入丰厚" SubTitle:@"dadwadwadwadwadwa dacawaawdadawxawxawdawadxwxdawxawxdawawxawxawdawxdawxawwaawxawawxawxaw" andCheck:_isShowTenElement andTag:indexPath.row];
+                    [cell configImageName:@"ftw_share_money" Title:@"         收入丰厚" SubTitle:@"我们会继续投资在Agency,因为你们是业界最优秀的营销员，我们要把更多的精英吸引在友邦，我相信未来Agency将会继续成为友邦带领整个保险行业的旗帜，我们仍然要拓宽渠道" andCheck:_isShowTenElement andTag:indexPath.row];
                     break;
                 case 1:
-                    [cell configImageName:@"ftw_share_key" Title:@"         收入丰厚" SubTitle:@"dadwadwadwadwadwa dacawaawdadawxawxawdawadxwxdawxawxdawawxawxawdawxdawxawwaawxawawxawxaw" andCheck:_isShowTenElement andTag:indexPath.row];
+                    [cell configImageName:@"ftw_share_key" Title:@"         收入丰厚" SubTitle:@"我们会继续投资在Agency,因为你们是业界最优秀的营销员，我们要把更多的精英吸引在友邦，我相信未来Agency将会继续成为友邦带领整个保险行业的旗帜，我们仍然要拓宽渠道" andCheck:_isShowTenElement andTag:indexPath.row];
                     break;
                 case 2:
-                    [cell configImageName:@"ftw_share_book" Title:@"         学习成长" SubTitle:@"dadwadwadwadwadwa dacawaawdadawxawxawdawadxwxdawxawxdawawxawxawdawxdawxawwaawxawawxawxaw" andCheck:_isShowTenElement andTag:indexPath.row];
+                    [cell configImageName:@"ftw_share_book" Title:@"         学习成长" SubTitle:@"我们会继续投资在Agency,因为你们是业界最优秀的营销员，我们要把更多的精英吸引在友邦，我相信未来Agency将会继续成为友邦带领整个保险行业的旗帜，我们仍然要拓宽渠道" andCheck:_isShowTenElement andTag:indexPath.row];
                     break;
                 case 3:
-                    [cell configImageName:@"ftw_share_clock" Title:@"         工作自主" SubTitle:@"dadwadwadwadwadwa dacawaawdadawxawxawdawadxwxdawxawxdawawxawxawdawxdawxawwaawxawawxawxaw" andCheck:_isShowTenElement andTag:indexPath.row];
+                    [cell configImageName:@"ftw_share_clock" Title:@"         工作自主" SubTitle:@"我们会继续投资在Agency,因为你们是业界最优秀的营销员，我们要把更多的精英吸引在友邦，我相信未来Agency将会继续成为友邦带领整个保险行业的旗帜，我们仍然要拓宽渠道" andCheck:_isShowTenElement andTag:indexPath.row];
                     break;
                 case 4:
-                    [cell configImageName:@"ftw_share_start" Title:@"         社会贡献" SubTitle:@"dadwadwadwadwadwa dacawaawdadawxawxawdawadxwxdawxawxdawawxawxawdawxdawxawwaawxawawxawxaw" andCheck:_isShowTenElement andTag:indexPath.row];
+                    [cell configImageName:@"ftw_share_start" Title:@"         社会贡献" SubTitle:@"我们会继续投资在Agency,因为你们是业界最优秀的营销员，我们要把更多的精英吸引在友邦，我相信未来Agency将会继续成为友邦带领整个保险行业的旗帜，我们仍然要拓宽渠道" andCheck:_isShowTenElement andTag:indexPath.row];
                     break;
                 case 5:
-                    [cell configImageName:@"ftw_share_heart" Title:@"         适合度" SubTitle:@"dadwadwadwadwadwa dacawaawdadawxawxawdawadxwxdawxawxdawawxawxawdawxdawxawwaawxawawxawxaw" andCheck:_isShowTenElement andTag:indexPath.row];
+                    [cell configImageName:@"ftw_share_heart" Title:@"         适合度" SubTitle:@"我们会继续投资在Agency,因为你们是业界最优秀的营销员，我们要把更多的精英吸引在友邦，我相信未来Agency将会继续成为友邦带领整个保险行业的旗帜，我们仍然要拓宽渠道" andCheck:_isShowTenElement andTag:indexPath.row];
                     break;
                 case 6:
-                    [cell configImageName:@"ftw_share_pro" Title:@"         发展空间" SubTitle:@"dadwadwadwadwadwa dacawaawdadawxawxawdawadxwxdawxawxdawawxawxawdawxdawxawwaawxawawxawxaw" andCheck:_isShowTenElement andTag:indexPath.row];
+                    [cell configImageName:@"ftw_share_pro" Title:@"         发展空间" SubTitle:@"我们会继续投资在Agency,因为你们是业界最优秀的营销员，我们要把更多的精英吸引在友邦，我相信未来Agency将会继续成为友邦带领整个保险行业的旗帜，我们仍然要拓宽渠道" andCheck:_isShowTenElement andTag:indexPath.row];
                     break;
                 case 7:
-                    [cell configImageName:@"ftw_share_honour" Title:@"         荣誉奖励" SubTitle:@"dadwadwadwadwadwa dacawaawdadawxawxawdawadxwxdawxawxdawawxawxawdawxdawxawwaawxawawxawxaw" andCheck:_isShowTenElement andTag:indexPath.row];
+                    [cell configImageName:@"ftw_share_honour" Title:@"         荣誉奖励" SubTitle:@"我们会继续投资在Agency,因为你们是业界最优秀的营销员，我们要把更多的精英吸引在友邦，我相信未来Agency将会继续成为友邦带领整个保险行业的旗帜，我们仍然要拓宽渠道" andCheck:_isShowTenElement andTag:indexPath.row];
                     break;
                 case 8:
-                    [cell configImageName:@"ftw_share_flower" Title:@"         生活平衡" SubTitle:@"dadwadwadwadwadwa dacawaawdadawxawxawdawadxwxdawxawxdawawxawxawdawxdawxawwaawxawawxawxaw" andCheck:_isShowTenElement andTag:indexPath.row];
+                    [cell configImageName:@"ftw_share_flower" Title:@"         生活平衡" SubTitle:@"我们会继续投资在Agency,因为你们是业界最优秀的营销员，我们要把更多的精英吸引在友邦，我相信未来Agency将会继续成为友邦带领整个保险行业的旗帜，我们仍然要拓宽渠道" andCheck:_isShowTenElement andTag:indexPath.row];
                     break;
                 case 9:
-                    [cell configImageName:@"ftw_share_plane" Title:@"         自由晋级" SubTitle:@"dadwadwadwadwadwa dacawaawdadawxawxawdawadxwxdawxawxdawawxawxawdawxdawxawwaawxawawxawxaw" andCheck:_isShowTenElement andTag:indexPath.row];
+                    [cell configImageName:@"ftw_share_plane" Title:@"         自由晋级" SubTitle:@"我们会继续投资在Agency,因为你们是业界最优秀的营销员，我们要把更多的精英吸引在友邦，我相信未来Agency将会继续成为友邦带领整个保险行业的旗帜，我们仍然要拓宽渠道" andCheck:_isShowTenElement andTag:indexPath.row];
                     break;
                 default:
                     break;

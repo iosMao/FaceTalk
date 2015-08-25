@@ -10,34 +10,75 @@
 #import "FTDAgentImageCell.h"
 #import "FTDAgentDetailScoreView.h"
 #import "TFWHelpResultMenuView.h"
+#import "FTJsonMarkModel.h"
 @interface FTDGoodAgentDetailController ()
+@property(nonatomic,strong)FTJsonPeopleModel *PeopleModel;
+@property(nonatomic,strong)FTJsonSubClassModel *subclassModel;
+@property(nonatomic,strong)NSArray *arrayPeople;
 @property (nonatomic,strong) TFWHelpResultMenuView *menu;
 @end
 
 @implementation FTDGoodAgentDetailController
-@synthesize tableAgentList;
+@synthesize tableAgentList,arraySubclass,indexID;
 - (void)viewDidLoad {
     [super viewDidLoad];
-    indexid=1000000;
+    indexid=0;
     tableAgentList.separatorColor=[UIColor clearColor];
     tableAgentList.contentInset=UIEdgeInsetsMake(100, 0, 0, 0);
-    NSLog(@"%@",self.detailModel);
+    NSLog(@"%@",arraySubclass);
+    [self.imgBigPhoto.layer setMasksToBounds:YES];
+    self.imgBigPhoto.contentMode=UIViewContentModeScaleAspectFit;
+    [self getdata];
     
     
-    
-    [self buildScoreView];
-    [self buildMenu];
     
     
     
     
     // Do any additional setup after loading the view from its nib.
 }
--(void)buildScoreView
+-(void)getdata
 {
+    [self buildMenu];
+    _subclassModel=[_ExcellentModel getSubClassItemAtIndex:indexID];
+    
+    _PeopleModel=[_subclassModel getPeoplesItemAtIndex:0];
+    [self getdetailData];
+    //[self buildScoreView];
+    
+}
+-(void)getdetailData
+{
+    _lblName.text=_PeopleModel.name;
+    _lblOldJob.text=[NSString stringWithFormat:@"入司前职业:%@", _PeopleModel.old_job];
+    _lblTime.text= [NSString stringWithFormat:@"入司时间:%@", _PeopleModel.join_date];
+    _lblDesc.text=_PeopleModel.share_word;
+    _imgBigPhoto.image=[UIImage imageWithContentsOfFile:_PeopleModel.picture];
+    [self buildScoreView];
+}
+
+
+
+
+-(void)buildScoreView
+{    for(id tmpView in [self.view subviews])
+    {
+        //找到要删除的子视图的对象
+        if([tmpView isKindOfClass:[FTDAgentDetailScoreView class]])
+        {
+            FTDAgentDetailScoreView *imgView = (FTDAgentDetailScoreView *)tmpView;
+            
+                [imgView removeFromSuperview];
+                  
+            
+        }
+    }
+    NSLog(@"%@",self.view.subviews);
     for (int i=0; i<5; i++) {
         FTDAgentDetailScoreView *ScoreView=[FTDAgentDetailScoreView setCustomview];
-        [ScoreView setTitle:@"丰厚收入" andOldScore:i+1 andNewScore:i+3 andDesc:@"丰厚收入丰厚收入丰厚收入丰厚收入丰厚收入丰厚收入丰厚收入丰厚收入丰厚收入丰厚收入丰厚收入丰厚收入丰厚收入"];
+        FTJsonMarkModel *oldMarkModel=[_PeopleModel.old_mark objectAtIndex:i];
+        FTJsonMarkModel *newMarkModel=[_PeopleModel.markArray objectAtIndex:i];
+        [ScoreView setTitle:newMarkModel.name andOldScore:oldMarkModel.mark andNewScore:newMarkModel.mark andDesc:@"营销员本身就是做自己的事业，加上公司的奖金津贴制度，还有产品设计，服务口碑等，都是丰厚收入的基础！"];
         ScoreView.frame=CGRectMake(510, 137+112*i, 340, 110);
         [self.view addSubview:ScoreView];
     }
@@ -45,7 +86,14 @@
 
 -(void)buildMenu
 {
-    _menu = [TFWHelpResultMenuView createMenuwithArray:@[@"自由职业",@"应届毕业生",@"家庭主妇",@"其他"] andBottom:CGPointMake(76, 730)];
+    NSMutableArray *array=[[NSMutableArray alloc]init];
+    for (int i=0; i<arraySubclass.count; i++) {
+        FTJsonSubClassModel *model=[arraySubclass objectAtIndex:i];
+        [array addObject:model.name];
+    }
+    
+    
+    _menu = [TFWHelpResultMenuView createMenuwithArray:array andBottom:CGPointMake(76, 730) andHightBtnIndex:indexID];
     __weak FTDGoodAgentDetailController *weakSelf = self;
     [_menu setResultMenuTapBlock:^(NSInteger index){
         [weakSelf menuClickAction:index];
@@ -55,6 +103,11 @@
 -(void)menuClickAction:(NSInteger)index
 {
     NSLog(@"index : %ld",(long)index);
+    _subclassModel=[_ExcellentModel getSubClassItemAtIndex:index];
+    
+    _PeopleModel=[_subclassModel getPeoplesItemAtIndex:0];
+    [self getdetailData];
+    [tableAgentList reloadData];
 }
 
 
@@ -74,7 +127,7 @@
 {
     //#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 9;
+    return _subclassModel.peoples.count;
 }
 
 
@@ -92,6 +145,13 @@
         cell.backgroundColor=[UIColor colorWithRed:0.82 green:0.1 blue:0.28 alpha:1];
         
     }
+    FTJsonPeopleModel *cellModel=[_subclassModel.peoples objectAtIndex:indexPath.row];
+    cell.imgAgent.image=[UIImage imageWithContentsOfFile:cellModel.picture];
+    [cell.imgAgent.layer setMasksToBounds:YES];
+    cell.imgAgent.contentMode=UIViewContentModeScaleAspectFit;
+    cell.lblName.text=cellModel.name;
+    cell.lblCareer.text=cellModel.old_job;
+    
     if (indexPath.row==indexid) {
         cell.imgBG.hidden=YES;
         cell.lblCareer.hidden=YES;
@@ -117,8 +177,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    _PeopleModel=[_subclassModel getPeoplesItemAtIndex:indexPath.row];
+    [self getdetailData];
     indexid=indexPath.row;
     [tableAgentList reloadData];
+    
 }
 
 /*

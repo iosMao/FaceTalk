@@ -14,6 +14,6 @@ typedef void(^ResultMenuTapBlock)(NSInteger index);
 
 @property (nonatomic,copy) ResultMenuTapBlock resultMenuTapBlock;
 
-+(id)createMenuwithArray:(NSArray *)itemArray andBottom:(CGPoint)bottom;
++(id)createMenuwithArray:(NSArray *)itemArray andBottom:(CGPoint)bottom andHightBtnIndex:(int)index;
 
 @end

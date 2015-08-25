@@ -5,13 +5,13 @@
 //  Created by wen on 15/7/21.
 //  Copyright (c) 2015年 wen. All rights reserved.
 //
-
+//数组｛0.发展空间  1.工作自主 2.品牌实力 3.荣誉奖励 4.社会贡献 5.生活平衡  6.适合度  7.收入丰厚 8.学习成长 9.自由晋级
 #import "TFWRealOrderViewController.h"
 #import "TFWRSCenterView.h"
 #import "TFWRSButtonView.h"
 #import "TFWRealMarkViewController.h"
 #import "FTWDataManager.h"
-
+#import "FTJsonManager.h"
 @interface TFWRealOrderViewController ()
 
 @property (nonatomic,strong) UILabel *titleLabel;
@@ -230,7 +230,8 @@
 
 -(void)showImageViewwithName:(NSString *)imageName andCenter:(CGPoint)center
 {
-    _showElementImageView.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"kgten_shd_06" ofType:@"png"]];
+    _showElementImageView.image = [UIImage imageWithContentsOfFile:imageName];
+    //_showElementImageView.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"kgten_shd_06" ofType:@"png"]];
     _showElementImageView.center = center;
     UIButton *button = [[UIButton alloc] initWithFrame:self.view.bounds];
     button.backgroundColor = [UIColor clearColor];
@@ -350,43 +351,43 @@
     NSLog(@"%d",bt.tag);
     switch (bt.tag) {
         case TenElementTypeBrand:
-            [self showImageViewwithName:@"" andCenter:CGPointMake(bt.superview.center.x + 190, bt.superview.center.y - 170)];
+            [self showImageViewwithName:[[FTJsonManager shareManager].ten_objective_elements objectAtIndex:2] andCenter:CGPointMake(bt.superview.center.x + 190, bt.superview.center.y - 170)];
             break;
             
         case TenElementTypeFree:
-            [self showImageViewwithName:@"" andCenter:CGPointMake(bt.superview.center.x + 200, bt.superview.center.y - 180)];
+            [self showImageViewwithName:[[FTJsonManager shareManager].ten_objective_elements objectAtIndex:9]  andCenter:CGPointMake(bt.superview.center.x + 200, bt.superview.center.y - 180)];
             break;
             
         case TenElementTypeHonour:
-            [self showImageViewwithName:@"" andCenter:CGPointMake(bt.superview.center.x - 120, bt.superview.center.y - 170)];
+            [self showImageViewwithName:[[FTJsonManager shareManager].ten_objective_elements objectAtIndex:3]  andCenter:CGPointMake(bt.superview.center.x - 120, bt.superview.center.y - 170)];
             break;
             
         case TenElementTypeIncome:
-            [self showImageViewwithName:@"" andCenter:CGPointMake(bt.superview.center.x - 120, bt.superview.center.y + 100)];
+            [self showImageViewwithName:[[FTJsonManager shareManager].ten_objective_elements objectAtIndex:7]  andCenter:CGPointMake(bt.superview.center.x - 120, bt.superview.center.y + 100)];
             break;
             
         case TenElementTypeLearn:
-            [self showImageViewwithName:@"" andCenter:CGPointMake(bt.superview.center.x + 200, bt.superview.center.y + 100)];
+            [self showImageViewwithName:[[FTJsonManager shareManager].ten_objective_elements objectAtIndex:8]  andCenter:CGPointMake(bt.superview.center.x + 200, bt.superview.center.y + 100)];
             break;
             
         case TenElementTypeLife:
-            [self showImageViewwithName:@"" andCenter:CGPointMake(bt.superview.center.x + 190, bt.superview.center.y + 100)];
+            [self showImageViewwithName:[[FTJsonManager shareManager].ten_objective_elements objectAtIndex:5]  andCenter:CGPointMake(bt.superview.center.x + 190, bt.superview.center.y + 100)];
             break;
             
         case TenElementTypeSocity:
-            [self showImageViewwithName:@"" andCenter:CGPointMake(bt.superview.center.x + 180, bt.superview.center.y + 100)];
+            [self showImageViewwithName:[[FTJsonManager shareManager].ten_objective_elements objectAtIndex:4]  andCenter:CGPointMake(bt.superview.center.x + 180, bt.superview.center.y + 100)];
             break;
             
         case TenElementTypeSpace:
-            [self showImageViewwithName:@"" andCenter:CGPointMake(bt.superview.center.x - 120, bt.superview.center.y + 100)];
+            [self showImageViewwithName:[[FTJsonManager shareManager].ten_objective_elements objectAtIndex:0]  andCenter:CGPointMake(bt.superview.center.x - 120, bt.superview.center.y + 100)];
             break;
             
         case TenElementTypeSuit:
-            [self showImageViewwithName:@"" andCenter:CGPointMake(bt.superview.center.x - 120, bt.superview.center.y + 100)];
+            [self showImageViewwithName:[[FTJsonManager shareManager].ten_objective_elements objectAtIndex:6]  andCenter:CGPointMake(bt.superview.center.x - 120, bt.superview.center.y + 100)];
             break;
             
         case TenElementTypeWork:
-            [self showImageViewwithName:@"" andCenter:CGPointMake(bt.superview.center.x + 180, bt.superview.center.y - 160)];
+            [self showImageViewwithName:[[FTJsonManager shareManager].ten_objective_elements objectAtIndex:1]  andCenter:CGPointMake(bt.superview.center.x + 180, bt.superview.center.y - 160)];
             break;
             
         default:

@@ -274,7 +274,7 @@
             break;
         case 1:
             cell.lblTitle.text=@"个性编辑";
-            cell.imgIcon.image=[UIImage imageNamed:@"FTD_slider_image0.png"];
+            cell.imgIcon.image=[UIImage imageNamed:@"FTD_slider_image5.png"];
             break;
         case 2:
             cell.lblTitle.text=@"职涯演示";

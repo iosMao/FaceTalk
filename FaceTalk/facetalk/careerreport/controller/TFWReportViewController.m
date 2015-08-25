@@ -126,8 +126,8 @@
 {
     UIButton *bt = [UIButton buttonWithType:UIButtonTypeCustom];
     bt.frame = CGRectMake(672, 600, 150/1.2,154/1.2);
-    [bt setImage:[UIImage imageNamed:@"ftw_share_share"] forState:UIControlStateNormal];
-    [bt setImage:[UIImage imageNamed:@"ftw_share_complete"] forState:UIControlStateSelected];
+    [bt setImage:[UIImage imageNamed:@"ftw_share_complete"] forState:UIControlStateNormal];
+    [bt setImage:[UIImage imageNamed:@"ftw_share_share"] forState:UIControlStateSelected];
     [bt addTarget:self action:@selector(ShareAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:bt];
 }

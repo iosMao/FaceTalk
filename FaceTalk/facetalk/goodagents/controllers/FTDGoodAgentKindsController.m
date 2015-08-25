@@ -35,7 +35,7 @@
 -(void)getClassModel
 {
      self.model=[[FTJsonManager shareManager]getElementItemAtIndex:self.index];
-    
+    self.lblTitle.text=self.model.name;
 }
 
 
@@ -68,7 +68,8 @@
 }
 -(void)buildMenu
 {
-    _menu = [TFWHelpResultMenuView createMenuwithArray:@[@"自由职业",@"事业单位",@"企业单位"] andBottom:CGPointMake(76, 730)];
+    _menu=[TFWHelpResultMenuView createMenuwithArray:@[@"企业单位",@"事业单位",@"自由职业"] andBottom:CGPointMake(76, 730) andHightBtnIndex:self.index];
+    //_menu = [TFWHelpResultMenuView createMenuwithArray:@[@"企业单位",@"事业单位",@"自由职业"] andBottom:CGPointMake(76, 730)];
     __weak FTDGoodAgentKindsController *weakSelf = self;
     [_menu setResultMenuTapBlock:^(NSInteger index){
         [weakSelf menuClickAction:index];
@@ -78,6 +79,9 @@
 -(void)menuClickAction:(NSInteger)index
 {
     NSLog(@"index : %ld",(long)index);
+    self.model=[[FTJsonManager shareManager]getElementItemAtIndex:index];
+    self.lblTitle.text=self.model.name;
+    [tableKind reloadData];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -113,26 +117,28 @@
         
     }
     FTJsonSubClassModel *subclassModel=[self.model.subClassArray objectAtIndex:indexPath.row];
-    switch (indexPath.row) {
-        case 0:
-            cell.imgKind.image=[UIImage imageNamed:@"FTD_ownWork.png"];
-            cell.lblKindName.text=@"自主创业";
-            break;
-        case 1:
-            cell.imgKind.image=[UIImage imageNamed:@"FTD_NewGraduates.png"];
-            cell.lblKindName.text=@"应届毕业生";
-            break;
-        case 2:
-            cell.imgKind.image=[UIImage imageNamed:@"FTD_HomeWoman.png"];
-            cell.lblKindName.text=@"家庭主妇";
-            break;
-        case 3:
-            cell.imgKind.image=[UIImage imageNamed:@"FTD_Other.png"];
-            cell.lblKindName.text=@"其他";
-            break;
-        default:
-            break;
-    }
+    cell.lblKindName.text=subclassModel.name;
+    cell.imgKind.image=[UIImage imageWithContentsOfFile:subclassModel.icon];
+//    switch (indexPath.row) {
+//        case 0:
+//            cell.imgKind.image=[UIImage imageNamed:@"FTD_ownWork.png"];
+//            cell.lblKindName.text=@"自主创业";
+//            break;
+//        case 1:
+//            cell.imgKind.image=[UIImage imageNamed:@"FTD_NewGraduates.png"];
+//            cell.lblKindName.text=@"应届毕业生";
+//            break;
+//        case 2:
+//            cell.imgKind.image=[UIImage imageNamed:@"FTD_HomeWoman.png"];
+//            cell.lblKindName.text=@"家庭主妇";
+//            break;
+//        case 3:
+//            cell.imgKind.image=[UIImage imageNamed:@"FTD_Other.png"];
+//            cell.lblKindName.text=@"其他";
+//            break;
+//        default:
+//            break;
+//    }
     
     
     
@@ -151,7 +157,9 @@
     
     
     FTDGoodAgentDetailController *vc=[[FTDGoodAgentDetailController alloc]init];
-    vc.detailModel=[self.model getSubClassItemAtIndex:indexPath.row];
+    vc.indexID=indexPath.row;
+    vc.arraySubclass=[[NSArray alloc]initWithArray:self.model.subClassArray];
+    vc.ExcellentModel=self.model;
     [self.navigationController pushViewController:vc animated:YES];
 }
 /*

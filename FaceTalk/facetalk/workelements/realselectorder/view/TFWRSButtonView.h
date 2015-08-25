@@ -9,16 +9,16 @@
 #import <UIKit/UIKit.h>
 
 typedef NS_ENUM(NSInteger, TenElementType) {
-    TenElementTypeBrand = 0,
-    TenElementTypeFree,
-    TenElementTypeHonour,
-    TenElementTypeIncome,
-    TenElementTypeLearn,
-    TenElementTypeLife,
-    TenElementTypeSocity,
-    TenElementTypeSpace,
-    TenElementTypeSuit,
-    TenElementTypeWork,
+    TenElementTypeBrand = 0,//品牌
+    TenElementTypeFree,//自由
+    TenElementTypeHonour,//荣誉
+    TenElementTypeIncome,//收入
+    TenElementTypeLearn,//学习
+    TenElementTypeLife,//生活
+    TenElementTypeSocity,//社会
+    TenElementTypeSpace,//空间
+    TenElementTypeSuit,//适合
+    TenElementTypeWork,//工作
 };
 
 typedef void(^TapBtBlock)(UIButton *);

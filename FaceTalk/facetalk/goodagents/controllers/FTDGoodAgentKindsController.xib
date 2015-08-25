@@ -10,6 +10,7 @@
                 <outlet property="imgTitle1" destination="OPv-G8-Qgp" id="XhX-83-zhO"/>
                 <outlet property="imgTitle2" destination="TZq-mC-2UR" id="lZ8-ei-HQY"/>
                 <outlet property="imgTitle3" destination="wDb-1u-S3L" id="bhN-qg-ySc"/>
+                <outlet property="lblTitle" destination="zU8-l1-geb" id="FQp-NQ-RHO"/>
                 <outlet property="tableKind" destination="0Zw-iy-8Xy" id="oF7-in-6nl"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -31,7 +32,7 @@
                     </state>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="自由职业" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zU8-l1-geb">
-                    <rect key="frame" x="134" y="76" width="153" height="31"/>
+                    <rect key="frame" x="134" y="76" width="169" height="31"/>
                     <fontDescription key="fontDescription" type="system" pointSize="32"/>
                     <color key="textColor" red="0.76862745099999996" green="0.0" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>

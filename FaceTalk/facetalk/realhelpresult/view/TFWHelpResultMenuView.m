@@ -26,19 +26,19 @@
     
 }
 
-+(id)createMenuwithArray:(NSArray *)itemArray andBottom:(CGPoint)bottom
++(id)createMenuwithArray:(NSArray *)itemArray andBottom:(CGPoint)bottom andHightBtnIndex:(int)index
 {
     TFWHelpResultMenuView *resultView = [[TFWHelpResultMenuView alloc] initWithFrame:CGRectMake(0, 0, 35, (90 + 12) * [itemArray count])];
     resultView.backgroundColor = [UIColor clearColor];
     resultView.layer.anchorPoint = CGPointMake(0.5, 1);
     resultView.center = bottom;
     resultView.menuArray = itemArray;
-    [resultView buildView];
+    [resultView buildView:index];
     
     return resultView;
 }
 
--(void)buildView
+-(void)buildView:(int)index
 {
     for (int i = 0; i < [self.menuArray count]; i++) {
         TFWHelpResultButton *button = [[TFWHelpResultButton alloc] initWithFrame:CGRectMake(0, (90 + 12) * i, 32, 90)];
@@ -50,7 +50,7 @@
         button.tag = 1000 + i;
         [self addSubview:button];
         
-        if (i == 0) {
+        if (i == index) {
             self.lastButton = button;
             button.selected = YES;
             [button setColor:[UIColor colorWithRed:211 / 255.0 green:17 / 255.0 blue:69 / 255.0 alpha:1.0]];
