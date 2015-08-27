@@ -200,7 +200,7 @@ static NSString *cellSuggestIdentifier = @"cellSuggestIdentifier";
                     [cell configImageName:@"ftw_share_money" Title:@"         收入丰厚" SubTitle:@"我们会继续投资在Agency,因为你们是业界最优秀的营销员，我们要把更多的精英吸引在友邦，我相信未来Agency将会继续成为友邦带领整个保险行业的旗帜，我们仍然要拓宽渠道" andCheck:NO andHideCheck:YES];
                     break;
                 case 1:
-                    [cell configImageName:@"ftw_share_key" Title:@"         收入丰厚" SubTitle:@"我们会继续投资在Agency,因为你们是业界最优秀的营销员，我们要把更多的精英吸引在友邦，我相信未来Agency将会继续成为友邦带领整个保险行业的旗帜，我们仍然要拓宽渠道" andCheck:NO andHideCheck:YES];
+                    [cell configImageName:@"ftw_share_key" Title:@"         品牌实力" SubTitle:@"我们会继续投资在Agency,因为你们是业界最优秀的营销员，我们要把更多的精英吸引在友邦，我相信未来Agency将会继续成为友邦带领整个保险行业的旗帜，我们仍然要拓宽渠道" andCheck:NO andHideCheck:YES];
                     break;
                 case 2:
                     [cell configImageName:@"ftw_share_book" Title:@"         学习成长" SubTitle:@"我们会继续投资在Agency,因为你们是业界最优秀的营销员，我们要把更多的精英吸引在友邦，我相信未来Agency将会继续成为友邦带领整个保险行业的旗帜，我们仍然要拓宽渠道" andCheck:NO andHideCheck:YES];
