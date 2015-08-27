@@ -133,7 +133,7 @@
         NSLog(@"UERdefaut%@",[[NSUserDefaults standardUserDefaults]objectForKey:@"FTD_isFinishMark"]);
         
         if ( [[[NSUserDefaults standardUserDefaults]objectForKey:@"FTD_isFinishMark"]isEqualToString:@"0"]) {
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"提示" message:@"请完成十大要素评分！" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"提示" message:@"请完成“真选择成就事业”的评分！" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
             [alert show];
             return;
         }
@@ -287,11 +287,11 @@
             cell.imgIcon.image=[UIImage imageNamed:@"FTD_slider_image1.png"];
             break;
         case 4:
-            cell.lblTitle.text=@"收入试算";
+            cell.lblTitle.text=@"测测跳槽成本";
             cell.imgIcon.image=[UIImage imageNamed:@"FTD_slider_image2.png"];
             break;
         case 5:
-            cell.lblTitle.text=@"营销员的一天";
+            cell.lblTitle.text=@"我的24小时";
             cell.imgIcon.image=[UIImage imageNamed:@"FTD_slider_image3.png"];
             break;
         case 6:

@@ -27,7 +27,7 @@
 }
 -(void)downloadFile
 {
-    [ [ UIApplication sharedApplication] setIdleTimerDisabled:YES ] ;
+    [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
     NSString *path = [self downloadDestinationPath];
     NSLog(@"%@",path);
     
@@ -65,9 +65,9 @@
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
         
         AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-    [operation setShouldExecuteAsBackgroundTaskWithExpirationHandler:^{
+        [operation setShouldExecuteAsBackgroundTaskWithExpirationHandler:^{
         
-    }];
+        }];
         operation.inputStream   = [NSInputStream inputStreamWithURL:url];
         operation.outputStream  = [NSOutputStream outputStreamToFileAtPath:fileName append:NO];
         

@@ -41,7 +41,7 @@
     // 创建目录
     [fileManager createDirectoryAtPath:testDirectory withIntermediateDirectories:YES attributes:nil error:nil];
     NSString *imagePath = [testDirectory stringByAppendingPathComponent:imagename];
-    BOOL isSuccess= [fileManager createFileAtPath:imagePath contents:UIImagePNGRepresentation(image) attributes:nil];
+    BOOL isSuccess= [fileManager createFileAtPath:imagePath contents:UIImageJPEGRepresentation(image, 0.6) attributes:nil];
     
     return isSuccess;
 }
