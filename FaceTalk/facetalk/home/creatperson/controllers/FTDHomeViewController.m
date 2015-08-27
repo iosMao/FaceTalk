@@ -33,7 +33,7 @@
     scrollBG.scrollEnabled=NO;
     [btnKey addTarget:self action:@selector(homeLeadViewclick:event:) forControlEvents:UIControlEventTouchUpInside];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getlocalResourse) name:@"FTDUNZIPSUCCESS" object:nil];
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(backIMOclick:) name:@"FTDREQUESTFAILED" object:nil];
     [self getLoginUserInfo];
     
  
@@ -47,12 +47,14 @@
 {
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSString *dstResourcePath = [[FTDDataPacketManager sharedInstance]unzipDestinationPath];
-    
+    dstResourcePath =[dstResourcePath stringByAppendingPathComponent:@"uploads"];
+    dstResourcePath =[dstResourcePath stringByAppendingPathComponent:@"data.json"];
     if ([fileManager fileExistsAtPath:dstResourcePath]) {
         [self getbackgroundImg];
         
     }
     else{
+         
         [[FTDDataPacketManager sharedInstance]downloadFile];
     }
 }

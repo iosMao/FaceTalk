@@ -34,6 +34,10 @@
     [self buildOrderView];
     
 }
+-(void)viewWillAppear:(BOOL)animated
+{
+    
+}
 
 -(void)buildBackGround
 {

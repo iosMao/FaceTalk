@@ -41,7 +41,7 @@
 {
     [self buildMenu];
     _subclassModel=[_ExcellentModel getSubClassItemAtIndex:indexID];
-    
+    self.lblTitle.text=_subclassModel.name;
     _PeopleModel=[_subclassModel getPeoplesItemAtIndex:0];
     [self getdetailData];
     //[self buildScoreView];
@@ -106,6 +106,7 @@
     _subclassModel=[_ExcellentModel getSubClassItemAtIndex:index];
     
     _PeopleModel=[_subclassModel getPeoplesItemAtIndex:0];
+    self.lblTitle.text=_subclassModel.name;
     [self getdetailData];
     [tableAgentList reloadData];
 }

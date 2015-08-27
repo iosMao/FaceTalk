@@ -68,7 +68,7 @@
 }
 -(void)buildMenu
 {
-    _menu=[TFWHelpResultMenuView createMenuwithArray:@[@"企业单位",@"事业单位",@"自由职业"] andBottom:CGPointMake(76, 730) andHightBtnIndex:self.index];
+    _menu=[TFWHelpResultMenuView createMenuwithArray:@[@"自由职业",@"事业单位",@"企业单位"] andBottom:CGPointMake(76, 730) andHightBtnIndex:self.index];
     //_menu = [TFWHelpResultMenuView createMenuwithArray:@[@"企业单位",@"事业单位",@"自由职业"] andBottom:CGPointMake(76, 730)];
     __weak FTDGoodAgentKindsController *weakSelf = self;
     [_menu setResultMenuTapBlock:^(NSInteger index){

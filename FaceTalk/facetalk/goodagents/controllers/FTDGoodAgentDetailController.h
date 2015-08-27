@@ -17,6 +17,7 @@
 @property (strong, nonatomic)NSArray *arraySubclass;
 @property (assign, nonatomic)int indexID;//上个页面的第几行
 @property(strong,nonatomic)FTJsonExcellentModel *ExcellentModel;
+@property (strong, nonatomic) IBOutlet UILabel *lblTitle;
 @property (strong, nonatomic) IBOutlet UITableView *tableAgentList;
 @property (strong, nonatomic) IBOutlet UIImageView *imgBigPhoto;
 @property (strong, nonatomic) IBOutlet UILabel *lblName;

@@ -27,18 +27,12 @@
 }
 -(void)downloadFile
 {
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    NSString *dstResourcePath = [self unzipDestinationPath];
+    [ [ UIApplication sharedApplication] setIdleTimerDisabled:YES ] ;
+    NSString *path = [self downloadDestinationPath];
+    NSLog(@"%@",path);
     
-    if ([fileManager fileExistsAtPath:dstResourcePath]) {
-        
-    }
-    else{
-        NSString *path = [self downloadDestinationPath];
-        NSLog(@"%@",path);
-        
-        [self downloadFileURL:DATA_PACKET_URL savePath:path fileName:ZIPNAME tag:1];
-     }
+    [self downloadFileURL:DATA_PACKET_URL savePath:path fileName:ZIPNAME tag:1];
+    
 }
 
 /**
@@ -52,7 +46,7 @@
 - (void)downloadFileURL:(NSString *)aUrl savePath:(NSString *)aSavePath fileName:(NSString *)aFileName tag:(NSInteger)aTag
 {
     NSFileManager *fileManager = [NSFileManager defaultManager];
-    
+    [SVProgressHUD showWithStatus:@"请求中..." maskType:SVProgressHUDMaskTypeBlack];
     //检查本地文件是否已存在
     NSString *fileName = [NSString stringWithFormat:@"%@/%@", aSavePath,aFileName];
     
@@ -71,6 +65,9 @@
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
         
         AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    [operation setShouldExecuteAsBackgroundTaskWithExpirationHandler:^{
+        
+    }];
         operation.inputStream   = [NSInputStream inputStreamWithURL:url];
         operation.outputStream  = [NSOutputStream outputStreamToFileAtPath:fileName append:NO];
         
@@ -86,15 +83,20 @@
         
         
         //已完成下载
+    __weak __typeof(self)weakSelf = self;
         [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
             NSLog(@"成功了");
-            [self unzip];
-            
+            [weakSelf unzip];
+             
             //NSData *audioData = [NSData dataWithContentsOfFile:fileName];
             //设置下载数据到res字典对象中并用代理返回下载数据NSData
             //[self requestFinished:[NSDictionary dictionaryWithObject:audioData forKey:@"res"] tag:aTag];
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"失败了");
+            [SVProgressHUD dismiss];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"提示" message:@"请求网络超时,是否重新下载？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+            [alert show];
+            
             //下载失败
             //[self requestFailed:aTag];
         }];
@@ -103,6 +105,18 @@
     
     //}
 }
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex==1) {
+        [self downloadFile];
+    }
+    else if (buttonIndex==0)
+    {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"FTDREQUESTFAILED" object:nil ];
+        
+    }
+}
+
 
 #pragma - FilePath
 -(NSString *)basePath {

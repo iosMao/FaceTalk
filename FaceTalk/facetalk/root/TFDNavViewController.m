@@ -25,6 +25,7 @@
 @synthesize tableMenu,btnSlider,btnScreen,btnRightMenu,viewRightMenu;
 - (void)viewDidLoad {
     [super viewDidLoad];
+    indexID=10000;
     [self buildSliderBtn];
     [self buildSliderTable];
     [self buildRightBtn];
@@ -273,8 +274,9 @@
              cell.imgIcon.image=[UIImage imageNamed:@"FTD_slider_home.png"];
             break;
         case 1:
-            cell.lblTitle.text=@"个性编辑";
-            cell.imgIcon.image=[UIImage imageNamed:@"FTD_slider_image5.png"];
+            cell.lblTitle.text=@"EOP报名";
+            cell.imgIcon.image=[UIImage imageNamed:@"FTD_slider_image4.png"];
+            
             break;
         case 2:
             cell.lblTitle.text=@"职涯演示";
@@ -293,8 +295,8 @@
             cell.imgIcon.image=[UIImage imageNamed:@"FTD_slider_image3.png"];
             break;
         case 6:
-            cell.lblTitle.text=@"EOP报名";
-            cell.imgIcon.image=[UIImage imageNamed:@"FTD_slider_image4.png"];
+            cell.lblTitle.text=@"个性编辑";
+            cell.imgIcon.image=[UIImage imageNamed:@"FTD_slider_image5.png"];
             break;
         default:
             break;
@@ -317,25 +319,46 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     if (indexPath.row==0) {
         [FTWDataManager shareManager].currentIndex=-1;
         [self popToRootViewControllerAnimated:NO];
         [self dismissViewControllerAnimated:YES completion:nil];
     }
-    else if (indexPath.row==1)
-    {
+    else{
+        if (indexID==indexPath.row) {
+            return;
+        }
+        else{
+        
+            if (indexPath.row==6)
+            {
+                UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"提示" message:@"若重新排序，模块展示顺序将从头开始！" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+                [alert show];
+                indexID=indexPath.row;
+                
+                
+                
+            }
+            else if (indexPath.row==5)
+            {
+                
+            }
+    }
+    }
+    
+}
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex==1) {
         TFWCustomTalkViewController *vc=[[TFWCustomTalkViewController
                                           alloc]init];
         [self pushViewController:vc animated:YES];
         [self removetable];
-        
-        
     }
-    else if (indexPath.row==5)
-    {
-        
+    else{
+        indexID=10000;
     }
-    
 }
 
 - (void)didReceiveMemoryWarning {

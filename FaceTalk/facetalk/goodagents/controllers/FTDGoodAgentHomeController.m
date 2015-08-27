@@ -161,13 +161,13 @@
 
 - (IBAction)companyclick:(id)sender {//企业单位
     FTDGoodAgentKindsController *FTDGoodAgentKindsCol=[[FTDGoodAgentKindsController alloc]init];
-    FTDGoodAgentKindsCol.index=0;
+    FTDGoodAgentKindsCol.index=2;
     [self.navigationController pushViewController:FTDGoodAgentKindsCol animated:YES];
 }
 
 - (IBAction)freedomclick:(id)sender {//自由职业
     FTDGoodAgentKindsController *FTDGoodAgentKindsCol=[[FTDGoodAgentKindsController alloc]init];
-    FTDGoodAgentKindsCol.index=2;
+    FTDGoodAgentKindsCol.index=0;
     [self.navigationController pushViewController:FTDGoodAgentKindsCol animated:YES];
 }
 

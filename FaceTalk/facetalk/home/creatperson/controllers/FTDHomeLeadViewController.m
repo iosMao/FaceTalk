@@ -66,7 +66,7 @@
 {
     NSLog(@"%@",self.navigationController);
     TFDNavViewController *nav=(TFDNavViewController *)self.navigationController;
-    nav.btnSlider.hidden=NO;
+    nav.btnSlider.hidden=YES;
     nav.btnRightMenu.hidden=YES;
     loadTimer = [NSTimer scheduledTimerWithTimeInterval:7 target:self selector:@selector(loadimg) userInfo:nil repeats:YES];
     [loadTimer fire];
