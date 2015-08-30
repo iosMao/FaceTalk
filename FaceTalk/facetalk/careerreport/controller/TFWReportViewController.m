@@ -37,6 +37,7 @@
     //[self buildPopButton];
     [self buildShadow];
     [self buildOkButton];
+    [self buildEOPButton];
     [self buildShareButton];
     [self buildShareView];
 }
@@ -117,7 +118,7 @@
 -(void)buildOkButton
 {
     UIButton *bt = [UIButton buttonWithType:UIButtonTypeCustom];
-    bt.frame = CGRectMake(822, 600, 150/1.2,154/1.2);
+    bt.frame = CGRectMake(672, 600, 150/1.2,154/1.2);
     [bt setImage:[UIImage imageNamed:@"ftw_share_continue"] forState:UIControlStateNormal];
     [bt addTarget:self action:@selector(continueAction) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:bt];
@@ -125,10 +126,19 @@
 -(void)buildShareButton
 {
     UIButton *bt = [UIButton buttonWithType:UIButtonTypeCustom];
-    bt.frame = CGRectMake(672, 600, 150/1.2,154/1.2);
+    bt.frame = CGRectMake(522, 600, 150/1.2,154/1.2);
     [bt setImage:[UIImage imageNamed:@"ftw_share_complete"] forState:UIControlStateNormal];
     [bt setImage:[UIImage imageNamed:@"ftw_share_share"] forState:UIControlStateSelected];
     [bt addTarget:self action:@selector(ShareAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:bt];
+}
+-(void)buildEOPButton
+{
+    UIButton *bt = [UIButton buttonWithType:UIButtonTypeCustom];
+    bt.frame = CGRectMake(822, 600, 150/1.2,154/1.2);
+    [bt setImage:[UIImage imageNamed:@"ftw_share_EOP"] forState:UIControlStateNormal];
+    
+    [bt addTarget:self action:@selector(EOPClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:bt];
 }
 
@@ -218,6 +228,12 @@
     
     
 }
+-(void)EOPClick:(UIButton *)btn
+{
+    
+}
+
+
 -(void)cancelview
 {
      CGAffineTransform transform = _shareView.transform;

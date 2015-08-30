@@ -134,7 +134,7 @@
         <image name="FTD_goodAgentPhoto.png" width="188" height="142"/>
         <image name="FTD_goodAgentPhotoBG.png" width="697" height="529"/>
         <image name="FTD_goodAgentRedRect.png" width="695" height="207"/>
-        <image name="FTDbackgroundImage.png" width="2046" height="1500"/>
+        <image name="FTDbackgroundImage.png" width="1024" height="751"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

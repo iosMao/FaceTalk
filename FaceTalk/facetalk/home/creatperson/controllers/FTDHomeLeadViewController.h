@@ -22,5 +22,6 @@
 - (IBAction)image2click:(id)sender;
 - (IBAction)image3click:(id)sender;
 - (IBAction)image4click:(id)sender;
+- (IBAction)backclick:(id)sender;
 
 @end

@@ -99,6 +99,16 @@
                         <action selector="image4click:" destination="-1" eventType="touchUpInside" id="Syt-fv-A76"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="goU-aV-clT">
+                    <rect key="frame" x="101" y="59" width="50" height="50"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" image="FTD_leadView_back.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="backclick:" destination="-1" eventType="touchUpInside" id="IhS-Vi-66j"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -106,13 +116,14 @@
         </view>
     </objects>
     <resources>
-        <image name="FTD_home_lead.png" width="2046" height="1500"/>
+        <image name="FTD_home_lead.png" width="1024" height="750"/>
         <image name="FTD_home_lead1.png" width="220" height="190"/>
         <image name="FTD_home_lead2.png" width="220" height="190"/>
         <image name="FTD_home_lead3.png" width="220" height="190"/>
         <image name="FTD_home_lead4.png" width="220" height="190"/>
         <image name="FTD_homelead_imageH.png" width="240" height="203"/>
         <image name="FTD_homelead_nextbtn.png" width="300" height="300"/>
+        <image name="FTD_leadView_back.png" width="98" height="98"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

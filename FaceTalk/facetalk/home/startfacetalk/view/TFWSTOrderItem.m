@@ -107,7 +107,7 @@
 
 -(void)createThree
 {
-    TFWSTOrderRoundItem *item = [TFWSTOrderRoundItem createRoundItemWithNumber:3 andCenter:CGPointMake(STARTX, 190) andTitle:@"真精彩" andSubtitle:@"友邦邦你"];
+    TFWSTOrderRoundItem *item = [TFWSTOrderRoundItem createRoundItemWithNumber:3 andCenter:CGPointMake(STARTX, 190) andTitle:@"真精彩" andSubtitle:@"友我邦你"];
     [self addSubview:item];
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(104, 40, 156, 229)];
     imageView.image = [UIImage imageNamed:@"tfw_sf_pan"];

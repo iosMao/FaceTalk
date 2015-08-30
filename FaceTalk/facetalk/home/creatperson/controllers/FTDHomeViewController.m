@@ -14,7 +14,9 @@
 #import "FTDDataPacketManager.h"
 #import "FTJsonManager.h"
 @interface FTDHomeViewController ()
-
+{
+    NSTimer *loadTimer;
+}
 @end
 
 @implementation FTDHomeViewController
@@ -23,6 +25,11 @@
     [super viewDidLoad];
     
     [self getlocalResourse];
+    //[self reminderBtn];
+    
+    
+    
+    
     NSLog(@"%@",self.navigationController);
     TFDNavViewController *nav=(TFDNavViewController *) self.navigationController;
     nav.btnSlider.hidden=YES;
@@ -43,6 +50,8 @@
     
 }
 
+
+
 -(void)getlocalResourse
 {
     NSFileManager *fileManager = [NSFileManager defaultManager];
@@ -51,7 +60,8 @@
     dstResourcePath =[dstResourcePath stringByAppendingPathComponent:@"data.json"];
     if ([fileManager fileExistsAtPath:dstResourcePath]) {
         [self getbackgroundImg];
-        
+        loadTimer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(reminderBtn) userInfo:nil repeats:NO];
+        [loadTimer fire];
     }
     else{
          
@@ -81,11 +91,29 @@
     
 }
 
+-(void)reminderBtn
+{
+//    CGAffineTransform trans = btnKey.transform;
+//    btnKey.transform = CGAffineTransformScale(trans, 0.7, 0.7);
+    
+    [UIView animateWithDuration:2.0 animations:^{
+        btnKey.alpha =0;
+    } completion:^(BOOL finished) {
+        [UIView animateWithDuration:2.0 animations:^{
+            btnKey.alpha =1;
+        } completion:^(BOOL finished) {
+            
+        }];
+    }];
+    
+    
+}
+
 
 
 -(void)homeLeadViewclick:(UIButton *)sender event:(UIEvent *)event
 {
-    
+    [loadTimer invalidate];
     __weak FTDHomeViewController *weak=self;
     FTDHomeLeadViewController *FTDHomeLeadViewCol=[[FTDHomeLeadViewController alloc]init];
     [UIView animateKeyframesWithDuration:2 delay:0 options:UIViewKeyframeAnimationOptionLayoutSubviews animations:^{

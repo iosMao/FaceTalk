@@ -18,7 +18,7 @@
         self.backgroundColor=[UIColor whiteColor];
         self.imgBig=[[UIImageView alloc]init];
         [self.imgBig.layer setMasksToBounds:YES];
-        self.imgBig.contentMode=UIViewContentModeScaleAspectFill;
+        self.imgBig.contentMode=UIViewContentModeScaleAspectFit;
         self.imgBig.frame=CGRectMake(0, 0, self.frame.size.width, self.frame.size.height-60);
         [self addSubview:self.imgBig];
         

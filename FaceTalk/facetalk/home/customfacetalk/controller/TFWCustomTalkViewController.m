@@ -108,7 +108,7 @@
 
 -(void)createThree
 {
-    TFWCFModelView *view = [TFWCFModelView createModelViewwithX:620 Y:240 title:@"真精彩" subTitle:@"友邦有你" index:3];
+    TFWCFModelView *view = [TFWCFModelView createModelViewwithX:620 Y:240 title:@"真精彩" subTitle:@"友我邦你" index:3];
     [self.view addSubview:view];
     
     view.layer.anchorPoint = CGPointMake(0, 0);
