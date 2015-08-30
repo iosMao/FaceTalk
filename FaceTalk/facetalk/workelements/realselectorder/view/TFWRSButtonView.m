@@ -104,10 +104,12 @@
 -(void)buildButtonwithSize:(CGSize)size andImageName:(NSString *)name
 {
     _centerBt = [UIButton new];
+    _centerBt.layer.masksToBounds = YES;
     [_centerBt setBackgroundImage:[UIImage imageNamed:name] forState:UIControlStateSelected];
     [_centerBt setBackgroundImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@_gray",name]] forState:UIControlStateNormal];
     [_centerBt setShowsTouchWhenHighlighted:NO];
     _centerBt.frame = CGRectMake(0, 0, size.width, size.height);
+    _centerBt.layer.cornerRadius = size.width / 2.0;
     _centerBt.center = CGPointMake(self.bounds.size.width / 2.0, self.bounds.size.height / 2.0);
     [_centerBt addTarget:self action:@selector(elementAction:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:_centerBt];

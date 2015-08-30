@@ -45,12 +45,19 @@
     CGFloat start = 85.0f;
     
     NSMutableArray *mutArray = [[NSMutableArray alloc] init];
-    _dataSource = [NSArray arrayWithArray:mutArray];
-    for (FTWElementItem *item in [FTWDataManager shareManager].tenElementArray) {
-        if (item.selected) {
-            [mutArray addObject:item];
+    NSMutableArray *orderArray = ((FTWElementItem *)[[FTWDataManager shareManager].tenElementArray firstObject]).orderArray;
+    
+    for (NSNumber *number in orderArray) {
+        for (FTWElementItem *item in [FTWDataManager shareManager].tenElementArray) {
+            if (item.type == [number integerValue]) {
+                [mutArray addObject:item];
+                break;
+            }
         }
     }
+    
+    _dataSource = [NSArray arrayWithArray:mutArray];
+
     
     NSMutableArray *round = [NSMutableArray new];
     for (int i = 0; i < 5; i++) {

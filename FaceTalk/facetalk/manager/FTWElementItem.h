@@ -17,5 +17,6 @@
 @property (nonatomic,strong) NSString *iconName;
 @property (nonatomic,assign) float currentScore;
 @property (nonatomic,assign) float hopeScore;
+@property (nonatomic,strong) NSMutableArray *orderArray;
 
 @end

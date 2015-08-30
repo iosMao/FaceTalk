@@ -66,6 +66,7 @@ static FTWDataManager *shareManager;
 
 -(void)createTenElementArray
 {
+    NSMutableArray *orderArray = [NSMutableArray new];
     NSMutableArray *array = [[NSMutableArray alloc] init];
     FTWElementItem *item1 = [[FTWElementItem alloc] init];
     FTWElementItem *item2 = [[FTWElementItem alloc] init];
@@ -90,6 +91,17 @@ static FTWDataManager *shareManager;
     [array addObject:item10];
     
     _tenElementArray = [NSArray arrayWithArray:array];
+    
+    item1.orderArray = orderArray;
+    item2.orderArray = orderArray;
+    item3.orderArray = orderArray;
+    item4.orderArray = orderArray;
+    item5.orderArray = orderArray;
+    item6.orderArray = orderArray;
+    item7.orderArray = orderArray;
+    item8.orderArray = orderArray;
+    item9.orderArray = orderArray;
+    item10.orderArray = orderArray;
     
     item1.type = TenElementTypeBrand;
     item2.type = TenElementTypeFree;

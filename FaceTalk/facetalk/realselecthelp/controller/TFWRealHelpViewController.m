@@ -208,8 +208,6 @@
         } completion:^(BOOL finished) {
             [NSTimer scheduledTimerWithTimeInterval:0.3 target:self selector:@selector(timerAction:) userInfo:nil repeats:YES];
         }];
-        
-        
     }
     else
     {

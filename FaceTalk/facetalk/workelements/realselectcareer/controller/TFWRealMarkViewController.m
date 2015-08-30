@@ -37,9 +37,14 @@
 -(void)configData
 {
     NSMutableArray *mutArray = [[NSMutableArray alloc] init];
-    for (FTWElementItem *item in [FTWDataManager shareManager].tenElementArray) {
-        if (item.selected) {
-            [mutArray addObject:item];
+    NSMutableArray *orderArray = ((FTWElementItem *)[[FTWDataManager shareManager].tenElementArray firstObject]).orderArray;
+    
+    for (NSNumber *number in orderArray) {
+        for (FTWElementItem *item in [FTWDataManager shareManager].tenElementArray) {
+            if (item.type == [number integerValue]) {
+                [mutArray addObject:item];
+                break;
+            }
         }
     }
     

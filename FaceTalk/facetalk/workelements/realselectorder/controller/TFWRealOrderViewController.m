@@ -44,12 +44,12 @@
     [self buildCenterView];
     [self buildTenElements];
     [self createImageView];
+    [[FTWDataManager shareManager] createTenElementArray];
     [self.view.layer setMasksToBounds:YES];
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    [[FTWDataManager shareManager] createTenElementArray];
     [self startAnimation];
     _circleTimer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(panRound) userInfo:nil repeats:YES];
 }
@@ -106,7 +106,6 @@
     _panView.frame = CGRectMake(235, 340, 601, 416);
     _panView.image = [UIImage imageNamed:@"tfw_rs_pan"];
     [back addSubview:_panView];
-    
 }
 
 -(void)buildCenterView
@@ -331,12 +330,23 @@
         return;
     }
     
+    NSMutableArray *orderArray = ((FTWElementItem *)[[FTWDataManager shareManager].tenElementArray firstObject]).orderArray;
     if (bt.selected) {
+        for (NSNumber *number in orderArray) {
+            if ([number integerValue] == bt.tag) {
+                [orderArray removeObject:number];
+                break;
+            }
+        }
+        bt.layer.borderWidth = 0.0f;
         self.number--;
     }
     else
     {
         self.number++;
+        bt.layer.borderColor = [UIColor colorWithRed:172 / 255.0 green:0 blue:42 / 255.0 alpha:1.0].CGColor;
+        bt.layer.borderWidth = 1.0f;
+        [orderArray addObject:[NSNumber numberWithInteger:bt.tag]];
     }
     bt.selected = !bt.selected;
     

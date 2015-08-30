@@ -43,13 +43,19 @@
 -(void)configData
 {
     NSMutableArray *mutArray = [[NSMutableArray alloc] init];
-    for (FTWElementItem *item in [FTWDataManager shareManager].tenElementArray) {
-        if (item.selected) {
-            [mutArray addObject:item];
+    NSMutableArray *orderArray = ((FTWElementItem *)[[FTWDataManager shareManager].tenElementArray firstObject]).orderArray;
+    
+    for (NSNumber *number in orderArray) {
+        for (FTWElementItem *item in [FTWDataManager shareManager].tenElementArray) {
+            if (item.type == [number integerValue]) {
+                [mutArray addObject:item];
+                break;
+            }
         }
     }
     
     _dataSource = [NSArray arrayWithArray:mutArray];
+
 }
 
 -(void)buildView
@@ -59,7 +65,7 @@
     self.layer.masksToBounds = YES;
     
     for (int i = 0; i < 5; i++) {
-        [_viewArray addObject:[TFWSRResultView createResultViewCenter:CGPointMake([[_pointArray objectAtIndex:i] intValue], 240) andTitle:@"满意度" andText:((FTWElementItem *)[_dataSource objectAtIndex:i]).title andRate: ((FTWElementItem *)[_dataSource objectAtIndex:i]).currentScore / ((FTWElementItem *)[_dataSource objectAtIndex:i]).hopeScore roundTitle:@"现状与\n期望相差" roundScore:(int)(((FTWElementItem *)[_dataSource objectAtIndex:i]).hopeScore - ((FTWElementItem *)[_dataSource objectAtIndex:i]).currentScore)]];
+        [_viewArray addObject:[TFWSRResultView createResultViewCenter:CGPointMake([[_pointArray objectAtIndex:i] intValue], 240) andTitle:@"满意度" andText:((FTWElementItem *)[_dataSource objectAtIndex:(i + 3) % 5]).title andRate: ((FTWElementItem *)[_dataSource objectAtIndex:(i + 3) % 5]).currentScore / ((FTWElementItem *)[_dataSource objectAtIndex:(i + 3) % 5]).hopeScore roundTitle:@"现状与\n期望相差" roundScore:(int)(((FTWElementItem *)[_dataSource objectAtIndex:(i + 3) % 5]).hopeScore - ((FTWElementItem *)[_dataSource objectAtIndex:(i + 3) % 5]).currentScore)]];
     }
     
     for (int i = 0; i < [_viewArray count]; i++) {
