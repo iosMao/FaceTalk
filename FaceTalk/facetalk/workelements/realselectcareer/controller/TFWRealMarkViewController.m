@@ -93,7 +93,7 @@
 -(void)buildOkButton
 {
     UIButton *bt = [UIButton buttonWithType:UIButtonTypeCustom];
-    bt.frame = CGRectMake(822, 600, 103, 107);
+    bt.frame = CGRectMake(822, 605, 103, 107);
     [bt setImage:[UIImage imageNamed:@"tfw_rs_next"] forState:UIControlStateNormal];
     [bt addTarget:self action:@selector(okAction) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:bt];

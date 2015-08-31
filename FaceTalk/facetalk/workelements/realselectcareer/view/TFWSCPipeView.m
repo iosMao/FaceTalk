@@ -12,6 +12,7 @@
 
 @property (nonatomic,strong) NSString *title;
 @property (nonatomic,strong) UIImageView *btImageView;
+@property (nonatomic,strong) UILabel *scoreLabel;
 @property (nonatomic,assign) BOOL flag;
 @property (nonatomic,assign) BOOL is_hope;
 
@@ -29,7 +30,7 @@
 
 +(id)createPipeWithCenter:(CGPoint)center Title:(NSString *)title isHope:(BOOL)is_hope
 {
-    TFWSCPipeView *sc = [[TFWSCPipeView alloc] initWithFrame:CGRectMake(0, 0, 60, 200)];
+    TFWSCPipeView *sc = [[TFWSCPipeView alloc] initWithFrame:CGRectMake(0, 0, 60, 210)];
     sc.center = center;
     sc.title = title;
     sc.is_hope = is_hope;
@@ -60,6 +61,7 @@
     [self createBackImage];
     [self createButtonImage];
     [self createTitleLabel];
+    [self createScoreLabel];
 }
 
 -(void)createBackImage
@@ -88,6 +90,22 @@
     [self addSubview:label];
 }
 
+-(void)createScoreLabel
+{
+    _scoreLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 190, 60, 20)];
+    _scoreLabel.textAlignment = NSTextAlignmentCenter;
+    _scoreLabel.textColor = self.is_hope ? [UIColor whiteColor] : [UIColor blackColor];
+    _scoreLabel.font = [UIFont boldSystemFontOfSize:10];
+    _scoreLabel.text = self.title;
+    [self addSubview:_scoreLabel];
+    if (_is_hope) {
+        _scoreLabel.textColor = [UIColor whiteColor];
+    }else{
+        _scoreLabel.textColor = [UIColor colorWithRed:0.82 green:0.1 blue:0.28 alpha:1];;
+    }
+    _scoreLabel.text = @"5分";
+}
+
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     CGPoint point = [[touches anyObject] locationInView:self];
@@ -112,6 +130,7 @@
         _btImageView.center = CGPointMake(self.bounds.size.width / 2.0, y);
         
         self.pipevalue = (144 - y) / 112.0;
+        _scoreLabel.text = [NSString stringWithFormat:@"%d分",(int)(self.pipevalue * 10)];
         if (self.valueChangeblock) {
             self.valueChangeblock(self);
         }

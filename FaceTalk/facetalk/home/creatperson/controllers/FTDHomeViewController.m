@@ -110,10 +110,7 @@
         }];
     }];
     
-    
 }
-
-
 
 -(void)homeLeadViewclick:(UIButton *)sender event:(UIEvent *)event
 {
