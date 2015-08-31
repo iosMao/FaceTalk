@@ -13,8 +13,12 @@
 #import "FTDCreatImage.h"
 #import "FTDHomeViewController.h"
 #import <MessageUI/MessageUI.h>
-@interface TFWReportViewController ()<FTDShareViewDeledate,FTDbackgroundView,MFMailComposeViewControllerDelegate>
+#import <ShareSDK/ShareSDK.h>
 
+@interface TFWReportViewController ()<FTDShareViewDeledate,FTDbackgroundView,MFMailComposeViewControllerDelegate>
+{
+    NSData *imgData;
+}
 @property (nonatomic,strong) UILabel *titleLabel;
 @property (nonatomic,strong) UILabel *customNameLabel;
 @property (nonatomic,strong) UILabel *adviserNameLabel;
@@ -195,7 +199,7 @@
 -(void)CreatReportImage
 {
     UIImage *reportImage= [FTDCreatImage getImage:_reportView.tableView];
-    NSData *imgData=UIImagePNGRepresentation(reportImage);
+    imgData=UIImageJPEGRepresentation(reportImage, 0.6) ;
     [self SendReportImage:imgData];
 }
 -(void)SendReportImage:(NSData *)imgdata//这个接口用来向QUIX发送报告照片的data
@@ -211,9 +215,65 @@
 }
 -(void)shareQQ{
     NSLog(@"qq分享");
+    
+    id<ISSContent> publishContent = [ShareSDK content:@"评估报告"
+                                       defaultContent:@""
+                                                image:[ShareSDK jpegImageWithImage:[UIImage imageWithData:imgData] quality:1.0]
+                                                title:@"评估报告"
+                                                  url:nil
+                                          description:@""
+                                            mediaType:SSPublishContentMediaTypeImage];
+    
+    
+    [ShareSDK shareContent:publishContent
+                      type:ShareTypeQQ
+               authOptions:nil
+              shareOptions:nil
+             statusBarTips:YES
+                    result:^(ShareType type, SSResponseState state, id<ISSPlatformShareInfo> statusInfo, id<ICMErrorInfo> error, BOOL end) {
+                        if (state == SSPublishContentStateSuccess)
+                        {
+                            NSLog(NSLocalizedString(@"TEXT_SHARE_SUC", @"发表成功"));
+                        }
+                        else if (state == SSPublishContentStateFail)
+                        {
+                            NSLog(NSLocalizedString(@"TEXT_SHARE_FAI", @"发布失败!error code == %d, error code == %@"), [error errorCode], [error errorDescription]);
+                        }
+                        
+                    }];
+    
+    
+    
 }
 -(void)shareWeChat{
     NSLog(@"wechat分享");
+    id<ISSContent> publishContent = [ShareSDK content:@"评估报告"
+                                       defaultContent:@""
+                                                image:[ShareSDK pngImageWithImage:[UIImage imageWithData:imgData]]
+                                                title:@"评估报告"
+                                                  url:nil
+                                          description:@""
+                                            mediaType:SSPublishContentMediaTypeImage];
+    
+    
+    [ShareSDK shareContent:publishContent
+                      type:ShareTypeWeixiSession
+               authOptions:nil
+              shareOptions:nil
+             statusBarTips:YES
+                    result:^(ShareType type, SSResponseState state, id<ISSPlatformShareInfo> statusInfo, id<ICMErrorInfo> error, BOOL end) {
+                        if (state == SSPublishContentStateSuccess)
+                        {
+                            NSLog(NSLocalizedString(@"TEXT_SHARE_SUC", @"发表成功"));
+                        }
+                        else if (state == SSPublishContentStateFail)
+                        {
+                            NSLog(NSLocalizedString(@"TEXT_SHARE_FAI", @"发布失败!error code == %d, error code == %@"), [error errorCode], [error errorDescription]);
+                        }
+                        
+                    }];
+    
+    
 }
 -(void)sendtextEmail:(NSString *)textEmail
 {

@@ -53,9 +53,12 @@
 
 -(void)buildBackButton
 {
+    UIImageView *imageBack=[[UIImageView alloc]initWithFrame:CGRectMake(235 / 2.0, 156 / 2.0, 13, 23)];
+    imageBack.image=[UIImage imageNamed:@"tfw_tf_back.png"];
+    [self.view addSubview:imageBack];
     UIButton *backBt = [UIButton buttonWithType:UIButtonTypeCustom];
-    backBt.frame = CGRectMake(235 / 2.0, 156 / 2.0, 13, 23);
-    [backBt setImage:[UIImage imageNamed:@"tfw_tf_back"] forState:UIControlStateNormal];
+    backBt.frame = CGRectMake(235 / 2.0, 156 / 2.0, 200, 23);
+    //[backBt setImage:[UIImage imageNamed:@"tfw_tf_back"] forState:UIControlStateNormal];
     [backBt addTarget:self action:@selector(back:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:backBt];
 }

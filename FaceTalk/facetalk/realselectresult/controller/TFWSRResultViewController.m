@@ -111,17 +111,17 @@
     sum /= 5.0;
     _totalRateLabel.text = [NSString stringWithFormat:@"%d%@",(int)(sum * 100),@"%"];
     
-    _suggestLabel = [[UILabel alloc] initWithFrame:CGRectMake(290, 615, 500, 100)];
+    _suggestLabel = [[UILabel alloc] initWithFrame:CGRectMake(285, 615, 500, 100)];
     _suggestLabel.numberOfLines = 0;
     _suggestLabel.textAlignment = NSTextAlignmentLeft;
-    _suggestLabel.font = [UIFont systemFontOfSize:18];
+    _suggestLabel.font = [UIFont boldSystemFontOfSize:18];
     _suggestLabel.textColor = [UIColor whiteColor];
     if (sum > 0 && sum < 0.59) {
-        _suggestLabel.text = @"专家建议您是时候考虑下为了的职业发展啦！";
+        _suggestLabel.text = @"专家建议您是时候考虑下未来的职业发展啦！";
     }else if (sum < 0.79){
-        _suggestLabel.text = @"专家认为您目前非常满意现有工作的同时，也可以尝试挑战新的机会！";
+        _suggestLabel.text = @"专家认为您在比较满意现有工作的同时，也可以尝试挑战新的机会！";
     }else{
-        _suggestLabel.text = @"专家认为您目前非常满意自己的职业，您是工作中得成功者，祝贺您！同时也建议您是时候考虑下保障和财务管理方案！";
+        _suggestLabel.text = @"专家认为您目前非常满意自己的职业，您是工作中的成功者，祝贺您！同时也建议您是时候考虑下保障和财务管理方案！";
     }
     [self.view addSubview:_suggestLabel];
 }

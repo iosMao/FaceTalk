@@ -10,4 +10,5 @@
 #import <UIKit/UIKit.h>
 @interface FTDCreatImage : NSObject
 +(UIImage *)getImage:(UITableView *)tableview;
++(UIImage *)getImage1:(UIView *)theView;
 @end

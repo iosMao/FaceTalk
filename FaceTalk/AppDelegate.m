@@ -9,7 +9,10 @@
 #import "AppDelegate.h"
 #import "BDRootViewController.h"
 #import "TFDNavViewController.h"
-
+#import <ShareSDK/ShareSDK.h>
+#import <TencentOpenAPI/QQApiInterface.h>
+#import <TencentOpenAPI/TencentOAuth.h>
+#import "WXApi.h"
 @interface AppDelegate ()
 
 @end
@@ -18,6 +21,17 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    [ShareSDK registerApp:@"9b3c933e2258"];
+    
+    [ShareSDK connectQQWithQZoneAppKey:@"1102803885" qqApiInterfaceCls:[QQApiInterface class] tencentOAuthCls:[TencentOAuth class]];
+    
+    //微信登陆的时候需要初始化
+    [ShareSDK connectWeChatWithAppId:@"wx1b43befa88bbb92b"        //此参数为申请的微信AppID
+                           wechatCls:[WXApi class]];
+    
+    
+    
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     //TFDNavViewController *navBDRootViewCol=[[TFDNavViewController alloc]initWithRootViewController:[[BDRootViewController alloc] init]];
@@ -51,5 +65,30 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+- (BOOL)application:(UIApplication *)application
+      handleOpenURL:(NSURL *)url
+{
+    [ShareSDK handleOpenURL:url wxDelegate:self];
+    return  [TencentOAuth HandleOpenURL:url];
+    
+    
+}
 
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation
+{
+    
+    
+    
+    
+    [ShareSDK handleOpenURL:url
+          sourceApplication:sourceApplication
+                 annotation:annotation
+                 wxDelegate:self];
+    
+    NSLog(@"url: %@, annotation: %@", url, annotation);
+    return [TencentOAuth HandleOpenURL:url];
+}
 @end

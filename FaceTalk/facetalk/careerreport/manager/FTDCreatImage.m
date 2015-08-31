@@ -12,13 +12,13 @@
 +(UIImage *)getImage:(UITableView *)tableview {
     UIImage* viewImage = nil;
     UITableView *scrollView =tableview;
-    UIGraphicsBeginImageContextWithOptions(CGSizeMake(scrollView.contentSize.width, scrollView.contentSize.height), scrollView.opaque, 0.0);
+    UIGraphicsBeginImageContextWithOptions(CGSizeMake(scrollView.contentSize.width, scrollView.contentSize.height), scrollView.opaque=NO, 0.0);
     {
         CGPoint savedContentOffset = scrollView.contentOffset;
         CGRect savedFrame = scrollView.frame;
         
         scrollView.contentOffset = CGPointZero;
-        scrollView.frame = CGRectMake(0, 0, scrollView.contentSize.width, scrollView.contentSize.height);
+        scrollView.frame = CGRectMake(0,300, scrollView.contentSize.width, scrollView.contentSize.height);
         
         [scrollView.layer renderInContext: UIGraphicsGetCurrentContext()];
         viewImage = UIGraphicsGetImageFromCurrentImageContext();
@@ -30,5 +30,16 @@
     
     return viewImage;
 }
++(UIImage *)getImage1:(UIView *)theView
+{
+    CGRect rect = theView.frame;
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    [theView.layer renderInContext:context];
+    UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return img;
+}
+
 
 @end

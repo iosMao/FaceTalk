@@ -24,5 +24,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *lblTime;
 @property (strong, nonatomic) IBOutlet UILabel *lblOldJob;
 @property (strong, nonatomic) IBOutlet UITextView *lblDesc;
+@property (strong, nonatomic) IBOutlet UILabel *lblNowCompany;
 
 @end

@@ -16,6 +16,7 @@
 @interface FTDHomeViewController ()
 {
     NSTimer *loadTimer;
+    int timeIndex;
 }
 @end
 
@@ -60,7 +61,7 @@
     dstResourcePath =[dstResourcePath stringByAppendingPathComponent:@"data.json"];
     if ([fileManager fileExistsAtPath:dstResourcePath]) {
         [self getbackgroundImg];
-        loadTimer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(reminderBtn) userInfo:nil repeats:NO];
+        loadTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(reminderBtn) userInfo:nil repeats:YES];
         [loadTimer fire];
     }
     else{
@@ -95,14 +96,17 @@
 {
 //    CGAffineTransform trans = btnKey.transform;
 //    btnKey.transform = CGAffineTransformScale(trans, 0.7, 0.7);
-    
-    [UIView animateWithDuration:2.0 animations:^{
+    if (timeIndex==3) {
+        [loadTimer invalidate];
+        
+    }
+    [UIView animateWithDuration:1.0 animations:^{
         btnKey.alpha =0;
     } completion:^(BOOL finished) {
-        [UIView animateWithDuration:2.0 animations:^{
+        [UIView animateWithDuration:1.0 animations:^{
             btnKey.alpha =1;
         } completion:^(BOOL finished) {
-            
+            timeIndex++;
         }];
     }];
     

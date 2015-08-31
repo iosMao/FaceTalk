@@ -248,7 +248,7 @@
 {
     //#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 7;
+    return 6;
 }
 
 
@@ -294,10 +294,6 @@
             cell.lblTitle.text=@"我的24小时";
             cell.imgIcon.image=[UIImage imageNamed:@"FTD_slider_image3.png"];
             break;
-        case 6:
-            cell.lblTitle.text=@"个性编辑";
-            cell.imgIcon.image=[UIImage imageNamed:@"FTD_slider_image5.png"];
-            break;
         default:
             break;
     }
@@ -330,21 +326,11 @@
             return;
         }
         else{
-        
-            if (indexPath.row==6)
-            {
-                UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"提示" message:@"若重新排序，模块展示顺序将从头开始！" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
-                [alert show];
-                indexID=indexPath.row;
-                
-                
-                
-            }
-            else if (indexPath.row==5)
+            if (indexPath.row==5)
             {
                 
             }
-    }
+        }
     }
     
 }
