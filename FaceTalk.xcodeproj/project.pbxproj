@@ -2466,20 +2466,21 @@
 			baseConfigurationReference = 53741FB2FED2E104B0749630 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: American International Assurance Company Limited Shanghai Branch";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/FaceTalk/facetalk/ShareSDK/Connection",
-					"$(PROJECT_DIR)/FaceTalk/facetalk/ShareSDK/Core",
-					"$(PROJECT_DIR)/FaceTalk/facetalk/ShareSDK/Extend/QQConnectSDK",
-					"$(PROJECT_DIR)/FaceTalk/facetalk/ShareSDK",
+					"$(SRCROOT)/FaceTalk/facetalk/ShareSDK/Connection",
+					"$(SRCROOT)/FaceTalk/facetalk/ShareSDK/Core",
+					"$(SRCROOT)/FaceTalk/facetalk/ShareSDK/Extend/QQConnectSDK",
+					"$(SRCROOT)/FaceTalk/facetalk/ShareSDK",
 				);
 				INFOPLIST_FILE = FaceTalk/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/FaceTalk/facetalk/ShareSDK/Extend/WeChatSDK",
+					"$(SRCROOT)/FaceTalk/facetalk/ShareSDK/Extend/WeChatSDK",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "649440ab-56aa-4fe3-9468-72990586a768";
@@ -2491,20 +2492,21 @@
 			baseConfigurationReference = 02B80C077EFE4DCF271585BE /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: American International Assurance Company Limited Shanghai Branch";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/FaceTalk/facetalk/ShareSDK/Connection",
-					"$(PROJECT_DIR)/FaceTalk/facetalk/ShareSDK/Core",
-					"$(PROJECT_DIR)/FaceTalk/facetalk/ShareSDK/Extend/QQConnectSDK",
-					"$(PROJECT_DIR)/FaceTalk/facetalk/ShareSDK",
+					"$(SRCROOT)/FaceTalk/facetalk/ShareSDK/Connection",
+					"$(SRCROOT)/FaceTalk/facetalk/ShareSDK/Core",
+					"$(SRCROOT)/FaceTalk/facetalk/ShareSDK/Extend/QQConnectSDK",
+					"$(SRCROOT)/FaceTalk/facetalk/ShareSDK",
 				);
 				INFOPLIST_FILE = FaceTalk/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/FaceTalk/facetalk/ShareSDK/Extend/WeChatSDK",
+					"$(SRCROOT)/FaceTalk/facetalk/ShareSDK/Extend/WeChatSDK",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "649440ab-56aa-4fe3-9468-72990586a768";

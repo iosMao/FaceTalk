@@ -61,7 +61,7 @@
     dstResourcePath =[dstResourcePath stringByAppendingPathComponent:@"data.json"];
     if ([fileManager fileExistsAtPath:dstResourcePath]) {
         [self getbackgroundImg];
-        loadTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(reminderBtn) userInfo:nil repeats:YES];
+        loadTimer = [NSTimer scheduledTimerWithTimeInterval:0.7 target:self selector:@selector(reminderBtn) userInfo:nil repeats:YES];
         [loadTimer fire];
     }
     else{
@@ -100,10 +100,10 @@
         [loadTimer invalidate];
         
     }
-    [UIView animateWithDuration:1.0 animations:^{
+    [UIView animateWithDuration:0.7 animations:^{
         btnKey.alpha =0;
     } completion:^(BOOL finished) {
-        [UIView animateWithDuration:1.0 animations:^{
+        [UIView animateWithDuration:0.7 animations:^{
             btnKey.alpha =1;
         } completion:^(BOOL finished) {
             timeIndex++;

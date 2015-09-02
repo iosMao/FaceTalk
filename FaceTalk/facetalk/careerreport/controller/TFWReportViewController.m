@@ -199,7 +199,7 @@
 -(void)CreatReportImage
 {
     UIImage *reportImage= [FTDCreatImage getImage:_reportView.tableView];
-    imgData=UIImageJPEGRepresentation(reportImage, 0.6) ;
+    imgData=UIImageJPEGRepresentation(reportImage, 0.5) ;
     [self SendReportImage:imgData];
 }
 -(void)SendReportImage:(NSData *)imgdata//这个接口用来向QUIX发送报告照片的data
