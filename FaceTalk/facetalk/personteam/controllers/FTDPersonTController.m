@@ -13,8 +13,10 @@
 #import "FTDImageManage.h"
 #import "TFWReportViewController.h"
 #import "FTWDataManager.h"
-
-
+///
+#import "JTSImageViewController.h"
+#import "JTSImageInfo.h"
+///
 #define KCellID @"CollectionCell"
 
 #define remove_sp(a) [[NSUserDefaults standardUserDefaults] removeObjectForKey:a]
@@ -39,23 +41,29 @@
     
     [collectionPhoto registerClass:[FTDCollectionPhotoCell class] forCellWithReuseIdentifier:KCellID];
     
-    backgroundView= [[FTDbackgroundView alloc]initWithFrame:self.view.frame];
-    [self.view addSubview:backgroundView];
-    bigImageView=[[FTDBigImageView alloc]initWithFrame:CGRectMake(100, 100, self.view.frame.size.width-200, self.view.frame.size.height-200)];
-    bigImageView.delegate=self;
-    
-    [self.view addSubview:bigImageView];
-    backgroundView.hidden=YES;
-    bigImageView.hidden=YES;
+//    backgroundView= [[FTDbackgroundView alloc]initWithFrame:self.view.frame];
+//    [self.view addSubview:backgroundView];
+//    bigImageView=[[FTDBigImageView alloc]initWithFrame:CGRectMake(100, 100, self.view.frame.size.width-200, self.view.frame.size.height-200)];
+//    bigImageView.delegate=self;
+//    
+//    [self.view addSubview:bigImageView];
+//    backgroundView.hidden=YES;
+//    bigImageView.hidden=YES;
     arrayPhoto=[[NSMutableArray alloc]init];
     arrayDesc=[[NSMutableArray alloc]init];
     
-    for (int i; i<100; i++) {
-        [arrayDesc addObject:@""];
-    }
+    
     [self getimage];
-    if (get_sp(@"FTDDesc")!=nil) {
+    if ([get_sp(@"FTDDesc") isKindOfClass:[NSArray class]]) {
+        
         arrayDesc=[NSMutableArray arrayWithArray:get_sp(@"FTDDesc")];
+    }
+    else{
+        
+        for (int i=0; i<100; i++) {
+            [arrayDesc addObject:@""];
+        }
+        
     }
     // Do any additional setup after loading the view from its nib.
 }
@@ -117,7 +125,7 @@
         cell.viewEdit.hidden=YES;
     }
     cell.imgPhoto.contentMode=UIViewContentModeScaleAspectFit;
-    cell.imgPhoto.clipsToBounds=YES;//设置为UIViewContentModeScaleAspectFill图片溢出，设为yes就好了
+    //cell.imgPhoto.clipsToBounds=YES;//设置为UIViewContentModeScaleAspectFill图片溢出，设为yes就好了
     
     if (indexPath.row==arrayPhoto.count) {
         cell.btnG.hidden=YES;
@@ -153,6 +161,9 @@
  
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    
+    
     if (indexId==indexPath.row) {
         indexId=10000;
         [collectionPhoto reloadData];
@@ -164,22 +175,51 @@
         [_actionSheet showInView:self.view];
     }
     else{
-        UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
         
-        backgroundView.hidden=NO;
-        NSString *imagePath = [[FTDImageManage getImageLocalUrl] stringByAppendingPathComponent:[arrayPhoto objectAtIndex:indexPath.row]];
         
-        bigImageView.imgBig.image=[UIImage imageWithContentsOfFile:imagePath];
-        bigImageView.lblDesc.text=[arrayDesc objectAtIndex:indexPath.row];
-        bigImageView.hidden=NO;
-        bigImageView.center = cell.center;
-        CGAffineTransform transform = bigImageView.transform;
-        bigImageView.transform = CGAffineTransformScale(transform, 0.2, 0.2);
-        [UIView animateWithDuration:0.8 animations:^{
-            bigImageView.transform = CGAffineTransformScale(transform, 1.0, 1.0);
-            bigImageView.center = self.view.center;
-        }];
-    }
+        
+          UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
+        
+        //backgroundView.hidden=NO;
+        
+          NSString *imagePath = [[FTDImageManage getImageLocalUrl] stringByAppendingPathComponent:[arrayPhoto objectAtIndex:indexPath.row]];
+        if (imagePath.length>0) {
+            
+            JTSImageInfo *imageInfo = [[JTSImageInfo alloc] init];
+            imageInfo.image = [UIImage imageWithContentsOfFile:imagePath];
+            //imageInfo.referenceRect = self.bigImageButton.frame;
+            imageInfo.referenceView = self.view;
+             //imageInfo.referenceContentMode = self.bigImageButton.contentMode;
+            //imageInfo.referenceCornerRadius = self.bigImageButton.layer.cornerRadius;
+            
+            // Setup view controller
+            JTSImageViewController *imageViewer = [[JTSImageViewController alloc]
+                                                   initWithImageInfo:imageInfo
+                                                   mode:JTSImageViewControllerMode_Image
+                                                   backgroundStyle:JTSImageViewControllerBackgroundOption_Scaled];
+            // Present the view controller.
+            [imageViewer showFromViewController:self transition:JTSImageViewControllerTransition_FromOriginalPosition];
+ 
+            
+//            bigImageView.imgBig.contentMode=UIViewContentModeScaleAspectFit;
+//            bigImageView.imgBig.image=[UIImage imageWithContentsOfFile:imagePath];
+//            
+//             bigImageView.lblDesc.text=[arrayDesc objectAtIndex:indexPath.row];
+//            bigImageView.hidden=NO;
+//            bigImageView.center = cell.center;
+//            CGAffineTransform transform = bigImageView.transform;
+//            bigImageView.transform = CGAffineTransformScale(transform, 0.2, 0.2);
+//            [UIView animateWithDuration:0.8 animations:^{
+//                bigImageView.transform = CGAffineTransformScale(transform, 1.0, 1.0);
+//                bigImageView.center = self.view.center;
+//            }];
+        }
+        else{
+            
+        }
+        
+        
+     }
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
@@ -232,8 +272,10 @@
     NSDate *senddate=[NSDate date];
     
     NSDateFormatter *dateformatter=[[NSDateFormatter alloc] init];
+    NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
     
-    [dateformatter setDateFormat:@"YYYYMMddhhmmss"];
+    [dateformatter setLocale:locale];
+    [dateformatter setDateFormat:@"YYYYMMddhh_mm_ss"];
     
     NSString *locationString=[dateformatter stringFromDate:senddate];
     
@@ -323,6 +365,7 @@
     FTDCollectionPhotoCell *cell= (FTDCollectionPhotoCell *)[[sender superview] superview];
     NSIndexPath *indexPath=[collectionPhoto indexPathForCell:cell];
     NSLog(@"%ld",(long)indexPath.row);
+    
     indexId=indexPath.row;
     [collectionPhoto reloadData];
 }
@@ -332,6 +375,7 @@
     NSIndexPath *indexPath=[collectionPhoto indexPathForCell:cell];
     NSLog(@"%ld",(long)indexPath.row);
     indexId=indexPath.row;
+    
     isEditPhoto=YES;
     _actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:@"打开图库",@"拍照",nil];
     [_actionSheet showInView:self.view];
@@ -342,7 +386,8 @@
     FTDCollectionPhotoCell *cell= (FTDCollectionPhotoCell *)[[[sender superview] superview]superview];
     NSIndexPath *indexPath=[collectionPhoto indexPathForCell:cell];
     NSLog(@"%ld",(long)indexPath.row);
-    [arrayDesc removeObjectAtIndex:indexPath.row];
+    
+     [arrayDesc removeObjectAtIndex:indexPath.row];
     [FTDImageManage removeImage:[arrayPhoto objectAtIndex:indexPath.row]];
     
     NSArray *file = [FTDImageManage getImageArray];
@@ -377,6 +422,7 @@
 
     [arrayDesc replaceObjectAtIndex:indexId withObject:textfield.text];
     set_sp(@"FTDDesc",arrayDesc);
+    [[NSUserDefaults standardUserDefaults]synchronize];
     
     
 }
@@ -428,7 +474,7 @@
     id vc = nil;
     if (index == -1) {
         if ([[[NSUserDefaults standardUserDefaults]objectForKey:@"FTD_isFinishMark"]isEqualToString:@"0"]) {
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"提示" message:@"请完成“真选择成就事业”的评分！" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"提示" message:@"请完成“真选择成就事业”的评分！" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
             [alert show];
             return;
         }

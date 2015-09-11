@@ -27,9 +27,7 @@
 
 - (void)viewDidLoad {
     NSLog(@"%@",self.navigationController);
-    TFDNavViewController *nav=(TFDNavViewController *)self.navigationController;
-    nav.btnSlider.hidden=NO;
-    nav.btnRightMenu.hidden=NO;
+    
     // Do any additional setup after loading the view.
     [self buildBackGround];
     [self buildBackButton];
@@ -42,6 +40,12 @@
     [self buildOkButton];
     
     [super viewDidLoad];
+}
+-(void)viewWillAppear:(BOOL)animated
+{
+    TFDNavViewController *nav=(TFDNavViewController *)self.navigationController;
+    nav.btnSlider.hidden=NO;
+    nav.btnRightMenu.hidden=YES;
 }
 
 -(void)buildBackGround

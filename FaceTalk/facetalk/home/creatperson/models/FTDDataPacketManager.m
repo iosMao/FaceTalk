@@ -13,7 +13,7 @@
 
 #define FILENAME @"attract"//文件夹名字
 #define ZIPNAME @"datafile.zip"//文件名字
-#define DATA_PACKET_URL @"http://imo.tohours.com/attract/resource.zip"
+#define DATA_PACKET_URL @"http://static.bluedeer.com.cn/facetalk/resource.zip"
 @implementation FTDDataPacketManager
 + (FTDDataPacketManager *)sharedInstance
 {

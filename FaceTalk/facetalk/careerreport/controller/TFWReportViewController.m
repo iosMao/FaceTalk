@@ -281,6 +281,8 @@
     
     MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
     mc.mailComposeDelegate = self;
+    [mc setSubject:@"“友待开启”报告"];
+    [mc addAttachmentData:imgData mimeType:@"image/png" fileName:@"报告页"];
     [self presentViewController:mc animated:YES completion:nil];
     
     
@@ -290,6 +292,11 @@
 }
 -(void)EOPClick:(UIButton *)btn
 {
+    NSLog(@"报名EOP");
+    
+    
+    
+    
     
 }
 

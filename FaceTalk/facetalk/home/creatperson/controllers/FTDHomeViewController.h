@@ -13,5 +13,6 @@
 @property (strong, nonatomic) IBOutlet UIButton *btnKey;
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollBG;
 - (IBAction)backIMOclick:(id)sender;
+- (IBAction)keyclick:(id)sender;
 
 @end

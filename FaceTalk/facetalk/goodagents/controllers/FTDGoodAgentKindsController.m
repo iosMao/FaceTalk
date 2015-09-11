@@ -20,7 +20,7 @@
 @end
 
 @implementation FTDGoodAgentKindsController
-@synthesize tableKind;
+@synthesize tableKind,moviePlayer,imgTitle1,imgTitle2,imgTitle3,imgTitle4;
 - (void)viewDidLoad {
     [super viewDidLoad];
     tableKind.separatorColor=[UIColor clearColor];
@@ -29,6 +29,8 @@
     [self getClassModel];
     [self CreatMoviePlayer];
     [self  buildMenu];
+    
+      //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeframe) name:MPMoviePlayerWillEnterFullscreenNotification object:nil];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -36,39 +38,86 @@
 {
      self.model=[[FTJsonManager shareManager]getElementItemAtIndex:self.index];
     self.lblTitle.text=self.model.name;
+    
+    if ([self.model.name isEqualToString:@"企业单位"]) {
+        imgTitle1.image=[UIImage imageNamed:@"ftd_company_1.png"];
+        imgTitle2.image=[UIImage imageNamed:@"ftd_company_2.png"];
+        imgTitle3.image=[UIImage imageNamed:@"ftd_company_3.png"];
+        imgTitle4.image=[UIImage imageNamed:@"ftd_company_4.png"];
+        imgTitle4.hidden=NO;
+        imgTitle1.frame=CGRectMake(460, 134, 370, 183);
+        imgTitle2.frame=CGRectMake(460, 333, 370, 179);
+
+        
+        
+    }
+    else if([self.model.name isEqualToString:@"事业单位"])
+    {
+        imgTitle1.image=[UIImage imageNamed:@"ftd_career_1.png"];
+        imgTitle2.image=[UIImage imageNamed:@"ftd_career_2.png"];
+        imgTitle3.image=[UIImage imageNamed:@"ftd_career_3.png"];
+        imgTitle4.image=[UIImage imageNamed:@"ftd_career_4.png"];
+        imgTitle4.hidden=NO;
+        imgTitle1.frame=CGRectMake(460, 134, 370, 183);
+        imgTitle2.frame=CGRectMake(460, 333, 370, 179);
+    }
+    else{
+        imgTitle1.image=[UIImage imageNamed:@"ftd_freejob_1.png"];
+        imgTitle2.image=[UIImage imageNamed:@"ftd_freejob_3.png"];
+        imgTitle3.image=[UIImage imageNamed:@"ftd_freejob_2.png"];
+        imgTitle4.hidden=YES;
+        imgTitle1.frame=CGRectMake(460, 134, 370, 271);
+        imgTitle2.frame=CGRectMake(460, 413, 370, 307);
+    }
+    
+    
+    
 }
 
-
-
+//-(void)changeframe
+//{
+//    if (moviePlayer.view.frame.size.width==338) {
+//        moviePlayer.view.frame=self.view.frame;
+//    }
+//    else{
+//        moviePlayer.view.frame=CGRectMake(106, 134, 338, 250);
+//    }
+//}
 
 
 -(void)CreatMoviePlayer
 {
-    NSString *file = [[NSBundle mainBundle] pathForResource:@"test_movie" ofType:@"mp4"];
-    NSURL *url = [NSURL fileURLWithPath:file];
+    //NSString *file = [[NSBundle mainBundle] pathForResource:@"qiye" ofType:@"mp4"];
+    
+    NSURL *url = [NSURL fileURLWithPath:self.model.index];
     
     moviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:url];
+    [self.view addSubview:moviePlayer.view];
     moviePlayer.controlStyle = MPMovieControlStyleDefault;
     moviePlayer.shouldAutoplay = YES;
     moviePlayer.repeatMode = MPMovieRepeatModeOne;
-    [moviePlayer setFullscreen:YES animated:YES];
-    moviePlayer.scalingMode = MPMovieScalingModeAspectFit;
+    //moviePlayer.fullscreen=NO;
+    //[moviePlayer setFullscreen:YES animated:YES];
+     moviePlayer.scalingMode = MPMovieScalingModeAspectFit;
     moviePlayer.view.frame=CGRectMake(106, 134, 338, 250);
-    [self.view addSubview:moviePlayer.view];
+    
     
     
 }
+ 
+
+
 -(void)viewWillAppear:(BOOL)animated
 {
     [moviePlayer play];
 }
 -(void)viewDidDisappear:(BOOL)animated
 {
-    [moviePlayer stop];
+    //[moviePlayer stop];
 }
 -(void)buildMenu
 {
-    _menu=[TFWHelpResultMenuView createMenuwithArray:@[@"自由职业",@"事业单位",@"企业单位"] andBottom:CGPointMake(76, 730) andHightBtnIndex:self.index];
+    _menu=[TFWHelpResultMenuView createMenuwithArray:@[@"企业单位",@"事业单位",@"自由职业"] andBottom:CGPointMake(76, 730) andHightBtnIndex:self.index];
     //_menu = [TFWHelpResultMenuView createMenuwithArray:@[@"企业单位",@"事业单位",@"自由职业"] andBottom:CGPointMake(76, 730)];
     __weak FTDGoodAgentKindsController *weakSelf = self;
     [_menu setResultMenuTapBlock:^(NSInteger index){
@@ -80,7 +129,41 @@
 {
     NSLog(@"index : %ld",(long)index);
     self.model=[[FTJsonManager shareManager]getElementItemAtIndex:index];
+    NSURL *url = [NSURL fileURLWithPath:self.model.index];
+    [moviePlayer setContentURL:url];
+    [moviePlayer play];
+    
     self.lblTitle.text=self.model.name;
+    if ([self.model.name isEqualToString:@"企业单位"]) {
+        imgTitle1.image=[UIImage imageNamed:@"ftd_company_1.png"];
+        imgTitle2.image=[UIImage imageNamed:@"ftd_company_2.png"];
+        imgTitle3.image=[UIImage imageNamed:@"ftd_company_3.png"];
+        imgTitle4.image=[UIImage imageNamed:@"ftd_company_4.png"];
+        imgTitle4.hidden=NO;
+        imgTitle1.frame=CGRectMake(460, 134, 370, 183);
+        imgTitle2.frame=CGRectMake(460, 333, 370, 179);
+        
+        
+        
+    }
+    else if([self.model.name isEqualToString:@"事业单位"])
+    {
+        imgTitle1.image=[UIImage imageNamed:@"ftd_career_1.png"];
+        imgTitle2.image=[UIImage imageNamed:@"ftd_career_2.png"];
+        imgTitle3.image=[UIImage imageNamed:@"ftd_career_3.png"];
+        imgTitle4.image=[UIImage imageNamed:@"ftd_career_4.png"];
+        imgTitle4.hidden=NO;
+        imgTitle1.frame=CGRectMake(460, 134, 370, 183);
+        imgTitle2.frame=CGRectMake(460, 333, 370, 179);
+    }
+    else{
+        imgTitle1.image=[UIImage imageNamed:@"ftd_freejob_1.png"];
+        imgTitle2.image=[UIImage imageNamed:@"ftd_freejob_3.png"];
+        imgTitle3.image=[UIImage imageNamed:@"ftd_freejob_2.png"];
+        imgTitle4.hidden=YES;
+        imgTitle1.frame=CGRectMake(460, 134, 370, 271);
+        imgTitle2.frame=CGRectMake(460, 413, 370, 307);
+    }
     [tableKind reloadData];
 }
 - (void)didReceiveMemoryWarning {
@@ -155,7 +238,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    
+    [moviePlayer stop];
     FTDGoodAgentDetailController *vc=[[FTDGoodAgentDetailController alloc]init];
     vc.indexID=indexPath.row;
     vc.arraySubclass=[[NSArray alloc]initWithArray:self.model.subClassArray];
@@ -173,6 +256,7 @@
 */
 
 - (IBAction)backclick:(id)sender {
+    [moviePlayer stop];
     [self.navigationController popViewControllerAnimated:YES];
 }
 @end

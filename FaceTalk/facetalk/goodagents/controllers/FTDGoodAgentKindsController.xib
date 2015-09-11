@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
@@ -8,8 +8,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FTDGoodAgentKindsController">
             <connections>
                 <outlet property="imgTitle1" destination="OPv-G8-Qgp" id="XhX-83-zhO"/>
-                <outlet property="imgTitle2" destination="TZq-mC-2UR" id="lZ8-ei-HQY"/>
-                <outlet property="imgTitle3" destination="wDb-1u-S3L" id="bhN-qg-ySc"/>
+                <outlet property="imgTitle2" destination="wDb-1u-S3L" id="NkM-zC-Qzi"/>
+                <outlet property="imgTitle3" destination="TZq-mC-2UR" id="ga7-oo-AOe"/>
+                <outlet property="imgTitle4" destination="xEe-w8-UWV" id="7kJ-cm-qDP"/>
                 <outlet property="lblTitle" destination="zU8-l1-geb" id="FQp-NQ-RHO"/>
                 <outlet property="tableKind" destination="0Zw-iy-8Xy" id="oF7-in-6nl"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -20,42 +21,54 @@
             <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="FTDbackgroundImage.png" translatesAutoresizingMaskIntoConstraints="NO" id="yIX-HH-QuV">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FTDbackgroundImage.png" id="yIX-HH-QuV">
                     <rect key="frame" x="0.0" y="20" width="1024" height="748"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.76862745099999996" green="0.0" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
                     <color key="tintColor" red="0.76862745099999996" green="0.0" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l6Z-5U-vjT">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="l6Z-5U-vjT">
                     <rect key="frame" x="97" y="73" width="42" height="41"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" image="FTD_back.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="自由职业" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zU8-l1-geb">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="自由职业" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zU8-l1-geb">
                     <rect key="frame" x="134" y="76" width="169" height="31"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="32"/>
                     <color key="textColor" red="0.76862745099999996" green="0.0" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="FTD_Image3.png" translatesAutoresizingMaskIntoConstraints="NO" id="wDb-1u-S3L">
-                    <rect key="frame" x="460" y="424" width="370" height="293"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ftd_career_4.png" id="xEe-w8-UWV">
+                    <rect key="frame" x="460" y="532" width="370" height="185"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="FTD_Image2.png" translatesAutoresizingMaskIntoConstraints="NO" id="TZq-mC-2UR">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ftd_freejob_2.png" id="wDb-1u-S3L">
+                    <rect key="frame" x="460" y="333" width="370" height="179"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ftd_career_3.png" id="TZq-mC-2UR">
                     <rect key="frame" x="106" y="397" width="338" height="320"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="FTD_Image1.png" translatesAutoresizingMaskIntoConstraints="NO" id="OPv-G8-Qgp">
-                    <rect key="frame" x="460" y="134" width="370" height="275"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ftd_freejob_1.png" id="OPv-G8-Qgp">
+                    <rect key="frame" x="460" y="134" width="370" height="183"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="0Zw-iy-8Xy">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="0Zw-iy-8Xy">
                     <rect key="frame" x="838" y="48" width="140" height="692"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="XOR-L8-mTc"/>
                         <outlet property="delegate" destination="-1" id="0EY-aY-odK"/>
                     </connections>
                 </tableView>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iKy-ly-gIL">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="iKy-ly-gIL">
                     <rect key="frame" x="97" y="63" width="176" height="64"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -70,11 +83,12 @@
         </view>
     </objects>
     <resources>
-        <image name="FTD_Image1.png" width="687" height="523"/>
-        <image name="FTD_Image2.png" width="694" height="661"/>
-        <image name="FTD_Image3.png" width="686" height="586"/>
         <image name="FTD_back.png" width="90" height="90"/>
-        <image name="FTDbackgroundImage.png" width="2046" height="1500"/>
+        <image name="FTDbackgroundImage.png" width="1024" height="751"/>
+        <image name="ftd_career_3.png" width="696" height="661"/>
+        <image name="ftd_career_4.png" width="684" height="360"/>
+        <image name="ftd_freejob_1.png" width="678" height="531"/>
+        <image name="ftd_freejob_2.png" width="690" height="663"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

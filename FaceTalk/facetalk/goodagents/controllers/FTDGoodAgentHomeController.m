@@ -133,7 +133,7 @@
     id vc = nil;
     if (index == -1) {
         if ( [[[NSUserDefaults standardUserDefaults]objectForKey:@"FTD_isFinishMark"]isEqualToString:@"0"]) {
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"提示" message:@"请完成“真选择成就事业”的评分！" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"提示" message:@"请完成“真选择成就事业”的评分！" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
             [alert show];
             return;
         }
@@ -161,13 +161,13 @@
 
 - (IBAction)companyclick:(id)sender {//企业单位
     FTDGoodAgentKindsController *FTDGoodAgentKindsCol=[[FTDGoodAgentKindsController alloc]init];
-    FTDGoodAgentKindsCol.index=2;
+    FTDGoodAgentKindsCol.index=0;
     [self.navigationController pushViewController:FTDGoodAgentKindsCol animated:YES];
 }
 
 - (IBAction)freedomclick:(id)sender {//自由职业
     FTDGoodAgentKindsController *FTDGoodAgentKindsCol=[[FTDGoodAgentKindsController alloc]init];
-    FTDGoodAgentKindsCol.index=0;
+    FTDGoodAgentKindsCol.index=2;
     [self.navigationController pushViewController:FTDGoodAgentKindsCol animated:YES];
 }
 

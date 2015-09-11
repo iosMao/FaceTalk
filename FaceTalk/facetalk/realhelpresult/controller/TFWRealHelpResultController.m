@@ -59,7 +59,7 @@
 }
 
 -(void)buildMenu
-{_menu = [TFWHelpResultMenuView  createMenuwithArray:@[@"职涯规划",@"行业潜力",@"公司五年规划",@"渠道定位"] andBottom:CGPointMake(78, 745) andHightBtnIndex:0];
+{_menu = [TFWHelpResultMenuView  createMenuwithArray:@[@"福利待遇",@"收入水平",@"双百万计划"] andBottom:CGPointMake(78, 745) andHightBtnIndex:0];
      
     __weak TFWRealHelpResultController *weakSelf = self;
     [_menu setResultMenuTapBlock:^(NSInteger index){
@@ -70,8 +70,8 @@
 
 -(void)buildImageView
 {
-    _imageView = [[UIImageView alloc] initWithFrame:CGRectMake(95, 138, 890, 604)];
-    _imageView.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ft_ten_demo" ofType:@"png"]];
+    _imageView = [[UIImageView alloc] initWithFrame:CGRectMake(95, 122, 890, 620)];
+    _imageView.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ftw_shourufenghou_fulidaiyu" ofType:@"png"]];
     [self.view addSubview:_imageView];
 }
 

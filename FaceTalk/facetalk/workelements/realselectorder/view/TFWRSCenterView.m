@@ -69,7 +69,7 @@
 {
     NSMutableAttributedString *attribute = [[NSMutableAttributedString alloc] init];
     
-    NSAttributedString *completestr = [[NSAttributedString alloc] initWithString:@"完成度\n" attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:15.4], NSForegroundColorAttributeName : [UIColor colorWithRed:211 / 255.0 green:17 / 255.0 blue:69 / 255.0 alpha:1]}];
+    NSAttributedString *completestr = [[NSAttributedString alloc] initWithString:@"完成度\n" attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:16], NSForegroundColorAttributeName : [UIColor colorWithRed:211 / 255.0 green:17 / 255.0 blue:69 / 255.0 alpha:1]}];
     
     NSAttributedString *numberstr = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%3d",number] attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:89], NSForegroundColorAttributeName : [UIColor colorWithRed:211 / 255.0 green:17 / 255.0 blue:69 / 255.0 alpha:1]}];
     NSAttributedString *percentstr = [[NSAttributedString alloc] initWithString:@"\%\n" attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:26], NSForegroundColorAttributeName : [UIColor colorWithRed:211 / 255.0 green:17 / 255.0 blue:69 / 255.0 alpha:1]}];
@@ -78,8 +78,8 @@
     NSAttributedString *lightstr = [[NSAttributedString alloc] initWithString:@"点亮\n" attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:13], NSForegroundColorAttributeName : [UIColor colorWithRed:211 / 255.0 green:17 / 255.0 blue:69 / 255.0 alpha:1]}];
     
     NSAttributedString *last1str = [[NSAttributedString alloc] initWithString:@"最重要的" attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:13], NSForegroundColorAttributeName : [UIColor colorWithRed:9 / 255.0 green:9 / 255.0 blue:9 / 255.0 alpha:1]}];
-    NSAttributedString *last2str = [[NSAttributedString alloc] initWithString:@"5" attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:13], NSForegroundColorAttributeName : [UIColor colorWithRed:211 / 255.0 green:17 / 255.0 blue:69 / 255.0 alpha:1]}];
-    NSAttributedString *last3str = [[NSAttributedString alloc] initWithString:@"个求职要素\n开启璀璨星空锁" attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:15.4], NSForegroundColorAttributeName : [UIColor colorWithRed:9 / 255.0 green:9 / 255.0 blue:9 / 255.0 alpha:1]}];
+    NSAttributedString *last2str = [[NSAttributedString alloc] initWithString:@"5" attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:20], NSForegroundColorAttributeName : [UIColor colorWithRed:211 / 255.0 green:17 / 255.0 blue:69 / 255.0 alpha:1]}];
+    NSAttributedString *last3str = [[NSAttributedString alloc] initWithString:@"个求职要素\n开启璀璨星空锁" attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:13], NSForegroundColorAttributeName : [UIColor colorWithRed:9 / 255.0 green:9 / 255.0 blue:9 / 255.0 alpha:1]}];
     
     [attribute appendAttributedString:completestr];
     [attribute appendAttributedString:numberstr];

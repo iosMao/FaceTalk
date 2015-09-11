@@ -326,9 +326,9 @@
             return;
         }
         else{
-            if (indexPath.row==5)
+            if (indexPath.row==1)
             {
-                
+                NSLog(@"EOP报名");
             }
         }
     }

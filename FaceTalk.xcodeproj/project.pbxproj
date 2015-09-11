@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18042C5B1BA27C90006804DE /* JTSAnimatedGIFUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 18042C501BA27C90006804DE /* JTSAnimatedGIFUtility.m */; };
+		18042C5C1BA27C90006804DE /* JTSImageInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 18042C521BA27C90006804DE /* JTSImageInfo.m */; };
+		18042C5D1BA27C90006804DE /* JTSImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18042C541BA27C90006804DE /* JTSImageViewController.m */; };
+		18042C5E1BA27C90006804DE /* JTSSimpleImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 18042C561BA27C90006804DE /* JTSSimpleImageDownloader.m */; };
+		18042C5F1BA27C90006804DE /* UIApplication+JTSImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18042C581BA27C90006804DE /* UIApplication+JTSImageViewController.m */; };
+		18042C601BA27C90006804DE /* UIImage+JTSImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 18042C5A1BA27C90006804DE /* UIImage+JTSImageEffects.m */; };
 		18126A6E1B70739E00BACB3F /* FTDAgentImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18126A5B1B70739E00BACB3F /* FTDAgentImageCell.m */; };
 		18126A6F1B70739E00BACB3F /* FTDAgentImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18126A5C1B70739E00BACB3F /* FTDAgentImageCell.xib */; };
 		18126A701B70739E00BACB3F /* FTDAgentListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18126A5E1B70739E00BACB3F /* FTDAgentListCell.m */; };
@@ -170,6 +176,7 @@
 		185D65A41B6673C300845F21 /* TFWSTOrderRoundItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 185D658F1B6673C300845F21 /* TFWSTOrderRoundItem.m */; };
 		185D65A51B6673C300845F21 /* TFWSTOrderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 185D65911B6673C300845F21 /* TFWSTOrderView.m */; };
 		185D65A81B667A3000845F21 /* TFDNavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185D65A71B667A3000845F21 /* TFDNavViewController.m */; };
+		187271611B9C7AD600D0AA12 /* ftd_ordersetting.png in Resources */ = {isa = PBXBuildFile; fileRef = 187271601B9C7AD600D0AA12 /* ftd_ordersetting.png */; };
 		187B9BE51B900CBF0032D0FE /* FTDPersonTController.m in Sources */ = {isa = PBXBuildFile; fileRef = 187B9BD81B900CBF0032D0FE /* FTDPersonTController.m */; };
 		187B9BE61B900CBF0032D0FE /* FTDPersonTController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 187B9BD91B900CBF0032D0FE /* FTDPersonTController.xib */; };
 		187B9BE71B900CBF0032D0FE /* FTDImageManage.m in Sources */ = {isa = PBXBuildFile; fileRef = 187B9BDC1B900CBF0032D0FE /* FTDImageManage.m */; };
@@ -268,6 +275,18 @@
 		18C04DF21B79D226009B1F6F /* FTD_share_qq.png in Resources */ = {isa = PBXBuildFile; fileRef = 18C04DF01B79D226009B1F6F /* FTD_share_qq.png */; };
 		18C04DF31B79D226009B1F6F /* FTD_share_wechat.png in Resources */ = {isa = PBXBuildFile; fileRef = 18C04DF11B79D226009B1F6F /* FTD_share_wechat.png */; };
 		18C04DF61B79ED6A009B1F6F /* FTDCreatImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C04DF51B79ED6A009B1F6F /* FTDCreatImage.m */; };
+		18C477F01B9D2A290052E506 /* ftw_shourufenghou_fulidaiyu.png in Resources */ = {isa = PBXBuildFile; fileRef = 18C477EF1B9D2A290052E506 /* ftw_shourufenghou_fulidaiyu.png */; };
+		18C477FF1B9D62AF0052E506 /* ftd_career_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 18C477F21B9D62AF0052E506 /* ftd_career_1.png */; };
+		18C478001B9D62AF0052E506 /* ftd_career_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 18C477F31B9D62AF0052E506 /* ftd_career_2.png */; };
+		18C478011B9D62AF0052E506 /* ftd_career_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 18C477F41B9D62AF0052E506 /* ftd_career_3.png */; };
+		18C478021B9D62AF0052E506 /* ftd_career_4.png in Resources */ = {isa = PBXBuildFile; fileRef = 18C477F51B9D62AF0052E506 /* ftd_career_4.png */; };
+		18C478031B9D62AF0052E506 /* ftd_company_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 18C477F71B9D62AF0052E506 /* ftd_company_1.png */; };
+		18C478041B9D62AF0052E506 /* ftd_company_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 18C477F81B9D62AF0052E506 /* ftd_company_2.png */; };
+		18C478051B9D62AF0052E506 /* ftd_company_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 18C477F91B9D62AF0052E506 /* ftd_company_3.png */; };
+		18C478061B9D62AF0052E506 /* ftd_company_4.png in Resources */ = {isa = PBXBuildFile; fileRef = 18C477FA1B9D62AF0052E506 /* ftd_company_4.png */; };
+		18C478071B9D62AF0052E506 /* ftd_freejob_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 18C477FC1B9D62AF0052E506 /* ftd_freejob_1.png */; };
+		18C478081B9D62AF0052E506 /* ftd_freejob_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 18C477FD1B9D62AF0052E506 /* ftd_freejob_2.png */; };
+		18C478091B9D62AF0052E506 /* ftd_freejob_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 18C477FE1B9D62AF0052E506 /* ftd_freejob_3.png */; };
 		18CA16A41B82CBF400136ED8 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18CA16A31B82CBF400136ED8 /* MessageUI.framework */; };
 		18D358581B5F776C0008764E /* FTDbackgroundImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 18D358571B5F776C0008764E /* FTDbackgroundImage.png */; };
 		18D3585A1B5F87360008764E /* FTD_back.png in Resources */ = {isa = PBXBuildFile; fileRef = 18D358591B5F87360008764E /* FTD_back.png */; };
@@ -376,6 +395,18 @@
 
 /* Begin PBXFileReference section */
 		02B80C077EFE4DCF271585BE /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		18042C4F1BA27C90006804DE /* JTSAnimatedGIFUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTSAnimatedGIFUtility.h; sourceTree = "<group>"; };
+		18042C501BA27C90006804DE /* JTSAnimatedGIFUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTSAnimatedGIFUtility.m; sourceTree = "<group>"; };
+		18042C511BA27C90006804DE /* JTSImageInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTSImageInfo.h; sourceTree = "<group>"; };
+		18042C521BA27C90006804DE /* JTSImageInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTSImageInfo.m; sourceTree = "<group>"; };
+		18042C531BA27C90006804DE /* JTSImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTSImageViewController.h; sourceTree = "<group>"; };
+		18042C541BA27C90006804DE /* JTSImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTSImageViewController.m; sourceTree = "<group>"; };
+		18042C551BA27C90006804DE /* JTSSimpleImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTSSimpleImageDownloader.h; sourceTree = "<group>"; };
+		18042C561BA27C90006804DE /* JTSSimpleImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTSSimpleImageDownloader.m; sourceTree = "<group>"; };
+		18042C571BA27C90006804DE /* UIApplication+JTSImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+JTSImageViewController.h"; sourceTree = "<group>"; };
+		18042C581BA27C90006804DE /* UIApplication+JTSImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+JTSImageViewController.m"; sourceTree = "<group>"; };
+		18042C591BA27C90006804DE /* UIImage+JTSImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+JTSImageEffects.h"; sourceTree = "<group>"; };
+		18042C5A1BA27C90006804DE /* UIImage+JTSImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+JTSImageEffects.m"; sourceTree = "<group>"; };
 		18126A5A1B70739E00BACB3F /* FTDAgentImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTDAgentImageCell.h; sourceTree = "<group>"; };
 		18126A5B1B70739E00BACB3F /* FTDAgentImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTDAgentImageCell.m; sourceTree = "<group>"; };
 		18126A5C1B70739E00BACB3F /* FTDAgentImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FTDAgentImageCell.xib; sourceTree = "<group>"; };
@@ -569,6 +600,7 @@
 		185D65911B6673C300845F21 /* TFWSTOrderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFWSTOrderView.m; sourceTree = "<group>"; };
 		185D65A61B667A3000845F21 /* TFDNavViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFDNavViewController.h; sourceTree = "<group>"; };
 		185D65A71B667A3000845F21 /* TFDNavViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFDNavViewController.m; sourceTree = "<group>"; };
+		187271601B9C7AD600D0AA12 /* ftd_ordersetting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ftd_ordersetting.png; sourceTree = "<group>"; };
 		187B9BD71B900CBF0032D0FE /* FTDPersonTController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTDPersonTController.h; sourceTree = "<group>"; };
 		187B9BD81B900CBF0032D0FE /* FTDPersonTController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTDPersonTController.m; sourceTree = "<group>"; };
 		187B9BD91B900CBF0032D0FE /* FTDPersonTController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FTDPersonTController.xib; sourceTree = "<group>"; };
@@ -684,6 +716,18 @@
 		18C04DF11B79D226009B1F6F /* FTD_share_wechat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FTD_share_wechat.png; sourceTree = "<group>"; };
 		18C04DF41B79ED6A009B1F6F /* FTDCreatImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTDCreatImage.h; sourceTree = "<group>"; };
 		18C04DF51B79ED6A009B1F6F /* FTDCreatImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTDCreatImage.m; sourceTree = "<group>"; };
+		18C477EF1B9D2A290052E506 /* ftw_shourufenghou_fulidaiyu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ftw_shourufenghou_fulidaiyu.png; sourceTree = "<group>"; };
+		18C477F21B9D62AF0052E506 /* ftd_career_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ftd_career_1.png; sourceTree = "<group>"; };
+		18C477F31B9D62AF0052E506 /* ftd_career_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ftd_career_2.png; sourceTree = "<group>"; };
+		18C477F41B9D62AF0052E506 /* ftd_career_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ftd_career_3.png; sourceTree = "<group>"; };
+		18C477F51B9D62AF0052E506 /* ftd_career_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ftd_career_4.png; sourceTree = "<group>"; };
+		18C477F71B9D62AF0052E506 /* ftd_company_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ftd_company_1.png; sourceTree = "<group>"; };
+		18C477F81B9D62AF0052E506 /* ftd_company_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ftd_company_2.png; sourceTree = "<group>"; };
+		18C477F91B9D62AF0052E506 /* ftd_company_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ftd_company_3.png; sourceTree = "<group>"; };
+		18C477FA1B9D62AF0052E506 /* ftd_company_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ftd_company_4.png; sourceTree = "<group>"; };
+		18C477FC1B9D62AF0052E506 /* ftd_freejob_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ftd_freejob_1.png; sourceTree = "<group>"; };
+		18C477FD1B9D62AF0052E506 /* ftd_freejob_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ftd_freejob_2.png; sourceTree = "<group>"; };
+		18C477FE1B9D62AF0052E506 /* ftd_freejob_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ftd_freejob_3.png; sourceTree = "<group>"; };
 		18CA16A31B82CBF400136ED8 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		18D358571B5F776C0008764E /* FTDbackgroundImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FTDbackgroundImage.png; sourceTree = "<group>"; };
 		18D358591B5F87360008764E /* FTD_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FTD_back.png; sourceTree = "<group>"; };
@@ -857,6 +901,25 @@
 				02B80C077EFE4DCF271585BE /* Pods.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		18042C4E1BA27C90006804DE /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				18042C4F1BA27C90006804DE /* JTSAnimatedGIFUtility.h */,
+				18042C501BA27C90006804DE /* JTSAnimatedGIFUtility.m */,
+				18042C511BA27C90006804DE /* JTSImageInfo.h */,
+				18042C521BA27C90006804DE /* JTSImageInfo.m */,
+				18042C531BA27C90006804DE /* JTSImageViewController.h */,
+				18042C541BA27C90006804DE /* JTSImageViewController.m */,
+				18042C551BA27C90006804DE /* JTSSimpleImageDownloader.h */,
+				18042C561BA27C90006804DE /* JTSSimpleImageDownloader.m */,
+				18042C571BA27C90006804DE /* UIApplication+JTSImageViewController.h */,
+				18042C581BA27C90006804DE /* UIApplication+JTSImageViewController.m */,
+				18042C591BA27C90006804DE /* UIImage+JTSImageEffects.h */,
+				18042C5A1BA27C90006804DE /* UIImage+JTSImageEffects.m */,
+			);
+			path = Source;
 			sourceTree = "<group>";
 		};
 		18126A581B70739E00BACB3F /* goodagents */ = {
@@ -1188,6 +1251,7 @@
 		185D653C1B6673BC00845F21 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				187271601B9C7AD600D0AA12 /* ftd_ordersetting.png */,
 				185D653D1B6673BC00845F21 /* tfw_cf_background.png */,
 				185D653E1B6673BC00845F21 /* tfw_cf_background@2x.png */,
 				185D653F1B6673BC00845F21 /* tfw_cf_lefttool.png */,
@@ -1345,6 +1409,9 @@
 		187FC4FA1B58C42000E2EC10 /* goodAgentImage */ = {
 			isa = PBXGroup;
 			children = (
+				18C477F11B9D62AF0052E506 /* career */,
+				18C477F61B9D62AF0052E506 /* companyjob */,
+				18C477FB1B9D62AF0052E506 /* freejob */,
 				18126A9A1B70BE4500BACB3F /* TFD_goodAgent_scoreSlider.png */,
 				18126A981B70BDA900BACB3F /* FTD_goodAgentPhoto.png */,
 				18126A8E1B70BD8800BACB3F /* TFD_goodAgent_graytriangle.png */,
@@ -1545,6 +1612,38 @@
 			path = shareview;
 			sourceTree = "<group>";
 		};
+		18C477F11B9D62AF0052E506 /* career */ = {
+			isa = PBXGroup;
+			children = (
+				18C477F21B9D62AF0052E506 /* ftd_career_1.png */,
+				18C477F31B9D62AF0052E506 /* ftd_career_2.png */,
+				18C477F41B9D62AF0052E506 /* ftd_career_3.png */,
+				18C477F51B9D62AF0052E506 /* ftd_career_4.png */,
+			);
+			path = career;
+			sourceTree = "<group>";
+		};
+		18C477F61B9D62AF0052E506 /* companyjob */ = {
+			isa = PBXGroup;
+			children = (
+				18C477F71B9D62AF0052E506 /* ftd_company_1.png */,
+				18C477F81B9D62AF0052E506 /* ftd_company_2.png */,
+				18C477F91B9D62AF0052E506 /* ftd_company_3.png */,
+				18C477FA1B9D62AF0052E506 /* ftd_company_4.png */,
+			);
+			path = companyjob;
+			sourceTree = "<group>";
+		};
+		18C477FB1B9D62AF0052E506 /* freejob */ = {
+			isa = PBXGroup;
+			children = (
+				18C477FC1B9D62AF0052E506 /* ftd_freejob_1.png */,
+				18C477FD1B9D62AF0052E506 /* ftd_freejob_2.png */,
+				18C477FE1B9D62AF0052E506 /* ftd_freejob_3.png */,
+			);
+			path = freejob;
+			sourceTree = "<group>";
+		};
 		18D7CA1B1B745D8E00C35359 /* Mrightbar */ = {
 			isa = PBXGroup;
 			children = (
@@ -1654,6 +1753,7 @@
 		A2615A9B1B4D274E0098EC30 /* library */ = {
 			isa = PBXGroup;
 			children = (
+				18042C4E1BA27C90006804DE /* Source */,
 				189A1ED71B622D9B002F99F9 /* UIView+MaterialDesign.h */,
 				189A1ED81B622D9B002F99F9 /* UIView+MaterialDesign.m */,
 				A2615A9C1B4D274E0098EC30 /* UIView+AutoLayout */,
@@ -1737,6 +1837,7 @@
 		A2E7CD591B6F9BE700FD28FB /* image */ = {
 			isa = PBXGroup;
 			children = (
+				18C477EF1B9D2A290052E506 /* ftw_shourufenghou_fulidaiyu.png */,
 				A2E7CD5A1B6F9BE700FD28FB /* ft_ten_demo.png */,
 				A2E7CD5B1B6F9BE700FD28FB /* ft_ten_demo@2x.png */,
 			);
@@ -1994,6 +2095,7 @@
 				185D656D1B6673BC00845F21 /* tfw_tf_back@2x.png in Resources */,
 				185D64AA1B6671B500845F21 /* tfw_rs_space_gray.png in Resources */,
 				189D520F1B78529100BB5876 /* ftw_share_check_null.png in Resources */,
+				18C478041B9D62AF0052E506 /* ftd_company_2.png in Resources */,
 				185D64A21B6671B500845F21 /* tfw_rs_pan.png in Resources */,
 				185D64451B663D9200845F21 /* FTD_home_lead4.png in Resources */,
 				189D52091B78529100BB5876 /* ftw_share_aia.png in Resources */,
@@ -2001,6 +2103,7 @@
 				18F32A401B608A110018A3C8 /* FTD_Image3.png in Resources */,
 				189A1ED51B61DC19002F99F9 /* FTD_creatPerson_photo.png in Resources */,
 				187FC4F91B58B78B00E2EC10 /* FTD_IMO_home.png in Resources */,
+				18C478071B9D62AF0052E506 /* ftd_freejob_1.png in Resources */,
 				18291B541B577AED003E180D /* FT_home_back.png in Resources */,
 				18126A861B70AB2F00BACB3F /* FTD_slider_image4.png in Resources */,
 				18D7CA251B745D9900C35359 /* FTD_fourpart.png in Resources */,
@@ -2027,7 +2130,9 @@
 				187B9C231B9063AF0032D0FE /* ftw_share_EOP@2x.png in Resources */,
 				18D358581B5F776C0008764E /* FTDbackgroundImage.png in Resources */,
 				18126A731B70739E00BACB3F /* FTDGoodAgentDetailController.xib in Resources */,
+				18C477FF1B9D62AF0052E506 /* ftd_career_1.png in Resources */,
 				185D64AF1B6671B500845F21 /* tfw_rs_suit_gray@2x.png in Resources */,
+				18C478011B9D62AF0052E506 /* ftd_career_3.png in Resources */,
 				18C04DF21B79D226009B1F6F /* FTD_share_qq.png in Resources */,
 				185D64881B6671B500845F21 /* tfw_rs_brand.png in Resources */,
 				18126A931B70BD8800BACB3F /* TFD_goodAgent_graytriangle.png in Resources */,
@@ -2064,6 +2169,7 @@
 				18D4759B1B8C58B10098D16D /* FTD_slider_image5.png in Resources */,
 				A2E7CDCB1B6F9C2100FD28FB /* tfw_sr_next.png in Resources */,
 				18A3431A1B93FC7400ED973E /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
+				18C477F01B9D2A290052E506 /* ftw_shourufenghou_fulidaiyu.png in Resources */,
 				18D7CA2B1B74616F00C35359 /* FTD_shortBG.png in Resources */,
 				185D64981B6671B500845F21 /* tfw_rs_learn.png in Resources */,
 				185D64841B6671B500845F21 /* tfw_rs_add.png in Resources */,
@@ -2140,12 +2246,14 @@
 				189A1ED21B61DC19002F99F9 /* FTD_creatPerson_cancel.png in Resources */,
 				185D64A91B6671B500845F21 /* tfw_rs_space@2x.png in Resources */,
 				185D64851B6671B500845F21 /* tfw_rs_add@2x.png in Resources */,
+				18C478001B9D62AF0052E506 /* ftd_career_2.png in Resources */,
 				18A343151B93FC7400ED973E /* ShareSDKLocalizable.strings in Resources */,
 				A2E7CD9C1B6F9C0C00FD28FB /* ft_ten_plane.png in Resources */,
 				185D64B31B6671B500845F21 /* tfw_rs_work_gray@2x.png in Resources */,
 				18F32A371B6089F80018A3C8 /* FTD_HomeWoman.png in Resources */,
 				185D656A1B6673BC00845F21 /* tfw_cf_realnumber4.png in Resources */,
 				189D52281B78529100BB5876 /* ftw_share_pro@2x.png in Resources */,
+				18C478021B9D62AF0052E506 /* ftd_career_4.png in Resources */,
 				185D64B21B6671B500845F21 /* tfw_rs_work_gray.png in Resources */,
 				A2615A851B4D22C00098EC30 /* LaunchScreen.xib in Resources */,
 				A2E58CAD1B8B7B1A0016FC50 /* ftw_share_complete.png in Resources */,
@@ -2165,6 +2273,7 @@
 				185D64D01B6671DF00845F21 /* tfw_sc_movepie.png in Resources */,
 				18126A961B70BD8800BACB3F /* TFD_goodAgent_SliderRect.png in Resources */,
 				185D64951B6671B500845F21 /* tfw_rs_income@2x.png in Resources */,
+				18C478081B9D62AF0052E506 /* ftd_freejob_2.png in Resources */,
 				185D64931B6671B500845F21 /* tfw_rs_honour_gray@2x.png in Resources */,
 				185D64901B6671B500845F21 /* tfw_rs_honour.png in Resources */,
 				185D659B1B6673C300845F21 /* tfw_sf_pan.png in Resources */,
@@ -2181,6 +2290,7 @@
 				185D65601B6673BC00845F21 /* tfw_cf_nextguide.png in Resources */,
 				189A1ED61B61DC19002F99F9 /* FTD_creatPerson_sex.png in Resources */,
 				185D659C1B6673C300845F21 /* tfw_sf_pan@2x.png in Resources */,
+				187271611B9C7AD600D0AA12 /* ftd_ordersetting.png in Resources */,
 				A2E7CD971B6F9C0C00FD28FB /* ft_ten_key@2x.png in Resources */,
 				A2E7CDC41B6F9C2100FD28FB /* tfw_sr_background@2x.png in Resources */,
 				185D65611B6673BC00845F21 /* tfw_cf_nextguide@2x.png in Resources */,
@@ -2188,6 +2298,7 @@
 				185D64D11B6671DF00845F21 /* tfw_sc_movepie@2x.png in Resources */,
 				18D7CA271B745D9900C35359 /* FTD_secondpart.png in Resources */,
 				18126A971B70BD8800BACB3F /* TFD_goodAgent_whitebtn.png in Resources */,
+				18C478031B9D62AF0052E506 /* ftd_company_1.png in Resources */,
 				187FC5001B58C53A00E2EC10 /* FTD_goodagentHome_careerJob.png in Resources */,
 				189D52301B78529100BB5876 /* ftw_share_wood@2x.png in Resources */,
 				18EFA5861B71B2FA005ABEF1 /* FTD_personalteam_bg.png in Resources */,
@@ -2202,6 +2313,7 @@
 				18EFA58A1B71B2FA005ABEF1 /* FTD_personalteam_editphoto.png in Resources */,
 				185D64AD1B6671B500845F21 /* tfw_rs_suit@2x.png in Resources */,
 				185D649E1B6671B500845F21 /* tfw_rs_life_gray.png in Resources */,
+				18C478091B9D62AF0052E506 /* ftd_freejob_3.png in Resources */,
 				185D656B1B6673BC00845F21 /* tfw_cf_realnumber4@2x.png in Resources */,
 				A2E7CD991B6F9C0C00FD28FB /* ft_ten_LOGO@2x.png in Resources */,
 				185D64971B6671B500845F21 /* tfw_rs_income_gray@2x.png in Resources */,
@@ -2219,6 +2331,7 @@
 				189D521C1B78529100BB5876 /* ftw_share_heart@2x.png in Resources */,
 				189A1ED11B61DC19002F99F9 /* FTD_creatPerson_birthday.png in Resources */,
 				A2E7CDA31B6F9C0C00FD28FB /* ft_ten_suit@2x.png in Resources */,
+				18C478051B9D62AF0052E506 /* ftd_company_3.png in Resources */,
 				189D521E1B78529100BB5876 /* ftw_share_honour@2x.png in Resources */,
 				189D52241B78529100BB5876 /* ftw_share_money@2x.png in Resources */,
 				18C04DF31B79D226009B1F6F /* FTD_share_wechat.png in Resources */,
@@ -2239,6 +2352,7 @@
 				185D64871B6671B500845F21 /* tfw_rs_background@2x.png in Resources */,
 				185D65A21B6673C300845F21 /* tfw_sf_tie@2x.png in Resources */,
 				A2E7CD921B6F9C0C00FD28FB /* ft_ten_honour.png in Resources */,
+				18C478061B9D62AF0052E506 /* ftd_company_4.png in Resources */,
 				18EFA5881B71B2FA005ABEF1 /* FTD_personalteam_btnR.png in Resources */,
 				18F32A511B60ECE70018A3C8 /* FTD_goodAgentPen.png in Resources */,
 				A2E7CD9B1B6F9C0C00FD28FB /* ft_ten_next@2x.png in Resources */,
@@ -2287,9 +2401,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				185D64F11B66738100845F21 /* FTDHomeLeadViewController.m in Sources */,
+				18042C5F1BA27C90006804DE /* UIApplication+JTSImageViewController.m in Sources */,
 				185D65721B6673BC00845F21 /* TFWCFLeftToolView.m in Sources */,
 				185D64F91B66738100845F21 /* FTDHomeAlertView.m in Sources */,
 				18EC44901B8AB86D0060B2A6 /* FTJsonMarkModel.m in Sources */,
+				18042C5B1BA27C90006804DE /* JTSAnimatedGIFUtility.m in Sources */,
 				185D65A31B6673C300845F21 /* TFWSTOrderItem.m in Sources */,
 				185D64831B6671B500845F21 /* TFWRealOrderViewController.m in Sources */,
 				185D64F61B66738100845F21 /* FTDbackgroundView.m in Sources */,
@@ -2318,6 +2434,7 @@
 				187B9BE81B900CBF0032D0FE /* FTDPersonTModel.m in Sources */,
 				A2E7CDCF1B6F9C2100FD28FB /* TFWSRRoundModel.m in Sources */,
 				185D64D61B6671DF00845F21 /* TFWSCPipeView.m in Sources */,
+				18042C5E1BA27C90006804DE /* JTSSimpleImageDownloader.m in Sources */,
 				A2615A7A1B4D22C00098EC30 /* AppDelegate.m in Sources */,
 				185D65A51B6673C300845F21 /* TFWSTOrderView.m in Sources */,
 				18126A781B70739E00BACB3F /* FTDAgentDetailScoreView.m in Sources */,
@@ -2333,12 +2450,14 @@
 				187B9BE51B900CBF0032D0FE /* FTDPersonTController.m in Sources */,
 				189D52341B78529100BB5876 /* TFWReportView.m in Sources */,
 				A2E7CDD31B6F9C2100FD28FB /* TFWSRRoundView.m in Sources */,
+				18042C5D1BA27C90006804DE /* JTSImageViewController.m in Sources */,
 				189D52321B78529100BB5876 /* TFWReportSuggestCell.m in Sources */,
 				18EC44921B8AB86D0060B2A6 /* FTJsonSubClassModel.m in Sources */,
 				185D64D51B6671DF00845F21 /* TFWSCItemView.m in Sources */,
 				185D64B51B6671B500845F21 /* TFWRSCenterView.m in Sources */,
 				18126A8A1B70AD8800BACB3F /* FTDNavTableCell.m in Sources */,
 				185D64EF1B66738100845F21 /* BDRootViewController.m in Sources */,
+				18042C601BA27C90006804DE /* UIImage+JTSImageEffects.m in Sources */,
 				189A1ED91B622D9B002F99F9 /* UIView+MaterialDesign.m in Sources */,
 				185D65A41B6673C300845F21 /* TFWSTOrderRoundItem.m in Sources */,
 				185D65731B6673BC00845F21 /* TFWCFModelView.m in Sources */,
@@ -2347,6 +2466,7 @@
 				185D64B41B6671B500845F21 /* TFWRSButtonView.m in Sources */,
 				185D64F31B66738100845F21 /* FTDHomeViewController.m in Sources */,
 				A2E7CDD01B6F9C2100FD28FB /* TFWScrollView.m in Sources */,
+				18042C5C1BA27C90006804DE /* JTSImageInfo.m in Sources */,
 				185D64F71B66738100845F21 /* FTDHomAlertFinishView.m in Sources */,
 				185D64D41B6671DF00845F21 /* TFWSCFiveView.m in Sources */,
 				18EC448D1B8AB86D0060B2A6 /* FTJsonElementModel.m in Sources */,

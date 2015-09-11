@@ -17,9 +17,10 @@
     if (self) {
         self.backgroundColor=[UIColor whiteColor];
         self.imgBig=[[UIImageView alloc]init];
-        [self.imgBig.layer setMasksToBounds:YES];
-        self.imgBig.contentMode=UIViewContentModeScaleAspectFit;
+        //[self.imgBig.layer setMasksToBounds:YES];
+        
         self.imgBig.frame=CGRectMake(0, 0, self.frame.size.width, self.frame.size.height-60);
+        
         [self addSubview:self.imgBig];
         
         self.lblDesc = [[UILabel alloc] initWithFrame:CGRectMake(0,self.imgBig.frame.origin.y+self.imgBig.frame.size.height, self.frame.size.width,60)];

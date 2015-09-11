@@ -106,6 +106,7 @@
     _subclassModel=[_ExcellentModel getSubClassItemAtIndex:index];
     
     _PeopleModel=[_subclassModel getPeoplesItemAtIndex:0];
+    indexid=0;
     self.lblTitle.text=_subclassModel.name;
     [self getdetailData];
     [tableAgentList reloadData];

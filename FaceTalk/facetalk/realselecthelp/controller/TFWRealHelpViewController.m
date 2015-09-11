@@ -253,7 +253,7 @@
     id vc = nil;
     if (index == -1) {
         if ([[[NSUserDefaults standardUserDefaults]objectForKey:@"FTD_isFinishMark"]isEqualToString:@"0"]) {
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"提示" message:@"请完成“真选择成就事业”的评分！" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"提示" message:@"请完成“真选择成就事业”的评分！" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
             [alert show];
             return;
         }
@@ -262,12 +262,9 @@
     {
         vc = [[NSClassFromString([[FTWDataManager shareManager].classArray objectAtIndex:index - 1]) alloc] init];
     }
-    //FTDPersonTController *vc=[[FTDPersonTController alloc]init];
+     
     [self.navigationController setViewControllers:@[vc] animated:YES];
-    //[self.navigationController pushViewController:VC animated:YES];
-//    NSLog(@"OK");
-//    TFWRealHelpResultController *vc = [[TFWRealHelpResultController alloc] init];
-//    [self.navigationController pushViewController:vc animated:YES];
+    
 }
 
 -(void)tapAction:(NSInteger)tag

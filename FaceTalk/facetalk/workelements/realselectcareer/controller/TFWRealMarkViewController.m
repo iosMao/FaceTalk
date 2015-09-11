@@ -107,12 +107,55 @@
 
 -(void)okAction
 {
+    NSMutableArray *mutArray = [[NSMutableArray alloc] init];
+    NSMutableArray *orderArray = ((FTWElementItem *)[[FTWDataManager shareManager].tenElementArray firstObject]).orderArray;
+    
+    for (NSNumber *number in orderArray) {
+        for (FTWElementItem *item in [FTWDataManager shareManager].tenElementArray) {
+            if (item.type == [number integerValue]) {
+                [mutArray addObject:item];
+                break;
+            }
+        }
+    }
+    
+    for (int i=0; i<5;i++ ) {
+        FTWElementItem *item=[mutArray objectAtIndex:i];
+        if (item.hopeScore>=item.currentScore) {
+            
+        }
+        else
+        {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"提示" message:@"期望不能比现状低哦！确认继续？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+            [alert show];
+            return;
+        }
+        
+    }
+     
+    
+    
+    
     [[NSUserDefaults standardUserDefaults]setObject:@"1" forKey:@"FTD_isFinishMark"];
     
     TFWSRResultViewController *VC = [[TFWSRResultViewController alloc] init];
     [self.navigationController pushViewController:VC animated:YES];
     NSLog(@"OK");
 }
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex==1) {
+        [[NSUserDefaults standardUserDefaults]setObject:@"1" forKey:@"FTD_isFinishMark"];
+        
+        TFWSRResultViewController *VC = [[TFWSRResultViewController alloc] init];
+        [self.navigationController pushViewController:VC animated:YES];
+        NSLog(@"OK");
+    }
+}
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

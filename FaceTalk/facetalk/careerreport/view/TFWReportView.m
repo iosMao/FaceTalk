@@ -177,7 +177,7 @@ static NSString *cellSuggestIdentifier = @"cellSuggestIdentifier";
         return 330;
     }
     else if(indexPath.section == 1){
-        return 140;
+        return 170;
     }
     else{
         return 230;
@@ -197,34 +197,34 @@ static NSString *cellSuggestIdentifier = @"cellSuggestIdentifier";
             cell.userInteractionEnabled = NO;
             switch ([[_selectArray objectAtIndex:indexPath.row] integerValue]) {
                 case 0:
-                    [cell configImageName:@"ftw_share_money" Title:@"         收入丰厚" SubTitle:@"我们会继续投资在Agency,因为你们是业界最优秀的营销员，我们要把更多的精英吸引在友邦，我相信未来Agency将会继续成为友邦带领整个保险行业的旗帜，我们仍然要拓宽渠道" andCheck:NO andHideCheck:YES];
+                    [cell configImageName:@"ftw_share_money" Title:@"         收入丰厚" SubTitle:@"双百万计划：双百万奖金，只为敢拼搏、有梦想的你；\n收入水平：收获多少由付出多少决定；\n福利待遇：周全的保障及福利制度，为您倍添安心。" andCheck:NO andHideCheck:YES];
                     break;
                 case 1:
-                    [cell configImageName:@"ftw_share_key" Title:@"         品牌实力" SubTitle:@"我们会继续投资在Agency,因为你们是业界最优秀的营销员，我们要把更多的精英吸引在友邦，我相信未来Agency将会继续成为友邦带领整个保险行业的旗帜，我们仍然要拓宽渠道" andCheck:NO andHideCheck:YES];
+                    [cell configImageName:@"ftw_share_key" Title:@"         品牌实力" SubTitle:@"公司介绍：最大的泛亚地区独立上市人寿保险集团；\n友邦历史：诞生于中国上海，根植于泛亚地区；\n友邦年报：财务业绩强劲，持续缔造佳绩；\n企业荣誉：友邦中国2014年共获近50项年度大奖；\n产品荣誉：完善的产品线满足客户多样化的需求；\n科技创新：科技助力，专业形象尽流露。" andCheck:NO andHideCheck:YES];
                     break;
                 case 2:
-                    [cell configImageName:@"ftw_share_book" Title:@"         学习成长" SubTitle:@"我们会继续投资在Agency,因为你们是业界最优秀的营销员，我们要把更多的精英吸引在友邦，我相信未来Agency将会继续成为友邦带领整个保险行业的旗帜，我们仍然要拓宽渠道" andCheck:NO andHideCheck:YES];
+                    [cell configImageName:@"ftw_share_book" Title:@"         学习成长" SubTitle:@"专业培训：专业的寿险培训与经验，让你发挥所有潜能；\n国际认证：高含金量的行业认证，见证您的专业；\nFUN体验：线上线下，室内室外，自由自主，随时随地；\n国际合作：国际专业培训，大师与您有约。" andCheck:NO andHideCheck:YES];
                     break;
                 case 3:
-                    [cell configImageName:@"ftw_share_clock" Title:@"         工作自主" SubTitle:@"我们会继续投资在Agency,因为你们是业界最优秀的营销员，我们要把更多的精英吸引在友邦，我相信未来Agency将会继续成为友邦带领整个保险行业的旗帜，我们仍然要拓宽渠道" andCheck:NO andHideCheck:YES];
+                    [cell configImageName:@"ftw_share_clock" Title:@"         工作自主" SubTitle:@"自主选择职业生涯：双线发展路径，友邦虚席以待；\n自主选择时间分配：时间自主分配，精彩生活每一天；\n自主选择合作伙伴：选择投契的客户，选择志同道合的伙伴；\n自主选择工作地点：天南地北，五湖四海，都是办公室。" andCheck:NO andHideCheck:YES];
                     break;
                 case 4:
-                    [cell configImageName:@"ftw_share_start" Title:@"         社会贡献" SubTitle:@"我们会继续投资在Agency,因为你们是业界最优秀的营销员，我们要把更多的精英吸引在友邦，我相信未来Agency将会继续成为友邦带领整个保险行业的旗帜，我们仍然要拓宽渠道" andCheck:NO andHideCheck:YES];
+                    [cell configImageName:@"ftw_share_start" Title:@"         社会贡献" SubTitle:@"寿险服务：坚守使命、抵御风险、积累财富、实现梦想；\n社会责任：以专业、诚信和爱，帮助个人、家庭和企业。" andCheck:NO andHideCheck:YES];
                     break;
                 case 5:
-                    [cell configImageName:@"ftw_share_heart" Title:@"         适合度" SubTitle:@"我们会继续投资在Agency,因为你们是业界最优秀的营销员，我们要把更多的精英吸引在友邦，我相信未来Agency将会继续成为友邦带领整个保险行业的旗帜，我们仍然要拓宽渠道" andCheck:NO andHideCheck:YES];
+                    [cell configImageName:@"ftw_share_heart" Title:@"         适合度" SubTitle:@"CC测评：判断目前是否是从事销售职业的最佳时机；\n岗前体验培训：“我为成功而来”体验培训助力起航；\n创业说明会（EOP）：深入探讨事业机会，直接对话成功典范。" andCheck:NO andHideCheck:YES];
                     break;
                 case 6:
-                    [cell configImageName:@"ftw_share_pro" Title:@"         发展空间" SubTitle:@"我们会继续投资在Agency,因为你们是业界最优秀的营销员，我们要把更多的精英吸引在友邦，我相信未来Agency将会继续成为友邦带领整个保险行业的旗帜，我们仍然要拓宽渠道" andCheck:NO andHideCheck:YES];
+                    [cell configImageName:@"ftw_share_pro" Title:@"         发展空间" SubTitle:@"职涯规划：在公平开放的晋级制度下，自主掌握晋级速度；\n行业潜力：天时地利人和，迎来中国保险业的最好时代；\n公司五年规划：To Your First Choice 你我的共同愿景；\n渠道定位：打造卓越营销员团队，培养高产能营销员。" andCheck:NO andHideCheck:YES];
                     break;
                 case 7:
-                    [cell configImageName:@"ftw_share_honour" Title:@"         荣誉奖励" SubTitle:@"我们会继续投资在Agency,因为你们是业界最优秀的营销员，我们要把更多的精英吸引在友邦，我相信未来Agency将会继续成为友邦带领整个保险行业的旗帜，我们仍然要拓宽渠道" andCheck:NO andHideCheck:YES];
+                    [cell configImageName:@"ftw_share_honour" Title:@"         荣誉奖励" SubTitle:@"MDRT：友邦是目前全球MDRT人数最多的保险公司；\n荣誉颁奖典礼：在帮助他人、服务社会的同时，成就辉煌事业；\n寿险大会：分享、交流、学习、体验，这就是友邦的文化；\n华夏精英大会：世界那么大，我们带你一起去看看；\n双百万计划：双百万奖金，只为敢拼搏、有梦想的你；\n保险企业家论坛：怀抱初始心、执着真信念、争为行业翘楚。" andCheck:NO andHideCheck:YES];
                     break;
                 case 8:
-                    [cell configImageName:@"ftw_share_flower" Title:@"         生活平衡" SubTitle:@"我们会继续投资在Agency,因为你们是业界最优秀的营销员，我们要把更多的精英吸引在友邦，我相信未来Agency将会继续成为友邦带领整个保险行业的旗帜，我们仍然要拓宽渠道" andCheck:NO andHideCheck:YES];
+                    [cell configImageName:@"ftw_share_flower" Title:@"         生活平衡" SubTitle:@"全人理念：实现平衡圆满的人生；\n时间自主：时间自主分配，精彩生活每一天。" andCheck:NO andHideCheck:YES];
                     break;
                 case 9:
-                    [cell configImageName:@"ftw_share_plane" Title:@"         自由晋级" SubTitle:@"我们会继续投资在Agency,因为你们是业界最优秀的营销员，我们要把更多的精英吸引在友邦，我相信未来Agency将会继续成为友邦带领整个保险行业的旗帜，我们仍然要拓宽渠道" andCheck:NO andHideCheck:YES];
+                    [cell configImageName:@"ftw_share_plane" Title:@"         自由晋级" SubTitle:@"职涯规划：双线发展路径，公开、公平、公正、自主；\n闪耀新星：梦想派，来友邦！与你一起跑赢未来！ " andCheck:NO andHideCheck:YES];
                     break;
                 default:
                     break;
@@ -233,34 +233,34 @@ static NSString *cellSuggestIdentifier = @"cellSuggestIdentifier";
         else{
             switch (indexPath.row) {
                 case 0:
-                    [cell configImageName:@"ftw_share_money" Title:@"         收入丰厚" SubTitle:@"我们会继续投资在Agency,因为你们是业界最优秀的营销员，我们要把更多的精英吸引在友邦，我相信未来Agency将会继续成为友邦带领整个保险行业的旗帜，我们仍然要拓宽渠道" andCheck:_isShowTenElement andTag:indexPath.row];
+                    [cell configImageName:@"ftw_share_money" Title:@"         收入丰厚" SubTitle:@"双百万计划：双百万奖金，只为敢拼搏、有梦想的你；\n收入水平：收获多少由付出多少决定；\n福利待遇：周全的保障及福利制度，为您倍添安心。" andCheck:_isShowTenElement andTag:indexPath.row];
                     break;
                 case 1:
-                    [cell configImageName:@"ftw_share_key" Title:@"         品牌实力" SubTitle:@"我们会继续投资在Agency,因为你们是业界最优秀的营销员，我们要把更多的精英吸引在友邦，我相信未来Agency将会继续成为友邦带领整个保险行业的旗帜，我们仍然要拓宽渠道" andCheck:_isShowTenElement andTag:indexPath.row];
+                    [cell configImageName:@"ftw_share_key" Title:@"         品牌实力" SubTitle:@"公司介绍：最大的泛亚地区独立上市人寿保险集团；\n友邦历史：诞生于中国上海，根植于泛亚地区；\n友邦年报：财务业绩强劲，持续缔造佳绩；\n企业荣誉：友邦中国2014年共获近50项年度大奖；\n产品荣誉：完善的产品线满足客户多样化的需求；\n科技创新：科技助力，专业形象尽流露。" andCheck:_isShowTenElement andTag:indexPath.row];
                     break;
                 case 2:
-                    [cell configImageName:@"ftw_share_book" Title:@"         学习成长" SubTitle:@"我们会继续投资在Agency,因为你们是业界最优秀的营销员，我们要把更多的精英吸引在友邦，我相信未来Agency将会继续成为友邦带领整个保险行业的旗帜，我们仍然要拓宽渠道" andCheck:_isShowTenElement andTag:indexPath.row];
+                    [cell configImageName:@"ftw_share_book" Title:@"         学习成长" SubTitle:@"专业培训：专业的寿险培训与经验，让你发挥所有潜能；\n国际认证：高含金量的行业认证，见证您的专业；\nFUN体验：线上线下，室内室外，自由自主，随时随地；\n国际合作：国际专业培训，大师与您有约。" andCheck:_isShowTenElement andTag:indexPath.row];
                     break;
                 case 3:
-                    [cell configImageName:@"ftw_share_clock" Title:@"         工作自主" SubTitle:@"我们会继续投资在Agency,因为你们是业界最优秀的营销员，我们要把更多的精英吸引在友邦，我相信未来Agency将会继续成为友邦带领整个保险行业的旗帜，我们仍然要拓宽渠道" andCheck:_isShowTenElement andTag:indexPath.row];
+                    [cell configImageName:@"ftw_share_clock" Title:@"         工作自主" SubTitle:@"自主选择职业生涯：双线发展路径，友邦虚席以待；\n自主选择时间分配：时间自主分配，精彩生活每一天；\n自主选择合作伙伴：选择投契的客户，选择志同道合的伙伴；\n自主选择工作地点：天南地北，五湖四海，都是办公室。" andCheck:_isShowTenElement andTag:indexPath.row];
                     break;
                 case 4:
-                    [cell configImageName:@"ftw_share_start" Title:@"         社会贡献" SubTitle:@"我们会继续投资在Agency,因为你们是业界最优秀的营销员，我们要把更多的精英吸引在友邦，我相信未来Agency将会继续成为友邦带领整个保险行业的旗帜，我们仍然要拓宽渠道" andCheck:_isShowTenElement andTag:indexPath.row];
+                    [cell configImageName:@"ftw_share_start" Title:@"         社会贡献" SubTitle:@"寿险服务：坚守使命、抵御风险、积累财富、实现梦想；\n社会责任：以专业、诚信和爱，帮助个人、家庭和企业。" andCheck:_isShowTenElement andTag:indexPath.row];
                     break;
                 case 5:
-                    [cell configImageName:@"ftw_share_heart" Title:@"         适合度" SubTitle:@"我们会继续投资在Agency,因为你们是业界最优秀的营销员，我们要把更多的精英吸引在友邦，我相信未来Agency将会继续成为友邦带领整个保险行业的旗帜，我们仍然要拓宽渠道" andCheck:_isShowTenElement andTag:indexPath.row];
+                    [cell configImageName:@"ftw_share_heart" Title:@"         适合度" SubTitle:@"CC测评：判断目前是否是从事销售职业的最佳时机；\n岗前体验培训：“我为成功而来”体验培训助力起航；\n创业说明会（EOP）：深入探讨事业机会，直接对话成功典范。" andCheck:_isShowTenElement andTag:indexPath.row];
                     break;
                 case 6:
-                    [cell configImageName:@"ftw_share_pro" Title:@"         发展空间" SubTitle:@"我们会继续投资在Agency,因为你们是业界最优秀的营销员，我们要把更多的精英吸引在友邦，我相信未来Agency将会继续成为友邦带领整个保险行业的旗帜，我们仍然要拓宽渠道" andCheck:_isShowTenElement andTag:indexPath.row];
+                    [cell configImageName:@"ftw_share_pro" Title:@"         发展空间" SubTitle:@"职涯规划：在公平开放的晋级制度下，自主掌握晋级速度；\n行业潜力：天时地利人和，迎来中国保险业的最好时代；\n公司五年规划：To Your First Choice 你我的共同愿景；\n渠道定位：打造卓越营销员团队，培养高产能营销员。" andCheck:_isShowTenElement andTag:indexPath.row];
                     break;
                 case 7:
-                    [cell configImageName:@"ftw_share_honour" Title:@"         荣誉奖励" SubTitle:@"我们会继续投资在Agency,因为你们是业界最优秀的营销员，我们要把更多的精英吸引在友邦，我相信未来Agency将会继续成为友邦带领整个保险行业的旗帜，我们仍然要拓宽渠道" andCheck:_isShowTenElement andTag:indexPath.row];
+                    [cell configImageName:@"ftw_share_honour" Title:@"         荣誉奖励" SubTitle:@"MDRT：友邦是目前全球MDRT人数最多的保险公司；\n荣誉颁奖典礼：在帮助他人、服务社会的同时，成就辉煌事业；\n寿险大会：分享、交流、学习、体验，这就是友邦的文化；\n华夏精英大会：世界那么大，我们带你一起去看看；\n双百万计划：双百万奖金，只为敢拼搏、有梦想的你；\n保险企业家论坛：怀抱初始心、执着真信念、争为行业翘楚。" andCheck:_isShowTenElement andTag:indexPath.row];
                     break;
                 case 8:
-                    [cell configImageName:@"ftw_share_flower" Title:@"         生活平衡" SubTitle:@"我们会继续投资在Agency,因为你们是业界最优秀的营销员，我们要把更多的精英吸引在友邦，我相信未来Agency将会继续成为友邦带领整个保险行业的旗帜，我们仍然要拓宽渠道" andCheck:_isShowTenElement andTag:indexPath.row];
+                    [cell configImageName:@"ftw_share_flower" Title:@"         生活平衡" SubTitle:@"全人理念：实现平衡圆满的人生；\n时间自主：时间自主分配，精彩生活每一天。" andCheck:_isShowTenElement andTag:indexPath.row];
                     break;
                 case 9:
-                    [cell configImageName:@"ftw_share_plane" Title:@"         自由晋级" SubTitle:@"我们会继续投资在Agency,因为你们是业界最优秀的营销员，我们要把更多的精英吸引在友邦，我相信未来Agency将会继续成为友邦带领整个保险行业的旗帜，我们仍然要拓宽渠道" andCheck:_isShowTenElement andTag:indexPath.row];
+                    [cell configImageName:@"ftw_share_plane" Title:@"         自由晋级" SubTitle:@"职涯规划：双线发展路径，公开、公平、公正、自主；\n闪耀新星：梦想派，来友邦！与你一起跑赢未来！" andCheck:_isShowTenElement andTag:indexPath.row];
                     break;
                 default:
                     break;

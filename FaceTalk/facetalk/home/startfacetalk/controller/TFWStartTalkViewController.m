@@ -12,7 +12,7 @@
 #import "TFDNavViewController.h"
 #import "FTWDataManager.h"
 #import "FTWDataManager.h"
-
+#import "TFWCustomTalkViewController.h"
 @interface TFWStartTalkViewController ()
 
 @property (nonatomic,strong) UILabel *titleLabel;
@@ -31,12 +31,29 @@
     [self buildBackButton];
     [self buildTitleLabel];
     [self buildOkButton];
-    [self buildOrderView];
+    [self buildSettingOrderBtn];
     
 }
 -(void)viewWillAppear:(BOOL)animated
 {
-    
+    [self buildOrderView];
+}
+
+-(void)buildSettingOrderBtn
+{
+    UIButton *btn=[[UIButton alloc]initWithFrame: CGRectMake(130, 675, 60, 60)];
+    [btn setImage:[UIImage imageNamed:@"FTD_slider_image5.png"] forState:UIControlStateNormal];
+    [btn addTarget:self action:@selector(SettingOrderAction) forControlEvents:UIControlEventTouchUpInside];
+    btn.backgroundColor=[UIColor clearColor];
+    [self.view addSubview:btn];
+    UILabel *lbl = [[UILabel alloc] initWithFrame:CGRectMake(200,690,160,30)];
+     lbl.text =@"排序设置";
+    lbl.numberOfLines = 0;
+    //lbl.textAlignment=NSTextAlignmentRight;
+    lbl.font = [UIFont boldSystemFontOfSize:15];
+    lbl.textColor = [UIColor whiteColor];
+    lbl.backgroundColor = [UIColor clearColor];
+    [self.view addSubview:lbl];
 }
 
 -(void)buildBackGround
@@ -78,6 +95,12 @@
 
 -(void)buildOrderView
 {
+    for (UIView *subView in self.view.subviews) {
+        if ([subView isKindOfClass:[TFWSTOrderView class]]) {
+            [subView removeFromSuperview];
+            break;
+        }
+    }
     TFWOrderModel *model = [[FTWDataManager shareManager] selectOrder];
     NSArray *order = [NSArray arrayWithObjects:[NSString stringWithFormat:@"%d",model.first],[NSString stringWithFormat:@"%d",model.second],[NSString stringWithFormat:@"%d",model.third],[NSString stringWithFormat:@"%d",model.fourth], nil];
     TFWSTOrderView *orderView = [TFWSTOrderView createItemWithCenter:CGPointMake(530, 380) andIndex:order];
@@ -103,7 +126,11 @@
     //[self.navigationController pushViewController:vc animated:YES];
     NSLog(@"OK");
 }
-
+-(void)SettingOrderAction
+{
+    TFWCustomTalkViewController *vc=[[TFWCustomTalkViewController alloc]init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

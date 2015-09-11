@@ -39,7 +39,7 @@
     scrollBG.contentSize=CGSizeMake(1024, 748);
     scrollBG.pagingEnabled=YES;
     scrollBG.scrollEnabled=NO;
-    [btnKey addTarget:self action:@selector(homeLeadViewclick:event:) forControlEvents:UIControlEventTouchUpInside];
+    //[btnKey addTarget:self action:@selector(homeLeadViewclick:event:) forControlEvents:UIControlEventTouchUpInside];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getlocalResourse) name:@"FTDUNZIPSUCCESS" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(backIMOclick:) name:@"FTDREQUESTFAILED" object:nil];
     [self getLoginUserInfo];
@@ -61,7 +61,7 @@
     dstResourcePath =[dstResourcePath stringByAppendingPathComponent:@"data.json"];
     if ([fileManager fileExistsAtPath:dstResourcePath]) {
         [self getbackgroundImg];
-        loadTimer = [NSTimer scheduledTimerWithTimeInterval:0.7 target:self selector:@selector(reminderBtn) userInfo:nil repeats:YES];
+        loadTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(reminderBtn) userInfo:nil repeats:YES];
         [loadTimer fire];
     }
     else{
@@ -96,23 +96,23 @@
 {
 //    CGAffineTransform trans = btnKey.transform;
 //    btnKey.transform = CGAffineTransformScale(trans, 0.7, 0.7);
-    if (timeIndex==3) {
-        [loadTimer invalidate];
-        
-    }
-    [UIView animateWithDuration:0.7 animations:^{
+//    if (timeIndex==3) {
+//        [loadTimer invalidate];
+//        
+//    }
+    [UIView animateWithDuration:1.0 animations:^{
         btnKey.alpha =0;
     } completion:^(BOOL finished) {
-        [UIView animateWithDuration:0.7 animations:^{
+        [UIView animateWithDuration:1.0 animations:^{
             btnKey.alpha =1;
         } completion:^(BOOL finished) {
-            timeIndex++;
+            //timeIndex++;
         }];
     }];
     
 }
 
--(void)homeLeadViewclick:(UIButton *)sender event:(UIEvent *)event
+-(void)homeLeadViewclick
 {
     [loadTimer invalidate];
     __weak FTDHomeViewController *weak=self;
@@ -145,6 +145,10 @@
 }
 - (IBAction)backIMOclick:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)keyclick:(id)sender {
+    [self homeLeadViewclick];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

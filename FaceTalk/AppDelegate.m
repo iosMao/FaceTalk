@@ -12,6 +12,7 @@
 #import <ShareSDK/ShareSDK.h>
 #import <TencentOpenAPI/QQApiInterface.h>
 #import <TencentOpenAPI/TencentOAuth.h>
+#import "FTDPersonTController.h"
 #import "WXApi.h"
 @interface AppDelegate ()
 
@@ -24,6 +25,7 @@
     
     [ShareSDK registerApp:@"9b3c933e2258"];
     
+    //qq的初始化
     [ShareSDK connectQQWithQZoneAppKey:@"1102803885" qqApiInterfaceCls:[QQApiInterface class] tencentOAuthCls:[TencentOAuth class]];
     
     //微信登陆的时候需要初始化
@@ -79,10 +81,6 @@
   sourceApplication:(NSString *)sourceApplication
          annotation:(id)annotation
 {
-    
-    
-    
-    
     [ShareSDK handleOpenURL:url
           sourceApplication:sourceApplication
                  annotation:annotation
