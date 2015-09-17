@@ -28,7 +28,9 @@
     UIActionSheet  *_actionSheet;
     FTDBigImageView *bigImageView;
     FTDbackgroundView *backgroundView;
+    
 }
+ @property (nonatomic, strong) UIPopoverController *popView;
 @end
 
 @implementation FTDPersonTController
@@ -229,14 +231,14 @@
     _actionSheet = nil;
     
     if (buttonIndex==0||buttonIndex==1) {
-        UIImagePickerController * imagePicker = [[UIImagePickerController alloc] init];
+          UIImagePickerController * imagePicker = [[UIImagePickerController alloc] init];
         imagePicker.delegate = self;
         
         if (buttonIndex==0) {
             imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
             imagePicker.allowsEditing=NO;
-            UIPopoverController *pop=[[UIPopoverController alloc]initWithContentViewController:imagePicker];
-            [pop presentPopoverFromRect:CGRectMake(self.view.frame.size.width/2-100, self.view.frame.size.height-100, 300,300) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionDown animated:YES];
+               self.popView=[[UIPopoverController alloc]initWithContentViewController:imagePicker];
+            [self.popView presentPopoverFromRect:CGRectMake(self.view.frame.size.width/2-100, self.view.frame.size.height-100, 300,300) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionDown animated:YES];
         }
         else{
             imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
@@ -263,7 +265,7 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-    
+    [self.popView dismissPopoverAnimated:YES];
     [picker dismissViewControllerAnimated:YES completion:nil];
     
     UIImage *photoImage = [info objectForKey:UIImagePickerControllerOriginalImage];

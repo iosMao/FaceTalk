@@ -15,7 +15,8 @@
 @property (nonatomic,strong) NSMutableArray *viewArray;
 @property (nonatomic,strong) NSArray *pointArray;
 @property (nonatomic,strong) NSArray *dataSource;
-
+@property (nonatomic,strong)UISwipeGestureRecognizer *leftSwipeGestureRecognizer;
+@property (nonatomic,strong)UISwipeGestureRecognizer *rightSwipeGestureRecognizer;
 @end
 
 @implementation TFWScrollView
@@ -36,8 +37,20 @@
     [sc buildView];
     [sc buildLeftButton];
     [sc buildRightButton];
+    [sc addtouchEvent];
     
     return sc;
+}
+-(void)addtouchEvent
+{
+    self.leftSwipeGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipes:)];
+    self.rightSwipeGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipes:)];
+    
+    self.leftSwipeGestureRecognizer.direction = UISwipeGestureRecognizerDirectionLeft;
+    self.rightSwipeGestureRecognizer.direction = UISwipeGestureRecognizerDirectionRight;
+    
+    [self  addGestureRecognizer:self.leftSwipeGestureRecognizer];
+    [self  addGestureRecognizer:self.rightSwipeGestureRecognizer];
 }
 
 -(void)configData
@@ -85,7 +98,7 @@
 {
     UIButton *left = [[UIButton alloc] initWithFrame:CGRectMake(0, 195, 23, 42)];
     [left setImage:[UIImage imageNamed:@"tfw_sr_left"] forState:UIControlStateNormal];
-    [left addTarget:self action:@selector(leftAction:) forControlEvents:UIControlEventTouchUpInside];
+    [left addTarget:self action:@selector(leftAction) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:left];
 }
 
@@ -93,11 +106,26 @@
 {
     UIButton *right = [[UIButton alloc] initWithFrame:CGRectMake(810, 195, 23, 42)];
     [right setImage:[UIImage imageNamed:@"tfw_sr_right"] forState:UIControlStateNormal];
-    [right addTarget:self action:@selector(rightAction:) forControlEvents:UIControlEventTouchUpInside];
+    [right addTarget:self action:@selector(rightAction) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:right];
 }
 
--(void)leftAction:(UIButton *)bt
+- (void)handleSwipes:(UISwipeGestureRecognizer *)sender
+{
+    if (sender.direction == UISwipeGestureRecognizerDirectionLeft) {
+        [self leftAction];
+    }
+    
+    if (sender.direction == UISwipeGestureRecognizerDirectionRight) {
+        [self rightAction];
+    }
+}
+
+
+
+
+
+-(void)leftAction
 {
     TFWSRResultView *v1 = [_viewArray objectAtIndex:0];
     TFWSRResultView *v2 = [_viewArray objectAtIndex:1];
@@ -120,7 +148,7 @@
     [_viewArray addObject:v1];
 }
 
--(void)rightAction:(UIButton *)bt
+-(void)rightAction
 {
     TFWSRResultView *v1 = [_viewArray objectAtIndex:0];
     TFWSRResultView *v2 = [_viewArray objectAtIndex:1];

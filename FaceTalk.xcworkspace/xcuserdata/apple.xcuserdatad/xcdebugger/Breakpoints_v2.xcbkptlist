@@ -329,38 +329,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "FaceTalk/facetalk/goodagents/controllers/FTDGoodAgentDetailController.m"
-            timestampString = "462186191.567894"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "107"
-            endingLineNumber = "107"
-            landmarkName = "-menuClickAction:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FaceTalk/facetalk/goodagents/controllers/FTDGoodAgentDetailController.m"
-            timestampString = "462186191.567894"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
-            landmarkName = "-buildScoreView"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "FaceTalk/facetalk/home/creatperson/controllers/FTDHomeViewController.m"
             timestampString = "462700583.719367"
             startingColumnNumber = "9223372036854775807"
@@ -410,7 +378,7 @@
                   moduleName = "FaceTalk"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Desktop/FaceTalk/FaceTalk/facetalk/home/creatperson/controllers/FTDHomeViewController.m"
-                  timestampString = "463567115.70318"
+                  timestampString = "464151734.687388"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "120"
@@ -425,7 +393,7 @@
                   moduleName = "FaceTalk"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Desktop/FaceTalk/FaceTalk/facetalk/home/creatperson/controllers/FTDHomeViewController.m"
-                  timestampString = "463567115.703432"
+                  timestampString = "464151734.687649"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "120"
@@ -537,22 +505,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "FaceTalk/facetalk/workelements/realselectorder/controller/TFWRealOrderViewController.m"
-            timestampString = "462868705.308039"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "410"
-            endingLineNumber = "410"
-            landmarkName = "-setCenterViewNumber:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "FaceTalk/facetalk/workelements/realselectorder/view/TFWRSCenterView.m"
             timestampString = "462869847.535677"
             startingColumnNumber = "9223372036854775807"
@@ -570,11 +522,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FaceTalk/facetalk/personteam/controllers/FTDPersonTController.m"
-            timestampString = "463633890.687104"
+            timestampString = "463976142.923161"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "365"
-            endingLineNumber = "365"
+            startingLineNumber = "367"
+            endingLineNumber = "367"
             landmarkName = "-editclick:"
             landmarkType = "5">
          </BreakpointContent>
@@ -586,11 +538,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FaceTalk/facetalk/personteam/controllers/FTDPersonTController.m"
-            timestampString = "463633890.687104"
+            timestampString = "463976142.923161"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "374"
-            endingLineNumber = "374"
+            startingLineNumber = "376"
+            endingLineNumber = "376"
             landmarkName = "-editPhotoclick:"
             landmarkType = "5">
          </BreakpointContent>
@@ -602,11 +554,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FaceTalk/facetalk/personteam/controllers/FTDPersonTController.m"
-            timestampString = "463633890.687104"
+            timestampString = "463976142.923161"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "282"
-            endingLineNumber = "282"
+            startingLineNumber = "284"
+            endingLineNumber = "284"
             landmarkName = "-imagePickerController:didFinishPickingMediaWithInfo:"
             landmarkType = "5">
          </BreakpointContent>
@@ -618,11 +570,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FaceTalk/facetalk/personteam/controllers/FTDPersonTController.m"
-            timestampString = "463633890.687104"
+            timestampString = "463976142.923161"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "183"
-            endingLineNumber = "183"
+            startingLineNumber = "185"
+            endingLineNumber = "185"
             landmarkName = "-collectionView:didSelectItemAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -634,11 +586,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FaceTalk/facetalk/personteam/controllers/FTDPersonTController.m"
-            timestampString = "463633890.687104"
+            timestampString = "463976142.923161"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
             landmarkName = "-viewDidLoad"
             landmarkType = "5">
          </BreakpointContent>
@@ -746,11 +698,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FaceTalk/facetalk/realselectresult/view/TFWScrollView.m"
-            timestampString = "463564491.107815"
+            timestampString = "464151733.973534"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
             landmarkName = "-configData"
             landmarkType = "5">
          </BreakpointContent>
@@ -762,11 +714,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FaceTalk/facetalk/realselectresult/view/TFWScrollView.m"
-            timestampString = "463565060.944323"
+            timestampString = "464151733.973534"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
             landmarkName = "-configData"
             landmarkType = "5">
          </BreakpointContent>
@@ -784,6 +736,38 @@
             startingLineNumber = "122"
             endingLineNumber = "122"
             landmarkName = "-okAction"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FaceTalk/facetalk/personteam/controllers/FTDPersonTController.m"
+            timestampString = "463978513.919863"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "230"
+            endingLineNumber = "230"
+            landmarkName = "-actionSheet:didDismissWithButtonIndex:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FaceTalk/facetalk/realselectresult/view/TFWScrollView.m"
+            timestampString = "464151733.973534"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
+            landmarkName = "-handleSwipes:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
