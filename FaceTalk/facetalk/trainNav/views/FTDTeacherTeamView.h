@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FTDTeacherTeamView : UIView
-
+@interface FTDTeacherTeamView : UIView<UIScrollViewDelegate>
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollBG;
+@property (strong, nonatomic) IBOutlet UIPageControl *pageCol;
++(FTDTeacherTeamView *)initCustomview;
 @end

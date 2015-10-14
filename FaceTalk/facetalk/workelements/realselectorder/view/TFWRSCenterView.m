@@ -50,7 +50,17 @@
 
 -(void)buildView
 {
-    self.label = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 192, 182)];
+    UILabel *lblCom = [[UILabel alloc] initWithFrame:CGRectMake(10, 23, 192, 20)];
+     lblCom.text =@"完成度";
+    lblCom.numberOfLines = 0;
+    lblCom.textAlignment=NSTextAlignmentCenter;
+    lblCom.font = [UIFont boldSystemFontOfSize:17];
+    lblCom.textColor = [UIColor colorWithRed:211 / 255.0 green:17 / 255.0 blue:69 / 255.0 alpha:1];
+    lblCom.backgroundColor = [UIColor clearColor];
+    [self addSubview:lblCom];
+    
+    
+    self.label = [[UILabel alloc] initWithFrame:CGRectMake(10, 20, 192, 182)];
     self.label.numberOfLines = 0;
     self.label.textAlignment = NSTextAlignmentCenter;
     [self addSubview:self.label];
@@ -81,7 +91,7 @@
     NSAttributedString *last2str = [[NSAttributedString alloc] initWithString:@"5" attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:20], NSForegroundColorAttributeName : [UIColor colorWithRed:211 / 255.0 green:17 / 255.0 blue:69 / 255.0 alpha:1]}];
     NSAttributedString *last3str = [[NSAttributedString alloc] initWithString:@"个求职要素\n开启璀璨星空锁" attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:13], NSForegroundColorAttributeName : [UIColor colorWithRed:9 / 255.0 green:9 / 255.0 blue:9 / 255.0 alpha:1]}];
     
-    [attribute appendAttributedString:completestr];
+    //[attribute appendAttributedString:completestr];
     [attribute appendAttributedString:numberstr];
     [attribute appendAttributedString:percentstr];
     [attribute appendAttributedString:pleasetstr];
@@ -89,6 +99,11 @@
     [attribute appendAttributedString:last1str];
     [attribute appendAttributedString:last2str];
     [attribute appendAttributedString:last3str];
+    
+    
+//    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc]init];
+//    [paragraphStyle setLineSpacing:5];
+//    [attribute addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, completestr.length)];
     
     self.label.attributedText = attribute;
     

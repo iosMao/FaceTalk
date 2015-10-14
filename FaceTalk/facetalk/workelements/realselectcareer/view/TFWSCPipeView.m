@@ -85,7 +85,7 @@
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 170, 60, 30)];
     label.textAlignment = NSTextAlignmentCenter;
     label.textColor = self.is_hope ? [UIColor whiteColor] : [UIColor blackColor];
-    label.font = [UIFont boldSystemFontOfSize:10];
+    label.font = [UIFont boldSystemFontOfSize:12];
     label.text = self.title;
     [self addSubview:label];
 }
@@ -95,7 +95,7 @@
     _scoreLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 190, 60, 20)];
     _scoreLabel.textAlignment = NSTextAlignmentCenter;
     _scoreLabel.textColor = self.is_hope ? [UIColor whiteColor] : [UIColor blackColor];
-    _scoreLabel.font = [UIFont boldSystemFontOfSize:10];
+    _scoreLabel.font = [UIFont boldSystemFontOfSize:13];
     _scoreLabel.text = self.title;
     [self addSubview:_scoreLabel];
     if (_is_hope) {
@@ -130,7 +130,7 @@
         _btImageView.center = CGPointMake(self.bounds.size.width / 2.0, y);
         
         self.pipevalue = (144 - y) / 112.0;
-        _scoreLabel.text = [NSString stringWithFormat:@"%d分",(int)(self.pipevalue * 10)];
+        _scoreLabel.text = [NSString stringWithFormat:@"%.0f分",(int)(self.pipevalue * 10) / 1.0];
         if (self.valueChangeblock) {
             self.valueChangeblock(self);
         }

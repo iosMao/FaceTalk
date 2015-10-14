@@ -116,6 +116,8 @@
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
     NSLog(@"sdsdsds%@",[self getCurrentSelected]);
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"FTWPOSTPICKERVIEWSELECTEDNUMBER" object:nil ];
+    
 }
 
 -(NSArray *)getCurrentSelected

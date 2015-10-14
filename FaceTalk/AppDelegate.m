@@ -32,7 +32,7 @@
     [ShareSDK connectWeChatWithAppId:@"wx1b43befa88bbb92b"        //此参数为申请的微信AppID
                            wechatCls:[WXApi class]];
     
-    
+     
     
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];

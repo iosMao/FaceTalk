@@ -53,6 +53,7 @@
     _lblOldJob.text=[NSString stringWithFormat:@"入司前职业:%@", _PeopleModel.old_job];
     _lblTime.text= [NSString stringWithFormat:@"入司时间:%@", _PeopleModel.join_date];
     _lblDesc.text=_PeopleModel.share_word;
+    _lblNowCompany.text=[NSString stringWithFormat:@"分公司/机构:%@", _PeopleModel.sub_company];
     _imgBigPhoto.image=[UIImage imageWithContentsOfFile:_PeopleModel.picture];
     [self buildScoreView];
 }
@@ -76,9 +77,8 @@
     NSLog(@"%@",self.view.subviews);
     for (int i=0; i<5; i++) {
         FTDAgentDetailScoreView *ScoreView=[FTDAgentDetailScoreView setCustomview];
-        FTJsonMarkModel *oldMarkModel=[_PeopleModel.old_mark objectAtIndex:i];
-        FTJsonMarkModel *newMarkModel=[_PeopleModel.markArray objectAtIndex:i];
-        [ScoreView setTitle:newMarkModel.name andOldScore:oldMarkModel.mark andNewScore:newMarkModel.mark andDesc:@"营销员本身就是做自己的事业，加上公司的奖金津贴制度，还有产品设计，服务口碑等，都是丰厚收入的基础！"];
+        FTJsonMarkModel *markModel=[_PeopleModel.markArray objectAtIndex:i];
+        [ScoreView setTitle:markModel.name andOldScore:markModel.old_mark andNewScore:markModel.new_mark andDesc:markModel.desc];
         ScoreView.frame=CGRectMake(510, 137+112*i, 340, 110);
         [self.view addSubview:ScoreView];
     }

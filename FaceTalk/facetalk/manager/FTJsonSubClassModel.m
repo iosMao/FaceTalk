@@ -19,9 +19,9 @@
         FTJsonPeopleModel *model = [FTJsonPeopleModel new];
         model.join_date = [dict objectForKey:@"join_date"];
         model.name = [dict objectForKey:@"name"];
-        model.markArray = [dict objectForKey:@"newMark"];
+        model.markArray = [dict objectForKey:@"marks"];
         model.old_job = [dict objectForKey:@"old_job"];
-        model.old_mark = [dict objectForKey:@"old_mark"];
+        model.sub_company = [dict objectForKey:@"sub_company"];
          model.picture = [NSString stringWithFormat:@"%@%@",[self basePath],[dict objectForKey:@"picture"]];
         //model.picture = [dict objectForKey:@"picture"];
         model.share_word = [dict objectForKey:@"share_word"];

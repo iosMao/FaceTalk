@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface FTDTrainViewController : UIViewController
+- (IBAction)backclick:(id)sender;
 
 @end

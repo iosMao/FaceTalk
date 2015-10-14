@@ -46,32 +46,32 @@
 {
     _btArray = [[NSMutableArray alloc] init];
     
-    for (int i = 0; i < 5; i++) {
+    for (int i = 2; i < 3; i++) {
         UIButton *bt = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 48.5, 50)];
         bt.center = CGPointMake(self.bounds.size.width / 5.0 * i + self.bounds.size.width / 10.0, self.bounds.size.height / 2.0);
         bt.userInteractionEnabled = NO;
-        [bt setImage:[UIImage imageNamed:@"tfw_sr_key_gray"] forState:UIControlStateNormal];
-        [bt setImage:[UIImage imageNamed:@"tfw_sr_key"] forState:UIControlStateSelected];
+//        [bt setImage:[UIImage imageNamed:@"tfw_sr_key_gray"] forState:UIControlStateNormal];
+        [bt setImage:[UIImage imageNamed:@"tfw_sr_key"] forState:UIControlStateNormal];
         [self addSubview:bt];
         [self.btArray addObject:bt];
     }
     
-    [self setBtRate];
+    //[self setBtRate];
 }
 
 -(void)setBtRate
 {
-    int num = (int)(self.rate * 100) / 20;
-    for (int i = 0; i < 5; i++) {
-        UIButton *bt = [self.btArray objectAtIndex:i];
-        if (i < num) {
-            bt.selected = YES;
-        }
-        else
-        {
-            bt.selected = NO;
-        }
-    }
+//    int num = (int)(self.rate * 100) / 20;
+//    for (int i = 0; i < 5; i++) {
+//        UIButton *bt = [self.btArray objectAtIndex:i];
+//        if (i < num) {
+//            bt.selected = YES;
+//        }
+//        else
+//        {
+//            bt.selected = NO;
+//        }
+//    }
 }
 
 

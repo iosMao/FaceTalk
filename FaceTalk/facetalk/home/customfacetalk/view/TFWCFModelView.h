@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface TFWCFModelView : UIView
-
+-(void)setNumImage:(NSInteger )index;
 +(id)createModelViewwithX:(float)x Y:(float)y title:(NSString *)title subTitle:(NSString *)subtitle index:(NSInteger)index;
 
 @end

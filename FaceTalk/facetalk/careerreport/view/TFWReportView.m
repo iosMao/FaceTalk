@@ -90,14 +90,14 @@ static NSString *cellSuggestIdentifier = @"cellSuggestIdentifier";
     imageView.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ftw_share_head" ofType:@"png"]];
     [headView addSubview:imageView];
     
-    _customNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(225, 202 + 177, 320, 56)];
+    _customNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(225, 202 + 170, 320, 56)];
     _customNameLabel.font = [UIFont systemFontOfSize:43];
     _customNameLabel.textColor = [UIColor whiteColor];
     _customNameLabel.textAlignment = NSTextAlignmentCenter;
     _customNameLabel.text = @"致 李月月";
     [headView addSubview:_customNameLabel];
     
-    _adviserNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(420, 265 + 177, 80, 30)];
+    _adviserNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(360, 265 + 174, 80, 30)];
     _adviserNameLabel.font = [UIFont systemFontOfSize:19];
     _adviserNameLabel.textColor = [UIColor blackColor];
     _adviserNameLabel.textAlignment = NSTextAlignmentCenter;

@@ -38,9 +38,13 @@
     [self buildPickerBack];
     [self buildPickerView];
     [self buildOkButton];
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeNum) name:@"FTWPOSTPICKERVIEWSELECTEDNUMBER" object:nil];
     [super viewDidLoad];
 }
+
+
+
+
 -(void)viewWillAppear:(BOOL)animated
 {
     TFDNavViewController *nav=(TFDNavViewController *)self.navigationController;
@@ -92,7 +96,8 @@
 
 -(void)createOne
 {
-    TFWCFModelView *view = [TFWCFModelView createModelViewwithX:210 / 2.0 Y:585 / 2.0 title:@"真选择" subTitle:@"成就事业" index:1];
+    TFWCFModelView *view = [TFWCFModelView createModelViewwithX:210 / 2.0 Y:585 / 2.0 title:@"真选择" subTitle:@"理想事业" index:1];
+    view.tag=1001;
     [self.view addSubview:view];
     view.layer.anchorPoint = CGPointMake(0, 0);
     view.center = CGPointMake(210 / 2.0, 585 / 2.0 + 200);
@@ -104,6 +109,7 @@
 -(void)createTwo
 {
     TFWCFModelView *view = [TFWCFModelView createModelViewwithX:374 Y:150 title:@"真英才" subTitle:@"傲人风采" index:2];
+    view.tag=1002;
     [self.view addSubview:view];
     
     view.layer.anchorPoint = CGPointMake(0, 0);
@@ -116,6 +122,7 @@
 -(void)createThree
 {
     TFWCFModelView *view = [TFWCFModelView createModelViewwithX:620 Y:240 title:@"真精彩" subTitle:@"友我邦你" index:3];
+    view.tag=1003;
     [self.view addSubview:view];
     
     view.layer.anchorPoint = CGPointMake(0, 0);
@@ -127,7 +134,8 @@
 
 -(void)createFour
 {
-    TFWCFModelView *view = [TFWCFModelView createModelViewwithX:855 Y:175 title:@"真成就" subTitle:@"我在友邦" index:4];
+    TFWCFModelView *view = [TFWCFModelView createModelViewwithX:855 Y:175 title:@"真成就" subTitle:@"璀璨友邦" index:4];
+    view.tag=1004;
     [self.view addSubview:view];
     
     view.layer.anchorPoint = CGPointMake(0, 0);
@@ -174,6 +182,21 @@
     [self.view addSubview:bt];
 }
 
+
+-(void)changeNum
+{
+    TFWCFModelView *view1 =(TFWCFModelView *)[self.view viewWithTag:1001];
+    TFWCFModelView *view2 =(TFWCFModelView *)[self.view viewWithTag:1002];
+    TFWCFModelView *view3 =(TFWCFModelView *)[self.view viewWithTag:1003];
+    TFWCFModelView *view4 =(TFWCFModelView *)[self.view viewWithTag:1004];
+    NSArray *orderArray = [_cspickerView getCurrentSelected];
+    [view1 setNumImage:[[orderArray objectAtIndex:0] integerValue]];
+    [view2 setNumImage:[[orderArray objectAtIndex:1] integerValue]];
+    [view3 setNumImage:[[orderArray objectAtIndex:2] integerValue]];
+    [view4 setNumImage:[[orderArray objectAtIndex:3] integerValue]];
+    
+}
+
 -(void)back:(UIButton *)button
 {
     NSLog(@"back");
@@ -185,13 +208,42 @@
     TFWOrderModel *model = [[TFWOrderModel alloc] init];
     NSArray *orderArray = [_cspickerView getCurrentSelected];
     if (orderArray.count == 4) {
-        model.first = [[orderArray objectAtIndex:0] integerValue];
-        model.second = [[orderArray objectAtIndex:1] integerValue];
-        model.third = [[orderArray objectAtIndex:2] integerValue];
-     
-        model.fourth = [[orderArray objectAtIndex:3] integerValue];
+        for (int i = 0; i < 4; i++) {
+            if ([[orderArray objectAtIndex:i] integerValue] == 1) {
+                model.first = i + 1;
+            }
+            else if ([[orderArray objectAtIndex:i] integerValue] == 2)
+            {
+                model.second = i + 1;
+                
+            }
+            else if ([[orderArray objectAtIndex:i] integerValue] == 3)
+            {
+                model.third = i + 1;
+                
+            }
+            else if ([[orderArray objectAtIndex:i] integerValue] == 4)
+            {
+                model.fourth = i + 1;
+                
+            }
+        }
+        if (model.first==0||model.second==0||model.third==0||model.fourth==0) {
+            [SVProgressHUD showInfoWithStatus:@"排序结果有误" maskType:SVProgressHUDMaskTypeBlack];
+            return;
+            
+            
+        }
+        
+        
+//        model.first = [[orderArray objectAtIndex:0] integerValue];
+//        model.second = [[orderArray objectAtIndex:1] integerValue];
+//        model.third = [[orderArray objectAtIndex:2] integerValue];
+//     
+//        model.fourth = [[orderArray objectAtIndex:3] integerValue];
         
         if ([[FTWDataManager shareManager] saveSelectOrder:model]) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"FTDCHANGERIGHTMENU" object:nil ];
             if ([self.strType isEqualToString:@"first"]) {
                 TFWStartTalkViewController *TFWStartTalkViewCol=[[TFWStartTalkViewController alloc]init];
                 [self.navigationController pushViewController:TFWStartTalkViewCol animated:YES];

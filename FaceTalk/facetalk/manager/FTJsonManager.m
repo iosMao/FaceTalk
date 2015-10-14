@@ -107,6 +107,7 @@ static FTJsonManager *shareManager;
 {
     NSArray *array = _excellence;
     NSMutableArray *mutArray = [NSMutableArray new];
+    
     for (NSDictionary *dict in array) {
         FTJsonExcellentModel *model = [FTJsonExcellentModel new];
         model.name = [dict objectForKey:@"name"];
@@ -120,6 +121,7 @@ static FTJsonManager *shareManager;
 
 -(FTJsonExcellentModel *)getElementItemAtIndex:(int)index
 {
+    
     if (index >= _excellence_count) {
         return nil;
     }

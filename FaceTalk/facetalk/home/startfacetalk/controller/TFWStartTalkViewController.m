@@ -23,10 +23,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    TFDNavViewController *nav=(TFDNavViewController *)self.navigationController;
-    nav.btnSlider.hidden=NO;
-    nav.btnRightMenu.hidden=NO;
+    
     [self buildBackGround];
     [self buildBackButton];
     [self buildTitleLabel];
@@ -36,6 +33,9 @@
 }
 -(void)viewWillAppear:(BOOL)animated
 {
+    TFDNavViewController *nav=(TFDNavViewController *)self.navigationController;
+    nav.btnSlider.hidden=NO;
+    nav.btnRightMenu.hidden=NO;
     [self buildOrderView];
 }
 

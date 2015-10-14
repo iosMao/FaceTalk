@@ -104,45 +104,45 @@
             switch (index) {
                 case 0:
                     if (_is_hope) {
-                        item.hopeScore = weakself.fiveView.rate0 * 10;
+                        item.hopeScore = (int)(pipeView.pipevalue * 10) / 1.0;
                     }else{
-                        item.currentScore = weakself.fiveView.rate0 * 10;
+                        item.currentScore = (int)(pipeView.pipevalue * 10) / 1.0;
                     }
                     [weakself.fiveView setShadowwithRate1:pipeView.pipevalue withRate2:weakself.fiveView.rate1 withRate3:weakself.fiveView.rate2 withRate4:weakself.fiveView.rate3 withRate5:weakself.fiveView.rate4];
                     break;
                     
                 case 1:
                     if (_is_hope) {
-                        item.hopeScore = weakself.fiveView.rate1 * 10;
+                        item.hopeScore = (int)(pipeView.pipevalue * 10) / 1.0;
                     }else{
-                        item.currentScore = weakself.fiveView.rate1 * 10;
+                        item.currentScore = (int)(pipeView.pipevalue * 10) / 1.0;
                     }
                     [weakself.fiveView setShadowwithRate1:weakself.fiveView.rate0 withRate2:pipeView.pipevalue withRate3:weakself.fiveView.rate2 withRate4:weakself.fiveView.rate3 withRate5:weakself.fiveView.rate4];
                     break;
                     
                 case 2:
                     if (_is_hope) {
-                        item.hopeScore = weakself.fiveView.rate2 * 10;
+                        item.hopeScore = (int)(pipeView.pipevalue * 10) / 1.0;
                     }else{
-                        item.currentScore = weakself.fiveView.rate2 * 10;
+                        item.currentScore = (int)(pipeView.pipevalue * 10) / 1.0;
                     }
                     [weakself.fiveView setShadowwithRate1:weakself.fiveView.rate0 withRate2:weakself.fiveView.rate1 withRate3:pipeView.pipevalue withRate4:weakself.fiveView.rate3 withRate5:weakself.fiveView.rate4];
                     break;
                     
                 case 3:
                     if (_is_hope) {
-                        item.hopeScore = weakself.fiveView.rate3 * 10;
+                        item.hopeScore = (int)(pipeView.pipevalue * 10) / 1.0;
                     }else{
-                        item.currentScore = weakself.fiveView.rate3 * 10;
+                        item.currentScore = (int)(pipeView.pipevalue * 10) / 1.0;
                     }
                     [weakself.fiveView setShadowwithRate1:weakself.fiveView.rate0 withRate2:weakself.fiveView.rate1 withRate3:weakself.fiveView.rate2 withRate4:pipeView.pipevalue withRate5:weakself.fiveView.rate4];
                     break;
                     
                 case 4:
                     if (_is_hope) {
-                        item.hopeScore = weakself.fiveView.rate4 * 10;
+                        item.hopeScore = (int)(pipeView.pipevalue * 10) / 1.0;
                     }else{
-                        item.currentScore = weakself.fiveView.rate4 * 10;
+                        item.currentScore = (int)(pipeView.pipevalue * 10) / 1.0;
                     }
                     [weakself.fiveView setShadowwithRate1:weakself.fiveView.rate0 withRate2:weakself.fiveView.rate1 withRate3:weakself.fiveView.rate2 withRate4:weakself.fiveView.rate3 withRate5:pipeView.pipevalue];
                     break;

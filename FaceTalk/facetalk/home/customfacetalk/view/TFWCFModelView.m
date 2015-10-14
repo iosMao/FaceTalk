@@ -72,6 +72,16 @@
 //    }];
 }
 
+-(void)setNumImage:(NSInteger )index
+{
+    NSString *imageName = [NSString stringWithFormat:@"tfw_cf_realnumber%ld",index];
+    UIImage *image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:imageName ofType:@"png"]];
+    self.numberImageView.image = image;
+    CGRect oriRect = self.numberImageView.frame;
+    CGSize newSize = image.size;
+    CGRect newRect = CGRectMake(oriRect.origin.x - (newSize.width - oriRect.size.width) / 2.0, oriRect.origin.y - (newSize.height - oriRect.size.height) / 2.0, newSize.width, newSize.height);
+    self.numberImageView.frame = newRect;
+}
 -(void)buildNumber
 {
     NSString *imageName = [NSString stringWithFormat:@"tfw_cf_realnumber%ld",(long)self.index];

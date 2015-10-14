@@ -32,27 +32,27 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    imgIndex=0;
-    imgSmall1.contentMode= UIViewContentModeScaleAspectFill;
-    imgSmall2.contentMode= UIViewContentModeScaleAspectFill;
-    imgSmall3.contentMode= UIViewContentModeScaleAspectFill;
-    imgSmall4.contentMode= UIViewContentModeScaleAspectFill;
+    imgIndex = 0;
+    imgSmall1.contentMode = UIViewContentModeScaleAspectFill;
+    imgSmall2.contentMode = UIViewContentModeScaleAspectFill;
+    imgSmall3.contentMode = UIViewContentModeScaleAspectFill;
+    imgSmall4.contentMode = UIViewContentModeScaleAspectFill;
     [imgSmall1.layer setMasksToBounds:YES];
     [imgSmall2.layer setMasksToBounds:YES];
     [imgSmall3.layer setMasksToBounds:YES];
     [imgSmall4.layer setMasksToBounds:YES];
     
-    backgroundView= [[FTDbackgroundView alloc]initWithFrame:self.view.frame];
-    backgroundView.delegate=self;
+    backgroundView = [[FTDbackgroundView alloc]initWithFrame:self.view.frame];
+    backgroundView.delegate = self;
     
-    homeAlertView= [FTDHomeAlertView initCustomview];
-    homeAlertView.delegate= self;
-    homeAlertView.center=CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2-80);
+    homeAlertView = [FTDHomeAlertView initCustomview];
+    homeAlertView.delegate = self;
+    homeAlertView.center = CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2-80);
     
     
-    homeAlertFinishView= [FTDHomAlertFinishView initCustomview];
-    homeAlertFinishView.delegate= self;
-    homeAlertFinishView.center=CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2-80);
+    homeAlertFinishView = [FTDHomAlertFinishView initCustomview];
+    homeAlertFinishView.delegate = self;
+    homeAlertFinishView.center = CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2-80);
     
     [self getImgData];
     
@@ -65,9 +65,9 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     NSLog(@"%@",self.navigationController);
-    TFDNavViewController *nav=(TFDNavViewController *)self.navigationController;
-    nav.btnSlider.hidden=YES;
-    nav.btnRightMenu.hidden=YES;
+    TFDNavViewController *nav = (TFDNavViewController *)self.navigationController;
+    nav.btnSlider.hidden = YES;
+    nav.btnRightMenu.hidden = YES;
     loadTimer = [NSTimer scheduledTimerWithTimeInterval:7 target:self selector:@selector(loadimg) userInfo:nil repeats:YES];
     [loadTimer fire];
 }
@@ -77,12 +77,12 @@
 }
 -(void)getImgData
 {
-   arrayImage=[[NSArray alloc]initWithArray:[FTJsonManager shareManager].guide_page];
+   arrayImage = [[NSArray alloc]initWithArray:[FTJsonManager shareManager].guide_page];
     
-    imgSmall1.image=[UIImage imageWithContentsOfFile:[arrayImage objectAtIndex:0]];
-    imgSmall2.image=[UIImage imageWithContentsOfFile:[arrayImage objectAtIndex:1]];
-    imgSmall3.image=[UIImage imageWithContentsOfFile:[arrayImage objectAtIndex:2]];
-    imgSmall4.image=[UIImage imageWithContentsOfFile:[arrayImage objectAtIndex:3]];
+    imgSmall1.image = [UIImage imageWithContentsOfFile:[arrayImage objectAtIndex:0]];
+    imgSmall2.image = [UIImage imageWithContentsOfFile:[arrayImage objectAtIndex:1]];
+    imgSmall3.image = [UIImage imageWithContentsOfFile:[arrayImage objectAtIndex:2]];
+    imgSmall4.image = [UIImage imageWithContentsOfFile:[arrayImage objectAtIndex:3]];
 }
 
 
@@ -92,16 +92,16 @@
 -(void)loadimg
 {
     
-    if (imgIndex>3) {
-        imgIndex=0;
+    if (imgIndex > 3) {
+        imgIndex = 0;
     }
  
     [UIView animateKeyframesWithDuration:1 delay:0 options:UIViewKeyframeAnimationOptionLayoutSubviews animations:^{
-        imgLeadH.frame=CGRectMake(305+(imgIndex*121), 581, 123, 105);
+        imgLeadH.frame = CGRectMake(305+(imgIndex*121), 581, 123, 105);
         
     } completion:^(BOOL finished) {
-        imgBig.image=[UIImage imageWithContentsOfFile:[arrayImage objectAtIndex:imgIndex]];
-        imgIndex=imgIndex+1;
+        imgBig.image = [UIImage imageWithContentsOfFile:[arrayImage objectAtIndex:imgIndex]];
+        imgIndex = imgIndex+1;
     }];
 }
 -(void)downkeyboard{
@@ -173,13 +173,13 @@
 
 -(void)gotoCreatMenu
 {
-    TFWCustomTalkViewController *TFWCustomTalkViewCol=[[TFWCustomTalkViewController alloc]init];
-    TFWCustomTalkViewCol.strType=@"first";
+    TFWCustomTalkViewController *TFWCustomTalkViewCol = [[TFWCustomTalkViewController alloc]init];
+    TFWCustomTalkViewCol.strType = @"first";
     [self.navigationController pushViewController:TFWCustomTalkViewCol animated:YES];
 }
 -(void)gotoMenu
 {
-    TFWStartTalkViewController *TFWStartTalkViewCol=[[TFWStartTalkViewController alloc]init];
+    TFWStartTalkViewController *TFWStartTalkViewCol = [[TFWStartTalkViewController alloc]init];
     [self.navigationController pushViewController:TFWStartTalkViewCol animated:YES];
 }
 - (void)didReceiveMemoryWarning {
@@ -201,16 +201,16 @@
 //
 }
 - (IBAction)image1click:(id)sender {
-    imgIndex=0;
-    if (imgIndex>3) {
-        imgIndex=0;
+    imgIndex = 0;
+    if (imgIndex > 3) {
+        imgIndex = 0;
     }
     
     [UIView animateKeyframesWithDuration:1 delay:0 options:UIViewKeyframeAnimationOptionLayoutSubviews animations:^{
-        imgLeadH.frame=CGRectMake(305+(imgIndex*121), 581, 123, 105);
+        imgLeadH.frame = CGRectMake(305+(imgIndex*121), 581, 123, 105);
         
     } completion:^(BOOL finished) {
-        imgBig.image=[UIImage imageWithContentsOfFile:[arrayImage objectAtIndex:0]];
+        imgBig.image = [UIImage imageWithContentsOfFile:[arrayImage objectAtIndex:0]];
     }];
 }
 

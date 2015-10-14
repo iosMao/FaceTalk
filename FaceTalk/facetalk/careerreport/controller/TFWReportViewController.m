@@ -44,6 +44,7 @@
     [self buildEOPButton];
     [self buildShareButton];
     [self buildShareView];
+    CANCREATREPORT = NO;
 }
 -(void)buildShareView
 {
@@ -165,7 +166,7 @@
 -(void)ShareAction:(UIButton *)bt
 {
     if (_reportView.endEdit) {
-        [self CreatReportImage];
+        
         
         
         [self.view addSubview:_backgroundView];
@@ -192,7 +193,10 @@
         }
         _reportView.endEdit = YES;
         bt.selected = YES;
+        CANCREATREPORT = YES;
         [_reportView.tableView reloadData];
+        [self CreatReportImage];
+        
     }
 }
 
@@ -210,8 +214,16 @@
 
 -(void)continueAction
 {
-    FTDHomeViewController *vc=[[FTDHomeViewController alloc]init];
-    [self.navigationController setViewControllers:@[vc] animated:YES];
+    if (CANCREATREPORT) {
+        FTDHomeViewController *vc=[[FTDHomeViewController alloc]init];
+        [self.navigationController setViewControllers:@[vc] animated:YES];
+    }
+    else{
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"提示" message:@"为了更好的记录本次信息，请先生成报告！" delegate:self cancelButtonTitle:@"确定" otherButtonTitles: nil];
+        [alert show];
+    }
+    
+    
 }
 -(void)shareQQ{
     NSLog(@"qq分享");

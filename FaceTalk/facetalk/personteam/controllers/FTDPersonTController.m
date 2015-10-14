@@ -126,6 +126,7 @@
     else{
         cell.viewEdit.hidden=YES;
     }
+     
     cell.imgPhoto.contentMode=UIViewContentModeScaleAspectFit;
     //cell.imgPhoto.clipsToBounds=YES;//设置为UIViewContentModeScaleAspectFill图片溢出，设为yes就好了
     

@@ -91,7 +91,7 @@
 -(void)searchAgentList:(NSString *)agentName//fix me 此处调用本地数据库查询接口
 {
     [arrayList removeAllObjects];
-     arrayList=[NSMutableArray arrayWithArray:[self searchContactWithKeywords:agentName]];//这里调查询数据库接口
+      arrayList=[NSMutableArray arrayWithArray:[self searchContactWithKeywords:agentName]];//这里调查询数据库接口
     
     if (arrayList.count>0) {
         tableName.hidden=NO;

@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface FTDMyHoursViewController : UIViewController
+- (IBAction)backclick:(id)sender;
+@property (strong, nonatomic) IBOutlet UIImageView *imgDesc;
 
 @end

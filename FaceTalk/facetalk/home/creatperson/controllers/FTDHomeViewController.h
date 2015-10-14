@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "TFDNavViewController.h"
 @interface FTDHomeViewController : UIViewController
-@property(nonatomic,strong)UIButton *btn;
+@property (nonatomic, strong) UIButton *btn;
 @property (strong, nonatomic) IBOutlet UIButton *btnKey;
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollBG;
 - (IBAction)backIMOclick:(id)sender;

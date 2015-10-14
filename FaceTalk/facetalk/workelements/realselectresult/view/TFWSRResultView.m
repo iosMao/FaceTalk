@@ -84,7 +84,7 @@
     }
     
 //    _pathView.image = [self createPathwithRate:_index / 100.0];
-    _roundView.center = self.currentPoint;
+    _roundView.center = CGPointMake(240, 53);
     _rateLabel.text = [NSString stringWithFormat:@"%2d%@",_index,@"%"];
     [_keyView setRate:_index / 100.0];
     _index++;

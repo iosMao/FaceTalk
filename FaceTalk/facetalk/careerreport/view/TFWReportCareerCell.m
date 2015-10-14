@@ -107,7 +107,7 @@
     titleLable3.font = [UIFont boldSystemFontOfSize:20];
     titleLable3.textColor = [UIColor whiteColor];
     titleLable3.text = @"专家建议您";
-    [back addSubview:titleLable3];
+    //[back addSubview:titleLable3];
 
 //    UILabel *subLabel2 = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(titleLable2.frame) - 15, CGRectGetMaxY(titleLable2.frame) + 2, 16, 60)];
 //    subLabel2.numberOfLines = 0;
@@ -138,17 +138,20 @@
     sum /= 5.0;
     _allRateLabel.text = [NSString stringWithFormat:@"%d%@",(int)(sum * 100),@"%"];
     
-    UILabel *subLabel3 = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMinX(titleLable3.frame), CGRectGetMaxY(titleLable3.frame)-5, CGRectGetWidth(line3.frame)+250, 60)];
+    UILabel *subLabel3 = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMinX(titleLable3.frame), CGRectGetMaxY(titleLable3.frame)-5-23, CGRectGetWidth(line3.frame)+250, 50)];
     subLabel3.font = [UIFont boldSystemFontOfSize:18];
     subLabel3.numberOfLines=0;
     subLabel3.textColor = [UIColor whiteColor];
+      //subLabel3.backgroundColor = [UIColor blueColor];
     //subLabel3.text = @" 是时候考虑下未来的职业发展啦！";
-    if (sum > 0 && sum < 0.59) {
-        subLabel3.text = @"专家建议您是时候考虑下未来的职业发展啦！";
+    if (sum >= 0 && sum < 0.59) {
+        subLabel3.text = @"是时候考虑下未来的职业发展啦！";
+        subLabel3.frame=CGRectMake(CGRectGetMinX(titleLable3.frame), CGRectGetMaxY(titleLable3.frame)-5-18, CGRectGetWidth(line3.frame)+250, 20);
     }else if (sum < 0.79){
-        subLabel3.text = @"专家认为您在比较满意现有工作的同时，也可以尝试挑战新的机会！";
+        subLabel3.text = @"您在比较满意现有工作的同时，也可以尝试挑战新的机会！";
+        subLabel3.frame=CGRectMake(CGRectGetMinX(titleLable3.frame), CGRectGetMaxY(titleLable3.frame)-5-18, CGRectGetWidth(line3.frame)+250, 20);
     }else{
-        subLabel3.text = @"专家认为您目前非常满意自己的职业，您是工作中的成功者，祝贺您！同时也建议您是时候考虑下保障和财务管理方案！";
+        subLabel3.text = @"您目前非常满意自己的职业，您是这个领域的成功者，祝贺您！同时也建议您是时候考虑下保障和财务管理方案！";
     }
     [back addSubview:subLabel3];
     

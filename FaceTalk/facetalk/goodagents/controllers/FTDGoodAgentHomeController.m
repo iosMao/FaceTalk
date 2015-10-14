@@ -73,8 +73,8 @@
                 btnCareer.alpha=1;
                 btnFreedom.alpha=1;
                 btnCompany.center=CGPointMake(270, 394);
-                btnFreedom.center=CGPointMake(526, 394);
-                btnCareer.center=CGPointMake(787, 394);
+                btnFreedom.center=CGPointMake(787, 394);
+                btnCareer.center=CGPointMake(526, 394);
             } completion:^(BOOL finished) {
                 
             }];

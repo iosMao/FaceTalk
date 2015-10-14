@@ -10,7 +10,9 @@
 
 @interface FTJsonMarkModel : NSObject
 
-@property (nonatomic,assign) NSInteger mark;
+@property (nonatomic,assign) NSInteger old_mark;
+@property (nonatomic,assign) NSInteger new_mark;
 @property (nonatomic,copy) NSString *name;
+@property (nonatomic,copy) NSString *desc;
 
 @end

@@ -14,10 +14,8 @@
 @property (nonatomic,copy) NSString *join_date;
 @property (nonatomic,copy) NSString *name;
 @property (nonatomic,copy) NSString *old_job;
-@property (nonatomic,copy) NSArray *old_mark;
 @property (nonatomic,copy) NSString *picture;
 @property (nonatomic,copy) NSString *share_word;
+@property (nonatomic,copy) NSString *sub_company;
 @property (nonatomic,copy) NSArray *markArray;
-
-
 @end

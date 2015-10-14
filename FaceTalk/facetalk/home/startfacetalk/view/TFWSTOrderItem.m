@@ -75,7 +75,8 @@
 
 -(void)createOne
 {
-    TFWSTOrderRoundItem *item = [TFWSTOrderRoundItem createRoundItemWithNumber:1 andCenter:CGPointMake(STARTX, 190) andTitle:@"真选择" andSubtitle:@"成就事业"];
+    int index = (int)((self.center.x - 150) / 200 + 0.5);
+    TFWSTOrderRoundItem *item = [TFWSTOrderRoundItem createRoundItemWithNumber:index + 1 andCenter:CGPointMake(STARTX, 190) andTitle:@"真选择" andSubtitle:@"理想事业"];
     [self addSubview:item];
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(85, 50, 106, 219)];
     imageView.image = [UIImage imageNamed:@"tfw_sf_tie"];
@@ -91,7 +92,8 @@
 
 -(void)createTwo
 {
-    TFWSTOrderRoundItem *item = [TFWSTOrderRoundItem createRoundItemWithNumber:2 andCenter:CGPointMake(STARTX, 190) andTitle:@"真英才" andSubtitle:@"傲人风采"];
+    int index = (int)((self.center.x - 150) / 200 + 0.5);
+    TFWSTOrderRoundItem *item = [TFWSTOrderRoundItem createRoundItemWithNumber:index + 1 andCenter:CGPointMake(STARTX, 190) andTitle:@"真英才" andSubtitle:@"傲人风采"];
     [self addSubview:item];
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(40, 0, 161, 157)];
     imageView.image = [UIImage imageNamed:@"tfw_sf_head"];
@@ -107,7 +109,8 @@
 
 -(void)createThree
 {
-    TFWSTOrderRoundItem *item = [TFWSTOrderRoundItem createRoundItemWithNumber:3 andCenter:CGPointMake(STARTX, 190) andTitle:@"真精彩" andSubtitle:@"友我邦你"];
+    int index = (int)((self.center.x - 150) / 200 + 0.5);
+    TFWSTOrderRoundItem *item = [TFWSTOrderRoundItem createRoundItemWithNumber:index + 1 andCenter:CGPointMake(STARTX, 190) andTitle:@"真精彩" andSubtitle:@"友我邦你"];
     [self addSubview:item];
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(104, 40, 156, 229)];
     imageView.image = [UIImage imageNamed:@"tfw_sf_pan"];
@@ -123,7 +126,8 @@
 
 -(void)createFour
 {
-    TFWSTOrderRoundItem *item = [TFWSTOrderRoundItem createRoundItemWithNumber:4 andCenter:CGPointMake(STARTX, 190) andTitle:@"真成就" andSubtitle:@"我在友邦"];
+    int index = (int)((self.center.x - 150) / 200 + 0.5);
+    TFWSTOrderRoundItem *item = [TFWSTOrderRoundItem createRoundItemWithNumber:index + 1 andCenter:CGPointMake(STARTX, 190) andTitle:@"真成就" andSubtitle:@"璀璨友邦"];
     [self addSubview:item];
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(138, 40, 197, 201)];
     imageView.image = [UIImage imageNamed:@"tfw_sf_cup"];

@@ -10,26 +10,17 @@
 
 @implementation FTJsonPeopleModel
 
--(void)setOld_mark:(NSArray *)old_mark
-{
-    NSMutableArray *mutArray = [NSMutableArray new];
-    for (NSDictionary *dict in old_mark) {
-        FTJsonMarkModel *model = [FTJsonMarkModel new];
-        model.mark = [[dict objectForKey:@"mark"] integerValue];
-        model.name = [dict objectForKey:@"name"];
-        [mutArray addObject:model];
-    }
-    
-    _old_mark = mutArray;
-}
+
 
 -(void)setMarkArray:(NSArray *)markArray
 {
     NSMutableArray *mutArray = [NSMutableArray new];
     for (NSDictionary *dict in markArray) {
         FTJsonMarkModel *model = [FTJsonMarkModel new];
-        model.mark = [[dict objectForKey:@"mark"] integerValue];
+        model.old_mark = [[dict objectForKey:@"old_mark"] integerValue];
+        model.new_mark = [[dict objectForKey:@"new_mark"] integerValue];
         model.name = [dict objectForKey:@"name"];
+        model.desc = [dict objectForKey:@"desc"];
         [mutArray addObject:model];
     }
     
