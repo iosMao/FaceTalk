@@ -11,7 +11,7 @@
 @implementation FTDDevWayView
 +(FTDDevWayView *)initCustomview
 {
-    NSArray* nibView =  [[NSBundle mainBundle] loadNibNamed:@"FTDDevWayView" owner:nil options:nil];
+    NSArray* nibView = [[NSBundle mainBundle] loadNibNamed:@"FTDDevWayView" owner:nil options:nil];
     return [nibView objectAtIndex:0];
     
     

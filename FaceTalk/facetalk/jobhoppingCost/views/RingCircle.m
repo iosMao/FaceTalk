@@ -44,7 +44,7 @@
 }
 
 -(void)initView{
-    self.backgroundColor = [UIColor lightGrayColor];
+    self.backgroundColor = [UIColor clearColor];
 }
 
 -(void)setDataArray:(NSArray *)dataArray{

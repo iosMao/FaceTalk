@@ -9,9 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface TFDNavViewController : UINavigationController<UITableViewDataSource,UITableViewDelegate,UINavigationControllerDelegate>
-{
-    int indexID;//记录左边侧滑栏点击的哪一个
-}
+ 
+@property (nonatomic,assign)int indexID;//记录左边侧滑栏点击的哪一个
+
 @property(nonatomic,strong)UITableView *tableMenu;
 @property(nonatomic,strong)UIButton *btnSlider;
 @property(nonatomic,strong)UIButton *btnScreen;

@@ -8,12 +8,14 @@
 
 #import "TFWRealHelpResultController.h"
 #import "TFWHelpResultMenuView.h"
+#import "FTDRightMenuView.h"
 
 @interface TFWRealHelpResultController ()
 
 @property (nonatomic,strong) UILabel *titleLabel;
 @property (nonatomic,strong) TFWHelpResultMenuView *menu;
 @property (nonatomic,strong) UIImageView *imageView;
+@property (nonatomic,strong) FTDRightMenuView *rightMenu;
 
 @end
 
@@ -27,7 +29,7 @@
     [self buildBackButton];
     [self buildTitleLabel];
     [self buildMenu];
-    [self buildImageView];
+    //[self buildImageView];
 }
 
 -(void)buildBackGround
@@ -66,6 +68,14 @@
         [weakSelf menuClickAction:index];
     }];
     [self.view addSubview:_menu];
+    
+    
+    _rightMenu = [FTDRightMenuView createMenuwithArray:@[@"荣誉奖励",@"讲师课堂"] andBottom:CGPointMake(1000, 745) andHightBtnIndex:0];
+    
+        [_rightMenu setRightMenuTapBlock:^(NSInteger index){
+        [weakSelf menuClickAction:index];
+    }];
+    [self.view addSubview:_rightMenu];
 }
 
 -(void)buildImageView

@@ -53,7 +53,7 @@ static FTJsonManager *shareManager;
     _guide_page             = [_jsonDic objectForKey:@"guide_page"];
     _excellence             = [_jsonDic objectForKey:@"excellence"];
     
-    [self setAIAElements];
+    //[self setAIAElements];
     [self setTenObjectiveElements];
     [self setbackGround];
     [self setGuidePage];

@@ -27,14 +27,14 @@
 
 +(FTDProfessionalTrainView *)initCustomview
 {
-    NSArray* nibView =  [[NSBundle mainBundle] loadNibNamed:@"FTDProfessionalTrainView" owner:nil options:nil];
+    NSArray* nibView = [[NSBundle mainBundle] loadNibNamed:@"FTDProfessionalTrainView" owner:nil options:nil];
     return [nibView objectAtIndex:0];
     
     
 }
 -(void)awakeFromNib
 {
-    scrollBG.pagingEnabled=YES;
+    scrollBG.pagingEnabled = YES;
     [self changeDesc:0];
     
 }
@@ -50,7 +50,7 @@
     
     if (selectID == 0) {
         scrollBG.contentSize = CGSizeMake(887*3, 622);
-        pageCol.numberOfPages=3;
+        pageCol.numberOfPages = 3;
         for (int i = 0; i < 3; i++) {
             UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(i*887, 0, 887, 622)];
              
@@ -61,7 +61,7 @@
     else if (selectID == 1)
     {
         scrollBG.contentSize = CGSizeMake(887*2, 622);
-        pageCol.numberOfPages=2;
+        pageCol.numberOfPages = 2;
         for (int i = 0; i < 2; i++) {
             UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(i*887, 0, 887, 622)];
             
@@ -71,12 +71,13 @@
     }
     else{
         scrollBG.contentSize = CGSizeMake(887*3, 622);
-        pageCol.numberOfPages=3;
+        pageCol.numberOfPages = 3;
         for (int i = 0; i < 3; i++) {
             UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(i*887, 0, 887, 622)];
             imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"FTD_ProfessionalTrain_NPL%d.png", i]];
             [scrollBG addSubview:imageView];
         }
+        
     }
 }
 - (void)scrollViewDidScroll:(UIScrollView *)sender

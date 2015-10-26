@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-IQKeyboardManager.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-SVProgressHUD.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,22 +32,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>175E1B630E5E8B8195CEF087</key>
+		<key>4CC6A01AE988A18487A7D6EF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>70E7817E72B1CA7DA9B574D0</key>
+		<key>75836FF0E66282339FFD414F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9062962B977917D241AB34B9</key>
+		<key>8A44B46A6AF6004741A31FF4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B5ED069EBD2D11DB85A2BCE6</key>
+		<key>C243126C75B9BFF27D330897</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CE810D8D85CE46813A2F2B16</key>
 		<dict>
 			<key>primary</key>
 			<true/>

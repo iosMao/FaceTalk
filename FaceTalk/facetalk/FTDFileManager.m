@@ -9,5 +9,5 @@
 #import "FTDFileManager.h"
 
 @implementation FTDFileManager
-
+singleton_implemetntion(FTDFileManager)
 @end

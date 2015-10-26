@@ -19,6 +19,8 @@
 #import "TFWCustomTalkViewController.h"
 #import "FTDMyHoursViewController.h"
 #import "FTDTrainViewController.h"
+#import "FTDJobHoppingCostViewController.h"
+#import "FTDTalentsListViewController.h"
 @interface TFDNavViewController ()
 {
     NSArray *arrayStr;
@@ -34,7 +36,7 @@
 @end
 
 @implementation TFDNavViewController
-@synthesize tableMenu,btnSlider,btnScreen,btnRightMenu,viewRightMenu;
+@synthesize tableMenu,btnSlider,btnScreen,btnRightMenu,viewRightMenu,indexID;
 - (void)viewDidLoad {
     [super viewDidLoad];
     indexID=10000;
@@ -42,7 +44,7 @@
     [self buildSliderTable];
     [self buildRightBtn];
     [self buildRightViewMenu];
-    arrayStr= @[@{@"title":@"真选择",@"subtitle":@"理想事业"},@{@"title":@"真英才",@"subtitle":@"傲人风采"},@{@"title":@"真精彩",@"subtitle":@"友我帮你"},@{@"title":@"真成就",@"subtitle":@"璀璨友邦"}];
+    arrayStr= @[@{@"title":@"真选择",@"subtitle":@"理想事业"},@{@"title":@"真英才",@"subtitle":@"傲人风采"},@{@"title":@"真精彩",@"subtitle":@"友我邦你"},@{@"title":@"真成就",@"subtitle":@"璀璨友邦"}];
     
     
     [self.view insertSubview:btnSlider atIndex:10000];
@@ -392,7 +394,7 @@
              cell.imgIcon.image=[UIImage imageNamed:@"FTD_slider_home.png"];
             break;
         case 1:
-            cell.lblTitle.text=@"EOP报名";
+            cell.lblTitle.text=@"人才库";
             cell.imgIcon.image=[UIImage imageNamed:@"FTD_slider_image4.png"];
             
             break;
@@ -446,7 +448,15 @@
         else{
             if (indexPath.row==1)
             {
-                NSLog(@"EOP报名");
+                if ([[self.viewControllers lastObject]  isKindOfClass:[FTDTalentsListViewController class ]]) {
+                    return;
+                }
+                
+                NSLog(@"rencaiku");
+                [self removetable];
+                FTDTalentsListViewController *vc = [[FTDTalentsListViewController alloc] init];
+                [self pushViewController:vc animated:YES];
+                
             }
             else if (indexPath.row==2)
             {
@@ -454,16 +464,30 @@
             }
             else if (indexPath.row==3)
             {
+                if ([[self.viewControllers lastObject]  isKindOfClass:[FTDTrainViewController class ]]) {
+                    return;
+                }
+                
                 [self removetable];
+                
                 FTDTrainViewController *vc = [[FTDTrainViewController alloc] init];
                 [self pushViewController:vc animated:YES];
             }
             else if (indexPath.row==4)
             {
+                if ([[self.viewControllers lastObject]  isKindOfClass:[FTDJobHoppingCostViewController class ]]) {
+                    return;
+                }
                 
+                [self removetable];
+                FTDJobHoppingCostViewController *vc = [[FTDJobHoppingCostViewController alloc]init];
+                [self pushViewController:vc animated:YES];
             }
             else if (indexPath.row==5)
             {
+                if ([[self.viewControllers lastObject]  isKindOfClass:[FTDMyHoursViewController class ]]) {
+                    return;
+                }
                 //indexID=indexPath.row;
                 [self removetable];
                 FTDMyHoursViewController *vc = [[FTDMyHoursViewController alloc]init];

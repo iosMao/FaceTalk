@@ -32,13 +32,13 @@
     
     
     NSLog(@"%@",self.navigationController);
-    TFDNavViewController *nav=(TFDNavViewController *) self.navigationController;
-    nav.btnSlider.hidden=YES;
-    nav.btnRightMenu.hidden=YES;
+    TFDNavViewController *nav = (TFDNavViewController *) self.navigationController;
+    nav.btnSlider.hidden    = YES;
+    nav.btnRightMenu.hidden = YES;
     
-    scrollBG.contentSize=CGSizeMake(1024, 748);
-    scrollBG.pagingEnabled=YES;
-    scrollBG.scrollEnabled=NO;
+    scrollBG.contentSize   = CGSizeMake(1024, 748);
+    scrollBG.pagingEnabled = YES;
+    scrollBG.scrollEnabled = NO;
     //[btnKey addTarget:self action:@selector(homeLeadViewclick:event:) forControlEvents:UIControlEventTouchUpInside];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getlocalResourse) name:@"FTDUNZIPSUCCESS" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(backIMOclick:) name:@"FTDREQUESTFAILED" object:nil];
@@ -57,8 +57,8 @@
 {
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSString *dstResourcePath = [[FTDDataPacketManager sharedInstance]unzipDestinationPath];
-    dstResourcePath =[dstResourcePath stringByAppendingPathComponent:@"uploads"];
-    dstResourcePath =[dstResourcePath stringByAppendingPathComponent:@"data.json"];
+    dstResourcePath = [dstResourcePath stringByAppendingPathComponent:@"uploads"];
+    dstResourcePath = [dstResourcePath stringByAppendingPathComponent:@"data.json"];
     if ([fileManager fileExistsAtPath:dstResourcePath]) {
         [self getbackgroundImg];
         loadTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(reminderBtn) userInfo:nil repeats:YES];
@@ -66,16 +66,16 @@
     }
     else{
          
-        [[FTDDataPacketManager sharedInstance]downloadFile];
+        [[FTDDataPacketManager sharedInstance] downloadFile];
     }
 }
 
 
 -(void)getbackgroundImg
 {
-    NSString *strImg=[FTJsonManager shareManager].index_background;
-    UIImageView *scrollImage=[[UIImageView alloc]initWithFrame:CGRectMake(0,20, 1024,748)];
-     scrollImage.image=[UIImage imageWithContentsOfFile:strImg] ;
+    NSString *strImg = [FTJsonManager shareManager].index_background;
+    UIImageView *scrollImage = [[UIImageView alloc]initWithFrame:CGRectMake(0, 20, 1024, 748)];
+     scrollImage.image = [UIImage imageWithContentsOfFile:strImg] ;
      //scrollImage.image=[UIImage imageNamed:@"FTD_home_aiaoffice.png"];
     [scrollBG addSubview:scrollImage];
 }
@@ -87,8 +87,8 @@
 }
 -(void)viewDidDisappear:(BOOL)animated
 {
-    btnKey.alpha=1;
-    btnKey.frame=CGRectMake(700, 350, 260, 180);
+    btnKey.alpha = 1;
+    btnKey.frame = CGRectMake(700, 350, 260, 180);
     
 }
 
@@ -101,10 +101,10 @@
 //        
 //    }
     [UIView animateWithDuration:1.0 animations:^{
-        btnKey.alpha =0;
+        btnKey.alpha = 0;
     } completion:^(BOOL finished) {
         [UIView animateWithDuration:1.0 animations:^{
-            btnKey.alpha =1;
+            btnKey.alpha = 1;
         } completion:^(BOOL finished) {
             //timeIndex++;
         }];
@@ -114,12 +114,15 @@
 
 -(void)homeLeadViewclick
 {
+    
     [loadTimer invalidate];
-    __weak FTDHomeViewController *weak=self;
-    FTDHomeLeadViewController *FTDHomeLeadViewCol=[[FTDHomeLeadViewController alloc]init];
+    btnKey.alpha = 1;
+    __weak FTDHomeViewController *weak = self;
+    FTDHomeLeadViewController *FTDHomeLeadViewCol = [[FTDHomeLeadViewController alloc] init];
+    
     [UIView animateKeyframesWithDuration:2 delay:0 options:UIViewKeyframeAnimationOptionLayoutSubviews animations:^{
         btnKey.center=CGPointMake(512, 440);
-        btnKey.alpha=0;
+        btnKey.alpha = 0;
     } completion:^(BOOL finished) {
         
         CGPoint exactTouchPosition = CGPointMake(512, 440);

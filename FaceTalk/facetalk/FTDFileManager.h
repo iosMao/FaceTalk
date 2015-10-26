@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "FTDSingleton.h"
 @interface FTDFileManager : NSObject
-
+singleton_Interface(FTDFileManager)
+@property (nonatomic,assign) int netState;
 @end

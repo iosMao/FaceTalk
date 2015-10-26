@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FTDRightButton : UIView
-
+@interface FTDRightButton : UIButton
+-(void)setColor:(UIColor *)fillColor;
+-(void)setText:(NSString *)text;
 @end

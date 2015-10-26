@@ -24,7 +24,7 @@
 -(void)buildMenu
 {
     
-    _menu=[TFWHelpResultMenuView createMenuwithArray:@[@"MDRT的一天",@"MOA的一天",@"NPA的一天"] andBottom:CGPointMake(76, 730) andHightBtnIndex:1];
+    _menu=[TFWHelpResultMenuView createMenuwithArray:@[@"MDRT",@"MOA",@"NPA"] andBottom:CGPointMake(76, 730) andHightBtnIndex:0];
     //_menu = [TFWHelpResultMenuView createMenuwithArray:@[@"企业单位",@"事业单位",@"自由职业"] andBottom:CGPointMake(76, 730)];
     __weak FTDMyHoursViewController *weakSelf = self;
     [_menu setResultMenuTapBlock:^(NSInteger index){

@@ -94,14 +94,14 @@ static NSString *cellSuggestIdentifier = @"cellSuggestIdentifier";
     _customNameLabel.font = [UIFont systemFontOfSize:43];
     _customNameLabel.textColor = [UIColor whiteColor];
     _customNameLabel.textAlignment = NSTextAlignmentCenter;
-    _customNameLabel.text = @"致 李月月";
+    _customNameLabel.text = @"致 林立伟";
     [headView addSubview:_customNameLabel];
     
     _adviserNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(360, 265 + 174, 80, 30)];
     _adviserNameLabel.font = [UIFont systemFontOfSize:19];
     _adviserNameLabel.textColor = [UIColor blackColor];
     _adviserNameLabel.textAlignment = NSTextAlignmentCenter;
-    _adviserNameLabel.text = @"马萧萧";
+    _adviserNameLabel.text = @"张怡";
     [headView addSubview:_adviserNameLabel];
 
     _tableView.tableHeaderView = headView;

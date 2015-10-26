@@ -7,7 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
+@class FTDDataProvider;
+
+typedef void(^dataProviderFinishBlock)(NSDictionary *);
+typedef void(^dataProviderFailedBlock)(NSString *);
 
 @interface FTDDataProvider : NSObject
+@property(nonatomic, strong)dataProviderFinishBlock finishBlock;
+@property(nonatomic, strong)dataProviderFailedBlock failedBlock;
+@property(nonatomic, strong)NSDictionary *resultDict;
+
+-(void)userLogin:(NSDictionary *)infoDic;
+
 
 @end

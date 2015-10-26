@@ -14,6 +14,11 @@
 #import <TencentOpenAPI/TencentOAuth.h>
 #import "FTDPersonTController.h"
 #import "WXApi.h"
+#import "FTDLoginViewController.h"
+#import "FTDTalentsListViewController.h"
+#import <AFNetworkReachabilityManager.h>
+#import "FTDFileManager.h"
+#import "FTDHomeViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -38,13 +43,46 @@
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     //TFDNavViewController *navBDRootViewCol=[[TFDNavViewController alloc]initWithRootViewController:[[BDRootViewController alloc] init]];
     //navBDRootViewCol.navigationBar.hidden=YES;
-    self.window.rootViewController = [[BDRootViewController alloc] init];
+    
+    FTDHomeViewController *FTDHomeViewCol = [[FTDHomeViewController alloc] init];
+    TFDNavViewController *navFTDHomeViewCol = [[TFDNavViewController alloc]initWithRootViewController:FTDHomeViewCol];
+    navFTDHomeViewCol.navigationBar.hidden=YES;
+    
+     //self.window.rootViewController = [[FTDLoginViewController alloc] init];
+     self.window.rootViewController = navFTDHomeViewCol;
     NSLog(@"Hello world");
     
     [self.window makeKeyAndVisible];
     
+    [AppDelegate netWorkStatus];
+    
     return YES;
 }
+
+
++ (void)netWorkStatus
+{
+    /**
+     AFNetworkReachabilityStatusUnknown          = -1,  // 未知
+     AFNetworkReachabilityStatusNotReachable     = 0,   // 无连接
+     AFNetworkReachabilityStatusReachableViaWWAN = 1,   // 3G 花钱
+     AFNetworkReachabilityStatusReachableViaWiFi = 2,   // WiFi
+     */
+    
+    // 如果要检测网络状态的变化,必须用检测管理器的单例的startMonitoring
+    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
+    
+    // 检测网络连接的单例,网络变化时的回调方法
+    [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        
+        //这是单利＋模型，用来记录网络状态
+        FTDFileManager *maa = [FTDFileManager shareFTDFileManager];
+        maa.netState = status;
+        NSLog(@"-----网络状态----%ld---%d", status,maa.netState);
+    }];
+}
+
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

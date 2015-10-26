@@ -45,6 +45,8 @@
     [self buildShareButton];
     [self buildShareView];
     CANCREATREPORT = NO;
+    
+    
 }
 -(void)buildShareView
 {
@@ -228,32 +230,40 @@
 -(void)shareQQ{
     NSLog(@"qq分享");
     
-    id<ISSContent> publishContent = [ShareSDK content:@"评估报告"
-                                       defaultContent:@""
-                                                image:[ShareSDK jpegImageWithImage:[UIImage imageWithData:imgData] quality:1.0]
-                                                title:@"评估报告"
-                                                  url:nil
-                                          description:@""
-                                            mediaType:SSPublishContentMediaTypeImage];
+    UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"提示" message:@"请输入要分享的QQ邮箱账号" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    [alert setAlertViewStyle:UIAlertViewStylePlainTextInput];
+    UITextField *nameField = [alert textFieldAtIndex:0];
+    [nameField setKeyboardType:UIKeyboardTypeEmailAddress];
+    [alert show];
     
     
-    [ShareSDK shareContent:publishContent
-                      type:ShareTypeQQ
-               authOptions:nil
-              shareOptions:nil
-             statusBarTips:YES
-                    result:^(ShareType type, SSResponseState state, id<ISSPlatformShareInfo> statusInfo, id<ICMErrorInfo> error, BOOL end) {
-                        if (state == SSPublishContentStateSuccess)
-                        {
-                            NSLog(NSLocalizedString(@"TEXT_SHARE_SUC", @"发表成功"));
-                        }
-                        else if (state == SSPublishContentStateFail)
-                        {
-                            NSLog(NSLocalizedString(@"TEXT_SHARE_FAI", @"发布失败!error code == %d, error code == %@"), [error errorCode], [error errorDescription]);
-                        }
-                        
-                    }];
     
+//    id<ISSContent> publishContent = [ShareSDK content:@"评估报告"
+//                                       defaultContent:@""
+//                                                image:[ShareSDK jpegImageWithImage:[UIImage imageWithData:imgData] quality:1.0]
+//                                                title:@"评估报告"
+//                                                  url:nil
+//                                          description:@""
+//                                            mediaType:SSPublishContentMediaTypeImage];
+//    
+//    
+//    [ShareSDK shareContent:publishContent
+//                      type:ShareTypeQQ
+//               authOptions:nil
+//              shareOptions:nil
+//             statusBarTips:YES
+//                    result:^(ShareType type, SSResponseState state, id<ISSPlatformShareInfo> statusInfo, id<ICMErrorInfo> error, BOOL end) {
+//                        if (state == SSPublishContentStateSuccess)
+//                        {
+//                            NSLog(NSLocalizedString(@"TEXT_SHARE_SUC", @"发表成功"));
+//                        }
+//                        else if (state == SSPublishContentStateFail)
+//                        {
+//                            NSLog(NSLocalizedString(@"TEXT_SHARE_FAI", @"发布失败!error code == %d, error code == %@"), [error errorCode], [error errorDescription]);
+//                        }
+//                        
+//                    }];
+//    
     
     
 }
@@ -287,12 +297,29 @@
     
     
 }
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    if (buttonIndex == 1) {
+        UITextField *nameField = [alertView textFieldAtIndex:0];
+        MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
+        mc.mailComposeDelegate = self;
+        [mc setToRecipients:[NSArray arrayWithObject:nameField.text]];
+        [mc setSubject:@"“友待开启”报告"];
+        [mc addAttachmentData:imgData mimeType:@"image/png" fileName:@"报告页"];
+        [self presentViewController:mc animated:YES completion:nil];
+        //TODO
+    }
+
+}
+
 -(void)sendtextEmail:(NSString *)textEmail
 {
     NSLog(@"%@",textEmail);
     
     MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
     mc.mailComposeDelegate = self;
+    [mc setToRecipients:[NSArray arrayWithObject:textEmail]];
     [mc setSubject:@"“友待开启”报告"];
     [mc addAttachmentData:imgData mimeType:@"image/png" fileName:@"报告页"];
     [self presentViewController:mc animated:YES completion:nil];
@@ -306,7 +333,10 @@
 {
     NSLog(@"报名EOP");
     
-    
+    NSURL *url =[NSURL URLWithString: @"calshow://"];
+    if ([[UIApplication sharedApplication] canOpenURL:url]) {
+        [[UIApplication sharedApplication] openURL:url];
+    }
     
     
     

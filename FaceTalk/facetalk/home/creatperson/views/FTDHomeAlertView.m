@@ -36,19 +36,19 @@
 }
 -(void)initTable
 {
-    tableName.delegate=self;
-    tableName.dataSource=self;
-    tableName.hidden=YES;
+    tableName.delegate = self;
+    tableName.dataSource = self;
+    tableName.hidden = YES;
     
-    tableSex.delegate=self;
-    tableSex.dataSource=self;
+    tableSex.delegate = self;
+    tableSex.dataSource = self;
     [tableSex reloadData];
-    tableSex.hidden=YES;
+    tableSex.hidden = YES;
 }
 -(void)initPick
 {
-    self.viewPick.center=CGPointMake(self.center.x, self.center.y+200);
-    self.viewPick.hidden=YES;
+    self.viewPick.center = CGPointMake(self.center.x, self.center.y+200);
+    self.viewPick.hidden = YES;
     [self.datePick addTarget:self action:@selector(datechange) forControlEvents:UIControlEventValueChanged];
     [self.textBirthday setInputView:self.datePick];
     //[self addSubview:self.viewPick];
@@ -56,10 +56,11 @@
 
 - (void)textchange:(UITextField *)textField
 {
-    if (textField.text.length>0) {
+    if (textField.text.length > 0) {
         [self searchAgentList:textField.text];
     }
     else{
+        tableName.hidden = YES;
         [arrayList removeAllObjects];
         [tableName reloadData];
     }
@@ -70,7 +71,7 @@
 {
     NSMutableArray *array=[[NSMutableArray alloc]init];
     for (int i=0; i<6; i++) {
-        NSDictionary *dicInfo=@{@"id":@"800008",@"name":@"nick",@"sex":@"男",@"birthday":@"1978-01-18"};
+        NSDictionary *dicInfo=@{@"id":@"800008",@"name":@"林立伟",@"sex":@"M",@"birthday":@"1988-02-05"};
         [array addObject:dicInfo];
     }
     return array;
@@ -217,7 +218,13 @@
         agentModel.sex=[[arrayList objectAtIndex:indexPath.row] objectForKey:@"sex"];
         agentModel.birthday=[[arrayList objectAtIndex:indexPath.row] objectForKey:@"birthday"];
         textName.text=agentModel.name;
-        textSex.text=agentModel.sex;
+        if ([agentModel.sex isEqualToString:@"M"]) {
+            textSex.text=@"男";
+        }
+        else{
+            textSex.text=@"女";
+        }
+        
         textBirthday.text=agentModel.birthday;
         
         tableName.hidden=YES;

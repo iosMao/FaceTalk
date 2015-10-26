@@ -7,10 +7,15 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FTDLoginViewController">
             <connections>
+                <outlet property="btnLogin" destination="7Jg-Q5-gCa" id="pvD-l6-XfX"/>
+                <outlet property="tableCity" destination="3Wg-oe-LMg" id="xXg-gM-YmB"/>
                 <outlet property="textAccount" destination="Lqr-LE-jzv" id="oh2-Ns-xsJ"/>
                 <outlet property="textCo" destination="ToN-vs-aPJ" id="Itp-ha-eWw"/>
                 <outlet property="textPasword" destination="7aJ-bf-rHJ" id="5Gm-hB-ftL"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="viewAccount" destination="OJZ-Du-iYs" id="8Yt-5S-pNC"/>
+                <outlet property="viewCo" destination="ul8-0l-ihp" id="jaC-fN-ZBS"/>
+                <outlet property="viewPasword" destination="hZm-Pw-RTM" id="WN3-nw-xew"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -18,24 +23,67 @@
             <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="NSNP306" borderStyle="roundedRect" placeholder="账号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lqr-LE-jzv">
-                    <rect key="frame" x="360" y="330" width="305" height="30"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="A111111A" borderStyle="roundedRect" placeholder="密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7aJ-bf-rHJ">
-                    <rect key="frame" x="360" y="386" width="305" height="30"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0986" borderStyle="roundedRect" placeholder="分公司" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ToN-vs-aPJ">
-                    <rect key="frame" x="360" y="441" width="305" height="30"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="FTD_login_background.png" translatesAutoresizingMaskIntoConstraints="NO" id="hJ2-xt-zDS">
+                    <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="FTD_login_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="Huc-To-CpP">
+                    <rect key="frame" x="457" y="149" width="110" height="110"/>
+                </imageView>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OJZ-Du-iYs">
+                    <rect key="frame" x="344" y="311" width="336" height="50"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="FTD_login_name.png" translatesAutoresizingMaskIntoConstraints="NO" id="r6H-2q-2Hm">
+                            <rect key="frame" x="8" y="5" width="40" height="40"/>
+                        </imageView>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="NSNP306" placeholder="营销员账号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lqr-LE-jzv">
+                            <rect key="frame" x="50" y="10" width="236" height="30"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hZm-Pw-RTM">
+                    <rect key="frame" x="344" y="369" width="336" height="50"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="FTD_login_password.png" translatesAutoresizingMaskIntoConstraints="NO" id="Hmx-hu-PXF">
+                            <rect key="frame" x="8" y="5" width="40" height="40"/>
+                        </imageView>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="A111111A" placeholder="密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7aJ-bf-rHJ">
+                            <rect key="frame" x="50" y="12" width="236" height="30"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                        </textField>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ul8-0l-ihp">
+                    <rect key="frame" x="344" y="428" width="336" height="50"/>
+                    <subviews>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="上海分公司" placeholder="请选择您所在的分公司" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ToN-vs-aPJ">
+                            <rect key="frame" x="48" y="12" width="234" height="30"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="FTD_login_city.png" translatesAutoresizingMaskIntoConstraints="NO" id="QrG-uX-jxf">
+                            <rect key="frame" x="8" y="8" width="40" height="40"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="FTD_login_cityMore.png" translatesAutoresizingMaskIntoConstraints="NO" id="q6L-Ty-JYt">
+                            <rect key="frame" x="295" y="18" width="20" height="20"/>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vQp-K2-L3I">
+                            <rect key="frame" x="40" y="10" width="275" height="31.5"/>
+                            <connections>
+                                <action selector="showCityList:" destination="-1" eventType="touchUpInside" id="kYY-oD-8Ta"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Jg-Q5-gCa">
-                    <rect key="frame" x="344" y="539" width="336" height="30"/>
-                    <color key="backgroundColor" red="0.7725490196" green="0.0" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <rect key="frame" x="344" y="510" width="336" height="50"/>
+                    <color key="backgroundColor" red="0.78431372549019607" green="0.0" blue="0.21568627450980393" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                     <state key="normal" title="登录">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -43,10 +91,26 @@
                         <action selector="loginclick:" destination="-1" eventType="touchUpInside" id="IIP-tE-ksy"/>
                     </connections>
                 </button>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3Wg-oe-LMg">
+                    <rect key="frame" x="386" y="478" width="275" height="200"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="QAL-vA-Gwq"/>
+                        <outlet property="delegate" destination="-1" id="vXL-Bc-bgV"/>
+                    </connections>
+                </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
             <point key="canvasLocation" x="308" y="222"/>
         </view>
     </objects>
+    <resources>
+        <image name="FTD_login_background.png" width="2048" height="1536"/>
+        <image name="FTD_login_city.png" width="80" height="80"/>
+        <image name="FTD_login_cityMore.png" width="35" height="35"/>
+        <image name="FTD_login_icon.png" width="235" height="235"/>
+        <image name="FTD_login_name.png" width="80" height="80"/>
+        <image name="FTD_login_password.png" width="80" height="80"/>
+    </resources>
 </document>

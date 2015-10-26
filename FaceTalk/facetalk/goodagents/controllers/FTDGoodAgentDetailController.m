@@ -151,8 +151,9 @@
     cell.imgAgent.image=[UIImage imageWithContentsOfFile:cellModel.picture];
     [cell.imgAgent.layer setMasksToBounds:YES];
     cell.imgAgent.contentMode=UIViewContentModeScaleAspectFit;
-    cell.lblName.text=cellModel.name;
-    cell.lblCareer.text=cellModel.old_job;
+    //cell.lblName.text=cellModel.name;
+    cell.lblName.hidden = YES;
+    cell.lblCareer.text=[NSString stringWithFormat:@"%@\n%@",cellModel.name,cellModel.old_job];
     
     if (indexPath.row==indexid) {
         cell.imgBG.hidden=YES;
