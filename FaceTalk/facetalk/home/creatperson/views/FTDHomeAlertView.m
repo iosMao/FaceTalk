@@ -7,7 +7,14 @@
 //
 
 #import "FTDHomeAlertView.h"
-
+#import "FTDDBManager.h"
+#import "FTDNameCell.h"
+#import "FTDCreatIDManager.h"
+#import "FTDChangeDate.h"
+#define remove_sp(a) [[NSUserDefaults standardUserDefaults] removeObjectForKey:a]
+#define get_sp(a) [[NSUserDefaults standardUserDefaults] objectForKey:a]
+#define get_Dsp(a) [[NSUserDefaults standardUserDefaults]dictionaryForKey:a]
+#define set_sp(a,b) [[NSUserDefaults standardUserDefaults] setObject:b forKey:a]
 @implementation FTDHomeAlertView
 @synthesize tableName,tableSex,textBirthday,textName,textSex;
 
@@ -22,7 +29,8 @@
 -(void)awakeFromNib
 {
     isLock=YES;
-    agentModel=[[FTDCustomerModel alloc]init];
+    
+//agentModel=[[FTDCustomerModel alloc]init];
     self.backgroundColor=[UIColor clearColor];
     [self.viewBG.layer setMasksToBounds:YES];
     [self.viewBG.layer setCornerRadius:5];
@@ -67,24 +75,19 @@
     
 }
 //////////////////////////以下两个由quix提供
--(NSArray *)searchContactWithKeywords:(NSString *)keywords//这个方法由quix提供
+//-(NSArray *)searchContactWithKeywords:(NSString *)keywords
+//{
+//    
+//}
+//
+-(void)createContact:(NSDictionary *)person
 {
-    NSMutableArray *array=[[NSMutableArray alloc]init];
-    for (int i=0; i<6; i++) {
-        NSDictionary *dicInfo=@{@"id":@"800008",@"name":@"林立伟",@"sex":@"M",@"birthday":@"1988-02-05"};
-        [array addObject:dicInfo];
-    }
-    return array;
+    [FTDDBManager LocalAddToDB:person];
 }
-
--(BOOL)createContact//这个方法由quix提供,增加用户  调用- (TblContact *)createContact 接口   说明下TblContact的结构
-{
-    return YES;
-}
--(void)saveLocalDBData//QUIX的保存数据库接口
-{
-    
-}
+//-(void)saveLocalDBData//QUIX的保存数据库接口
+//{
+//    
+//}
 //////////////////////////
 
 
@@ -92,49 +95,43 @@
 -(void)searchAgentList:(NSString *)agentName//fix me 此处调用本地数据库查询接口
 {
     [arrayList removeAllObjects];
-      arrayList=[NSMutableArray arrayWithArray:[self searchContactWithKeywords:agentName]];//这里调查询数据库接口
+    NSPredicate *pred = [NSPredicate predicateWithFormat:@"name CONTAINS %@",agentName];//模糊查询本地数据库
+      arrayList = [NSMutableArray arrayWithArray:[FTDDBManager searchLocalDBWithKeys:pred]];//这里调查询数据库接口
     
-    if (arrayList.count>0) {
-        tableName.hidden=NO;
-        isLock=YES;
-        textBirthday.enabled=NO;
+    if (arrayList.count > 0) {
+        tableName.hidden = NO;
+        isLock = YES;
+        textBirthday.enabled = NO;
         [tableName reloadData];
     }
     else{
-        tableName.hidden=YES;
-        isLock=NO;
+        textBirthday.enabled = YES;
+        tableName.hidden = YES;
+        isLock = NO;
     }
 }
 
--(void)addAgent:(FTDCustomerModel *)model//fix me 此处调用本地数据库新增人才接口
+-(void)addAgent:(NSDictionary *)personmodel//fix me 此处调用本地数据库新增人才接口
 {
-    BOOL isSuccess;
-    isSuccess=[self createContact];//这里创建用户
     
-    if (isSuccess) {
-        NSLog(@"用户插入成功");
-        [self saveLocalDBData];
-        if ([self.delegate respondsToSelector:@selector(homeAlertCreatclick)]) {
-            [self.delegate homeAlertCreatclick];
-        }
-    }
-    else
-    {
-        NSLog(@"用户插入失败");
+    [self createContact:personmodel];//这里创建用户
+    
+    if ([self.delegate respondsToSelector:@selector(homeAlertCreatclick)]) {
+        [self.delegate homeAlertCreatclick];
     }
 }
 
 -(void)datechange
 {
-    NSDate *selectedDate = [self.datePick date];
-    NSTimeZone *timeZone = [NSTimeZone timeZoneForSecondsFromGMT:3600*8];
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    selectedDate = [self.datePick date];
+//    NSTimeZone *timeZone = [NSTimeZone timeZoneForSecondsFromGMT:3600*8];
+//    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+//    
+//    [formatter setTimeZone:timeZone];
+//    [formatter setDateFormat:@"YYYY-MM-dd"];
     
-    [formatter setTimeZone:timeZone];
-    [formatter setDateFormat:@"YYYY-MM-dd"];
- 
     
-    textBirthday.text=[formatter stringFromDate:selectedDate];
+    textBirthday.text = [FTDChangeDate dateStr:selectedDate];
 }
 
 #pragma mark tableviewdelegate
@@ -149,7 +146,7 @@
 {
     //#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    if (tableView==tableSex) {
+    if (tableView == tableSex) {
         return 2;
     }
     return arrayList.count;
@@ -159,23 +156,33 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (tableView==tableName) {
-        static NSString *identifier = @"tableNameIdentifier";
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    if (tableView == tableName) {
+        static NSString *CellIdentifier = @"FTDNameCellIdentifier";
+        FTDNameCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         if (cell == nil) {
-            cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
-            
+            NSArray *nib=[[NSBundle mainBundle]loadNibNamed:@"FTDNameCell" owner:self options:nil];
+            cell=[nib objectAtIndex:0];
+            cell.selectionStyle=UITableViewCellSelectionStyleNone;
+            //cell.backgroundColor=[UIColor colorWithRed:0.82 green:0.1 blue:0.28 alpha:1];
             
         }
-        cell.textLabel.font=[UIFont systemFontOfSize:14.0];
-        cell.textLabel.text=[[arrayList objectAtIndex:indexPath.row] objectForKey:@"name"];
+        Person *person = [arrayList objectAtIndex:indexPath.row];
         
         
+        cell.lblName.text = person.name;
+        if ([person.sex isEqualToNumber:@1]) {
+            cell.lblsex.text = @"男";
+        }
+        else{
+            cell.lblsex.text = @"女";
+        }
         
-        // Configure the cell...
+        cell.lblBirthday.text = [FTDChangeDate dateStr:person.birthday];
+        
+        
         return cell;
     }
-    else if (tableView==tableSex)
+    else if (tableView == tableSex)
     {
         static NSString *identifier = @"tableSexIdentifier";
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
@@ -184,12 +191,12 @@
             
             
         }
-        cell.textLabel.font=[UIFont systemFontOfSize:14.0];
-        if (indexPath.row==0) {
-            cell.textLabel.text=@"男";
+        cell.textLabel.font = [UIFont systemFontOfSize:14.0];
+        if (indexPath.row == 0) {
+            cell.textLabel.text = @"男";
         }
         else{
-            cell.textLabel.text=@"女";
+            cell.textLabel.text = @"女";
         }
         
         
@@ -214,18 +221,17 @@
 
 {
     if (tableView==tableName) {
-        agentModel.name=[[arrayList objectAtIndex:indexPath.row] objectForKey:@"name"];
-        agentModel.sex=[[arrayList objectAtIndex:indexPath.row] objectForKey:@"sex"];
-        agentModel.birthday=[[arrayList objectAtIndex:indexPath.row] objectForKey:@"birthday"];
-        textName.text=agentModel.name;
-        if ([agentModel.sex isEqualToString:@"M"]) {
+        choosePerson = [arrayList objectAtIndex:indexPath.row];
+        
+        textName.text=choosePerson.name;
+        if ([choosePerson.sex isEqualToNumber:@1]) {
             textSex.text=@"男";
         }
         else{
             textSex.text=@"女";
         }
         
-        textBirthday.text=agentModel.birthday;
+        textBirthday.text= [FTDChangeDate  dateStr:choosePerson.birthday];
         
         tableName.hidden=YES;
     }
@@ -270,19 +276,54 @@
 - (IBAction)creatclick:(id)sender {
     if (textName.text.length>0&&textSex.text.length>0&&textBirthday.text.length>0) {
         if (arrayList.count==0) {
-            agentModel.name=textName.text;
-            agentModel.sex=textSex.text;
-            agentModel.birthday=textBirthday.text;
-            agentModel.userid=nil;
-            [self addAgent:agentModel];
+            NSMutableDictionary *dic = [[NSMutableDictionary alloc]init];
+            [dic setObject:textName.text forKey:@"name"];
+            
+            //choosePerson.name = textName.text;
+            if ([textSex.text isEqualToString:@"男"]) {
+                choosePerson.sex = @1;
+                [dic setObject:@"1" forKey:@"sex"];
+            }
+            else{
+                [dic setObject:@"2" forKey:@"sex"];
+            }
+            NSDate *senddate = [NSDate date];
+            NSDateFormatter *dateformatter = [[NSDateFormatter alloc] init];
+            [dateformatter setDateFormat:@"YYYY-MM-dd"];
+            NSString *  locationString = [dateformatter stringFromDate:senddate];
+            NSLog(@"locationString:%@",locationString);
+            NSDateFormatter *dateformatter1 = [[NSDateFormatter alloc] init];
+            [dateformatter1 setDateFormat:@"YYYY-MM-dd"];
+            NSDate *destDate = [dateformatter1 dateFromString:locationString];
+            [dic setObject:destDate forKey:@"chattime"];
+            [dic setObject:selectedDate forKey:@"birthday"];
+            [dic setObject:[FTDCreatIDManager creatTalentId] forKey:@"personid"];
+            set_sp(@"DTALENTINFO", dic);
+            [self addAgent:dic];
+//            choosePerson.birthday = textBirthday.text;
+//            choosePerson.personid = [FTDCreatIDManager creatTalentId];
+            
+//            agentModel.name=textName.text;
+//            agentModel.sex=textSex.text;
+//            agentModel.birthday=textBirthday.text;
+//            agentModel.userid=nil;
+           
         }
         else
         {
+            NSMutableDictionary *dic = [[NSMutableDictionary alloc]init];
+            [dic setObject:choosePerson.name forKey:@"name"];
+            [dic setObject:choosePerson.personid forKey:@"personid"];
+            NSDictionary *dic1 = [[NSDictionary alloc]initWithDictionary:dic];
+            set_sp(@"DTALENTINFO", dic1);
+            
+            
+            
             if ([self.delegate respondsToSelector:@selector(homeAlertCreatclick)]) {
                 [self.delegate homeAlertCreatclick];
             }
         }
-        //fix me 此处要进行数据操作
+        
         
         
     }

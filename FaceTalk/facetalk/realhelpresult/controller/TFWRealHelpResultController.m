@@ -9,26 +9,63 @@
 #import "TFWRealHelpResultController.h"
 #import "TFWHelpResultMenuView.h"
 #import "FTDRightMenuView.h"
-
+#import "FTDAIADetailScrollView.h"
+#import "FTDTimeTableView.h"
 @interface TFWRealHelpResultController ()
-
+{
+    NSMutableArray *arrayChildrenList;
+}
 @property (nonatomic,strong) UILabel *titleLabel;
-@property (nonatomic,strong) TFWHelpResultMenuView *menu;
+@property (nonatomic,strong) TFWHelpResultMenuView *menu;//左导航
 @property (nonatomic,strong) UIImageView *imageView;
-@property (nonatomic,strong) FTDRightMenuView *rightMenu;
-
+@property (nonatomic,strong) FTDRightMenuView *rightMenu;//右导航
+@property (nonatomic,strong) FTDAIADetailScrollView *detailScrollView;
+@property (nonatomic,strong) FTDTimeTableView *timeView;
 @end
 
 @implementation TFWRealHelpResultController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    arrayChildrenList = [[NSMutableArray alloc]initWithArray:[_dicDesc objectForKey:@"children"]];
     // Do any additional setup after loading the view.
+    NSLog(@"友邦详情：%@",[_dicDesc objectForKey:@"name"]);
     
     [self buildBackGround];
     [self buildBackButton];
     [self buildTitleLabel];
     [self buildMenu];
+    _detailScrollView = [FTDAIADetailScrollView initCustomview];
+    _detailScrollView.frame = CGRectMake(97, 122, 887, 622);
+    [self.view addSubview:_detailScrollView];
+    
+    _timeView = [FTDTimeTableView initCustomview];
+    _timeView.frame = CGRectMake(97, 122, 887, 622);
+    
+    
+    if ([[[arrayChildrenList objectAtIndex:0] objectForKey:@"name"] isEqualToString:@"专业培训"]) {
+        _rightMenu.hidden = NO;
+        [_detailScrollView creatImageScroll: [[[[arrayChildrenList objectAtIndex:0]objectForKey:@"children"] objectAtIndex:0] objectForKey:@"pictures"]];
+    }
+    else{
+        _rightMenu.hidden = YES;
+        if ([[[arrayChildrenList objectAtIndex:0] objectForKey:@"name"]isEqualToString:@"自主选择时间分配"]||[[[arrayChildrenList objectAtIndex:0] objectForKey:@"name"]isEqualToString:@"时间自主"] ) {
+            
+            [_detailScrollView removeFromSuperview];
+            [self.view addSubview:_timeView];
+            
+        
+            
+        }
+        else{
+            [_detailScrollView creatImageScroll:[[arrayChildrenList objectAtIndex:0] objectForKey:@"pictures"]];
+            
+        }
+    }
+    
+    
+    
+    
     //[self buildImageView];
 }
 
@@ -54,14 +91,23 @@
 -(void)buildTitleLabel
 {
     self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(296 / 2.0, 148 / 2.0, 600 / 2.0, 30)];
-    self.titleLabel.text = @"真精彩 友我邦你";
+    self.titleLabel.text = [_dicDesc objectForKey:@"name"];
     self.titleLabel.font = [UIFont systemFontOfSize:32];
     self.titleLabel.textColor = [UIColor colorWithRed:188 / 255.0 green:0 / 255.0 blue:52 / 255.0 alpha:1];
     [self.view addSubview:self.titleLabel];
 }
 
 -(void)buildMenu
-{_menu = [TFWHelpResultMenuView  createMenuwithArray:@[@"福利待遇",@"收入水平",@"双百万计划"] andBottom:CGPointMake(78, 745) andHightBtnIndex:0];
+{
+    
+    NSMutableArray *array=[[NSMutableArray alloc]init];
+    for (int i=0; i<arrayChildrenList.count; i++) {
+        
+        [array addObject:[[arrayChildrenList objectAtIndex:i] objectForKey:@"name"]];
+    }
+    
+    
+    _menu = [TFWHelpResultMenuView  createMenuwithArray:array andBottom:CGPointMake(74, 745) andHightBtnIndex:0];
      
     __weak TFWRealHelpResultController *weakSelf = self;
     [_menu setResultMenuTapBlock:^(NSInteger index){
@@ -70,12 +116,13 @@
     [self.view addSubview:_menu];
     
     
-    _rightMenu = [FTDRightMenuView createMenuwithArray:@[@"荣誉奖励",@"讲师课堂"] andBottom:CGPointMake(1000, 745) andHightBtnIndex:0];
+    _rightMenu = [FTDRightMenuView createMenuwithArray:@[@"总监寄语",@"培训导航"] andBottom:CGPointMake(1000, 745) andHightBtnIndex:0];
     
         [_rightMenu setRightMenuTapBlock:^(NSInteger index){
-        [weakSelf menuClickAction:index];
+        [weakSelf RightMenuClickAction:index];
     }];
     [self.view addSubview:_rightMenu];
+    _rightMenu.hidden = YES;
 }
 
 -(void)buildImageView
@@ -94,8 +141,54 @@
 -(void)menuClickAction:(NSInteger)index
 {
     NSLog(@"index : %ld",(long)index);
+    if ([[[arrayChildrenList objectAtIndex:index] objectForKey:@"name"] isEqualToString:@"专业培训"]) {
+        _rightMenu.hidden = NO;
+        [self.view addSubview:_detailScrollView];
+        [_detailScrollView creatImageScroll: [[[[arrayChildrenList objectAtIndex:index]objectForKey:@"children"] objectAtIndex:0] objectForKey:@"pictures"]];
+    }
+    else{
+        _rightMenu.hidden = YES;
+        if ([[[arrayChildrenList objectAtIndex:index] objectForKey:@"name"]isEqualToString:@"自主选择时间分配"]||[[[arrayChildrenList objectAtIndex:index] objectForKey:@"name"]isEqualToString:@"时间自主"]) {
+            [_detailScrollView removeFromSuperview];
+            [self.view addSubview:_timeView];
+            
+        }
+        else {
+            
+            
+            
+            
+            [_timeView removeFromSuperview];
+            [self.view addSubview:_detailScrollView];
+            if ([[[arrayChildrenList objectAtIndex:index] objectForKey:@"name"]isEqualToString:@"收入水平"]) {
+                [_detailScrollView creatImageScroll:[[NSArray alloc]init]];
+            }
+            else{
+                [_detailScrollView creatImageScroll:[[arrayChildrenList objectAtIndex:index] objectForKey:@"pictures"]];
+            }
+            
+        }
+        
+        
+    }
+    
+    
+    
+    
+    
+    
 }
-
+-(void)RightMenuClickAction:(NSInteger)index
+{
+    int num = 0;
+    for (int i = 0; i < arrayChildrenList.count; i++) {
+        if ([[[arrayChildrenList objectAtIndex:i] objectForKey:@"name"] isEqualToString:@"专业培训"]) {
+            num = i;
+        }
+    }
+    
+    [_detailScrollView creatImageScroll: [[[[arrayChildrenList objectAtIndex:num]objectForKey:@"children"] objectAtIndex:index] objectForKey:@"pictures"]];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

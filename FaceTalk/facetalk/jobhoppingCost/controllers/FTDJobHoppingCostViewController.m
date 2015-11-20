@@ -57,7 +57,7 @@
     
     
     
-     _viewCircle = [RingCircle createRingWithCenter:CGPointMake(1024/2+300, 768/2) radius:100 width:20];
+     _viewCircle = [RingCircle createRingWithCenter:CGPointMake(1024/2+300, 768/2) radius:100 width:30];
     [self.view addSubview:_viewCircle];
     [self creatModel];
     // Do any additional setup after loading the view from its nib.

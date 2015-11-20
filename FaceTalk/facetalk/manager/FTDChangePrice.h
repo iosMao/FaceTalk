@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @interface FTDChangePrice : NSObject
-
++(NSString *)changePriceFromint:(int)price;
 @end

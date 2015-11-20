@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "WaterFullView.h"
 @interface FTDCreatImage : NSObject
-+(UIImage *)getImage:(UITableView *)tableview;
++(UIImage *)getImage:(WaterFullView *)tableview;
 +(UIImage *)getImage1:(UIView *)theView;
 @end

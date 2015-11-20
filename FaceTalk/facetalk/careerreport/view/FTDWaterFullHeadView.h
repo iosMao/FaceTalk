@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface FTDWaterFullHeadView : UIView
-
+@property (nonatomic, copy) void(^checkclickBlock)(UIButton *);
+@property (nonatomic,strong) UIButton *btnHead;
++(id)createWaterFullHeadView;
 @end

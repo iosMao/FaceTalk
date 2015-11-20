@@ -14,17 +14,27 @@
 #import "FTDHomeViewController.h"
 #import <MessageUI/MessageUI.h>
 #import <ShareSDK/ShareSDK.h>
-
+#import "TFWReportDemo.h"
+#import "ImagePathManage.h"
+#import "FTDCreatIDManager.h"
+#import "FTDDBManager.h"
+#import "FTDDataProvider.h"
+#import "Person.h"
+#import <SVProgressHUD.h>
+#define get_Dsp(a) [[NSUserDefaults standardUserDefaults]dictionaryForKey:a]
 @interface TFWReportViewController ()<FTDShareViewDeledate,FTDbackgroundView,MFMailComposeViewControllerDelegate>
 {
-    NSData *imgData;
+    
 }
 @property (nonatomic,strong) UILabel *titleLabel;
 @property (nonatomic,strong) UILabel *customNameLabel;
 @property (nonatomic,strong) UILabel *adviserNameLabel;
-@property (nonatomic,strong) TFWReportView *reportView;
+@property (nonatomic,strong) TFWReportView *reportView;//旧报告页
+@property (nonatomic,strong) TFWReportDemo *reportdemo;//新报告页
+@property (nonatomic,strong) NSData *imgData;
 @property (nonatomic,strong) FTDShareView *shareView;
 @property (nonatomic,strong) FTDbackgroundView *backgroundView;
+@property (nonatomic,strong) FTDDataProvider *dataProvider;
 @end
 
 @implementation TFWReportViewController
@@ -89,14 +99,14 @@
     _customNameLabel.font = [UIFont systemFontOfSize:43];
     _customNameLabel.textColor = [UIColor whiteColor];
     _customNameLabel.textAlignment = NSTextAlignmentCenter;
-    _customNameLabel.text = @"致 李月月";
+    _customNameLabel.text = @"";
     [self.view addSubview:_customNameLabel];
     
     _adviserNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(582, 441, 80, 30)];
     _adviserNameLabel.font = [UIFont systemFontOfSize:19];
     _adviserNameLabel.textColor = [UIColor whiteColor];
     _adviserNameLabel.textAlignment = NSTextAlignmentCenter;
-    _adviserNameLabel.text = @"马萧萧";
+    _adviserNameLabel.text = @"";
     [self.view addSubview:_adviserNameLabel];
 }
 
@@ -117,9 +127,13 @@
 
 -(void)buildReportView
 {
-    _reportView = [[TFWReportView alloc] init];
-    _reportView.center = CGPointMake(CGRectGetMidX(_customNameLabel.frame), CGRectGetHeight(_reportView.frame) / 2.0);
-    [self.view addSubview:_reportView];
+//    _reportView = [[TFWReportView alloc] init];
+//    _reportView.center = CGPointMake(CGRectGetMidX(_customNameLabel.frame), CGRectGetHeight(_reportView.frame) / 2.0);
+//    [self.view addSubview:_reportView];
+     _reportdemo = [TFWReportDemo createReportDemo];
+    _reportdemo.center = CGPointMake(CGRectGetMidX(_customNameLabel.frame), CGRectGetHeight(_reportdemo.frame) / 2.0);
+    _reportdemo.backgroundColor = [UIColor clearColor];
+    [self.view addSubview:_reportdemo];
 }
 
 -(void)buildOkButton
@@ -167,49 +181,79 @@
 }
 -(void)ShareAction:(UIButton *)bt
 {
-    if (_reportView.endEdit) {
-        
-        
-        
+//    if (_reportView.endEdit) {
+//        
+//        
+//        
+//        [self.view addSubview:_backgroundView];
+//        [self.view addSubview:_shareView];
+//        
+//        CGAffineTransform transform = _shareView.transform;
+//        _shareView.transform = CGAffineTransformScale(transform, 0.2, 0.2);
+//        [UIView animateWithDuration:0.4 animations:^{
+//            _shareView.transform = CGAffineTransformScale(transform, 1.0, 1.0);
+//            _shareView.center=CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2-80);
+//        }];
+//    }else{
+//        NSMutableArray *array = [NSMutableArray new];
+//        for (int i = 0; i < 10; i++) {
+//            if ([[_reportView.choiceArray objectAtIndex:i] boolValue]) {
+//                [array addObject:[NSNumber numberWithInteger:i]];
+//            }
+//        }
+//        _reportView.selectArray = [NSArray arrayWithArray:array];
+//        if (_reportView.selectArray.count > 0) {
+//            _reportView.isShowTenElement = YES;
+//        }else{
+//            _reportView.isShowTenElement = NO;
+//        }
+//        _reportView.endEdit = YES;
+//        bt.selected = YES;
+//        CANCREATREPORT = YES;
+//        [_reportView.tableView reloadData];
+//        [self CreatReportImage];
+//        
+//    }
+    
+    if (_reportdemo.isEndEdit ) {
         [self.view addSubview:_backgroundView];
         [self.view addSubview:_shareView];
-        
+
         CGAffineTransform transform = _shareView.transform;
         _shareView.transform = CGAffineTransformScale(transform, 0.2, 0.2);
         [UIView animateWithDuration:0.4 animations:^{
             _shareView.transform = CGAffineTransformScale(transform, 1.0, 1.0);
             _shareView.center=CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2-80);
         }];
-    }else{
-        NSMutableArray *array = [NSMutableArray new];
-        for (int i = 0; i < 10; i++) {
-            if ([[_reportView.choiceArray objectAtIndex:i] boolValue]) {
-                [array addObject:[NSNumber numberWithInteger:i]];
-            }
-        }
-        _reportView.selectArray = [NSArray arrayWithArray:array];
-        if (_reportView.selectArray.count > 0) {
-            _reportView.isShowTenElement = YES;
-        }else{
-            _reportView.isShowTenElement = NO;
-        }
-        _reportView.endEdit = YES;
+    }
+    else{
+        _reportdemo.isEndEdit = YES;
         bt.selected = YES;
         CANCREATREPORT = YES;
-        [_reportView.tableView reloadData];
-        [self CreatReportImage];
-        
+       [_reportdemo reloadData];
+       [self CreatReportImage];
     }
+    
+    
 }
 
 -(void)CreatReportImage
 {
-    UIImage *reportImage= [FTDCreatImage getImage:_reportView.tableView];
-    imgData=UIImageJPEGRepresentation(reportImage, 0.5) ;
-    [self SendReportImage:imgData];
+    UIImage *reportImage= [FTDCreatImage getImage:_reportdemo.waterFull];
+    self.imgData=UIImageJPEGRepresentation(reportImage, 0.03) ;
+    [self SendReportImage:self.imgData];
 }
 -(void)SendReportImage:(NSData *)imgdata//这个接口用来向QUIX发送报告照片的data
 {
+    NSString *path = [ImagePathManage saveImageToPath:[get_Dsp(@"DTALENTINFO") objectForKey:@"personid"] andImageName:[FTDCreatIDManager creatImageName]];
+    [FTDDBManager addImageUrl:path andToTalentId:[get_Dsp(@"DTALENTINFO") objectForKey:@"personid"]];//图片相对路径存数据库
+    NSString* localPath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
+    NSString *localAllPath = [NSString stringWithFormat:@"%@%@",localPath,path];
+    BOOL result = [imgdata writeToFile: localAllPath atomically:YES];
+    if (result) {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"提示" message:@"保存成功" delegate:self cancelButtonTitle:@"确定" otherButtonTitles: nil];
+        [alert show];
+    }
     //NSLog(@"%@",imgdata);
     
 }
@@ -217,8 +261,15 @@
 -(void)continueAction
 {
     if (CANCREATREPORT) {
-        FTDHomeViewController *vc=[[FTDHomeViewController alloc]init];
-        [self.navigationController setViewControllers:@[vc] animated:YES];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"提示" message:@"是否将人才信息同步到服务器？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+        [alert show];
+        alert.tag = 20001;
+        
+        
+       
+        
+//        FTDHomeViewController *vc=[[FTDHomeViewController alloc]init];
+//        [self.navigationController setViewControllers:@[vc] animated:YES];
     }
     else{
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"提示" message:@"为了更好的记录本次信息，请先生成报告！" delegate:self cancelButtonTitle:@"确定" otherButtonTitles: nil];
@@ -227,10 +278,52 @@
     
     
 }
+
+-(void)push:(NSArray *)array
+{
+    
+     self.dataProvider= [[FTDDataProvider alloc] init];
+    __weak TFWReportViewController *weakself = self;
+    
+    [self.dataProvider setFinishBlock:^(NSDictionary *resultDict){
+         [SVProgressHUD dismiss];
+          FTDHomeViewController *vc=[[FTDHomeViewController alloc]init];
+          [weakself.navigationController setViewControllers:@[vc] animated:YES];
+//        if ([[resultDict  objectForKey:@"success"] intValue] == 1) {
+////            [SVProgressHUD showSuccessWithStatus:@"登录成功" maskType:SVProgressHUDMaskTypeBlack];
+////            set_sp(@"DUSERINFO", [resultDict objectForKey:@"msg"]);
+//            
+//        }
+//        else{
+//           // [SVProgressHUD showErrorWithStatus:[resultDict objectForKey:@"msg"] maskType:SVProgressHUDMaskTypeBlack];
+//        }
+        
+        
+        
+    }];
+    
+    [self.dataProvider setFailedBlock:^(NSString *strError){
+        [SVProgressHUD dismiss];
+        [SVProgressHUD showErrorWithStatus:@"哎呀！请求服务器出错啦！请检查本地网络配置！" maskType:SVProgressHUDMaskTypeBlack];
+    }];
+    
+    [self.dataProvider pushTalentsInfoArray:array];
+}
+
+
+
+
+
+
+
+
+
+
 -(void)shareQQ{
     NSLog(@"qq分享");
     
     UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"提示" message:@"请输入要分享的QQ邮箱账号" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    alert.tag = 20000;
     [alert setAlertViewStyle:UIAlertViewStylePlainTextInput];
     UITextField *nameField = [alert textFieldAtIndex:0];
     [nameField setKeyboardType:UIKeyboardTypeEmailAddress];
@@ -271,7 +364,7 @@
     NSLog(@"wechat分享");
     id<ISSContent> publishContent = [ShareSDK content:@"评估报告"
                                        defaultContent:@""
-                                                image:[ShareSDK pngImageWithImage:[UIImage imageWithData:imgData]]
+                                                image:[ShareSDK pngImageWithImage:[UIImage imageWithData:self.imgData]]
                                                 title:@"评估报告"
                                                   url:nil
                                           description:@""
@@ -299,29 +392,55 @@
 }
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    
-    if (buttonIndex == 1) {
-        UITextField *nameField = [alertView textFieldAtIndex:0];
-        MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
-        mc.mailComposeDelegate = self;
-        [mc setToRecipients:[NSArray arrayWithObject:nameField.text]];
-        [mc setSubject:@"“友待开启”报告"];
-        [mc addAttachmentData:imgData mimeType:@"image/png" fileName:@"报告页"];
-        [self presentViewController:mc animated:YES completion:nil];
-        //TODO
+    if (alertView.tag == 20000) {
+        if (buttonIndex == 1) {
+            UITextField *nameField = [alertView textFieldAtIndex:0];
+            Class mailClass = (NSClassFromString(@"MFMailComposeViewController"));
+            
+            if (![mailClass canSendMail]) {
+                [SVProgressHUD showErrorWithStatus:@"用户没有设置系统邮箱账号！"];
+                return;
+            }
+            MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
+            mc.mailComposeDelegate = self;
+            [mc setToRecipients:[NSArray arrayWithObject:nameField.text]];
+            [mc setSubject:@"“友待开启”报告"];
+            [mc addAttachmentData:self.imgData mimeType:@"image/png" fileName:@"报告页.png"];
+            [self presentViewController:mc animated:YES completion:nil];
+            //TODO
+        }
     }
+    else if (alertView.tag ==20001)
+    {
+        if (buttonIndex == 1) {
+            [SVProgressHUD showWithStatus:@"正在上传..." maskType:SVProgressHUDMaskTypeBlack];
+            
+                NSArray *array = [FTDDBManager searchLocalDB];
+                if (array.count > 0) {
+                    [self push:array];
+                }
+            
+        }
+        
+    }
+    
 
 }
 
 -(void)sendtextEmail:(NSString *)textEmail
 {
     NSLog(@"%@",textEmail);
+    Class mailClass = (NSClassFromString(@"MFMailComposeViewController"));
     
+    if (![mailClass canSendMail]) {
+        [SVProgressHUD showErrorWithStatus:@"用户没有设置系统邮箱账号！"];
+        return;
+    }
     MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
     mc.mailComposeDelegate = self;
     [mc setToRecipients:[NSArray arrayWithObject:textEmail]];
     [mc setSubject:@"“友待开启”报告"];
-    [mc addAttachmentData:imgData mimeType:@"image/png" fileName:@"报告页"];
+    [mc addAttachmentData:self.imgData mimeType:@"image/png" fileName:@"report.png"];
     [self presentViewController:mc animated:YES completion:nil];
     
     

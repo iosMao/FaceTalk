@@ -19,6 +19,14 @@
 #import <AFNetworkReachabilityManager.h>
 #import "FTDFileManager.h"
 #import "FTDHomeViewController.h"
+#import "FTDTableViewController.h"
+#import <MagicalRecord+Setup.h>
+#import "FTDRevenueTrialDetailViewController.h"
+#define remove_sp(a) [[NSUserDefaults standardUserDefaults] removeObjectForKey:a]
+#define get_sp(a) [[NSUserDefaults standardUserDefaults] objectForKey:a]
+#define get_Dsp(a) [[NSUserDefaults standardUserDefaults]dictionaryForKey:a]
+#define set_sp(a,b) [[NSUserDefaults standardUserDefaults] setObject:b forKey:a]
+
 @interface AppDelegate ()
 
 @end
@@ -28,13 +36,15 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+    [MagicalRecord setupCoreDataStackWithStoreNamed:@"MyDatabase.sqlite"];
+    
     [ShareSDK registerApp:@"9b3c933e2258"];
     
     //qq的初始化
     [ShareSDK connectQQWithQZoneAppKey:@"1102803885" qqApiInterfaceCls:[QQApiInterface class] tencentOAuthCls:[TencentOAuth class]];
     
     //微信登陆的时候需要初始化
-    [ShareSDK connectWeChatWithAppId:@"wx1b43befa88bbb92b"        //此参数为申请的微信AppID
+    [ShareSDK connectWeChatWithAppId:@"wx23f27a9377c0b827"        //此参数为申请的微信AppID
                            wechatCls:[WXApi class]];
     
      
@@ -47,9 +57,16 @@
     FTDHomeViewController *FTDHomeViewCol = [[FTDHomeViewController alloc] init];
     TFDNavViewController *navFTDHomeViewCol = [[TFDNavViewController alloc]initWithRootViewController:FTDHomeViewCol];
     navFTDHomeViewCol.navigationBar.hidden=YES;
+     //remove_sp(@"DUSERINFO");
+    if (get_Dsp(@"DUSERINFO")) {
+          //self.window.rootViewController = [[FTDRevenueTrialDetailViewController alloc]init];
+          self.window.rootViewController = navFTDHomeViewCol;
+    }
+    else{
+        self.window.rootViewController = [[FTDLoginViewController alloc] init];
+    }
     
-     //self.window.rootViewController = [[FTDLoginViewController alloc] init];
-     self.window.rootViewController = navFTDHomeViewCol;
+    
     NSLog(@"Hello world");
     
     [self.window makeKeyAndVisible];
@@ -103,6 +120,7 @@
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
+    [MagicalRecord cleanUp];
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 - (BOOL)application:(UIApplication *)application

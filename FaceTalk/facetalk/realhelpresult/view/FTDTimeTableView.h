@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface FTDTimeTableView : UIView
-
+@property (strong, nonatomic) IBOutlet UIButton *hah;
++(FTDTimeTableView *)initCustomview;
+@property (nonatomic,strong) NSMutableArray *pointArray;
 @end

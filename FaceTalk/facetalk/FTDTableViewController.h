@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "FTDTimeTableView.h"
 @interface FTDTableViewController : UIViewController
 
 @end

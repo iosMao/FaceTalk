@@ -12,6 +12,7 @@
 #import "FTDPersonTController.h"
 #import "TFWReportViewController.h"
 #import "FTWDataManager.h"
+#import "FTJsonManager.h"
 @interface TFWRealHelpViewController ()
 
 @property (nonatomic,strong) NSTimer *timer;
@@ -19,6 +20,7 @@
 @property (nonatomic,strong) NSMutableArray *mutArray;
 @property (nonatomic,assign) int index;
 
+@property (nonatomic,strong) NSMutableArray *arrayAIADetail;
 @end
 
 @implementation TFWRealHelpViewController
@@ -32,6 +34,7 @@
     [self buildTenElement];
     [self buildOkButton];
     
+    _arrayAIADetail = [[NSMutableArray alloc]initWithArray:[FTJsonManager shareManager].ten_aia_elements];
     _index = 0;
 }
 
@@ -270,17 +273,109 @@
 -(void)tapAction:(NSInteger)tag
 {
     TFWRealHelpResultController *vc = [[TFWRealHelpResultController alloc] init];
+    
+    if (tag == 1001) {
+        for (int i = 0; i<_arrayAIADetail.count; i++) {
+            if ([[[_arrayAIADetail objectAtIndex:i] objectForKey:@"name"] isEqualToString:@"收入丰厚"]) {
+                vc.dicDesc = [[NSMutableDictionary alloc]initWithDictionary:[_arrayAIADetail objectAtIndex:i]];
+                break;
+            }
+        }
+    }
+    else if (tag == 1002)
+    {
+        for (int i = 0; i<_arrayAIADetail.count; i++) {
+            if ([[[_arrayAIADetail objectAtIndex:i] objectForKey:@"name"] isEqualToString:@"社会贡献"]) {
+                vc.dicDesc = [[NSMutableDictionary alloc]initWithDictionary:[_arrayAIADetail objectAtIndex:i]];
+                break;
+            }
+        }
+    }
+    else if (tag == 1003)
+    {
+        for (int i = 0; i<_arrayAIADetail.count; i++) {
+            if ([[[_arrayAIADetail objectAtIndex:i] objectForKey:@"name"] isEqualToString:@"发展空间"]) {
+                vc.dicDesc = [[NSMutableDictionary alloc]initWithDictionary:[_arrayAIADetail objectAtIndex:i]];
+                break;
+            }
+        }
+    }
+    else if (tag == 1004)
+    {
+        for (int i = 0; i<_arrayAIADetail.count; i++) {
+            if ([[[_arrayAIADetail objectAtIndex:i] objectForKey:@"name"] isEqualToString:@"荣誉奖励"]) {
+                vc.dicDesc = [[NSMutableDictionary alloc]initWithDictionary:[_arrayAIADetail objectAtIndex:i]];
+                break;
+            }
+        }
+    }
+    else if (tag == 1005)
+    {
+        for (int i = 0; i<_arrayAIADetail.count; i++) {
+            if ([[[_arrayAIADetail objectAtIndex:i] objectForKey:@"name"] isEqualToString:@"适合度"]) {
+                vc.dicDesc = [[NSMutableDictionary alloc]initWithDictionary:[_arrayAIADetail objectAtIndex:i]];
+                break;
+            }
+        }
+    }
+    else if (tag == 1006)
+    {
+        for (int i = 0; i<_arrayAIADetail.count; i++) {
+            if ([[[_arrayAIADetail objectAtIndex:i] objectForKey:@"name"] isEqualToString:@"学习成长"]) {
+                vc.dicDesc = [[NSMutableDictionary alloc]initWithDictionary:[_arrayAIADetail objectAtIndex:i]];
+                break;
+            }
+        }
+    }
+    else if (tag == 1007)
+    {
+        for (int i = 0; i<_arrayAIADetail.count; i++) {
+            if ([[[_arrayAIADetail objectAtIndex:i] objectForKey:@"name"] isEqualToString:@"生活平衡"]) {
+                vc.dicDesc = [[NSMutableDictionary alloc]initWithDictionary:[_arrayAIADetail objectAtIndex:i]];
+                break;
+            }
+        }
+    }
+    else if (tag == 1008)
+    {
+        for (int i = 0; i<_arrayAIADetail.count; i++) {
+            if ([[[_arrayAIADetail objectAtIndex:i] objectForKey:@"name"] isEqualToString:@"品牌实力"]) {
+                vc.dicDesc = [[NSMutableDictionary alloc]initWithDictionary:[_arrayAIADetail objectAtIndex:i]];
+                break;
+            }
+        }
+    }
+    else if (tag == 1009)
+    {
+        for (int i = 0; i<_arrayAIADetail.count; i++) {
+            if ([[[_arrayAIADetail objectAtIndex:i] objectForKey:@"name"] isEqualToString:@"工作自主"]) {
+                vc.dicDesc = [[NSMutableDictionary alloc]initWithDictionary:[_arrayAIADetail objectAtIndex:i]];
+                break;
+            }
+        }
+    }
+    else if (tag == 1010)
+    {
+        for (int i = 0; i<_arrayAIADetail.count; i++) {
+            if ([[[_arrayAIADetail objectAtIndex:i] objectForKey:@"name"] isEqualToString:@"自由晋级"]) {
+                vc.dicDesc = [[NSMutableDictionary alloc]initWithDictionary:[_arrayAIADetail objectAtIndex:i]];
+                break;
+            }
+        }
+    }
+    
+        
     [self.navigationController pushViewController:vc animated:YES];
+    
+    
+    
     NSLog(@"%ld",tag);
 }
 
 -(void)dealloc
 {
     NSLog(@"友邦十大要素释放");
-    if (_timer) {
-        [_timer invalidate];
-        _timer = nil;
-    }
+    
 }
 
 - (void)didReceiveMemoryWarning {

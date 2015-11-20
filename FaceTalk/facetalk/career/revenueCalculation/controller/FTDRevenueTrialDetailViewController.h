@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface FTDRevenueTrialDetailViewController : UIViewController
-
+@property (nonatomic, assign) int indexID;
 @end

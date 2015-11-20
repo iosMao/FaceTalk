@@ -7,11 +7,11 @@
 //
 
 #import "FTDCreatImage.h"
-
+#import "WaterFullView.h"
 @implementation FTDCreatImage
-+(UIImage *)getImage:(UITableView *)tableview {
++(UIImage *)getImage:(WaterFullView *)tableview {
     UIImage* viewImage = nil;
-    UITableView *scrollView =tableview;
+    UIScrollView *scrollView =tableview.scrollView;
     UIGraphicsBeginImageContextWithOptions(CGSizeMake(scrollView.contentSize.width, scrollView.contentSize.height), scrollView.opaque=NO, 0.0);
     {
         CGPoint savedContentOffset = scrollView.contentOffset;

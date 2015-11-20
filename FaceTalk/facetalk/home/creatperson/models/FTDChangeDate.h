@@ -9,5 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface FTDChangeDate : NSObject
-
++(NSString *)dateStr:(NSDate *)date;
++ (NSDate *)dateFromString:(NSString *)dateString;
 @end

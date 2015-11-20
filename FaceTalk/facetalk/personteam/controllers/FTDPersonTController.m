@@ -259,6 +259,9 @@
         
 
     }
+    else{
+        isEditPhoto = NO;
+    }
     
     
     
@@ -374,12 +377,13 @@
 }
 -(void)editPhotoclick:(UIButton *)sender
 {
+    isEditPhoto=YES;
     FTDCollectionPhotoCell *cell= (FTDCollectionPhotoCell *)[[[sender superview] superview]superview];
     NSIndexPath *indexPath=[collectionPhoto indexPathForCell:cell];
     NSLog(@"%ld",(long)indexPath.row);
     indexId=indexPath.row;
     
-    isEditPhoto=YES;
+    
     _actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:@"打开图库",@"拍照",nil];
     [_actionSheet showInView:self.view];
     

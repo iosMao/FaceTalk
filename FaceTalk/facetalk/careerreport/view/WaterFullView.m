@@ -7,13 +7,11 @@
 //
 
 #import "WaterFullView.h"
-#import "Masonry.h"
+
 
 @interface WaterFullView ()
 
-@property (nonatomic,strong) UIScrollView *scrollView;
-@property (nonatomic,strong) UIView *headView;
-@property (nonatomic,strong) UIView *footView;
+
 @property (nonatomic,strong) UIView *leftView;
 @property (nonatomic,strong) UIView *rightView;
 
@@ -35,17 +33,18 @@
 -(void)initView{
     _scrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
     [self addSubview:_scrollView];
-    
-    if (_headView) {
-        [_scrollView addSubview:_headView];
-    }
-    
-    if (_footView) {
-        [_scrollView addSubview:_footView];
-    }
 }
 
 -(void)reloadData{
+    if (_headView  ) {
+        [_headView removeFromSuperview];
+        [_scrollView addSubview:_headView];
+    }
+    
+    if (_footView  ) {
+        [_footView removeFromSuperview];
+        [_scrollView addSubview:_footView];
+    }
     
     if (_leftView) {
         [_leftView removeFromSuperview];
@@ -55,9 +54,11 @@
     }
     
     _leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.frame) / 2.0, CGRectGetHeight(self.frame))];
+    _leftView.backgroundColor = [UIColor whiteColor];
     [self.scrollView addSubview:_leftView];
     
     _rightView = [[UIView alloc] initWithFrame:CGRectMake(CGRectGetWidth(self.frame) / 2.0, 0, CGRectGetWidth(self.frame) / 2.0, CGRectGetHeight(self.frame))];
+    _rightView.backgroundColor = [UIColor whiteColor];
     [self.scrollView addSubview:_rightView];
     
     NSInteger rowNumber = [self.dataSource numberOfRowInWaterFullView:self];
@@ -121,6 +122,16 @@
         [_rightView addSubview:view];
         return;
     }
+}
+
+-(void)setHeadView:(UIView *)headView{
+    _headView = headView;
+    [self reloadData];
+}
+
+-(void)setFootView:(UIView *)footView{
+    _footView = footView;
+    [self reloadData];
 }
 
 @end

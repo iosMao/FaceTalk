@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface FTDNameCell : UITableViewCell
+@property (strong, nonatomic) IBOutlet UILabel *lblName;
+@property (strong, nonatomic) IBOutlet UILabel *lblsex;
+@property (strong, nonatomic) IBOutlet UILabel *lblBirthday;
 
 @end

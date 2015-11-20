@@ -9,14 +9,16 @@
 #import "RingCircle.h"
 
 @interface RingCircle ()
-
+{
+    UILabel *lblCost;
+}
 @property (nonatomic,assign) CGFloat radius;
 @property (nonatomic,assign) CGFloat width;
 
 @end
 
 @implementation RingCircle
-
+@synthesize  lblCost,lblTitle;
 
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
@@ -40,16 +42,61 @@
     
     [ring initView];
     
+    
+    
+    
+    
+    
+    
     return ring;
 }
 
 -(void)initView{
     self.backgroundColor = [UIColor clearColor];
+    
+     lblTitle = [[UILabel alloc] initWithFrame:CGRectMake(self.frame.size.width / 2 - 80, self.frame.size.height / 2 - 25, 160, 20)];
+    lblTitle.text = @"跳槽成本共：";
+    //lblTitle.center = CGPointMake(ring.center.x, ring.center.y-10);
+    lblTitle.numberOfLines = 0;
+    lblTitle.textAlignment = NSTextAlignmentCenter;
+    lblTitle.font = [UIFont systemFontOfSize:15];
+    lblTitle.textColor = [UIColor colorWithRed:0.82 green:0.04 blue:0.26 alpha:1];
+    lblTitle.backgroundColor = [UIColor clearColor];
+    [self addSubview:lblTitle];
+    lblTitle.hidden = YES;
+    
+    lblCost = [[UILabel alloc]initWithFrame:CGRectMake(self.frame.size.width / 2 - 80, self.frame.size.height / 2 + 5, 160, 25)];
+    //lblCost.center = CGPointMake(self.center.x, self.center.y+10);
+    lblCost.numberOfLines = 0;
+     lblCost.textAlignment = NSTextAlignmentCenter ;
+    lblCost.font = [UIFont systemFontOfSize:28];
+    lblCost.textColor = [UIColor colorWithRed:0.82 green:0.04 blue:0.26 alpha:1];
+    lblCost.backgroundColor = [UIColor clearColor];
+    [self addSubview:lblCost];
+    
 }
 
 -(void)setDataArray:(NSArray *)dataArray{
     _dataArray = dataArray;
     self.image = [self getImage];
+    float cost = 0;
+    for (int i = 0; i < _dataArray.count; i ++) {
+        RingModel *model = [_dataArray objectAtIndex:i];
+        cost = cost + model.score;
+    }
+    if (cost > 0) {
+        lblTitle.hidden = NO;
+        lblCost.hidden = NO;
+    }
+    else{
+        lblTitle.hidden = YES;
+        lblCost.hidden = YES;
+    }
+    lblCost.text = [NSString stringWithFormat:@"￥%.0f元",cost];
+    [UIView animateWithDuration:1.0 animations:^{
+        [self layoutIfNeeded];
+    }];
+    
 }
 
 -(UIImage *)getImage{
@@ -70,8 +117,11 @@
         
         CGFloat midAngle = curAngle + angle / 2.0;
         CGFloat word_x = (_radius + _width + 10) * cos(midAngle) + CGRectGetWidth(self.frame) / 2.0 - 10;
+        if (midAngle > M_PI / 2.0 && midAngle < M_PI / 2.0 * 3) {
+            word_x -= 30;
+        }
         CGFloat word_y = (_radius + _width + 10) * sin(midAngle) + CGRectGetHeight(self.frame) / 2.0;
-        [model.title drawAtPoint:CGPointMake(word_x, word_y) withAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:12],NSForegroundColorAttributeName:[UIColor blackColor]}];
+        //[model.title drawAtPoint:CGPointMake(word_x, word_y) withAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:12],NSForegroundColorAttributeName:[UIColor blackColor]}];
         
         curAngle += angle;
     }

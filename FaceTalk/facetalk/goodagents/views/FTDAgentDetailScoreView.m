@@ -31,12 +31,14 @@
     imgGrayTriangle.center=CGPointMake(oldX, 25);
     lblGrayScore.text=[NSString stringWithFormat:@"%d分",oldscore];
     lblGrayScore.center=CGPointMake(oldX, 14);
+    lblGrayScore.hidden = YES;
     
     CGFloat newX=42+25*newscore;
     imgBtnRed.center=CGPointMake(newX, 47);
     imgRedTriangle.center=CGPointMake(newX, 25);
     lblRedScore.text=[NSString stringWithFormat:@"%d分",newscore];
     lblRedScore.center=CGPointMake(newX, 14);
+    lblRedScore.hidden = YES;
     
     textDesc.text=desc;
     

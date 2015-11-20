@@ -10,7 +10,7 @@
 #import "TFWReportTenElementCell.h"
 #import "TFWReportCareerCell.h"
 #import "TFWReportSuggestCell.h"
-
+#define get_Dsp(a) [[NSUserDefaults standardUserDefaults]dictionaryForKey:a]
 static NSString *cellTenElementIdentifier = @"cellTenElementIdentifier";
 static NSString *cellCareerIdentifier = @"cellCareerIdentifier";
 static NSString *cellSuggestIdentifier = @"cellSuggestIdentifier";
@@ -94,14 +94,14 @@ static NSString *cellSuggestIdentifier = @"cellSuggestIdentifier";
     _customNameLabel.font = [UIFont systemFontOfSize:43];
     _customNameLabel.textColor = [UIColor whiteColor];
     _customNameLabel.textAlignment = NSTextAlignmentCenter;
-    _customNameLabel.text = @"致 林立伟";
+    _customNameLabel.text = [NSString stringWithFormat:@"致 %@",[get_Dsp(@"DTALENTINFO")objectForKey:@"name"]];
     [headView addSubview:_customNameLabel];
     
     _adviserNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(360, 265 + 174, 80, 30)];
     _adviserNameLabel.font = [UIFont systemFontOfSize:19];
     _adviserNameLabel.textColor = [UIColor blackColor];
     _adviserNameLabel.textAlignment = NSTextAlignmentCenter;
-    _adviserNameLabel.text = @"张怡";
+    _adviserNameLabel.text = [get_Dsp(@"DUSERINFO")objectForKey:@"USERNAME"];
     [headView addSubview:_adviserNameLabel];
 
     _tableView.tableHeaderView = headView;

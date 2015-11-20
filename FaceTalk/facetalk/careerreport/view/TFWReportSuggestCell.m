@@ -28,6 +28,7 @@
     _textView.layer.borderColor = [UIColor grayColor].CGColor;
     _textView.layer.borderWidth = 1.0f;
     [self.contentView addSubview:_textView];
+    
 }
 
 -(void)layoutSubviews

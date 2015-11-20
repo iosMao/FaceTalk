@@ -62,6 +62,12 @@
 //    [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(loadimg) userInfo:nil repeats:YES];
     // Do any additional setup after loading the view from its nib.
 }
+
+
+
+
+
+
 -(void)viewWillAppear:(BOOL)animated
 {
     NSLog(@"%@",self.navigationController);
@@ -71,6 +77,13 @@
     loadTimer = [NSTimer scheduledTimerWithTimeInterval:7 target:self selector:@selector(loadimg) userInfo:nil repeats:YES];
     [loadTimer fire];
 }
+
+
+
+
+
+
+
 -(void)viewWillDisappear:(BOOL)animated
 {
     [loadTimer invalidate];

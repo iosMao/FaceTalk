@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @interface ImagePathManage : NSObject
-
++(NSString *)saveImageToPath:(NSString *)filename andImageName:(NSString *)imagename;
 @end

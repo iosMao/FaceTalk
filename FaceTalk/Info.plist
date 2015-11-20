@@ -9,7 +9,7 @@
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.bluedeermao.masterplanner</string>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -29,7 +29,7 @@
 			<string>weixinapi</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>wx1b43befa88bbb92b</string>
+				<string>wx23f27a9377c0b827</string>
 			</array>
 		</dict>
 		<dict>

@@ -44,7 +44,8 @@
     [self buildCenterView];
     [self buildTenElements];
     [self createImageView];
-    
+    [[FTWDataManager shareManager] createTenElementArray];
+    [[NSUserDefaults standardUserDefaults]setObject:@"0" forKey:@"FTD_isFinishMark"];
     [self.view.layer setMasksToBounds:YES];
 }
 

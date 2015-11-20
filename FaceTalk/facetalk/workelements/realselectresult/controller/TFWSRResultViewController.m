@@ -104,11 +104,13 @@
             [mutArray addObject:item];
         }
     }
-    float sum = 0.0f;
+    float sum1 = 0.0f;
+    float sum2 = 0.0f;
     for (int i = 0; i < 5; i++) {
-        sum += ((FTWElementItem *)[mutArray objectAtIndex:i]).currentScore / 1.0 / ((FTWElementItem *)[mutArray objectAtIndex:i]).hopeScore;
+        sum1 += ((FTWElementItem *)[mutArray objectAtIndex:i]).currentScore / 1.0;
+        sum2 += ((FTWElementItem *)[mutArray objectAtIndex:i]).hopeScore / 1.0;
     }
-    sum /= 5.0;
+    float sum = sum1 / sum2 ;
     _totalRateLabel.text = [NSString stringWithFormat:@"%d%@",(int)(sum * 100),@"%"];
     
     _suggestLabel = [[UILabel alloc] initWithFrame:CGRectMake(285, 612, 500, 50)];

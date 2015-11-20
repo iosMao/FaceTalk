@@ -9,5 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface FTDCreatIDManager : NSObject
-
++(NSString *)creatTalentId;
++(NSString *)creatImageName;
 @end

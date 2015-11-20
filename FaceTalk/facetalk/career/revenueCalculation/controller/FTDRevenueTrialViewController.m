@@ -7,8 +7,14 @@
 //
 
 #import "FTDRevenueTrialViewController.h"
-
+#import "FTDRevenueTrialDetailViewController.h"
+#import "FTDTestDetailController.h"
 @interface FTDRevenueTrialViewController ()
+@property (strong, nonatomic) IBOutlet UIImageView *imgBG;
+- (IBAction)backAction:(id)sender;
+- (IBAction)btn1Action:(id)sender;
+- (IBAction)btn2Action:(id)sender;
+- (IBAction)btn3Action:(id)sender;
 
 @end
 
@@ -16,6 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+     self.imgBG.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ftd_customrevenuehome" ofType:@"png"]];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -33,5 +40,28 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (IBAction)backAction:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)btn1Action:(id)sender {
+    [self gotoDetailCol:0];
+}
+
+- (IBAction)btn2Action:(id)sender {
+    [self gotoDetailCol:1];
+}
+
+- (IBAction)btn3Action:(id)sender {
+    [self gotoDetailCol:2];
+}
+
+-(void)gotoDetailCol:(int)index
+{
+    FTDRevenueTrialDetailViewController *vc = [[FTDRevenueTrialDetailViewController alloc]init];
+    vc.indexID = index;
+    [self.navigationController pushViewController:vc animated:YES];
+}
 
 @end

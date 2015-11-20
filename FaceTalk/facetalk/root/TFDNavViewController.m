@@ -21,6 +21,8 @@
 #import "FTDTrainViewController.h"
 #import "FTDJobHoppingCostViewController.h"
 #import "FTDTalentsListViewController.h"
+#import "FTDHomeViewController.h"
+#import "DYCareerProgrammeViewController.h"
 @interface TFDNavViewController ()
 {
     NSArray *arrayStr;
@@ -88,10 +90,8 @@
         [btnMenu addTarget:self action:@selector(Menuclick:) forControlEvents:UIControlEventTouchUpInside];
         [viewRightMenu addSubview:btnMenu];
         switch (i) {
+            
             case 0:
-                [btnMenu setImage:[UIImage imageNamed:@"FTD_creatreport.png"] forState:UIControlStateNormal];
-                break;
-            case 1:
                 _lblTitle1=[[UILabel alloc]initWithFrame:CGRectMake(100+i*(90/1.8),25,90/1.8,20)];
                 _lblTitle1.font=[UIFont boldSystemFontOfSize:10];
                  _lblTitle1.textAlignment=NSTextAlignmentCenter;
@@ -107,7 +107,7 @@
                 
                 [btnMenu setImage:[UIImage imageNamed:@"FTD_firstpart.png"] forState:UIControlStateNormal];
                 break;
-            case 2:
+            case 1:
                 _lblTitle2=[[UILabel alloc]initWithFrame:CGRectMake(100+i*(90/1.8),25,90/1.8,20)];
                 _lblTitle2.font=[UIFont boldSystemFontOfSize:10];
                  _lblTitle2.textAlignment=NSTextAlignmentCenter;
@@ -123,7 +123,7 @@
                 
                 [btnMenu setImage:[UIImage imageNamed:@"FTD_secondpart.png"] forState:UIControlStateNormal];
                 break;
-            case 3:
+            case 2:
                 _lblTitle3=[[UILabel alloc]initWithFrame:CGRectMake(100+i*(90/1.8),25,90/1.8,20)];
                 _lblTitle3.font=[UIFont boldSystemFontOfSize:10];
                 _lblTitle3.textAlignment=NSTextAlignmentCenter;
@@ -137,7 +137,7 @@
                 [viewRightMenu addSubview:_lblSubTitle3];
                 [btnMenu setImage:[UIImage imageNamed:@"FTD_thirdpart.png"] forState:UIControlStateNormal];
                 break;
-            case 4:
+            case 3:
                 _lblTitle4=[[UILabel alloc]initWithFrame:CGRectMake(100+i*(90/1.8),25,90/1.8,20)];
                 _lblTitle4.font=[UIFont boldSystemFontOfSize:10];
                 _lblTitle4.textAlignment=NSTextAlignmentCenter;
@@ -151,7 +151,9 @@
                 [viewRightMenu addSubview:_lblSubTitle4];
                 [btnMenu setImage:[UIImage imageNamed:@"FTD_fourpart.png"] forState:UIControlStateNormal];
                 break;
-                
+            case 4:
+                [btnMenu setImage:[UIImage imageNamed:@"FTD_creatreport.png"] forState:UIControlStateNormal];
+                break;
             default:
                 break;
         }
@@ -225,19 +227,19 @@
     TFWOrderModel *model = [[FTWDataManager shareManager] selectOrder];
     int indexClick = 0;
     switch (sender.tag - 300) {
-        case 1:
+        case 0:
             indexClick = model.first;
             break;
             
-        case 2:
+        case 1:
             indexClick = model.second;
             break;
             
-        case 3:
+        case 2:
             indexClick = model.third;
             break;
             
-        case 4:
+        case 3:
             indexClick = model.fourth;
             break;
             
@@ -245,7 +247,7 @@
             break;
     }
     
-    if (sender.tag-300==0) {
+    if (sender.tag-300==4) {
         NSLog(@"UERdefaut%@",[[NSUserDefaults standardUserDefaults]objectForKey:@"FTD_isFinishMark"]);
         
         if ( [[[NSUserDefaults standardUserDefaults]objectForKey:@"FTD_isFinishMark"]isEqualToString:@"0"]) {
@@ -438,8 +440,12 @@
     
     if (indexPath.row==0) {
         [FTWDataManager shareManager].currentIndex=-1;
-        [self popToRootViewControllerAnimated:NO];
-        [self dismissViewControllerAnimated:YES completion:nil];
+        [self removetable];
+        FTDHomeViewController *vc = [[FTDHomeViewController alloc] init];
+        [self pushViewController:vc animated:YES];
+        
+//        [self popToRootViewControllerAnimated:NO];
+//        [self dismissViewControllerAnimated:YES completion:nil];
     }
     else{
         if (indexID==indexPath.row) {
@@ -460,6 +466,16 @@
             }
             else if (indexPath.row==2)
             {
+                if ([[self.viewControllers lastObject]  isKindOfClass:[DYCareerProgrammeViewController class ]]) {
+                    return;
+                }
+                
+                [self removetable];
+                
+                DYCareerProgrammeViewController *vc = [[DYCareerProgrammeViewController alloc] init];
+                [self pushViewController:vc animated:YES];
+                
+                
                 
             }
             else if (indexPath.row==3)

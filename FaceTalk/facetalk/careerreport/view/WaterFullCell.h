@@ -10,4 +10,8 @@
 
 @interface WaterFullCell : UIView
 
+@property (nonatomic,strong) UIButton *headButton;
+@property (nonatomic, copy) void(^checkclickBlock)(UIButton *);
+-(CGFloat)setHead:(NSString *)head ImageName:(NSString *)imageName;
+
 @end

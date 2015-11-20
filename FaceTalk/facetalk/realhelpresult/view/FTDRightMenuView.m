@@ -42,7 +42,7 @@
         [button setBackgroundColor:[UIColor clearColor]];
         //        [button setAttributedTitle:[[NSAttributedString alloc] initWithString:[self.menuArray objectAtIndex:i] attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:12],NSForegroundColorAttributeName:[UIColor whiteColor]}] forState:UIControlStateNormal];
         [button setText:[self.menuArray objectAtIndex:i]];
-        button.tag = 1000 + i;
+        button.tag = 5000 + i;
         [self addSubview:button];
         
         if (i == index) {
@@ -72,7 +72,7 @@
     [self.lastButton setColor:[UIColor colorWithRed:211 / 255.0 green:17 / 255.0 blue:69 / 255.0 alpha:1.0]];
     
     if (self.rightMenuTapBlock) {
-        self.rightMenuTapBlock(button.tag - 1000);
+        self.rightMenuTapBlock(button.tag - 5000);
     }
 }
 @end

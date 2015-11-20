@@ -10,7 +10,8 @@
 #import "RingModel.h"
 
 @interface RingCircle : UIImageView
-
+@property (nonatomic,strong)UILabel *lblTitle;
+@property (nonatomic,strong)UILabel *lblCost;
 @property (nonatomic,strong) NSArray *dataArray;
 
 +(instancetype)createRingWithCenter:(CGPoint)center radius:(CGFloat)radius width:(CGFloat)width;

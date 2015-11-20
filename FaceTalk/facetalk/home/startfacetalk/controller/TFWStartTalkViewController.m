@@ -28,7 +28,7 @@
     [self buildBackButton];
     [self buildTitleLabel];
     [self buildOkButton];
-    [[FTWDataManager shareManager] createTenElementArray];
+    
     [self buildSettingOrderBtn];
     
 }

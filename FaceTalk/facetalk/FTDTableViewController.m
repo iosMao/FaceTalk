@@ -9,13 +9,17 @@
 #import "FTDTableViewController.h"
 
 @interface FTDTableViewController ()
-
+@property (nonatomic, strong)FTDTimeTableView *timeTableView;
 @end
 
 @implementation FTDTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.timeTableView = [FTDTimeTableView initCustomview];
+    self.timeTableView.frame = CGRectMake(0, 0, 844, 622);
+    [self.view addSubview:self.timeTableView];
+   // self.timeTableView.center = self.view.center;
     // Do any additional setup after loading the view from its nib.
 }
 

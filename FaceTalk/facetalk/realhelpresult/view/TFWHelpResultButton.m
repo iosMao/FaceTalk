@@ -43,7 +43,14 @@
 
 -(void)setText:(NSString *)text
 {
+    if (text.length >= 6) {
+        self.textLabel.font = [UIFont systemFontOfSize:9];
+    }
+    else{
+        self.textLabel.font = [UIFont systemFontOfSize:12];
+    }
     self.textLabel.text = text;
+    
 }
 
 -(void)setColor:(UIColor *)fillColor

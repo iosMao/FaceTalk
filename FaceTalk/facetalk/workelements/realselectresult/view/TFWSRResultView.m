@@ -136,7 +136,7 @@
     _rateLabel.textAlignment = NSTextAlignmentCenter;
     _rateLabel.font = [UIFont systemFontOfSize:140.0];
     _rateLabel.textColor = [UIColor colorWithRed:186 / 255.0 green:12 / 255.0 blue:58 / 255.0 alpha:1];
-    _rateLabel.center = CGPointMake(self.bounds.size.width / 2.0, 220);
+    _rateLabel.center = CGPointMake(self.bounds.size.width / 2.0, 240);
     _rateLabel.text = [NSString stringWithFormat:@"%2.f%@",self.rate * 100,@"%"];
     [self addSubview:_rateLabel];
 }

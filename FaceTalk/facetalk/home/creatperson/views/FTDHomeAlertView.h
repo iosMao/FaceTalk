@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "FTDCustomerModel.h"
+ 
+#import "Person.h"
 @protocol FTDHomeAlertViewDeledate <NSObject>
 
 - (void)homeAlertCancelClick;
@@ -19,7 +20,8 @@
 {
     NSMutableArray *arrayList;//数据库查询到的用户列表
     BOOL isLock;//若能查询到用户，则性别与生日为锁定状态
-    FTDCustomerModel *agentModel;
+    Person *choosePerson;
+    NSDate *selectedDate;
 }
 @property(nonatomic, weak)id<FTDHomeAlertViewDeledate> delegate;
 @property (strong, nonatomic) IBOutlet UIView *viewBG;

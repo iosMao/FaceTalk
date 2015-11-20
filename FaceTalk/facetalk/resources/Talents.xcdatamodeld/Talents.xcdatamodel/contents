@@ -1,4 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="8195" systemVersion="14F1021" minimumToolsVersion="Xcode 7.0">
-    <elements/>
+    <entity name="Person" representedClassName="Person" syncable="YES">
+        <attribute name="birthday" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="chattime" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="personid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sex" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="report" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Report" inverseName="inPerson" inverseEntity="Report" syncable="YES"/>
+    </entity>
+    <entity name="Report" representedClassName="Report" syncable="YES">
+        <attribute name="imgurl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isPush" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <relationship name="inPerson" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Person" inverseName="report" inverseEntity="Person" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Person" positionX="-63" positionY="-18" width="128" height="135"/>
+        <element name="Report" positionX="-54" positionY="18" width="128" height="90"/>
+    </elements>
 </model>

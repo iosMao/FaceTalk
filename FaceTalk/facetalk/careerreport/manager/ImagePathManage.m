@@ -10,4 +10,20 @@
 
 @implementation ImagePathManage
 
++(NSString *)saveImageToPath:(NSString *)filename andImageName:(NSString *)imagename
+{
+    NSString* path = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
+    
+    NSString *path1 = [NSString stringWithFormat:@"%@/%@",path,filename];//拼装图片的本地沙盒路径
+    
+    NSFileManager *fm = [NSFileManager defaultManager];
+    if (![fm fileExistsAtPath:path1]) {
+        [fm createDirectoryAtPath:path1 withIntermediateDirectories:NO attributes:nil error:nil];
+    }
+    
+    
+    NSString *path2 = [NSString stringWithFormat:@"/%@/%@.png",filename,imagename];//返回图片的本地相对路径
+    return path2;
+}
+
 @end

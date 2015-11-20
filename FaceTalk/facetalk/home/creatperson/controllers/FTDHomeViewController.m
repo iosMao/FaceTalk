@@ -13,6 +13,10 @@
 #import <SVProgressHUD/SVProgressHUD.h>
 #import "FTDDataPacketManager.h"
 #import "FTJsonManager.h"
+#import "Person.h"
+#import "Report.h"
+#import "FTDDataProvider.h"
+#import "FTDDBManager.h"
 @interface FTDHomeViewController ()
 {
     NSTimer *loadTimer;
@@ -44,8 +48,73 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(backIMOclick:) name:@"FTDREQUESTFAILED" object:nil];
     [self getLoginUserInfo];
     
+    
+//    Person *person = [Person MR_createEntity];
+//    person.name = @"xiaomao";
+//    person.sex = @1;
+//    person.birthday = @"19023";
+//    
+//    Report *report = [Report MR_createEntity];
+//    report.imgurl = @"http://sdsdsdsds";
+//    NSOrderedSet *order = [[NSOrderedSet alloc]initWithArray:@[report]];
+//    person.report = order;
+//    
+//    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+//    
+//    NSArray *persons=[Person MR_findAll];
+//    for (int i=0; i<persons.count; i++) {
+//        Person *persong1=[persons objectAtIndex:i];
+//        NSLog(@"personidw为哈哈：%@",persong1.personid);
+//        NSOrderedSet *orderset = persong1.report;
+//        if (orderset.count > 0) {
+//            for (int m = 0; m <orderset.count; m++) {
+//                Report *report = [persong1.report objectAtIndex:m];
+//                NSLog(@"报告：%@",report.imgurl);
+//            }
+//            
+//        }
+//        
+//    }
+//    NSPredicate *pred = [NSPredicate predicateWithFormat:@"name CONTAINS %@",@"m"];//模糊查询本地数据库
+//    [self push: [[FTDDBManager searchLocalDBWithKeys:pred] objectAtIndex:0]];
  
 }
+//-(void)push:(Person *)person
+//{
+//    //[SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
+//    FTDDataProvider *dataProvider = [[FTDDataProvider alloc] init];
+//    __weak FTDHomeViewController *weakself = self;
+//    
+//    [dataProvider setFinishBlock:^(NSDictionary *resultDict){
+//        //[SVProgressHUD dismiss];
+//        NSLog(@"登录结果：%@",resultDict);
+//        if ([[resultDict  objectForKey:@"success"] intValue] == 1) {
+//            //            [SVProgressHUD showSuccessWithStatus:@"登录成功" maskType:SVProgressHUDMaskTypeBlack];
+//            //            set_sp(@"DUSERINFO", [resultDict objectForKey:@"msg"]);
+//            
+//            
+//            
+//            
+//            
+//            
+//            
+//        }
+//        else{
+//            // [SVProgressHUD showErrorWithStatus:[resultDict objectForKey:@"msg"] maskType:SVProgressHUDMaskTypeBlack];
+//        }
+//        
+//        
+//        
+//    }];
+//    
+//    [dataProvider setFailedBlock:^(NSString *strError){
+//        //        [SVProgressHUD dismiss];
+//        //        [SVProgressHUD showErrorWithStatus:@"哎呀！请求服务器出错啦！请检查本地网络配置！" maskType:SVProgressHUDMaskTypeBlack];
+//    }];
+//    
+//    [dataProvider pushTalentsInfo:person];
+//}
+
 -(void)getLoginUserInfo//由QUIX协助调用获取登录信息接口  说明下“TblProfile”模型的结构
 {
     
@@ -57,6 +126,7 @@
 {
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSString *dstResourcePath = [[FTDDataPacketManager sharedInstance]unzipDestinationPath];
+    NSLog(@"沙盒路径：%@",dstResourcePath);
     dstResourcePath = [dstResourcePath stringByAppendingPathComponent:@"uploads"];
     dstResourcePath = [dstResourcePath stringByAppendingPathComponent:@"data.json"];
     if ([fileManager fileExistsAtPath:dstResourcePath]) {
@@ -79,7 +149,14 @@
      //scrollImage.image=[UIImage imageNamed:@"FTD_home_aiaoffice.png"];
     [scrollBG addSubview:scrollImage];
 }
-
+-(void)viewWillAppear:(BOOL)animated
+{
+    NSLog(@"%@",self.navigationController);
+    TFDNavViewController *nav = (TFDNavViewController *)self.navigationController;
+    nav.btnSlider.hidden = YES;
+    nav.btnRightMenu.hidden = YES;
+    nav.viewRightMenu.hidden = YES;
+}
 
 -(void)viewDidAppear:(BOOL)animated
 {
@@ -115,8 +192,10 @@
 -(void)homeLeadViewclick
 {
     
-    [loadTimer invalidate];
+    
     btnKey.alpha = 1;
+    [loadTimer invalidate];
+    
     __weak FTDHomeViewController *weak = self;
     FTDHomeLeadViewController *FTDHomeLeadViewCol = [[FTDHomeLeadViewController alloc] init];
     

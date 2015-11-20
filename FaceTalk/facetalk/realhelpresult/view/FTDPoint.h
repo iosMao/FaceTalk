@@ -9,5 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface FTDPoint : NSObject
-
+@property (nonatomic,assign) int pointX;
+@property (nonatomic,assign) int pointY;
+@property (nonatomic,assign) int haveBtn;
 @end

@@ -3,6 +3,7 @@ pod 'AFNetworking', '~> 2.0'
 pod 'SVProgressHUD'
 pod 'ZipArchive'
 pod 'IQKeyboardManager'
+pod 'MagicalRecord'
 
 
 

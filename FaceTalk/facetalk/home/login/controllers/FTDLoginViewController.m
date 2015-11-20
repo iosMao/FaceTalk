@@ -10,8 +10,11 @@
 #import "FTDDataProvider.h"
 #import "FTDHomeViewController.h"
 #import "TFDNavViewController.h"
-
 #import <SVProgressHUD.h>
+#define remove_sp(a) [[NSUserDefaults standardUserDefaults] removeObjectForKey:a]
+#define get_sp(a) [[NSUserDefaults standardUserDefaults] objectForKey:a]
+#define get_Dsp(a) [[NSUserDefaults standardUserDefaults]dictionaryForKey:a]
+#define set_sp(a,b) [[NSUserDefaults standardUserDefaults] setObject:b forKey:a]
 @interface FTDLoginViewController ()
 {
     NSMutableDictionary *dicLoginInfo;
@@ -93,11 +96,13 @@
         NSLog(@"登录结果：%@",resultDict);
         if ([[resultDict  objectForKey:@"success"] intValue] == 1) {
             [SVProgressHUD showSuccessWithStatus:@"登录成功" maskType:SVProgressHUDMaskTypeBlack];
+            set_sp(@"DUSERINFO", [resultDict objectForKey:@"msg"]);
             
-            FTDHomeViewController *FTDHomeViewCol = [[FTDHomeViewController alloc] init];
-            TFDNavViewController *navFTDHomeViewCol = [[TFDNavViewController alloc]initWithRootViewController:FTDHomeViewCol];
-            navFTDHomeViewCol.navigationBar.hidden=YES;
-            [weakself presentViewController:navFTDHomeViewCol animated:YES completion:nil];
+            [weakself getTalentsInfo];
+//            FTDHomeViewController *FTDHomeViewCol = [[FTDHomeViewController alloc] init];
+//            TFDNavViewController *navFTDHomeViewCol = [[TFDNavViewController alloc]initWithRootViewController:FTDHomeViewCol];
+//            navFTDHomeViewCol.navigationBar.hidden=YES;
+//            [weakself presentViewController:navFTDHomeViewCol animated:YES completion:nil];
             
             
             
@@ -113,12 +118,104 @@
     
     [dataProvider setFailedBlock:^(NSString *strError){
         [SVProgressHUD dismiss];
-        [SVProgressHUD showErrorWithStatus:@"服务器配置有问题" maskType:SVProgressHUDMaskTypeBlack];
+        [SVProgressHUD showErrorWithStatus:@"哎呀！请求服务器出错啦！请检查本地网络配置！" maskType:SVProgressHUDMaskTypeBlack];
     }];
     
     [dataProvider userLogin:dicLoginInfo];
     
 }
+
+-(void)getTalentsInfo
+{
+    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
+    FTDDataProvider *dataProvider = [[FTDDataProvider alloc] init];
+    __weak FTDLoginViewController *weakself = self;
+    
+    [dataProvider setFinishBlock:^(NSDictionary *resultDict){
+        [SVProgressHUD dismiss];
+        NSLog(@"登录结果：%@",resultDict);
+        if ([[resultDict  objectForKey:@"success"] intValue] == 1) {
+            [weakself downloadImage:[resultDict objectForKey:@"msg"]];
+ 
+            
+            
+            
+            
+        }
+        else{
+            if ([[resultDict  objectForKey:@"msg"] isEqualToString:@"返回列表为空"] ) {
+                FTDHomeViewController *FTDHomeViewCol = [[FTDHomeViewController alloc] init];
+                TFDNavViewController *navFTDHomeViewCol = [[TFDNavViewController alloc]initWithRootViewController:FTDHomeViewCol];
+                navFTDHomeViewCol.navigationBar.hidden=YES;
+                [weakself presentViewController:navFTDHomeViewCol animated:YES completion:nil];
+            }
+            else{
+                [SVProgressHUD showErrorWithStatus:[resultDict objectForKey:@"msg"] maskType:SVProgressHUDMaskTypeBlack];
+            }
+            
+        }
+        
+        
+        
+    }];
+    
+    [dataProvider setFailedBlock:^(NSString *strError){
+        [SVProgressHUD dismiss];
+        [SVProgressHUD showErrorWithStatus:@"哎呀！请求服务器出错啦！请检查本地网络配置！" maskType:SVProgressHUDMaskTypeBlack];
+    }];
+    
+    [dataProvider getTalents:[get_Dsp(@"DUSERINFO") objectForKey:@"agentId"]];
+    
+    
+    
+    
+}
+
+-(void)downloadImage:(NSArray *)array
+{
+    [SVProgressHUD showWithStatus:@"同步人才库中..." maskType:SVProgressHUDMaskTypeBlack];
+    //[SVProgressHUD showInfoWithStatus:@"同步资源中..." maskType:SVProgressHUDMaskTypeBlack];
+    FTDDataProvider *dataProvider = [[FTDDataProvider alloc] init];
+    __weak FTDLoginViewController *weakself = self;
+    
+    [dataProvider setFinishBlock:^(NSDictionary *resultDict){
+        [SVProgressHUD dismiss];
+        NSLog(@"登录结果：%@",resultDict);
+        if ([[resultDict  objectForKey:@"success"] intValue] == 1) {
+            
+            FTDHomeViewController *FTDHomeViewCol = [[FTDHomeViewController alloc] init];
+            TFDNavViewController *navFTDHomeViewCol = [[TFDNavViewController alloc]initWithRootViewController:FTDHomeViewCol];
+            navFTDHomeViewCol.navigationBar.hidden=YES;
+            [weakself presentViewController:navFTDHomeViewCol animated:YES completion:nil];
+            
+            
+            
+            
+        }
+        else{
+            [SVProgressHUD showErrorWithStatus:[resultDict objectForKey:@"msg"] maskType:SVProgressHUDMaskTypeBlack];
+        }
+        
+        
+        
+    }];
+    
+    [dataProvider setFailedBlock:^(NSString *strError){
+        [SVProgressHUD dismiss];
+        [SVProgressHUD showErrorWithStatus:@"哎呀！请求服务器出错啦！请检查本地网络配置！" maskType:SVProgressHUDMaskTypeBlack];
+    }];
+    
+    [dataProvider pullTalentsInfoArray:array];
+    
+    
+    
+    
+}
+
+
+
+
+
 
 
 - (IBAction)showCityList:(id)sender {
