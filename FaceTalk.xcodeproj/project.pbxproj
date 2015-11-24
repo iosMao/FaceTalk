@@ -87,13 +87,12 @@
 		18299ECF1BE7129F00F89058 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18299ECE1BE7129F00F89058 /* CoreData.framework */; };
 		18299ED21BE71B1000F89058 /* Talents.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 18299ED01BE71B1000F89058 /* Talents.xcdatamodeld */; settings = {ASSET_TAGS = (); }; };
 		1838DD661BFC675A00C33F99 /* 1212.png in Resources */ = {isa = PBXBuildFile; fileRef = 1838DD651BFC675A00C33F99 /* 1212.png */; settings = {ASSET_TAGS = (); }; };
-		1838DD6A1BFC723A00C33F99 /* FTDTestDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1838DD681BFC723A00C33F99 /* FTDTestDetailController.m */; settings = {ASSET_TAGS = (); }; };
-		1838DD6B1BFC723A00C33F99 /* FTDTestDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1838DD691BFC723A00C33F99 /* FTDTestDetailController.xib */; settings = {ASSET_TAGS = (); }; };
 		183ACAC71BF456600090AE54 /* FTDPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 183ACAC61BF456600090AE54 /* FTDPoint.m */; settings = {ASSET_TAGS = (); }; };
 		183BA5631BE066A300DE4FEE /* ftd_reoprt_check.png in Resources */ = {isa = PBXBuildFile; fileRef = 183BA5611BE066A300DE4FEE /* ftd_reoprt_check.png */; settings = {ASSET_TAGS = (); }; };
 		183BA5641BE066A300DE4FEE /* ftd_reoprt_uncheck.png in Resources */ = {isa = PBXBuildFile; fileRef = 183BA5621BE066A300DE4FEE /* ftd_reoprt_uncheck.png */; settings = {ASSET_TAGS = (); }; };
 		183BA5671BE09D4700DE4FEE /* FTDAIADetailScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 183BA5661BE09D4700DE4FEE /* FTDAIADetailScrollView.m */; settings = {ASSET_TAGS = (); }; };
 		183BA5691BE09D8D00DE4FEE /* FTDAIADetailScrollView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 183BA5681BE09D8D00DE4FEE /* FTDAIADetailScrollView.xib */; settings = {ASSET_TAGS = (); }; };
+		184646FC1BFED7B500FA4BBC /* ftd_customtextbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 184646FB1BFED7B500FA4BBC /* ftd_customtextbg.png */; settings = {ASSET_TAGS = (); }; };
 		1848FFAC1BCDF53F0047F493 /* FTD_ProfessionalTrain_NPA0.png in Resources */ = {isa = PBXBuildFile; fileRef = 1848FFA41BCDF53F0047F493 /* FTD_ProfessionalTrain_NPA0.png */; settings = {ASSET_TAGS = (); }; };
 		1848FFAD1BCDF53F0047F493 /* FTD_ProfessionalTrain_NPA1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1848FFA51BCDF53F0047F493 /* FTD_ProfessionalTrain_NPA1.png */; settings = {ASSET_TAGS = (); }; };
 		1848FFAE1BCDF53F0047F493 /* FTD_ProfessionalTrain_NPA2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1848FFA61BCDF53F0047F493 /* FTD_ProfessionalTrain_NPA2.png */; settings = {ASSET_TAGS = (); }; };
@@ -650,9 +649,6 @@
 		18299ED11BE71B1000F89058 /* Talents.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Talents.xcdatamodel; sourceTree = "<group>"; };
 		18299ED91BE72DBF00F89058 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		1838DD651BFC675A00C33F99 /* 1212.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1212.png; sourceTree = "<group>"; };
-		1838DD671BFC723A00C33F99 /* FTDTestDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTDTestDetailController.h; sourceTree = "<group>"; };
-		1838DD681BFC723A00C33F99 /* FTDTestDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTDTestDetailController.m; sourceTree = "<group>"; };
-		1838DD691BFC723A00C33F99 /* FTDTestDetailController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FTDTestDetailController.xib; sourceTree = "<group>"; };
 		183ACAC51BF456600090AE54 /* FTDPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTDPoint.h; sourceTree = "<group>"; };
 		183ACAC61BF456600090AE54 /* FTDPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTDPoint.m; sourceTree = "<group>"; };
 		183BA5611BE066A300DE4FEE /* ftd_reoprt_check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ftd_reoprt_check.png; sourceTree = "<group>"; };
@@ -660,6 +656,7 @@
 		183BA5651BE09D4700DE4FEE /* FTDAIADetailScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTDAIADetailScrollView.h; sourceTree = "<group>"; };
 		183BA5661BE09D4700DE4FEE /* FTDAIADetailScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTDAIADetailScrollView.m; sourceTree = "<group>"; };
 		183BA5681BE09D8D00DE4FEE /* FTDAIADetailScrollView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FTDAIADetailScrollView.xib; sourceTree = "<group>"; };
+		184646FB1BFED7B500FA4BBC /* ftd_customtextbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ftd_customtextbg.png; sourceTree = "<group>"; };
 		1848FFA41BCDF53F0047F493 /* FTD_ProfessionalTrain_NPA0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FTD_ProfessionalTrain_NPA0.png; sourceTree = "<group>"; };
 		1848FFA51BCDF53F0047F493 /* FTD_ProfessionalTrain_NPA1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FTD_ProfessionalTrain_NPA1.png; sourceTree = "<group>"; };
 		1848FFA61BCDF53F0047F493 /* FTD_ProfessionalTrain_NPA2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FTD_ProfessionalTrain_NPA2.png; sourceTree = "<group>"; };
@@ -1958,9 +1955,6 @@
 				1813633E1BFC2DB10073B1F6 /* FTDRevenueTrialDetailViewController.h */,
 				1813633F1BFC2DB10073B1F6 /* FTDRevenueTrialDetailViewController.m */,
 				181363401BFC2DB10073B1F6 /* FTDRevenueTrialDetailViewController.xib */,
-				1838DD671BFC723A00C33F99 /* FTDTestDetailController.h */,
-				1838DD681BFC723A00C33F99 /* FTDTestDetailController.m */,
-				1838DD691BFC723A00C33F99 /* FTDTestDetailController.xib */,
 				18A8E9411BFDC5D00002E803 /* FTDCustomCalculationViewController.h */,
 				18A8E9421BFDC5D00002E803 /* FTDCustomCalculationViewController.m */,
 				18A8E9431BFDC5D00002E803 /* FTDCustomCalculationViewController.xib */,
@@ -1971,6 +1965,7 @@
 		1881239B1BF9BDDC008902EA /* images */ = {
 			isa = PBXGroup;
 			children = (
+				184646FB1BFED7B500FA4BBC /* ftd_customtextbg.png */,
 				1838DD651BFC675A00C33F99 /* 1212.png */,
 				181363341BFC2D480073B1F6 /* ftd_customrevenuebtn.png */,
 				181363351BFC2D480073B1F6 /* ftd_customrevenuehome.png */,
@@ -2982,6 +2977,7 @@
 				18126A861B70AB2F00BACB3F /* FTD_slider_image4.png in Resources */,
 				18D7CA251B745D9900C35359 /* FTD_fourpart.png in Resources */,
 				185D655C1B6673BC00845F21 /* tfw_cf_background.png in Resources */,
+				184646FC1BFED7B500FA4BBC /* ftd_customtextbg.png in Resources */,
 				18126A821B70AB2F00BACB3F /* FTD_slider_image0.png in Resources */,
 				188123D01BF9BDDC008902EA /* dySellManage1.png in Resources */,
 				188123C01BF9BDDC008902EA /* NPA1-3mouth.png in Resources */,
@@ -3173,7 +3169,6 @@
 				185D64851B6671B500845F21 /* tfw_rs_add@2x.png in Resources */,
 				18A8E9451BFDC5D00002E803 /* FTDCustomCalculationViewController.xib in Resources */,
 				18DC2A271BD490D100561F17 /* FTDLoginViewController.xib in Resources */,
-				1838DD6B1BFC723A00C33F99 /* FTDTestDetailController.xib in Resources */,
 				18C478001B9D62AF0052E506 /* ftd_career_2.png in Resources */,
 				188123C31BF9BDDC008902EA /* NPA4-12mouth.png in Resources */,
 				18A343151B93FC7400ED973E /* ShareSDKLocalizable.strings in Resources */,
@@ -3427,7 +3422,6 @@
 				A252AC081B836BF900E901FD /* TFWOrderModel.m in Sources */,
 				A2E7CD641B6F9BE700FD28FB /* TFWHelpResultButton.m in Sources */,
 				18C7C39C1BE9B2750002F003 /* FTDNameCell.m in Sources */,
-				1838DD6A1BFC723A00C33F99 /* FTDTestDetailController.m in Sources */,
 				A2615A771B4D22C00098EC30 /* main.m in Sources */,
 				188123BB1BF9BDDC008902EA /* DYPictureInstructionViewController.m in Sources */,
 				18126A761B70739E00BACB3F /* FTDGoodAgentKindsController.m in Sources */,

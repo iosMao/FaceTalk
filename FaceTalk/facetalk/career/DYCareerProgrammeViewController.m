@@ -10,6 +10,7 @@
 #import "DYrevenueExampleViewController.h"
 #import "DYPictureInstructionViewController.h"
 #import "FTDRevenueTrialViewController.h"
+#import "TFDNavViewController.h"
 @interface DYCareerProgrammeViewController ()
 
 @property(strong, nonatomic) UILabel *titleLabel;
@@ -26,6 +27,11 @@
     [super viewDidLoad];
     
     self.navigationController.navigationBar.hidden = YES;
+    
+    TFDNavViewController *nav=(TFDNavViewController *)self.navigationController;
+    nav.btnSlider.hidden=NO;
+    nav.btnRightMenu.hidden=YES;
+    
     
     NSString *str = [NSString stringWithFormat:@"careerProgramme.png"];
     NSString *path = [[NSBundle mainBundle] pathForResource:str ofType:nil];

@@ -193,7 +193,8 @@
     _adviserNameLabel.font = [UIFont systemFontOfSize:17];
     _adviserNameLabel.textColor = [UIColor blackColor];
     _adviserNameLabel.textAlignment = NSTextAlignmentCenter;
-    _adviserNameLabel.text = [get_Dsp(@"DUSERINFO")objectForKey:@"USERNAME"];
+    _adviserNameLabel.text = @"张怡";
+    //_adviserNameLabel.text = [get_Dsp(@"DUSERINFO")objectForKey:@"USERNAME"];
     [headView addSubview:_adviserNameLabel];
      
     

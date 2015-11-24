@@ -8,13 +8,15 @@
 
 #import "FTDRevenueTrialViewController.h"
 #import "FTDRevenueTrialDetailViewController.h"
-#import "FTDTestDetailController.h"
+
+#import "FTDCustomCalculationViewController.h"
 @interface FTDRevenueTrialViewController ()
 @property (strong, nonatomic) IBOutlet UIImageView *imgBG;
 - (IBAction)backAction:(id)sender;
 - (IBAction)btn1Action:(id)sender;
 - (IBAction)btn2Action:(id)sender;
 - (IBAction)btn3Action:(id)sender;
+- (IBAction)customAction:(id)sender;
 
 @end
 
@@ -55,6 +57,11 @@
 
 - (IBAction)btn3Action:(id)sender {
     [self gotoDetailCol:2];
+}
+
+- (IBAction)customAction:(id)sender {
+    FTDCustomCalculationViewController *vc = [[FTDCustomCalculationViewController alloc]init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 -(void)gotoDetailCol:(int)index

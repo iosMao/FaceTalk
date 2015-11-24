@@ -24,6 +24,7 @@
                 <outlet property="lblRMB7" destination="Hbc-Hu-ABd" id="0cF-OH-tkm"/>
                 <outlet property="lblRMB8" destination="V1V-XP-h4c" id="fjz-0p-m2S"/>
                 <outlet property="lblRMB9" destination="rrq-oo-CeR" id="BIf-ia-Kat"/>
+                <outlet property="lblTitle" destination="9i3-MW-dm2" id="1Jc-ir-hUj"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="viewRed" destination="YBu-2K-ond" id="F4H-HB-lFf"/>
                 <outlet property="viewZuzhiInfo" destination="To3-xm-Wfx" id="jHN-eD-teY"/>
@@ -39,7 +40,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <animations/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ftd_xiaoshoupic.png" id="uJu-ol-Ztd">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ftd_zuzhipic.png" id="uJu-ol-Ztd">
                     <rect key="frame" x="90" y="85" width="889" height="440"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <animations/>
@@ -208,15 +209,7 @@
                     <color key="backgroundColor" red="0.7843137255" green="0.0" blue="0.2156862745" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RMB      1300000" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rrq-oo-CeR">
-                    <rect key="frame" x="795" y="190" width="63" height="38"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <animations/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RMB      13000" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0ED-cR-jIM">
-                    <rect key="frame" x="873" y="105" width="70" height="38"/>
+                    <rect key="frame" x="795" y="126" width="63" height="38"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -224,7 +217,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RMB      13000" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="V1V-XP-h4c">
-                    <rect key="frame" x="718" y="227" width="69" height="38"/>
+                    <rect key="frame" x="718" y="161" width="69" height="38"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -232,7 +225,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RMB      13000" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Hbc-Hu-ABd">
-                    <rect key="frame" x="640" y="267" width="64" height="38"/>
+                    <rect key="frame" x="640" y="221" width="64" height="38"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -240,7 +233,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RMB      13000" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qTT-VX-e9S">
-                    <rect key="frame" x="559" y="286" width="68" height="38"/>
+                    <rect key="frame" x="559" y="259" width="68" height="38"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -248,7 +241,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RMB      13000" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ELA-vI-J6X">
-                    <rect key="frame" x="473" y="296" width="62" height="38"/>
+                    <rect key="frame" x="474" y="280" width="62" height="38"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -256,7 +249,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RMB      13000" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="h11-Qo-XkP">
-                    <rect key="frame" x="392" y="307" width="66" height="38"/>
+                    <rect key="frame" x="392" y="296" width="66" height="38"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -287,6 +280,14 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RMB 2,335,637" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0ED-cR-jIM">
+                    <rect key="frame" x="873" y="67" width="70" height="38"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -300,7 +301,7 @@
         <image name="FTDbackgroundImage.png" width="1024" height="751"/>
         <image name="ftd_customrevenuebtn.png" width="267" height="276"/>
         <image name="ftd_slider.png" width="639" height="94"/>
-        <image name="ftd_xiaoshoupic.png" width="1772" height="945"/>
+        <image name="ftd_zuzhipic.png" width="1772" height="945"/>
         <image name="tfw_sc_movebt.png" width="54" height="56"/>
     </resources>
 </document>

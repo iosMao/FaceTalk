@@ -193,26 +193,32 @@
 {
     
     
-    btnKey.alpha = 1;
+   
     [loadTimer invalidate];
-    
+     btnKey.alpha = 1;
     __weak FTDHomeViewController *weak = self;
     FTDHomeLeadViewController *FTDHomeLeadViewCol = [[FTDHomeLeadViewController alloc] init];
     
-    [UIView animateKeyframesWithDuration:2 delay:0 options:UIViewKeyframeAnimationOptionLayoutSubviews animations:^{
-        btnKey.center=CGPointMake(512, 440);
-        btnKey.alpha = 0;
-    } completion:^(BOOL finished) {
-        
-        CGPoint exactTouchPosition = CGPointMake(512, 440);
-        
-        
-        [UIView mdInflateTransitionFromView:weak.view toView:FTDHomeLeadViewCol.view originalPoint:exactTouchPosition duration:1.5 completion:^{
-            NSLog(@"completed!");
-            [weak.navigationController pushViewController:FTDHomeLeadViewCol animated:YES];
+    double delayInSeconds = 0.5;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        [UIView animateKeyframesWithDuration:2 delay:0 options:UIViewKeyframeAnimationOptionLayoutSubviews animations:^{
+            btnKey.center=CGPointMake(512, 440);
+            btnKey.alpha = 0;
+        } completion:^(BOOL finished) {
             
+            CGPoint exactTouchPosition = CGPointMake(512, 440);
+            
+            
+            [UIView mdInflateTransitionFromView:weak.view toView:FTDHomeLeadViewCol.view originalPoint:exactTouchPosition duration:1.5 completion:^{
+                NSLog(@"completed!");
+                [weak.navigationController pushViewController:FTDHomeLeadViewCol animated:YES];
+                
+            }];
         }];
-    }];
+
+        // code to be executed on the main queue after delay
+    });
     
     
     
