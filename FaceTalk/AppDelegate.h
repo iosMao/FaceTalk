@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "FTDDataProvider.h"
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
-
+@property (nonatomic,strong) FTDDataProvider *dataProvider;
+@property (nonatomic,strong) UIView *backgroundView;
 @end
 

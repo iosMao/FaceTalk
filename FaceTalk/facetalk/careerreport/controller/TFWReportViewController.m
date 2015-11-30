@@ -5,7 +5,15 @@
 //  Created by wen on 15/8/8.
 //  Copyright (c) 2015年 wen. All rights reserved.
 //
-
+//猜字谜啦，打八个字！这八个字送给你啦！[调皮][调皮]
+//二人牵手是知音（     ）
+//乞求添上一横眉（     ）
+//恋人无心又相随（     ）
+//令人落下两点泪（     ）
+//呆子也要人来陪（     ）
+//千里姻缘一线牵（     ）
+//射去一寸无牵挂（     ）
+//休想再生一枝节（     ）
 #import "TFWReportViewController.h"
 #import "TFWReportView.h"
 #import "FTDShareView.h"
@@ -35,6 +43,8 @@
 @property (nonatomic,strong) FTDShareView *shareView;
 @property (nonatomic,strong) FTDbackgroundView *backgroundView;
 @property (nonatomic,strong) FTDDataProvider *dataProvider;
+@property (nonatomic,strong) UIButton *okBtn;
+@property (nonatomic,strong) UIButton *shareBtn;
 @end
 
 @implementation TFWReportViewController
@@ -56,6 +66,13 @@
     [self buildShareView];
     CANCREATREPORT = NO;
     
+    
+}
+-(void)viewWillAppear:(BOOL)animated
+{
+    TFDNavViewController *nav=(TFDNavViewController *)self.navigationController;
+    nav.btnSlider.hidden=NO;
+    nav.btnRightMenu.hidden=NO;
     
 }
 -(void)buildShareView
@@ -138,20 +155,22 @@
 
 -(void)buildOkButton
 {
-    UIButton *bt = [UIButton buttonWithType:UIButtonTypeCustom];
-    bt.frame = CGRectMake(672, 600, 150/1.2,154/1.2);
-    [bt setImage:[UIImage imageNamed:@"ftw_share_continue"] forState:UIControlStateNormal];
-    [bt addTarget:self action:@selector(continueAction) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:bt];
+    _okBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    _okBtn.frame = CGRectMake(672, 600, 150/1.2,154/1.2);
+    [_okBtn setImage:[UIImage imageNamed:@"ftw_share_continue"] forState:UIControlStateNormal];
+    [_okBtn addTarget:self action:@selector(continueAction) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_okBtn];
+    _okBtn.hidden = YES;
 }
 -(void)buildShareButton
 {
-    UIButton *bt = [UIButton buttonWithType:UIButtonTypeCustom];
-    bt.frame = CGRectMake(522, 600, 150/1.2,154/1.2);
-    [bt setImage:[UIImage imageNamed:@"ftw_share_complete"] forState:UIControlStateNormal];
-    [bt setImage:[UIImage imageNamed:@"ftw_share_share"] forState:UIControlStateSelected];
-    [bt addTarget:self action:@selector(ShareAction:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:bt];
+    _shareBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+     _shareBtn.frame = CGRectMake(672, 600, 150/1.2,154/1.2);
+    //_shareBtn.frame = CGRectMake(522, 600, 150/1.2,154/1.2);
+    [_shareBtn setImage:[UIImage imageNamed:@"ftw_share_complete"] forState:UIControlStateNormal];
+    [_shareBtn setImage:[UIImage imageNamed:@"ftw_share_share"] forState:UIControlStateSelected];
+    [_shareBtn addTarget:self action:@selector(ShareAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_shareBtn];
 }
 -(void)buildEOPButton
 {
@@ -229,6 +248,9 @@
     else{
         _reportdemo.isEndEdit = YES;
         bt.selected = YES;
+        _okBtn.hidden = NO;
+        //_okBtn.frame = CGRectMake(672, 600, 150/1.2,154/1.2);
+        _shareBtn.frame = CGRectMake(522, 600, 150/1.2,154/1.2);
         CANCREATREPORT = YES;
        [_reportdemo reloadData];
        [self CreatReportImage];
@@ -261,7 +283,7 @@
 -(void)continueAction
 {
     if (CANCREATREPORT) {
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"提示" message:@"是否将人才信息同步到服务器？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"提示" message:@"是否将职业评估报告同步到服务器？" delegate:self cancelButtonTitle:@"以后再说" otherButtonTitles:@"立即同步", nil];
         [alert show];
         alert.tag = 20001;
         
@@ -420,6 +442,10 @@
                     [self push:array];
                 }
             
+        }
+        else{
+            FTDHomeViewController *vc=[[FTDHomeViewController alloc]init];
+            [self.navigationController setViewControllers:@[vc] animated:YES];
         }
         
     }

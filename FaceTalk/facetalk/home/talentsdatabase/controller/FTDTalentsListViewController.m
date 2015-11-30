@@ -21,6 +21,7 @@
 #import <SVProgressHUD.h>
 #import "FTWDataManager.h"
 #import "TFWOrderModel.h"
+#import "TFDNavViewController.h"
 #define remove_sp(a) [[NSUserDefaults standardUserDefaults] removeObjectForKey:a]
 #define get_sp(a) [[NSUserDefaults standardUserDefaults] objectForKey:a]
 #define get_Dsp(a) [[NSUserDefaults standardUserDefaults]dictionaryForKey:a]
@@ -77,6 +78,13 @@
     dicTalent = [[NSMutableDictionary alloc]init];
     [self searchLocalDB];
     // Do any additional setup after loading the view from its nib.
+}
+-(void)viewWillAppear:(BOOL)animated
+{
+    TFDNavViewController *nav = (TFDNavViewController *)self.navigationController;
+    nav.btnSlider.hidden = NO;
+    nav.btnRightMenu.hidden = YES;
+    
 }
 -(void)setviewRound
 {
@@ -183,10 +191,10 @@
     else{
         cell.lblSex.text = @"女";
     }
-    NSTimeInterval dateDiff = [person.birthday timeIntervalSinceNow];
-    
-    int age=trunc(dateDiff/(60*60*24))/365;
-    cell.lblAge.text = [NSString stringWithFormat:@"%d",-age];
+//    NSTimeInterval dateDiff = [person.birthday timeIntervalSinceNow];
+//    
+//    int age=trunc(dateDiff/(60*60*24))/365;
+    cell.lblAge.text = [FTDChangeDate dateStr:person.birthday];
     [cell.btnReport setTag:indexPath.row+600];
     [cell.btnReport addTarget:self action:@selector(reportAction:) forControlEvents:UIControlEventTouchUpInside];
     

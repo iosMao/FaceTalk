@@ -22,6 +22,9 @@
 #import "FTDTableViewController.h"
 #import <MagicalRecord+Setup.h>
 #import "FTDRevenueTrialDetailViewController.h"
+#import "FTDChangeDate.h"
+#import <SVProgressHUD.h>
+#import "FTDDBManager.h"
 #define remove_sp(a) [[NSUserDefaults standardUserDefaults] removeObjectForKey:a]
 #define get_sp(a) [[NSUserDefaults standardUserDefaults] objectForKey:a]
 #define get_Dsp(a) [[NSUserDefaults standardUserDefaults]dictionaryForKey:a]
@@ -35,6 +38,21 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    self.backgroundView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
+    self.backgroundView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
+    
+    UILabel *lblTitle = [[UILabel alloc] initWithFrame:CGRectMake(0,0,300,100)];
+    lblTitle.text =@"该APP已经做废啦～";
+    lblTitle.center = self.backgroundView.center;
+    lblTitle.numberOfLines = 0;
+    [lblTitle.layer setMasksToBounds:YES];
+    [lblTitle.layer setCornerRadius:5.0];
+    lblTitle.textAlignment=NSTextAlignmentCenter;
+    lblTitle.font = [UIFont boldSystemFontOfSize:28];
+    lblTitle.textColor = [UIColor blackColor];
+    lblTitle.backgroundColor = [UIColor whiteColor];
+    [self.backgroundView addSubview:lblTitle];
+    
     
     [MagicalRecord setupCoreDataStackWithStoreNamed:@"MyDatabase.sqlite"];
     
@@ -100,7 +118,67 @@
 }
 
 
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (alertView.tag == 700) {
+        if (buttonIndex == 0) {
+            [SVProgressHUD showWithStatus:@"正在上传..." maskType:SVProgressHUDMaskTypeBlack];
+            
+            NSArray *array = [FTDDBManager searchLocalDB];
+            if (array.count > 0) {
+                [self push:array];
+            }
+        }
+    }
+    else if (alertView.tag == 701)
+    {
+        [self.window addSubview:self.backgroundView];
+    }
+    else if (alertView.tag == 702)
+    {
+        if (buttonIndex == 0) {
+            [SVProgressHUD showWithStatus:@"正在上传..." maskType:SVProgressHUDMaskTypeBlack];
+            
+            NSArray *array = [FTDDBManager searchLocalDB];
+            if (array.count > 0) {
+                [self push:array];
+            }
+        }
+    }
+    
+}
+-(void) willPresentAlertView:(UIAlertView *)alertView
+{
+    
+}
 
+-(void)push:(NSArray *)array
+{
+    
+    self.dataProvider= [[FTDDataProvider alloc] init];
+     __weak AppDelegate *weakself = self;
+    
+    [self.dataProvider setFinishBlock:^(NSDictionary *resultDict){
+        [SVProgressHUD dismiss];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"提示" message:@"成功了" delegate:weakself cancelButtonTitle:@"确定" otherButtonTitles: nil];
+        [alert show];
+        alert.tag = 701;
+//        [SVProgressHUD showSuccessWithStatus:@"同步成功，您可以去IMO使用我们的友待开启了" maskType:SVProgressHUDMaskTypeBlack];
+        
+        
+        
+        
+    }];
+    
+    [self.dataProvider setFailedBlock:^(NSString *strError){
+        [SVProgressHUD dismiss];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"提示" message:@"网络请求出错啦！再试一下吧～" delegate:weakself cancelButtonTitle:@"确定" otherButtonTitles: nil];
+        [alert show];
+        alert.tag = 702;
+    }];
+    
+    [self.dataProvider pushTalentsInfoArray:array];
+}
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
@@ -112,10 +190,27 @@
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
+   
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
+    NSString *strFinishDate = get_sp(@"DFINISHDATE");
+    if (strFinishDate.length > 0) {
+        NSDate *nowDate = [NSDate date];
+        
+        NSDate *finishDate = [FTDChangeDate dateFromString:strFinishDate];
+        
+        if ([finishDate timeIntervalSinceDate:nowDate] < 0.0) {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"提示" message:@"APP到期啦！同步下数据吧！" delegate:self cancelButtonTitle:@"确定" otherButtonTitles: nil];
+            [alert show];
+            alert.tag = 700;
+        }
+    }
+    
+    
+//    UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"提示" message:@"该关啦" delegate:self cancelButtonTitle:@"确定" otherButtonTitles: nil];
+//    [alert show];
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }
 

@@ -22,6 +22,7 @@
 
 +(FTJsonManager *)shareManager;
 -(NSString *)basePath;
+-(void)initData;
 -(FTJsonExcellentModel *)getElementItemAtIndex:(int)index;
 
 @end

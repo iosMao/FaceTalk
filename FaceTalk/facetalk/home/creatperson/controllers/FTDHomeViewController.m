@@ -17,6 +17,10 @@
 #import "Report.h"
 #import "FTDDataProvider.h"
 #import "FTDDBManager.h"
+#define remove_sp(a) [[NSUserDefaults standardUserDefaults] removeObjectForKey:a]
+#define get_sp(a) [[NSUserDefaults standardUserDefaults] objectForKey:a]
+#define get_Dsp(a) [[NSUserDefaults standardUserDefaults]dictionaryForKey:a]
+#define set_sp(a,b) [[NSUserDefaults standardUserDefaults] setObject:b forKey:a]
 @interface FTDHomeViewController ()
 {
     NSTimer *loadTimer;
@@ -31,7 +35,7 @@
     
     [self getlocalResourse];
     //[self reminderBtn];
-    
+    [self getFinishDate];
     
     
     
@@ -79,41 +83,35 @@
 //    [self push: [[FTDDBManager searchLocalDBWithKeys:pred] objectAtIndex:0]];
  
 }
-//-(void)push:(Person *)person
-//{
-//    //[SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
-//    FTDDataProvider *dataProvider = [[FTDDataProvider alloc] init];
-//    __weak FTDHomeViewController *weakself = self;
-//    
-//    [dataProvider setFinishBlock:^(NSDictionary *resultDict){
-//        //[SVProgressHUD dismiss];
-//        NSLog(@"登录结果：%@",resultDict);
-//        if ([[resultDict  objectForKey:@"success"] intValue] == 1) {
-//            //            [SVProgressHUD showSuccessWithStatus:@"登录成功" maskType:SVProgressHUDMaskTypeBlack];
-//            //            set_sp(@"DUSERINFO", [resultDict objectForKey:@"msg"]);
-//            
-//            
-//            
-//            
-//            
-//            
-//            
-//        }
-//        else{
-//            // [SVProgressHUD showErrorWithStatus:[resultDict objectForKey:@"msg"] maskType:SVProgressHUDMaskTypeBlack];
-//        }
-//        
-//        
-//        
-//    }];
-//    
-//    [dataProvider setFailedBlock:^(NSString *strError){
-//        //        [SVProgressHUD dismiss];
-//        //        [SVProgressHUD showErrorWithStatus:@"哎呀！请求服务器出错啦！请检查本地网络配置！" maskType:SVProgressHUDMaskTypeBlack];
-//    }];
-//    
-//    [dataProvider pushTalentsInfo:person];
-//}
+-(void)getFinishDate
+{
+    
+    FTDDataProvider *dataProvider = [[FTDDataProvider alloc] init];
+    __weak FTDHomeViewController *weakself = self;
+    
+    [dataProvider setFinishBlock:^(NSDictionary *resultDict){
+        
+        NSLog(@"最后日期：%@",resultDict);
+        if ([[resultDict  objectForKey:@"success"] intValue] == 1) {
+            
+             set_sp(@"DFINISHDATE", [resultDict objectForKey:@"msg"]);
+            
+        }
+        else{
+            
+        }
+        
+        
+        
+    }];
+    
+    [dataProvider setFailedBlock:^(NSString *strError){
+        //        [SVProgressHUD dismiss];
+        //        [SVProgressHUD showErrorWithStatus:@"哎呀！请求服务器出错啦！请检查本地网络配置！" maskType:SVProgressHUDMaskTypeBlack];
+    }];
+    
+    [dataProvider getFinishDate];
+}
 
 -(void)getLoginUserInfo//由QUIX协助调用获取登录信息接口  说明下“TblProfile”模型的结构
 {
@@ -151,6 +149,7 @@
 }
 -(void)viewWillAppear:(BOOL)animated
 {
+    self.btnyinKey.enabled = YES;
     NSLog(@"%@",self.navigationController);
     TFDNavViewController *nav = (TFDNavViewController *)self.navigationController;
     nav.btnSlider.hidden = YES;
@@ -236,6 +235,7 @@
 }
 
 - (IBAction)keyclick:(id)sender {
+    self.btnyinKey.enabled = NO;
     [self homeLeadViewclick];
 }
 - (void)didReceiveMemoryWarning {

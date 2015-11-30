@@ -11,6 +11,7 @@
 #import "FTDRightMenuView.h"
 #import "FTDAIADetailScrollView.h"
 #import "FTDTimeTableView.h"
+#import "TFDNavViewController.h"
 @interface TFWRealHelpResultController ()
 {
     NSMutableArray *arrayChildrenList;
@@ -68,7 +69,13 @@
     
     //[self buildImageView];
 }
-
+-(void)viewWillAppear:(BOOL)animated
+{
+    TFDNavViewController *nav=(TFDNavViewController *)self.navigationController;
+    nav.btnSlider.hidden=NO;
+    nav.btnRightMenu.hidden=NO;
+    
+}
 -(void)buildBackGround
 {
     UIImageView *back = [[UIImageView alloc] initWithFrame:CGRectMake(0, 20, 1024, 748)];

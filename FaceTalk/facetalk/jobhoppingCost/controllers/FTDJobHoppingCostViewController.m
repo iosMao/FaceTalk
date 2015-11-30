@@ -9,6 +9,7 @@
 #import "FTDJobHoppingCostViewController.h"
 #import "RingCircle.h"
 #import "RingModel.h"
+#import "TFDNavViewController.h"
 @interface FTDJobHoppingCostViewController ()
 {
     NSMutableArray *arrayModel;
@@ -62,7 +63,13 @@
     [self creatModel];
     // Do any additional setup after loading the view from its nib.
 }
-
+-(void)viewWillAppear:(BOOL)animated
+{
+    TFDNavViewController *nav = (TFDNavViewController *)self.navigationController;
+    nav.btnSlider.hidden = NO;
+    nav.btnRightMenu.hidden = YES;
+    
+}
 -(void)buildViewRound
 {
     [_view1.layer setMasksToBounds:YES];

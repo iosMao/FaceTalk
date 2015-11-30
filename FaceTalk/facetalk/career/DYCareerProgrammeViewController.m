@@ -28,9 +28,6 @@
     
     self.navigationController.navigationBar.hidden = YES;
     
-    TFDNavViewController *nav=(TFDNavViewController *)self.navigationController;
-    nav.btnSlider.hidden=NO;
-    nav.btnRightMenu.hidden=YES;
     
     
     NSString *str = [NSString stringWithFormat:@"careerProgramme.png"];
@@ -41,7 +38,13 @@
     [self buildTitleLabel];
     [self buildBackButton];
 }
-
+-(void)viewWillAppear:(BOOL)animated
+{
+    TFDNavViewController *nav = (TFDNavViewController *)self.navigationController;
+    nav.btnSlider.hidden = NO;
+    nav.btnRightMenu.hidden = YES;
+    
+}
 -(void)buildBackButton
 {
     UIImageView *imageBack=[[UIImageView alloc]initWithFrame:CGRectMake(235 / 2.0, 156 / 2.0, 13, 23)];
@@ -58,7 +61,7 @@
 {
     self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(296 / 2.0, 148 / 2.0, 600 / 2.0, 30)];
     self.titleLabel.text = @"职涯规划";
-    self.titleLabel.font = [UIFont systemFontOfSize:40];
+    self.titleLabel.font = [UIFont systemFontOfSize:32];
     self.titleLabel.textColor = [UIColor colorWithRed:188 / 255.0 green:0 / 255.0 blue:52 / 255.0 alpha:1];
     [self.view addSubview:self.titleLabel];
 }

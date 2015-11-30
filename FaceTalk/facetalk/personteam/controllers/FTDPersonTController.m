@@ -14,6 +14,7 @@
 #import "TFWReportViewController.h"
 #import "FTWDataManager.h"
 ///
+#import "TFDNavViewController.h"
 #import "JTSImageViewController.h"
 #import "JTSImageInfo.h"
 ///
@@ -69,6 +70,15 @@
     }
     // Do any additional setup after loading the view from its nib.
 }
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    TFDNavViewController *nav=(TFDNavViewController *)self.navigationController;
+    nav.btnSlider.hidden=NO;
+    nav.btnRightMenu.hidden=NO;
+    
+}
+
 -(void)getimage
 {
     NSArray *file = [FTDImageManage getImageArray];

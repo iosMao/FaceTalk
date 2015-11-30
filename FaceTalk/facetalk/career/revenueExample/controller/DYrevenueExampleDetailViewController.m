@@ -63,8 +63,6 @@
     [self.view addSubview:imageBack];
     UIButton *backBt = [UIButton buttonWithType:UIButtonTypeCustom];
     backBt.frame = CGRectMake(235 / 2.0, 156 / 2.0, 300, 30);
-//    backBt.backgroundColor = [UIColor blackColor];
-    //[backBt setImage:[UIImage imageNamed:@"tfw_tf_back"] forState:UIControlStateNormal];
     [backBt addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:backBt];
 }
@@ -80,7 +78,6 @@
 
 -(void)menuClickAction:(NSInteger)index
 {
-//    NSLog(@"index : %ld",(long)index);
     UIImageView *img1 = [[UIImageView alloc] init];
     UIImageView *img2 = [[UIImageView alloc] init];
     img1.frame = CGRectMake(0, 0, self.scrollView.frame.size.width, self.scrollView.frame.size.height);

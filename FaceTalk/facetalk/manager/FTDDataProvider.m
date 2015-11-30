@@ -15,9 +15,11 @@
 #import "FTDCreatIDManager.h"
 #import "FTDDBManager.h"
 #import "FTDFileManager.h"
+#import "FTDDataPacketManager.h"
+#import <SVProgressHUD.h>
 #define FTD_BASE_IPSURL @"http://imo.tohours.com/attract/isp?"
 #define FTD_BASE_URL @"http://imo.tohours.com/attract/"
-
+#define FTD_UPdateFile_URL @"http://imo.tohours.com/attract/data.json"
 #define remove_sp(a) [[NSUserDefaults standardUserDefaults] removeObjectForKey:a]
 #define get_sp(a) [[NSUserDefaults standardUserDefaults] objectForKey:a]
 #define get_Dsp(a) [[NSUserDefaults standardUserDefaults]dictionaryForKey:a]
@@ -42,22 +44,91 @@
     }];
 }
 
+-(void)getJsonUrl
+{
+    NSString *urlString = [NSString stringWithFormat:@"%@downloadDataJson",FTD_BASE_URL];
+    [self requestData:urlString];
+}
+
+-(void)upDateJsonFile:(NSString *)strurl
+{
+    
+    
+    //检查附件是否存在
+    //    if ([fileManager fileExistsAtPath:fileName]) {
+    //        NSData *audioData = [NSData dataWithContentsOfFile:fileName];
+    //        //[self requestFinished:[NSDictionary dictionaryWithObject:audioData forKey:@"res"] tag:aTag];
+    //    }else{
+    //创建附件存储目录
+     
+    NSString *fileName=[[FTDDataPacketManager sharedInstance]unzipDestinationPath];
+    
+    fileName =[fileName stringByAppendingPathComponent:@"uploads"];
+     fileName =[fileName stringByAppendingPathComponent:@"data.json"];
+    //下载附件
+    NSURL *url = [[NSURL alloc] initWithString:strurl];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    [operation setShouldExecuteAsBackgroundTaskWithExpirationHandler:^{
+        
+    }];
+    operation.inputStream   = [NSInputStream inputStreamWithURL:url];
+    operation.outputStream  = [NSOutputStream outputStreamToFileAtPath:fileName append:NO];
+    
+    //下载进度控制
+    
+    [operation setDownloadProgressBlock:^(NSUInteger bytesRead, long long totalBytesRead, long long totalBytesExpectedToRead) {
+        NSLog(@"is download：%f", (float)totalBytesRead/totalBytesExpectedToRead);
+    }];
+    
+    
+    //已完成下载
+    __weak __typeof(self)weakSelf = self;
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"成功了");
+        self.finishBlock(@{@"success":@"1"});
+        
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"失败了");
+        
+        
+        //下载失败
+        //[self requestFailed:aTag];
+    }];
+    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+    [queue addOperation:operation];
+}
 -(void)getTalents:(NSString *)agentId
 {
     NSString *urlString = [NSString stringWithFormat:@"%@getTalentByAgentId?agentId=%@",FTD_BASE_URL,agentId];
     [self requestData:urlString];
 }
-
+-(void)getFinishDate
+{
+    NSString *urlString = [NSString stringWithFormat:@"%@getAppLastDate",FTD_BASE_URL];
+    [self requestData:urlString];
+}
 -(void)pullTalentsInfoArray:(NSArray *)talentArray
 {
-     _indexPeople = 0;
+    _indexPeople = 0;
     _indexReport = 0;
+    _totalTalents = 0;
+    _currentNum = 0;
     _personArray = [[NSArray alloc]initWithArray:talentArray];
+    for (int i = 0; i < _personArray.count; i ++) {
+        for (int j = 0; j < [[[_personArray objectAtIndex:i] objectForKey:@"reports"]count]; j ++) {
+            _totalTalents ++ ;
+        }
+    }
     [FTDDBManager NetaddToLocalDB:[_personArray objectAtIndex:_indexPeople]];
     [self sessionDownload];
 }
 - (void)sessionDownload
 {
+    [SVProgressHUD showWithStatus:[NSString stringWithFormat:@"已同步人才%.0f%%...",_currentNum/_totalTalents*100] maskType:SVProgressHUDMaskTypeBlack];
+    
     if (_indexPeople >= _personArray.count) {
         self.finishBlock(@{@"success":@"1"});
         return;
@@ -110,6 +181,7 @@
             weakself.failedBlock(@"fail");
             return ;
         }
+        weakself.currentNum ++ ;
         [FTDDBManager addImageUrl:weakself.path andToTalentId:[[self.personArray objectAtIndex:self.indexPeople] objectForKey:@"id"]];
         weakself.indexReport++;
         [weakself sessionDownload];

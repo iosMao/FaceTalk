@@ -11,6 +11,7 @@
 #import "FTDAgentDetailScoreView.h"
 #import "TFWHelpResultMenuView.h"
 #import "FTJsonMarkModel.h"
+#import "TFDNavViewController.h"
 @interface FTDGoodAgentDetailController ()
 @property(nonatomic,strong)FTJsonPeopleModel *PeopleModel;
 @property(nonatomic,strong)FTJsonSubClassModel *subclassModel;
@@ -36,6 +37,13 @@
     
     
     // Do any additional setup after loading the view from its nib.
+}
+-(void)viewWillAppear:(BOOL)animated
+{
+    TFDNavViewController *nav = (TFDNavViewController *)self.navigationController;
+    nav.btnSlider.hidden = NO;
+    nav.btnRightMenu.hidden = NO;
+    
 }
 -(void)getdata
 {

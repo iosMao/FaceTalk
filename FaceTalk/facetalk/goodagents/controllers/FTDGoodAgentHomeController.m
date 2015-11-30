@@ -12,6 +12,9 @@
 #import "FTWDataManager.h"
 #import "TFWReportViewController.h"
 #import "FTJsonManager.h"
+#import "FTDDataProvider.h"
+#import "TFDNavViewController.h"
+#import <SVProgressHUD.h>
 @interface FTDGoodAgentHomeController ()
 
 @end
@@ -20,12 +23,79 @@
 @synthesize btnCareer,btnCompany,btnFreedom,imgBG,imgCamera,imgCup,imgGlass,imgKey,imgPen,imgPenBox;
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [self getJsonUrl];
     [self creatAnimation];
     
     
     // Do any additional setup after loading the view from its nib.
 }
+-(void)viewWillAppear:(BOOL)animated
+{
+    TFDNavViewController *nav=(TFDNavViewController *)self.navigationController;
+    nav.btnSlider.hidden=NO;
+    nav.btnRightMenu.hidden=NO;
+    
+}
+-(void)getJsonUrl
+{
+    [SVProgressHUD show];
+    FTDDataProvider *dataProvider = [[FTDDataProvider alloc] init];
+    __weak FTDGoodAgentHomeController *weakself = self;
+    
+    [dataProvider setFinishBlock:^(NSDictionary *resultDict){
+        
+        NSLog(@"登录结果：%@",resultDict);
+        if ([[resultDict  objectForKey:@"success"] intValue] == 1) {
+            
+            [weakself updateJsonFile:[resultDict objectForKey:@"msg"]];
+            
+        }
+        else{
+            [SVProgressHUD dismiss];
+        }
+        
+        
+        
+    }];
+    
+    [dataProvider setFailedBlock:^(NSString *strError){
+        [SVProgressHUD dismiss];
+    }];
+    
+    [dataProvider getJsonUrl];
+}
+
+
+-(void)updateJsonFile:(NSString *)url
+{
+    
+    FTDDataProvider *dataProvider = [[FTDDataProvider alloc] init];
+    __weak FTDGoodAgentHomeController *weakself = self;
+    
+    [dataProvider setFinishBlock:^(NSDictionary *resultDict){
+        
+        NSLog(@"登录结果：%@",resultDict);
+        if ([[resultDict  objectForKey:@"success"] intValue] == 1) {
+            [SVProgressHUD dismiss];
+            [[FTJsonManager shareManager]initData];
+            
+        }
+        else{
+            [SVProgressHUD dismiss];
+        }
+        
+        
+        
+    }];
+    
+    [dataProvider setFailedBlock:^(NSString *strError){
+        [SVProgressHUD dismiss];
+    }];
+    
+     [dataProvider upDateJsonFile:url];
+}
+
+
 -(void)creatAnimation
 {
     btnFreedom.alpha=0;

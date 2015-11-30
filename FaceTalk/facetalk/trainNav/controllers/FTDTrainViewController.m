@@ -11,6 +11,7 @@
 #import "FTDTeacherTeamView.h"
 #import "FTDDevWayView.h"
 #import "FTDProfessionalTrainView.h"
+#import "TFDNavViewController.h"
 @interface FTDTrainViewController ()
 @property (nonatomic, strong) TFWHelpResultMenuView *menu;
 @property (nonatomic, strong) FTDTeacherTeamView *TeacherTeamView;
@@ -28,6 +29,13 @@
     [self buildViews];
     
     // Do any additional setup after loading the view from its nib.
+}
+-(void)viewWillAppear:(BOOL)animated
+{
+    TFDNavViewController *nav = (TFDNavViewController *)self.navigationController;
+    nav.btnSlider.hidden = NO;
+    nav.btnRightMenu.hidden = YES;
+    
 }
 - (void)buildViews
 {

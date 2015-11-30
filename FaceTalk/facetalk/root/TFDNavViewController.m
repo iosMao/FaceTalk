@@ -401,7 +401,7 @@
             
             break;
         case 2:
-            cell.lblTitle.text=@"职涯演示";
+            cell.lblTitle.text=@"职涯规划";
             cell.imgIcon.image=[UIImage imageNamed:@"FTD_slider_image0.png"];
             break;
         case 3:
@@ -439,10 +439,9 @@
 {
     
     if (indexPath.row==0) {
-        [FTWDataManager shareManager].currentIndex=-1;
-        [self removetable];
-        FTDHomeViewController *vc = [[FTDHomeViewController alloc] init];
-        [self pushViewController:vc animated:YES];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"提示" message:@"返回首页后将结束本次面谈" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+        [alert show];
+        
         
 //        [self popToRootViewControllerAnimated:NO];
 //        [self dismissViewControllerAnimated:YES completion:nil];
@@ -517,7 +516,15 @@
     }
     
 }
-
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1) {
+        [FTWDataManager shareManager].currentIndex=-1;
+        [self removetable];
+        FTDHomeViewController *vc = [[FTDHomeViewController alloc] init];
+        [self setViewControllers:@[vc] animated:YES];
+    }
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

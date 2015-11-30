@@ -50,6 +50,40 @@
 
 }
 
++(NSString *)localDBisContainTalent:(NSDictionary *)dic
+{
+//    0是没有该人才
+//    1是有人才没报告
+//    2是有人才有报告
+    NSString *talentState = @"0";
+
+    NSArray *persons = [Person MR_findByAttribute:@"name" withValue:[dic objectForKey:@"name"]];
+    
+    for (int i = 0; i < persons.count; i ++) {
+        Person *person = [persons objectAtIndex:i];
+        if ([person.name isEqualToString:[dic objectForKey:@"name"]] && [person.sex isEqualToNumber:[NSNumber numberWithInt:[[dic objectForKey:@"sex"] intValue]]] && [person.birthday isEqualToDate:[dic objectForKey:@"birthday"]] ) {
+            NSOrderedSet *orderset = person.report;
+            if (orderset.count > 0) {
+                talentState = @"2";//有报告
+            
+            }
+            else{
+                talentState = @"1";
+            }
+            
+            
+            break;
+        }
+        
+        
+    }
+    
+    
+    
+    return talentState;
+}
+
+
 +(void)addImageUrl:(NSString *)urlstr andToTalentId:(NSString *)talentid
 {
     NSArray *persons = [Person MR_findByAttribute:@"personid" withValue:talentid];

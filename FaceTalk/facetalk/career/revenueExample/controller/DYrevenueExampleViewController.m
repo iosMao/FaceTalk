@@ -40,7 +40,6 @@
     [self.view addSubview:imageBack];
     UIButton *backBt = [UIButton buttonWithType:UIButtonTypeCustom];
     backBt.frame = CGRectMake(235 / 2.0, 156 / 2.0, 300, 30);
-    //[backBt setImage:[UIImage imageNamed:@"tfw_tf_back"] forState:UIControlStateNormal];
     [backBt addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:backBt];
 }

@@ -13,6 +13,7 @@
 #import "FTJsonManager.h"
 #import "FTJsonExcellentModel.h"
 #import "FTJsonSubClassModel.h"
+#import "TFDNavViewController.h"
 @interface FTDGoodAgentKindsController ()
 @property (nonatomic,strong)FTJsonExcellentModel *model;
 @property (nonatomic,strong) TFWHelpResultMenuView *menu;
@@ -33,7 +34,6 @@
       //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeframe) name:MPMoviePlayerWillEnterFullscreenNotification object:nil];
     // Do any additional setup after loading the view from its nib.
 }
-
 -(void)getClassModel
 {
      self.model=[[FTJsonManager shareManager]getElementItemAtIndex:self.index];
@@ -109,6 +109,9 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    TFDNavViewController *nav=(TFDNavViewController *)self.navigationController;
+    nav.btnSlider.hidden=NO;
+    nav.btnRightMenu.hidden=NO;
     [moviePlayer play];
 }
 -(void)viewDidDisappear:(BOOL)animated

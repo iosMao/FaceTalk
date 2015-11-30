@@ -13,5 +13,6 @@
 +(NSArray *)searchLocalDB;//查询本地的人才库
 +(void)LocalAddToDB:(NSDictionary *)dic;//本地新增对象到本地人才库
 +(NSArray *)searchLocalDBWithKeys:(NSPredicate *)predicate;//本地数据库关键字搜索
++(NSString *)localDBisContainTalent:(NSDictionary *)dic;
 +(void)addImageUrl:(NSString *)urlstr andToTalentId:(NSString *)talentid;//本地照片url添加进本地数据库
 @end

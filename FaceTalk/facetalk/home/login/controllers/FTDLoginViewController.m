@@ -173,6 +173,7 @@
 
 -(void)downloadImage:(NSArray *)array
 {
+    [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
     [SVProgressHUD showWithStatus:@"同步人才库中..." maskType:SVProgressHUDMaskTypeBlack];
     //[SVProgressHUD showInfoWithStatus:@"同步资源中..." maskType:SVProgressHUDMaskTypeBlack];
     FTDDataProvider *dataProvider = [[FTDDataProvider alloc] init];
@@ -201,6 +202,7 @@
     }];
     
     [dataProvider setFailedBlock:^(NSString *strError){
+        //[Person MR_truncateAll];
         [SVProgressHUD dismiss];
         [SVProgressHUD showErrorWithStatus:@"哎呀！请求服务器出错啦！请检查本地网络配置！" maskType:SVProgressHUDMaskTypeBlack];
     }];
@@ -229,7 +231,54 @@
 
 - (IBAction)loginclick:(id)sender {
     if (_textAccount.text.length > 0 &&_textPasword.text > 0 && _textCo.text.length > 0) {
-        [dicLoginInfo setObject:_textAccount.text forKey:@"account"];
+        
+        NSString *strAccount;
+        if ([_textAccount.text length] < 9) {
+            switch ([_textAccount.text length]) {
+                case 1:
+                    strAccount = [NSString stringWithFormat:@"00000000%@",_textAccount.text];
+                    break;
+
+                case 2:
+                    strAccount = [NSString stringWithFormat:@"0000000%@",_textAccount.text];
+                    break;
+                    
+                case 3:
+                    strAccount = [NSString stringWithFormat:@"000000%@",_textAccount.text];
+                    break;
+                    
+                case 4:
+                    strAccount = [NSString stringWithFormat:@"00000%@",_textAccount.text];
+                    break;
+                    
+                case 5:
+                    strAccount = [NSString stringWithFormat:@"0000%@",_textAccount.text];
+                    break;
+                    
+                case 6:
+                    strAccount = [NSString stringWithFormat:@"000%@",_textAccount.text];
+                    break;
+                    
+                case 7:
+                    strAccount = [NSString stringWithFormat:@"00%@",_textAccount.text];
+                    break;
+                    
+                case 8:
+                    strAccount = [NSString stringWithFormat:@"0%@",_textAccount.text];
+                    break;
+                    
+                default:
+                    break;
+            }
+            
+            
+            
+            
+            [dicLoginInfo setObject:strAccount forKey:@"account"];
+        }
+        else{
+            [dicLoginInfo setObject:_textAccount.text forKey:@"account"];
+        }
         [dicLoginInfo setObject:_textPasword.text forKey:@"password"];
 //        986	上海分公司
 //        1086	深圳分公司

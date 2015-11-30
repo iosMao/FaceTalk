@@ -47,7 +47,7 @@
 
 -(void)creatHeadview
 {
-    UILabel *lblTitle = [[UILabel alloc] initWithFrame:CGRectMake(20,5,240,20)];
+    UILabel *lblTitle = [[UILabel alloc] initWithFrame:CGRectMake(20,5,240,30)];
     lblTitle.text =@"真选择理想事业";
     lblTitle.numberOfLines = 0;
     lblTitle.textAlignment=NSTextAlignmentLeft;
@@ -93,7 +93,7 @@
     
     NSMutableArray *round = [NSMutableArray new];
     for (int i = 0; i < 5; i++) {
-        TFWSRResultView *first = [TFWSRResultView createResultViewCenter:CGPointMake(start + num * i, 80+43) andTitle:((FTWElementItem *)[mutArray objectAtIndex:i]).title andText:@"满意度" andRate:((FTWElementItem *)[mutArray objectAtIndex:i]).currentScore / ((FTWElementItem *)[mutArray objectAtIndex:i]).hopeScore roundTitle:@"现状与\n期望相差" roundScore:(int)(((FTWElementItem *)[mutArray objectAtIndex:i]).hopeScore - ((FTWElementItem *)[mutArray objectAtIndex:i]).currentScore)];
+        TFWSRResultView *first = [TFWSRResultView createResultViewCenter:CGPointMake(start + num * i, 80+43) andTitle:@"满意度" andText:((FTWElementItem *)[mutArray objectAtIndex:i]).title andRate:((FTWElementItem *)[mutArray objectAtIndex:i]).currentScore / ((FTWElementItem *)[mutArray objectAtIndex:i]).hopeScore roundTitle:@"现状与\n期望相差" roundScore:(int)(((FTWElementItem *)[mutArray objectAtIndex:i]).hopeScore - ((FTWElementItem *)[mutArray objectAtIndex:i]).currentScore)];
         CGFloat scale = 0.30;
         first.transform = CGAffineTransformMakeScale(scale, scale);
         [round addObject:first];
@@ -190,7 +190,7 @@
         subLabel3.text = @"您在比较满意现有工作的同时，也可以尝试挑战新的机会！";
         subLabel3.frame=CGRectMake(CGRectGetMinX(titleLable3.frame), CGRectGetMaxY(titleLable3.frame)-5-18, CGRectGetWidth(line3.frame)+250, 20);
     }else{
-        subLabel3.text = @"您目前非常满意自己的职业，您是这个领域的成功者，祝贺您！同时也建议您是时候考虑下保障和财务管理方案！";
+        subLabel3.text = @"您目前非常满意自己的职业，您是这个领域的成功者，祝贺您！同时也建议您是时候考虑下保障和财富管理方案！";
     }
     [back addSubview:subLabel3];
     

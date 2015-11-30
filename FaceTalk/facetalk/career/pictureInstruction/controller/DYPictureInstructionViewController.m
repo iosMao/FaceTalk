@@ -30,7 +30,6 @@
     
     UIButton *btn = [[UIButton alloc] init];
     btn.frame = CGRectMake(770, 487, 100, 30);
-//    btn.backgroundColor = [UIColor redColor];
     [btn addTarget:self action:@selector(GOTONext) forControlEvents:UIControlEventTouchUpInside];
     self.btn = btn;
     [self.view addSubview:self.btn];
@@ -49,7 +48,6 @@
 
 -(void)menuClickAction:(NSInteger)index
 {
-//    NSLog(@"index : %ld",(long)index);
     if (index == 0) {
         NSString *str = [NSString stringWithFormat:@"dySellMan.png"];
         NSString *path = [[NSBundle mainBundle] pathForResource:str ofType:nil];
@@ -84,8 +82,6 @@
     [self.view addSubview:imageBack];
     UIButton *backBt = [UIButton buttonWithType:UIButtonTypeCustom];
     backBt.frame = CGRectMake(235 / 2.0, 156 / 2.0, 300, 30);
-    //    backBt.backgroundColor = [UIColor blackColor];
-    //[backBt setImage:[UIImage imageNamed:@"tfw_tf_back"] forState:UIControlStateNormal];
     [backBt addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:backBt];
 }

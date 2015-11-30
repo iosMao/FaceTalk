@@ -19,13 +19,13 @@
 @interface FTDHomeAlertView : UIView<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate>
 {
     NSMutableArray *arrayList;//数据库查询到的用户列表
-    BOOL isLock;//若能查询到用户，则性别与生日为锁定状态
+    NSMutableDictionary *talentDic;
     Person *choosePerson;
     NSDate *selectedDate;
 }
 @property(nonatomic, weak)id<FTDHomeAlertViewDeledate> delegate;
 @property (strong, nonatomic) IBOutlet UIView *viewBG;
-
+@property (strong, nonatomic) IBOutlet UILabel *lblReminder;
 @property (strong, nonatomic) IBOutlet UITextField *textName;
 @property (strong, nonatomic) IBOutlet UITextField *textSex;
 @property (strong, nonatomic) IBOutlet UITextField *textBirthday;
@@ -34,6 +34,7 @@
 @property (strong, nonatomic) IBOutlet UIDatePicker *datePick;
 @property (strong, nonatomic) IBOutlet UIView *viewPick;
 
+@property (copy, nonatomic) NSString *strState;
 //- (IBAction)showBirthdayPickClick:(id)sender;
 - (IBAction)cancelclick:(id)sender;
 - (IBAction)creatclick:(id)sender;

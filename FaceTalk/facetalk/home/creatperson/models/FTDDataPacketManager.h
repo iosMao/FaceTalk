@@ -14,4 +14,5 @@
 -(void)removeAllSourceFile;
 -(NSString *)unzipDestinationPath;
 -(NSString *)basePath;
+-(void)upDateJsonFile;
 @end

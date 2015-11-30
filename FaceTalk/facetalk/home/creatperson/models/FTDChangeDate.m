@@ -13,7 +13,6 @@
 {
     NSTimeZone *timeZone = [NSTimeZone timeZoneForSecondsFromGMT:3600*8];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    
     [formatter setTimeZone:timeZone];
     [formatter setDateFormat:@"YYYY-MM-dd"];
     NSString *str = [formatter stringFromDate:date];
@@ -21,9 +20,9 @@
 }
 
 + (NSDate *)dateFromString:(NSString *)dateString{
-    
+    NSTimeZone *timeZone = [NSTimeZone timeZoneForSecondsFromGMT:3600*8];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    
+    [dateFormatter setTimeZone:timeZone];
     [dateFormatter setDateFormat: @"yyyy-MM-dd"];
     NSDate *destDate= [dateFormatter dateFromString:dateString];
     return destDate;

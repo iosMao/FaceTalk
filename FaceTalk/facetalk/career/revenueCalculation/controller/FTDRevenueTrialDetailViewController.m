@@ -301,12 +301,19 @@
     
     CGPoint point=[[[ev allTouches] anyObject] locationInView:self.viewRed];
     point.y = 66;
-    if (point.x < 135 || point.x > 313) {
+    if (point.x < 134 || point.x > 314) {
         return;
     }
     c.center =point;
+    int price ;
     
+    price = (point.x  - 134) / 179 * 20000;
+    if (price > 20000) {
+        price = 20000;
+    }
     
+    self.lblPrice.center =CGPointMake(point.x, 40);
+    self.lblPrice.center =CGPointMake(point.x, 40);
     
     //view.center=CGPointMake(point.x, 400-140);
     

@@ -128,7 +128,7 @@
     if (_isShow_head3) {
         if (_headView3 == nil) {
             _headView3 = [[UIView alloc]initWithFrame:CGRectMake(0, _headView2.frame.origin.y+_headView2.frame.size.height, 771, 80)];
-            UILabel *lblTitle = [[UILabel alloc] initWithFrame:CGRectMake(20,20,240,20)];
+            UILabel *lblTitle = [[UILabel alloc] initWithFrame:CGRectMake(20,20,240,30)];
             lblTitle.text =@"真精彩友我邦你";
             lblTitle.numberOfLines = 0;
             lblTitle.textAlignment=NSTextAlignmentLeft;
@@ -189,12 +189,15 @@
     _customNameLabel.text = [NSString stringWithFormat:@"致 %@",[get_Dsp(@"DTALENTINFO")objectForKey:@"name"]];
     [headView addSubview:_customNameLabel];
     
-    _adviserNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(362, 265 + 174, 80, 30)];
-    _adviserNameLabel.font = [UIFont systemFontOfSize:17];
+    _adviserNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(225-90, 265 + 174, 500, 30)];
+    //_adviserNameLabel.backgroundColor = [UIColor blueColor];
+    _adviserNameLabel.font = [UIFont systemFontOfSize:20];
     _adviserNameLabel.textColor = [UIColor blackColor];
     _adviserNameLabel.textAlignment = NSTextAlignmentCenter;
-    _adviserNameLabel.text = @"张怡";
-    //_adviserNameLabel.text = [get_Dsp(@"DUSERINFO")objectForKey:@"USERNAME"];
+    //_adviserNameLabel.text = @"张怡";
+    NSString *str = [get_Dsp(@"DUSERINFO")objectForKey:@"USERNAME"];
+    str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+    _adviserNameLabel.text = [NSString stringWithFormat:@"友邦保险 %@ 敬上",str];
     [headView addSubview:_adviserNameLabel];
      
     
@@ -216,7 +219,7 @@
         if (_footView == nil) {
             _footView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 771, 440)];
             _footView.backgroundColor = [UIColor whiteColor];
-            UILabel *lblTitle = [[UILabel alloc] initWithFrame:CGRectMake(20,20,240,20)];
+            UILabel *lblTitle = [[UILabel alloc] initWithFrame:CGRectMake(20,20,240,30)];
             lblTitle.text =@"建议与祝愿";
             lblTitle.numberOfLines = 0;
             lblTitle.textAlignment=NSTextAlignmentLeft;

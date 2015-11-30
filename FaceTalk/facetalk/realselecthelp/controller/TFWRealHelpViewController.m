@@ -13,6 +13,7 @@
 #import "TFWReportViewController.h"
 #import "FTWDataManager.h"
 #import "FTJsonManager.h"
+#import "TFDNavViewController.h"
 @interface TFWRealHelpViewController ()
 
 @property (nonatomic,strong) NSTimer *timer;
@@ -40,6 +41,12 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    
+    TFDNavViewController *nav=(TFDNavViewController *)self.navigationController;
+    nav.btnSlider.hidden=NO;
+    nav.btnRightMenu.hidden=NO;
+        
+    
     [self startAnimation];
 }
 

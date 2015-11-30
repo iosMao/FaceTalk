@@ -45,9 +45,7 @@
     backgroundView = [[FTDbackgroundView alloc]initWithFrame:self.view.frame];
     backgroundView.delegate = self;
     
-    homeAlertView = [FTDHomeAlertView initCustomview];
-    homeAlertView.delegate = self;
-    homeAlertView.center = CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2-80);
+    
     
     
     homeAlertFinishView = [FTDHomAlertFinishView initCustomview];
@@ -72,7 +70,7 @@
 {
     NSLog(@"%@",self.navigationController);
     TFDNavViewController *nav = (TFDNavViewController *)self.navigationController;
-    nav.btnSlider.hidden = YES;
+    nav.btnSlider.hidden = NO;
     nav.btnRightMenu.hidden = YES;
     loadTimer = [NSTimer scheduledTimerWithTimeInterval:7 target:self selector:@selector(loadimg) userInfo:nil repeats:YES];
     [loadTimer fire];
@@ -121,6 +119,7 @@
     [homeAlertView.textName resignFirstResponder];
     [homeAlertView.textSex resignFirstResponder];
     [homeAlertView.textBirthday resignFirstResponder];
+    homeAlertView.tableName.hidden = YES;
 }
 
 -(void)homeAlertCancelClick
@@ -204,6 +203,9 @@
 
 - (IBAction)nextbtnclick:(id)sender {
     [self.view addSubview:backgroundView];
+    homeAlertView = [FTDHomeAlertView initCustomview];
+    homeAlertView.delegate = self;
+    homeAlertView.center = CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2-80);
     [self.view addSubview:homeAlertView];
     CGAffineTransform transform = homeAlertView.transform;
     homeAlertView.transform = CGAffineTransformScale(transform, 0.2, 0.2);

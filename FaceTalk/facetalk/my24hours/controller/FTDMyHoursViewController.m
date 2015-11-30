@@ -8,7 +8,7 @@
 
 #import "FTDMyHoursViewController.h"
 #import "TFWHelpResultMenuView.h"
-
+#import "TFDNavViewController.h"
 @interface FTDMyHoursViewController ()
 @property (nonatomic, strong) TFWHelpResultMenuView *menu;
 @end
@@ -20,6 +20,13 @@
     [self buildMenu];
     self.imgDesc.image=[UIImage imageNamed:@"FTD_myhours_MDRT.png"];
     // Do any additional setup after loading the view from its nib.
+}
+-(void)viewWillAppear:(BOOL)animated
+{
+    TFDNavViewController *nav = (TFDNavViewController *)self.navigationController;
+    nav.btnSlider.hidden = NO;
+    nav.btnRightMenu.hidden = YES;
+    
 }
 -(void)buildMenu
 {

@@ -123,7 +123,7 @@
 {
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 40)];
     titleLabel.textAlignment = NSTextAlignmentCenter;
-    titleLabel.font = [UIFont systemFontOfSize:22.4];
+    titleLabel.font = [UIFont systemFontOfSize:25];
     titleLabel.textColor = [UIColor colorWithRed:113 / 255.0 green:113 / 255.0 blue:113 / 255.0 alpha:1];
     titleLabel.center = CGPointMake(self.bounds.size.width / 2.0, 145);
     titleLabel.text = self.title;
@@ -145,7 +145,7 @@
 {
     UILabel *textLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, 40)];
     textLabel.textAlignment = NSTextAlignmentCenter;
-    textLabel.font = [UIFont boldSystemFontOfSize:28];
+    textLabel.font = [UIFont boldSystemFontOfSize:40];
     textLabel.textColor = [UIColor colorWithRed:113 / 255.0 green:113 / 255.0 blue:113 / 255.0 alpha:1];
     textLabel.center = CGPointMake(self.bounds.size.width / 2.0, 405);
     textLabel.text = self.text;

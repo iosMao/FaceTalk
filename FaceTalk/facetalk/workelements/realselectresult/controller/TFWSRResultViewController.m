@@ -11,6 +11,7 @@
 #import "FTDGoodAgentHomeController.h"
 #import "FTWDataManager.h"
 #import "TFWReportViewController.h"
+#import "TFDNavViewController.h"
 @interface TFWSRResultViewController ()
 
 @property (nonatomic,strong) UILabel *titleLabel;
@@ -38,7 +39,13 @@
 //    [self buildModeRateLabel];
     [self buildSuggestLabel];
 }
-
+-(void)viewWillAppear:(BOOL)animated
+{
+    TFDNavViewController *nav=(TFDNavViewController *)self.navigationController;
+    nav.btnSlider.hidden=NO;
+    nav.btnRightMenu.hidden=NO;
+    
+}
 -(void)buildBackGround
 {
     UIImageView *back = [[UIImageView alloc] initWithFrame:CGRectMake(0, 20, 1024, 748)];
@@ -126,7 +133,7 @@
         _suggestLabel.text = @"您在比较满意现有工作的同时，也可以尝试挑战新的机会！";
         _suggestLabel.frame = CGRectMake(285, 617, 500, 20);
     }else{
-        _suggestLabel.text = @"您目前非常满意自己的职业，您是这个领域的成功者，祝贺您！同时也建议您是时候考虑下保障和财务管理方案！";
+        _suggestLabel.text = @"您目前非常满意自己的职业，您是这个领域的成功者，祝贺您！同时也建议您是时候考虑下保障和财富管理方案！";
     }
     [self.view addSubview:_suggestLabel];
 }

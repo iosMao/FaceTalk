@@ -151,7 +151,7 @@
         subLabel3.text = @"您在比较满意现有工作的同时，也可以尝试挑战新的机会！";
         subLabel3.frame=CGRectMake(CGRectGetMinX(titleLable3.frame), CGRectGetMaxY(titleLable3.frame)-5-18, CGRectGetWidth(line3.frame)+250, 20);
     }else{
-        subLabel3.text = @"您目前非常满意自己的职业，您是这个领域的成功者，祝贺您！同时也建议您是时候考虑下保障和财务管理方案！";
+        subLabel3.text = @"您目前非常满意自己的职业，您是这个领域的成功者，祝贺您！同时也建议您是时候考虑下保障和财富管理方案！";
     }
     [back addSubview:subLabel3];
     

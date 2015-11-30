@@ -12,6 +12,7 @@
 #import "TFWRealMarkViewController.h"
 #import "FTWDataManager.h"
 #import "FTJsonManager.h"
+#import "TFDNavViewController.h"
 @interface TFWRealOrderViewController ()
 
 @property (nonatomic,strong) UILabel *titleLabel;
@@ -51,6 +52,12 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    
+    TFDNavViewController *nav=(TFDNavViewController *)self.navigationController;
+    nav.btnSlider.hidden=NO;
+    nav.btnRightMenu.hidden=NO;
+    
+    
     [self startAnimation];
     _circleTimer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(panRound) userInfo:nil repeats:YES];
 }

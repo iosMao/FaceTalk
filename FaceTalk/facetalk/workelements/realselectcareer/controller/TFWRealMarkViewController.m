@@ -11,7 +11,7 @@
 #import "FTDGoodAgentHomeController.h"
 #import "TFWSRResultViewController.h"
 #import "FTWDataManager.h"
-
+#import "TFDNavViewController.h"
 @interface TFWRealMarkViewController ()
 
 @property (nonatomic,strong) UILabel *titleLabel;
@@ -33,7 +33,13 @@
     [self buildItem];
     [self buildOkButton];
 }
-
+-(void)viewWillAppear:(BOOL)animated
+{
+    TFDNavViewController *nav=(TFDNavViewController *)self.navigationController;
+    nav.btnSlider.hidden=NO;
+    nav.btnRightMenu.hidden=NO;
+    
+}
 -(void)configData
 {
     NSMutableArray *mutArray = [[NSMutableArray alloc] init];

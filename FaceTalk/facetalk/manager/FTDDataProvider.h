@@ -24,7 +24,8 @@ typedef void(^dataProviderFailedBlock)(NSString *);
 @property(nonatomic, assign)NSInteger indexReport;
 @property(nonatomic, copy)NSString *path;
 @property(nonatomic ,strong)Person *personInfo;
-
+@property(nonatomic, assign)float totalTalents;
+@property(nonatomic, assign)float currentNum;
 
 -(void)userLogin:(NSDictionary *)infoDic;
 -(void)getTalents:(NSString *)agentId;
@@ -32,6 +33,7 @@ typedef void(^dataProviderFailedBlock)(NSString *);
 -(void)pushTalentsInfoArray:(NSArray *)personArray;//上传人才库
 
 -(void)pullTalentsInfoArray:(NSArray *)talentArray;//下拉人才库
-
-
+-(void)getFinishDate;
+-(void)getJsonUrl;
+-(void)upDateJsonFile:(NSString *)strurl;
 @end

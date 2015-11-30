@@ -34,7 +34,7 @@
     [self downloadFileURL:DATA_PACKET_URL savePath:path fileName:ZIPNAME tag:1];
     
 }
-
+ 
 /**
  * 下载文件
  *
