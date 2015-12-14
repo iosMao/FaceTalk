@@ -18,6 +18,7 @@
 #import "FTDDataPacketManager.h"
 #import <SVProgressHUD.h>
 #import "FTDAES256.h"
+#import "FTDkeyChainManager.h"
 //#define FTD_BASE_IPSURL @"http://imo.tohours.com/attract/isp?"
 //#define FTD_BASE_URL @"http://imo.tohours.com/attract/"
 //#define FTD_UPdateFile_URL @"http://imo.tohours.com/attract/data.json"
@@ -40,8 +41,21 @@
 -(void)userLogin:(NSDictionary *)infoDic
 {
     NSMutableDictionary *dic = [[NSMutableDictionary alloc]init];
-    NSString *identifierStr = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
-    [dic setObject:[FTDAES256 AES256EncryptWithString:identifierStr] forKey:@"deviceNum"];
+    NSString *uuidString;
+    if ([FTDkeyChainManager readPassWord] == nil) {
+        NSString *identifierStr = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
+        [FTDkeyChainManager savePassWord:identifierStr];
+        uuidString = [FTDkeyChainManager readPassWord];
+    }
+    else{
+         uuidString = [FTDkeyChainManager readPassWord];
+    }
+    
+    
+    
+    
+    
+    [dic setObject:[FTDAES256 AES256EncryptWithString:uuidString] forKey:@"deviceNum"];
     [dic setObject:[FTDAES256 AES256EncryptWithString:[infoDic objectForKey:@"account"]] forKey:@"account"];
     [dic setObject:[FTDAES256 AES256EncryptWithString:[infoDic objectForKey:@"co"]] forKey:@"co"];
     [dic setObject:[FTDAES256 AES256EncryptWithString:[infoDic objectForKey:@"password"]] forKey:@"password"];

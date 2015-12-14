@@ -310,6 +310,8 @@
 		188123D41BF9BDDC008902EA /* dySellxa.png in Resources */ = {isa = PBXBuildFile; fileRef = 188123B31BF9BDDC008902EA /* dySellxa.png */; };
 		188123D51BF9BDDC008902EA /* dySellxb.png in Resources */ = {isa = PBXBuildFile; fileRef = 188123B41BF9BDDC008902EA /* dySellxb.png */; };
 		1882F1131BEC7EAF00535287 /* FTDTimeTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1882F1121BEC7EAF00535287 /* FTDTimeTableView.xib */; };
+		188429221C1EAEF700869852 /* FTDKeyChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 188429211C1EAEF700869852 /* FTDKeyChain.m */; };
+		188429251C1EB01200869852 /* FTDkeyChainManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 188429241C1EB01200869852 /* FTDkeyChainManager.m */; };
 		1888F0991C0FE55B00F97386 /* ftdjl1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1888F0931C0FE55B00F97386 /* ftdjl1.png */; };
 		1888F09A1C0FE55B00F97386 /* ftdjl2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1888F0941C0FE55B00F97386 /* ftdjl2.png */; };
 		1888F09B1C0FE55B00F97386 /* ftdjy1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1888F0951C0FE55B00F97386 /* ftdjy1.png */; };
@@ -917,6 +919,10 @@
 		188123B31BF9BDDC008902EA /* dySellxa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dySellxa.png; sourceTree = "<group>"; };
 		188123B41BF9BDDC008902EA /* dySellxb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dySellxb.png; sourceTree = "<group>"; };
 		1882F1121BEC7EAF00535287 /* FTDTimeTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FTDTimeTableView.xib; sourceTree = "<group>"; };
+		188429201C1EAEF700869852 /* FTDKeyChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTDKeyChain.h; sourceTree = "<group>"; };
+		188429211C1EAEF700869852 /* FTDKeyChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTDKeyChain.m; sourceTree = "<group>"; };
+		188429231C1EB01200869852 /* FTDkeyChainManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTDkeyChainManager.h; sourceTree = "<group>"; };
+		188429241C1EB01200869852 /* FTDkeyChainManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTDkeyChainManager.m; sourceTree = "<group>"; };
 		1888F0931C0FE55B00F97386 /* ftdjl1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ftdjl1.png; sourceTree = "<group>"; };
 		1888F0941C0FE55B00F97386 /* ftdjl2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ftdjl2.png; sourceTree = "<group>"; };
 		1888F0951C0FE55B00F97386 /* ftdjy1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ftdjy1.png; sourceTree = "<group>"; };
@@ -1212,12 +1218,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18A3432A1B9403CE00ED973E /* Security.framework in Frameworks */,
 				18299ECF1BE7129F00F89058 /* CoreData.framework in Frameworks */,
 				18A343321B94040A00ED973E /* libsqlite3.dylib in Frameworks */,
 				18A343301B9403FA00ED973E /* CoreText.framework in Frameworks */,
 				18A3432E1B9403EA00ED973E /* libstdc++.dylib in Frameworks */,
 				18A3432C1B9403D700ED973E /* JavaScriptCore.framework in Frameworks */,
-				18A3432A1B9403CE00ED973E /* Security.framework in Frameworks */,
 				18A343281B9403C000ED973E /* libz.1.2.5.dylib in Frameworks */,
 				18A343261B9403B600ED973E /* libicucore.dylib in Frameworks */,
 				18A343241B9403A000ED973E /* CoreTelephony.framework in Frameworks */,
@@ -2608,6 +2614,10 @@
 				18299ECC1BE7104D00F89058 /* FTDDBManager.m */,
 				18B33ACE1BFD92BA006C5D20 /* FTDChangePrice.h */,
 				18B33ACF1BFD92BA006C5D20 /* FTDChangePrice.m */,
+				188429201C1EAEF700869852 /* FTDKeyChain.h */,
+				188429211C1EAEF700869852 /* FTDKeyChain.m */,
+				188429231C1EB01200869852 /* FTDkeyChainManager.h */,
+				188429241C1EB01200869852 /* FTDkeyChainManager.m */,
 			);
 			path = manager;
 			sourceTree = "<group>";
@@ -3440,6 +3450,7 @@
 				181363411BFC2DB10073B1F6 /* FTDRevenueTrialDetailViewController.m in Sources */,
 				A2615AAD1B4D274E0098EC30 /* UIView+AutoLayout.m in Sources */,
 				18C7C3A01BE9D7CF0002F003 /* FTDCreatIDManager.m in Sources */,
+				188429251C1EB01200869852 /* FTDkeyChainManager.m in Sources */,
 				18B76BE71BCB6BBC0092C1C6 /* FTDDevWayView.m in Sources */,
 				18A8E9441BFDC5D00002E803 /* FTDCustomCalculationViewController.m in Sources */,
 				188123C41BF9BDDC008902EA /* DYrevenueExampleDetailViewController.m in Sources */,
@@ -3511,6 +3522,7 @@
 				18AF50DC1BE35A1A00E63B56 /* FTDTimeTableView.m in Sources */,
 				18EC44911B8AB86D0060B2A6 /* FTJsonPeopleModel.m in Sources */,
 				18C7C3AF1BEA66090002F003 /* FTDChangeDate.m in Sources */,
+				188429221C1EAEF700869852 /* FTDKeyChain.m in Sources */,
 				18C04DF61B79ED6A009B1F6F /* FTDCreatImage.m in Sources */,
 				18E4723B1BD611C800EEB354 /* FTDTalentListCell.m in Sources */,
 				A252AC051B83691800E901FD /* FTWDataManager.m in Sources */,

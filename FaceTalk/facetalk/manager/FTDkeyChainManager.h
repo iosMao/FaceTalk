@@ -9,5 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface FTDkeyChainManager : NSObject
-
++(void)savePassWord:(NSString *)password;
++(id)readPassWord;
++(void)deletePassWord;
 @end
