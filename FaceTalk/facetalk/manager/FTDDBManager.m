@@ -10,18 +10,20 @@
 #import "Person.h"
 #import "Report.h"
 #import "FTDChangeDate.h"
+#import "FTDAES256.h"
 @implementation FTDDBManager
 +(void)NetaddToLocalDB:(NSDictionary *)dic//网上的人才库拉进本地的人才库
 {
     Person *person = [Person MR_createEntity];
-    person.name = [dic objectForKey:@"name"];
+    person.name = [FTDAES256 AES256DecryptWithString:[dic objectForKey:@"name"]];
     NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
     [f setNumberStyle:NSNumberFormatterDecimalStyle];
-    NSNumber * myNumber = [f numberFromString:[dic objectForKey:@"sex"]];
+    NSNumber * myNumber = [f numberFromString:[FTDAES256 AES256DecryptWithString:[dic objectForKey:@"sex"]]];
     person.sex = myNumber;
-    person.birthday = [FTDChangeDate dateFromString:[dic objectForKey:@"birthday"]];
-    person.personid = [dic objectForKey:@"id"];
-    person.chattime = [FTDChangeDate dateFromString:[dic objectForKey:@"chatTime"]];
+    person.birthday = [FTDChangeDate dateFromString:[FTDAES256 AES256DecryptWithString:[dic objectForKey:@"birthday"]]];
+    person.isPush = @"1";
+    person.personid = [FTDAES256 AES256DecryptWithString:[dic objectForKey:@"id"]];
+    person.chattime = [FTDChangeDate dateFromString:[FTDAES256 AES256DecryptWithString:[dic objectForKey:@"chatTime"]]];
     [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
 }
 +(NSArray *)searchLocalDB//查询本地的人才库
@@ -37,6 +39,7 @@
     [f setNumberStyle:NSNumberFormatterDecimalStyle];
     NSNumber * myNumber = [f numberFromString:[dic objectForKey:@"sex"]];
     person.sex = myNumber;
+    person.isPush = @"0";
     person.birthday = [dic objectForKey:@"birthday"];
     person.personid = [dic objectForKey:@"personid"];
     person.chattime = [dic objectForKey:@"chattime"];
@@ -89,7 +92,7 @@
     NSArray *persons = [Person MR_findByAttribute:@"personid" withValue:talentid];
 
     Person *person = [persons objectAtIndex:0];//找到那个人
-    
+    person.isPush = @"0";
     //NSManagedObjectContext *context = [person managedObjectContext];
     
     //Report *report = [Report MR_createEntityInContext:context];
@@ -116,6 +119,14 @@
     
     
     
+    
+}
+
++(void)changeTalentIsPushContain:(Person *)person
+{
+    Person *per = person;
+    per.isPush = @"1";
+    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
     
 }
 

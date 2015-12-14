@@ -44,7 +44,12 @@
 -(void)setText:(NSString *)text
 {
     if (text.length >= 6) {
-        self.textLabel.font = [UIFont systemFontOfSize:9];
+        if ([text isEqualToString:@"MDRT标准"]) {
+            self.textLabel.font = [UIFont systemFontOfSize:12];
+        }
+        else{
+            self.textLabel.font = [UIFont systemFontOfSize:9];
+        }
     }
     else{
         self.textLabel.font = [UIFont systemFontOfSize:12];

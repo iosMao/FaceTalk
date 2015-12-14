@@ -309,8 +309,11 @@
     
     [self.dataProvider setFinishBlock:^(NSDictionary *resultDict){
          [SVProgressHUD dismiss];
-          FTDHomeViewController *vc=[[FTDHomeViewController alloc]init];
-          [weakself.navigationController setViewControllers:@[vc] animated:YES];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"提示" message:@"同步成功!" delegate:weakself cancelButtonTitle:@"确定" otherButtonTitles:nil];
+        [alert show];
+        alert.tag = 20002;
+//          FTDHomeViewController *vc=[[FTDHomeViewController alloc]init];
+//          [weakself.navigationController setViewControllers:@[vc] animated:YES];
 //        if ([[resultDict  objectForKey:@"success"] intValue] == 1) {
 ////            [SVProgressHUD showSuccessWithStatus:@"登录成功" maskType:SVProgressHUDMaskTypeBlack];
 ////            set_sp(@"DUSERINFO", [resultDict objectForKey:@"msg"]);
@@ -444,9 +447,13 @@
             
         }
         else{
-            FTDHomeViewController *vc=[[FTDHomeViewController alloc]init];
-            [self.navigationController setViewControllers:@[vc] animated:YES];
+//            FTDHomeViewController *vc=[[FTDHomeViewController alloc]init];
+//            [self.navigationController setViewControllers:@[vc] animated:YES];
         }
+        
+    }
+    else if (alertView.tag == 20002)
+    {
         
     }
     

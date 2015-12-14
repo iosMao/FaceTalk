@@ -73,6 +73,7 @@
     [self.textBirthday setInputView:self.datePick];
     //[self addSubview:self.viewPick];
 }
+
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context
 {
     if (object == textSex) {
@@ -161,8 +162,8 @@
     [FTDDBManager LocalAddToDB:personmodel];//这里创建用户
     
     if ([self.delegate respondsToSelector:@selector(homeAlertCreatclick)]) {
-        [textSex removeObserver:self forKeyPath:@"text" context:nil];
-        [textBirthday removeObserver:self forKeyPath:@"text" context:nil];
+//        [textSex removeObserver:self forKeyPath:@"text" context:nil];
+//        [textBirthday removeObserver:self forKeyPath:@"text" context:nil];
         [self.delegate homeAlertCreatclick];
     }
 }
@@ -197,8 +198,8 @@
 
 - (IBAction)cancelclick:(id)sender {
     if ([self.delegate respondsToSelector:@selector(homeAlertCancelClick)]) {
-        [textSex removeObserver:self forKeyPath:@"text" context:nil];
-        [textBirthday removeObserver:self forKeyPath:@"text" context:nil];
+//        [textSex removeObserver:self forKeyPath:@"text" context:nil];
+//        [textBirthday removeObserver:self forKeyPath:@"text" context:nil];
         [self.delegate homeAlertCancelClick];
     }
 }
@@ -249,8 +250,8 @@
             
             
             if ([self.delegate respondsToSelector:@selector(homeAlertCreatclick)]) {
-                [textSex removeObserver:self forKeyPath:@"text" context:nil];
-                [textBirthday removeObserver:self forKeyPath:@"text" context:nil];
+//                [textSex removeObserver:self forKeyPath:@"text" context:nil];
+//                [textBirthday removeObserver:self forKeyPath:@"text" context:nil];
                 [self.delegate homeAlertCreatclick];
             }
         }
@@ -292,8 +293,7 @@
         
         
         if ([self.delegate respondsToSelector:@selector(homeAlertCreatclick)]) {
-            [textSex removeObserver:self forKeyPath:@"text" context:nil];
-            [textBirthday removeObserver:self forKeyPath:@"text" context:nil];
+            
             [self.delegate homeAlertCreatclick];
         }
     }
@@ -420,6 +420,9 @@
     
     
 }
-
+-(void)dealloc{
+    [textSex removeObserver:self forKeyPath:@"text" context:nil];
+    [textBirthday removeObserver:self forKeyPath:@"text" context:nil];
+}
 
 @end

@@ -80,7 +80,7 @@
 -(void)buildTitleLabel
 {
     self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(296 / 2.0, 148 / 2.0, 600 / 2.0, 30)];
-    self.titleLabel.text = @"真选择成就事业";
+    self.titleLabel.text = @"真选择 理想事业";
     self.titleLabel.font = [UIFont systemFontOfSize:32];
     self.titleLabel.textColor = [UIColor colorWithRed:188 / 255.0 green:0 / 255.0 blue:52 / 255.0 alpha:1];
     [self.view addSubview:self.titleLabel];

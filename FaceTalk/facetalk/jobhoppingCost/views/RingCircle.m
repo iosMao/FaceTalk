@@ -121,7 +121,7 @@
             word_x -= 30;
         }
         CGFloat word_y = (_radius + _width + 10) * sin(midAngle) + CGRectGetHeight(self.frame) / 2.0;
-        //[model.title drawAtPoint:CGPointMake(word_x, word_y) withAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:12],NSForegroundColorAttributeName:[UIColor blackColor]}];
+         //[model.title drawAtPoint:CGPointMake(word_x, word_y) withAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:12],NSForegroundColorAttributeName:[UIColor blackColor]}];
         
         curAngle += angle;
     }

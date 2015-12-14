@@ -53,11 +53,11 @@
                         <action selector="keyclick:" destination="-1" eventType="touchUpInside" id="gsW-Pf-YeY"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="v 1.0.1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x6R-kW-cgF">
-                    <rect key="frame" x="8" y="739" width="88" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="AIA V 1.0.1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x6R-kW-cgF">
+                    <rect key="frame" x="8" y="743" width="108" height="21"/>
                     <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
@@ -70,6 +70,6 @@
     <resources>
         <image name="FT_home_back.png" width="200" height="80"/>
         <image name="FT_home_key.png" width="250" height="180"/>
-        <image name="FT_home_page.png" width="1024" height="749"/>
+        <image name="FT_home_page.png" width="2046" height="1503"/>
     </resources>
 </document>

@@ -11,6 +11,7 @@
 #import "FTDHomeViewController.h"
 #import "TFDNavViewController.h"
 #import <SVProgressHUD.h>
+#import "FTDAES256.h"
 #define remove_sp(a) [[NSUserDefaults standardUserDefaults] removeObjectForKey:a]
 #define get_sp(a) [[NSUserDefaults standardUserDefaults] objectForKey:a]
 #define get_Dsp(a) [[NSUserDefaults standardUserDefaults]dictionaryForKey:a]
@@ -96,6 +97,10 @@
         NSLog(@"登录结果：%@",resultDict);
         if ([[resultDict  objectForKey:@"success"] intValue] == 1) {
             [SVProgressHUD showSuccessWithStatus:@"登录成功" maskType:SVProgressHUDMaskTypeBlack];
+            set_sp(@"DUSERACOUNT", self.textAccount.text);
+            set_sp(@"DUSERPASWOD", self.textPasword.text);
+            set_sp(@"DCITY", self.textCo.text);
+            
             set_sp(@"DUSERINFO", [resultDict objectForKey:@"msg"]);
             
             [weakself getTalentsInfo];
@@ -133,7 +138,7 @@
     
     [dataProvider setFinishBlock:^(NSDictionary *resultDict){
         [SVProgressHUD dismiss];
-        NSLog(@"登录结果：%@",resultDict);
+        NSLog(@"人才列表：%@",resultDict);
         if ([[resultDict  objectForKey:@"success"] intValue] == 1) {
             [weakself downloadImage:[resultDict objectForKey:@"msg"]];
  
@@ -202,7 +207,7 @@
     }];
     
     [dataProvider setFailedBlock:^(NSString *strError){
-        //[Person MR_truncateAll];
+        [Person MR_truncateAll];
         [SVProgressHUD dismiss];
         [SVProgressHUD showErrorWithStatus:@"哎呀！请求服务器出错啦！请检查本地网络配置！" maskType:SVProgressHUDMaskTypeBlack];
     }];

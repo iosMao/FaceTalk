@@ -16,6 +16,11 @@
     
     
 }
+-(void)awakeFromNib
+{
+    self.imageView.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"FTD_DevWay" ofType:@"png"]];
+    
+}
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

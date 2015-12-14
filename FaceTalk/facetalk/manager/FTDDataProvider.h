@@ -29,7 +29,7 @@ typedef void(^dataProviderFailedBlock)(NSString *);
 
 -(void)userLogin:(NSDictionary *)infoDic;
 -(void)getTalents:(NSString *)agentId;
--(void)pushTalentsInfo:(Person *)person;
+//-(void)pushTalentsInfo:(Person *)person;
 -(void)pushTalentsInfoArray:(NSArray *)personArray;//上传人才库
 
 -(void)pullTalentsInfoArray:(NSArray *)talentArray;//下拉人才库

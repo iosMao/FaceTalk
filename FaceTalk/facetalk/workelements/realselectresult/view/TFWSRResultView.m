@@ -123,7 +123,7 @@
 {
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 40)];
     titleLabel.textAlignment = NSTextAlignmentCenter;
-    titleLabel.font = [UIFont systemFontOfSize:25];
+    titleLabel.font = [UIFont systemFontOfSize:32];
     titleLabel.textColor = [UIColor colorWithRed:113 / 255.0 green:113 / 255.0 blue:113 / 255.0 alpha:1];
     titleLabel.center = CGPointMake(self.bounds.size.width / 2.0, 145);
     titleLabel.text = self.title;

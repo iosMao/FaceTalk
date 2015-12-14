@@ -84,6 +84,8 @@
 
 -(void)viewWillDisappear:(BOOL)animated
 {
+//    [homeAlertView.textSex removeObserver:homeAlertView forKeyPath:@"text" context:nil];
+//    [homeAlertView.textBirthday removeObserver:homeAlertView forKeyPath:@"text" context:nil];
     [loadTimer invalidate];
 }
 -(void)getImgData
@@ -133,8 +135,10 @@
      completion:^(BOOL finished){
          [backgroundView removeFromSuperview];
         [homeAlertView removeFromSuperview];
+         homeAlertView = nil;
          homeAlertView.transform = CGAffineTransformScale(transform,1,1);
      }];
+    
     
 //    [UIView animateWithDuration:0.4 animations:^{
 //        

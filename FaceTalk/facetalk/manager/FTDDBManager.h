@@ -15,4 +15,5 @@
 +(NSArray *)searchLocalDBWithKeys:(NSPredicate *)predicate;//本地数据库关键字搜索
 +(NSString *)localDBisContainTalent:(NSDictionary *)dic;
 +(void)addImageUrl:(NSString *)urlstr andToTalentId:(NSString *)talentid;//本地照片url添加进本地数据库
++(void)changeTalentIsPushContain:(Person *)person;
 @end

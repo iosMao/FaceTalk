@@ -24,6 +24,7 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setTimeZone:timeZone];
     [dateFormatter setDateFormat: @"yyyy-MM-dd"];
+    //NSString *str = @"2015-11-11";
     NSDate *destDate= [dateFormatter dateFromString:dateString];
     return destDate;
     

@@ -8,7 +8,10 @@
 
 #import "FTJsonManager.h"
 #import "FTDDataPacketManager.h"
- 
+#define remove_sp(a) [[NSUserDefaults standardUserDefaults] removeObjectForKey:a]
+#define get_sp(a) [[NSUserDefaults standardUserDefaults] objectForKey:a]
+#define get_Dsp(a) [[NSUserDefaults standardUserDefaults]dictionaryForKey:a]
+#define set_sp(a,b) [[NSUserDefaults standardUserDefaults] setObject:b forKey:a]
 
 static FTJsonManager *shareManager;
 
@@ -46,6 +49,9 @@ static FTJsonManager *shareManager;
     NSData *data=[NSData dataWithContentsOfFile:file1];
     _jsonDic=[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
     //_jsonDic = [string objectFromJSONString];
+    
+    _lastUpdatePicDate = [_jsonDic objectForKey:@"version"];
+    
     
     _ten_objective_elements = [_jsonDic objectForKey:@"ten_objective_elements"];
     _ten_aia_elements       = [_jsonDic objectForKey:@"ten_aia_elements"];

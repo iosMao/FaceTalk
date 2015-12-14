@@ -22,7 +22,7 @@
     }
     
     
-    NSString *path2 = [NSString stringWithFormat:@"/%@/%@.png",filename,imagename];//返回图片的本地相对路径
+    NSString *path2 = [NSString stringWithFormat:@"/%@/%@.jpg",filename,imagename];//返回图片的本地相对路径
     return path2;
 }
 

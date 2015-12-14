@@ -14,7 +14,7 @@
     NSString *identifierStr = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
     NSDate *senddate = [NSDate date];
     NSDateFormatter *dateformatter = [[NSDateFormatter alloc] init];
-    [dateformatter setDateFormat:@"YYYYMMddhhmmss"];
+    [dateformatter setDateFormat:@"YYYYMMddHHmmss"];
     NSString *  locationString = [dateformatter stringFromDate:senddate];
     NSLog(@"locationString:%@",locationString);
     
@@ -25,15 +25,16 @@
 }
 +(NSString *)creatImageName
 {
-    
     NSDate *senddate = [NSDate date];
-    NSDateFormatter *dateformatter = [[NSDateFormatter alloc] init];
-    [dateformatter setDateFormat:@"YYYYMMddhhmmss"];
-    NSString *  locationString = [dateformatter stringFromDate:senddate];
-    NSLog(@"locationString:%@",locationString);
+    NSTimeZone *timeZone = [NSTimeZone timeZoneForSecondsFromGMT:3600*8];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setTimeZone:timeZone];
+    [formatter setDateFormat:@"YYYYMMddHHmmss"];
+    NSString *str = [formatter stringFromDate:senddate];
+    return str;
     
     
-    return locationString;
+   
     
     
 }

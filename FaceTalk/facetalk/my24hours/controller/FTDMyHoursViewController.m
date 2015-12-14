@@ -42,15 +42,18 @@
 -(void)menuClickAction:(NSInteger)index
 {
     if (index==0) {
-        self.imgDesc.image = [UIImage imageNamed:@"FTD_myhours_MDRT.png"];
+        self.imgDesc.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"FTD_myhours_MDRT"  ofType:@"png"]];
+        //self.imgDesc.image = [UIImage imageNamed:@"FTD_myhours_MDRT.png"];
     }
     else if (index==1)
     {
-        self.imgDesc.image = [UIImage imageNamed:@"FTD_myhours_MOA.png"];
+        self.imgDesc.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"FTD_myhours_MOA"  ofType:@"png"]];
+        
     }
     else
     {
-        self.imgDesc.image = [UIImage imageNamed:@"FTD_myhours_NPA.png"];
+        self.imgDesc.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"FTD_myhours_NPA"  ofType:@"png"]];
+        
     }
 }
 - (void)didReceiveMemoryWarning {

@@ -10,4 +10,5 @@
 
 @interface FTDDevWayView : UIView
 +(FTDDevWayView *)initCustomview;
+@property (strong, nonatomic) IBOutlet UIImageView *imageView;
 @end

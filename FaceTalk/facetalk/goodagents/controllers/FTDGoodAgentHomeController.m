@@ -15,6 +15,11 @@
 #import "FTDDataProvider.h"
 #import "TFDNavViewController.h"
 #import <SVProgressHUD.h>
+#import "FTDDataPacketManager.h"
+#define remove_sp(a) [[NSUserDefaults standardUserDefaults] removeObjectForKey:a]
+#define get_sp(a) [[NSUserDefaults standardUserDefaults] objectForKey:a]
+#define get_Dsp(a) [[NSUserDefaults standardUserDefaults]dictionaryForKey:a]
+#define set_sp(a,b) [[NSUserDefaults standardUserDefaults] setObject:b forKey:a]
 @interface FTDGoodAgentHomeController ()
 
 @end
@@ -23,9 +28,9 @@
 @synthesize btnCareer,btnCompany,btnFreedom,imgBG,imgCamera,imgCup,imgGlass,imgKey,imgPen,imgPenBox;
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self getJsonUrl];
+    //[self getJsonUrl];
     [self creatAnimation];
-    
+    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getlocalResourse) name:@"FTDUNZIPSUCCESS" object:nil];
     
     // Do any additional setup after loading the view from its nib.
 }
@@ -36,66 +41,30 @@
     nav.btnRightMenu.hidden=NO;
     
 }
--(void)getJsonUrl
-{
-    [SVProgressHUD show];
-    FTDDataProvider *dataProvider = [[FTDDataProvider alloc] init];
-    __weak FTDGoodAgentHomeController *weakself = self;
-    
-    [dataProvider setFinishBlock:^(NSDictionary *resultDict){
-        
-        NSLog(@"登录结果：%@",resultDict);
-        if ([[resultDict  objectForKey:@"success"] intValue] == 1) {
-            
-            [weakself updateJsonFile:[resultDict objectForKey:@"msg"]];
-            
-        }
-        else{
-            [SVProgressHUD dismiss];
-        }
-        
-        
-        
-    }];
-    
-    [dataProvider setFailedBlock:^(NSString *strError){
-        [SVProgressHUD dismiss];
-    }];
-    
-    [dataProvider getJsonUrl];
-}
 
 
--(void)updateJsonFile:(NSString *)url
-{
-    
-    FTDDataProvider *dataProvider = [[FTDDataProvider alloc] init];
-    __weak FTDGoodAgentHomeController *weakself = self;
-    
-    [dataProvider setFinishBlock:^(NSDictionary *resultDict){
-        
-        NSLog(@"登录结果：%@",resultDict);
-        if ([[resultDict  objectForKey:@"success"] intValue] == 1) {
-            [SVProgressHUD dismiss];
-            [[FTJsonManager shareManager]initData];
-            
-        }
-        else{
-            [SVProgressHUD dismiss];
-        }
-        
-        
-        
-    }];
-    
-    [dataProvider setFailedBlock:^(NSString *strError){
-        [SVProgressHUD dismiss];
-    }];
-    
-     [dataProvider upDateJsonFile:url];
-}
-
-
+//-(void)checkPicUpdate
+//{
+//    if ([[FTJsonManager shareManager].lastUpdatePicDate isEqualToString:get_sp(@"DLASTUPDATEPIC")]) {
+//        NSLog(@"没更新");
+//    }
+//    else{
+//        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"提示" message:@"检测到图片有更新，是否更新资源包？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+//        [alert show];
+//    }
+//}
+//- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+//{
+//    if (buttonIndex == 1) {
+//        [[FTDDataPacketManager sharedInstance] downloadFile];
+//    }
+//}
+//-(void)getlocalResourse
+//{
+//    [[FTJsonManager shareManager]initData];
+//    NSLog(@"更新好之后的日期：%@",[FTJsonManager shareManager].lastUpdatePicDate);
+//     set_sp(@"DLASTUPDATEPIC", [FTJsonManager shareManager].lastUpdatePicDate);
+//}
 -(void)creatAnimation
 {
     btnFreedom.alpha=0;

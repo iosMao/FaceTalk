@@ -10,4 +10,5 @@
 
 @interface FTDChangePrice : NSObject
 +(NSString *)changePriceFromint:(int)price;
++(int)priceToInt:(int)value;
 @end

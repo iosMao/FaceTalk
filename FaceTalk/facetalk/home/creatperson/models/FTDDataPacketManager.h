@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 
 @interface FTDDataPacketManager : NSObject
+
+@property (nonatomic,assign) int firstID;
+
 + (FTDDataPacketManager *)sharedInstance;
 -(void)downloadFile;
 -(void)removeAllSourceFile;

@@ -23,7 +23,8 @@
     scrollBG.pagingEnabled = YES;
     for (int i = 0; i < 4; i++) {
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(887*i, 0, 887, 622)];
-        imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"FTD_TeacherTeam%d.png", i]];
+        imageView.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"FTD_TeacherTeam%d", i] ofType:@"png"]];
+        //imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"FTD_TeacherTeam%d.png", i]];
         [scrollBG addSubview:imageView];
     }
 }

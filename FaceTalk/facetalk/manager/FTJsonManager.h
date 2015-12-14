@@ -19,6 +19,8 @@
 
 @property (nonatomic,assign) int excellence_count;
 @property (nonatomic,assign) int excellence_index;
+@property (nonatomic,copy) NSString *lastUpdatePicDate;
+
 
 +(FTJsonManager *)shareManager;
 -(NSString *)basePath;

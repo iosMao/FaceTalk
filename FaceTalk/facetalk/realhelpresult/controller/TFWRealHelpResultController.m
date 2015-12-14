@@ -122,14 +122,15 @@
     }];
     [self.view addSubview:_menu];
     
-    
-    _rightMenu = [FTDRightMenuView createMenuwithArray:@[@"总监寄语",@"培训导航"] andBottom:CGPointMake(1000, 745) andHightBtnIndex:0];
-    
-        [_rightMenu setRightMenuTapBlock:^(NSInteger index){
-        [weakSelf RightMenuClickAction:index];
-    }];
-    [self.view addSubview:_rightMenu];
-    _rightMenu.hidden = YES;
+    if ([[[arrayChildrenList objectAtIndex:0] objectForKey:@"name"] isEqualToString:@"专业培训"]){
+        _rightMenu = [FTDRightMenuView createMenuwithArray:@[[[[[arrayChildrenList objectAtIndex:0]objectForKey:@"children"] objectAtIndex:0] objectForKey:@"name"],[[[[arrayChildrenList objectAtIndex:0]objectForKey:@"children"] objectAtIndex:1] objectForKey:@"name"]] andBottom:CGPointMake(1000, 745) andHightBtnIndex:0];
+        
+            [_rightMenu setRightMenuTapBlock:^(NSInteger index){
+            [weakSelf RightMenuClickAction:index];
+        }];
+        [self.view addSubview:_rightMenu];
+        _rightMenu.hidden = YES;
+    }
 }
 
 -(void)buildImageView
@@ -167,12 +168,12 @@
             
             [_timeView removeFromSuperview];
             [self.view addSubview:_detailScrollView];
-            if ([[[arrayChildrenList objectAtIndex:index] objectForKey:@"name"]isEqualToString:@"收入水平"]) {
-                [_detailScrollView creatImageScroll:[[NSArray alloc]init]];
-            }
-            else{
-                [_detailScrollView creatImageScroll:[[arrayChildrenList objectAtIndex:index] objectForKey:@"pictures"]];
-            }
+//            if ([[[arrayChildrenList objectAtIndex:index] objectForKey:@"name"]isEqualToString:@"收入水平"]) {
+//                [_detailScrollView creatImageScroll:[[NSArray alloc]init]];
+//            }
+//            else{
+            [_detailScrollView creatImageScroll:[[arrayChildrenList objectAtIndex:index] objectForKey:@"pictures"]];
+            //}
             
         }
         

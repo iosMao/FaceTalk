@@ -53,8 +53,8 @@
         pageCol.numberOfPages = 3;
         for (int i = 0; i < 3; i++) {
             UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(i*887, 0, 887, 622)];
-             
-            imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"FTD_ProfessionalTrain_NPA%d.png", i]];
+            imageView.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"FTD_ProfessionalTrain_NPA%d", i] ofType:@"png"]];
+            //imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"FTD_ProfessionalTrain_NPA%d.png", i]];
             [scrollBG addSubview:imageView];
         }
     }

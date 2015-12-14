@@ -22,6 +22,8 @@
 #import "FTWDataManager.h"
 #import "TFWOrderModel.h"
 #import "TFDNavViewController.h"
+#import "FTDDataProvider.h"
+
 #define remove_sp(a) [[NSUserDefaults standardUserDefaults] removeObjectForKey:a]
 #define get_sp(a) [[NSUserDefaults standardUserDefaults] objectForKey:a]
 #define get_Dsp(a) [[NSUserDefaults standardUserDefaults]dictionaryForKey:a]
@@ -35,6 +37,7 @@
 @property (nonatomic,strong) FTDShareView *shareView;
 @property (nonatomic,strong) FTDbackgroundView *backgroundView;
 @property (nonatomic,strong) NSData *imgData;
+@property (nonatomic,strong) FTDDataProvider *dataProvider;
 @property (strong, nonatomic) IBOutlet UILabel *lblTitle;
 @property (strong, nonatomic) IBOutlet UIView *viewListBG;
 @property (strong, nonatomic) IBOutlet UITableView *tableList;
@@ -53,6 +56,7 @@
 @property (strong, nonatomic) IBOutlet UIDatePicker *datePickEnd;
 
 - (IBAction)showSearchClass:(id)sender;
+- (IBAction)pushDBAction:(id)sender;
 
 - (IBAction)backclick:(id)sender;
 - (IBAction)nameclick:(id)sender;
@@ -79,6 +83,7 @@
     [self searchLocalDB];
     // Do any additional setup after loading the view from its nib.
 }
+
 -(void)viewWillAppear:(BOOL)animated
 {
     TFDNavViewController *nav = (TFDNavViewController *)self.navigationController;
@@ -143,6 +148,16 @@
 
 -(void)downkeyboard{
     [_shareView.textEmail resignFirstResponder];
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    if (textField == self.textBeginDate) {
+        [self dateBeginChange];
+    }
+    else if (textField == self.textEndDate){
+        [self dateEndChange];
+    }
 }
 
 #pragma mark tableview datasource
@@ -229,6 +244,8 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
 
 -(void)reportAction:(UIButton *)sender
 {
@@ -400,8 +417,48 @@
             [self.navigationController setViewControllers:@[vc] animated:YES];
         }
     }
+    else if (alertView.tag == 50000)
+    {
+        if (buttonIndex == 1) {
+            [SVProgressHUD showWithStatus:@"正在上传..." maskType:SVProgressHUDMaskTypeBlack];
+            
+            NSArray *array = [FTDDBManager searchLocalDB];
+            if (array.count > 0) {
+                [self push:array];
+            }
+        }
+    }
     
     
+}
+-(void)push:(NSArray *)array
+{
+    
+    self.dataProvider= [[FTDDataProvider alloc] init];
+    __weak FTDTalentsListViewController *weakself = self;
+    
+    [self.dataProvider setFinishBlock:^(NSDictionary *resultDict){
+        [SVProgressHUD dismiss];
+        [SVProgressHUD showSuccessWithStatus:@"同步成功！" maskType:SVProgressHUDMaskTypeBlack];
+        //        if ([[resultDict  objectForKey:@"success"] intValue] == 1) {
+        ////            [SVProgressHUD showSuccessWithStatus:@"登录成功" maskType:SVProgressHUDMaskTypeBlack];
+        ////            set_sp(@"DUSERINFO", [resultDict objectForKey:@"msg"]);
+        //
+        //        }
+        //        else{
+        //           // [SVProgressHUD showErrorWithStatus:[resultDict objectForKey:@"msg"] maskType:SVProgressHUDMaskTypeBlack];
+        //        }
+        
+        
+        
+    }];
+    
+    [self.dataProvider setFailedBlock:^(NSString *strError){
+        [SVProgressHUD dismiss];
+        [SVProgressHUD showErrorWithStatus:@"哎呀！请求服务器出错啦！请检查本地网络配置！" maskType:SVProgressHUDMaskTypeBlack];
+    }];
+    
+    [self.dataProvider pushTalentsInfoArray:array];
 }
 
 -(void)sendtextEmail:(NSString *)textEmail
@@ -487,6 +544,12 @@
 
 - (IBAction)showSearchClass:(id)sender {
     self.viewSearchClass.hidden = NO;
+}
+
+- (IBAction)pushDBAction:(id)sender {
+    UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"提示" message:@"确定同步人才库资源？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    [alert show];
+    alert.tag = 50000;
 }
 
 - (IBAction)backclick:(id)sender {

@@ -26,8 +26,9 @@
 @property (strong, nonatomic) IBOutlet UILabel *lblRMB9;
 @property (strong, nonatomic) IBOutlet UILabel *lblRMB10;
 
+@property (assign, nonatomic)int price;
 
-
+@property (strong, nonatomic) IBOutlet UILabel *lblbeizhu;
 @property (strong, nonatomic) TFWHelpResultMenuView *leftMenu;
 - (IBAction)backAction:(id)sender;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *btnSegmentCol;
@@ -40,7 +41,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *lbl3;
 @property (strong, nonatomic) IBOutlet UIView *viewZuzhiInfo;
 @property (strong, nonatomic) IBOutlet UIView *viewRed;
-- (IBAction)customCalculationAction:(id)sender;
+- (IBAction)IWantAction:(id)sender;
+ 
 @end
 
 @implementation FTDRevenueTrialDetailViewController
@@ -51,7 +53,8 @@
     
     
     [self changeTitle];
-    
+    self.price = 0;
+    [self changeLblText:self.price];
     
     [self.lblPrice.layer setCornerRadius:3];
     [self.lblPrice.layer setMasksToBounds:YES];
@@ -95,7 +98,9 @@
 -(void)chartValue:(NSInteger)segmentid
 {
     if (self.indexID == 0) {
+        self.lblbeizhu.text = @"备注：以上收入演示，个人销售收入基于达成菁英级别最高新人津贴FYC条件，组织收入基于每年如期晋级且达成标准组绩效。该收入数据不做保证，仅供演示参考。";
         if (segmentid == 0) {
+            self.imgChart.image = [UIImage imageNamed:@"ftdjy1.png"];
             _lblRMB1.text = @"RMB 89,940";
             _lblRMB2.text = @"RMB 66,294";
             _lblRMB3.text = @"RMB 79,643";
@@ -121,6 +126,7 @@
             
         }
         else{
+            self.imgChart.image = [UIImage imageNamed:@"ftdjy2.png"];
             _lblRMB1.text = @"RMB 89,940";
             _lblRMB2.text = @"RMB 338,897";
             _lblRMB3.text = @"RMB 409,197";
@@ -151,7 +157,9 @@
     }
     else if (self.indexID == 1)
     {
+         self.lblbeizhu.text = @"备注：以上收入演示，个人销售收入基于达成金领级别最高新人津贴FYC条件，组织收入基于每年如期晋级且达成标准组绩效。该收入数据不做保证，仅供演示参考。";
         if (segmentid == 0) {
+            self.imgChart.image = [UIImage imageNamed:@"ftdjl1.png"];
             _lblRMB1.text = @"RMB 233,904";
             _lblRMB2.text = @"RMB 246,854";
             _lblRMB3.text = @"RMB 236,660";
@@ -175,6 +183,7 @@
             _lblRMB10.frame = CGRectMake(873, 105, 70, 38);
         }
         else{
+            self.imgChart.image = [UIImage imageNamed:@"ftdjl2.png"];
             _lblRMB1.text = @"RMB 219,120";
             _lblRMB2.text = @"RMB 514,115";
             _lblRMB3.text = @"RMB 561,337";
@@ -200,7 +209,9 @@
     }
     else if (self.indexID == 2)
     {
+        self.lblbeizhu.text = @"备注：以上收入演示，个人销售收入基于达成MDRT年度FYC条件，组织收入基于每年如期晋级且达成标准组绩效。该收入数据不做保证，仅供演示参考。";
         if (segmentid == 0) {
+            self.imgChart.image = [UIImage imageNamed:@"ftdmdrt1.png"];
             _lblRMB1.text = @"RMB 359,059";
             _lblRMB2.text = @"RMB 437,498";
             _lblRMB3.text = @"RMB 464,984";
@@ -224,6 +235,7 @@
             _lblRMB10.frame = CGRectMake(873, 105, 70, 38);
         }
         else{
+            self.imgChart.image = [UIImage imageNamed:@"ftdmdrt2.png"];
             _lblRMB1.text = @"RMB 324,894";
             _lblRMB2.text = @"RMB 710,875";
             _lblRMB3.text = @"RMB 795,403";
@@ -262,7 +274,11 @@
     self.indexID = index;
     [self segmentAction:self.btnSegmentCol];
     [self changeTitle];
-    
+//    self.btnSlider.center = CGPointMake(135, 66);
+//    self.lblPrice.center = CGPointMake(135.5, 40);
+//    self.lblPrice.text = @"0";
+//    self.price = 0;
+     [self changeLblText:[FTDChangePrice priceToInt:self.price]];
     //    NSLog(@"index : %ld",(long)index);
 }
 
@@ -275,19 +291,15 @@
         return;
     }
     
-    
     c.center =point;
-    
-    int price ;
-    
-    price = (point.x  - 134) / 179 * 20000;
-    if (price > 20000) {
-        price = 20000;
+    self.price = (point.x  - 134) / 179 * 20000;
+    if (self.price > 20000) {
+        self.price = 20000;
     }
     
     self.lblPrice.center =CGPointMake(point.x, 40);
-    self.lblPrice.text = [FTDChangePrice changePriceFromint:price];
-    [self changeLblText:price];
+    self.lblPrice.text = [NSString stringWithFormat:@"%d",[FTDChangePrice priceToInt:self.price]];
+    [self changeLblText:[FTDChangePrice priceToInt:self.price]];
     //view.center=CGPointMake(point.x, 400-140);
     
 }
@@ -307,9 +319,9 @@
     c.center =point;
     int price ;
     
-    price = (point.x  - 134) / 179 * 20000;
-    if (price > 20000) {
-        price = 20000;
+    self.price = (point.x  - 134) / 179 * 20000;
+    if (self.price > 20000) {
+        self.price = 20000;
     }
     
     self.lblPrice.center =CGPointMake(point.x, 40);
@@ -340,19 +352,76 @@
     float lbl2 = lbl1 * 3 / 4;
     float lbl3 = lbl1 * 10 / 22;
     if (price == 0) {
-        self.lbl1.text = @"";
-        self.lbl2.text = @"";
-        
-        self.lbl3.text = @"";
-    }else{
-        self.lbl1.text = [NSString stringWithFormat:@"每日拜访%d位客户",(int)(lbl3 + 1)];
-        self.lbl2.text = [NSString stringWithFormat:@"每周送出%d份产品建议书",(int)(lbl2 + 1)];
-        
-        self.lbl3.text = [NSString stringWithFormat:@"每月成交%d张保单",(int)(lbl1 + 1)];
+        [self lblresultNum1:0 andNum2:0 andNum3:0];
     }
+    else{
+        [self lblresultNum1:(int)(lbl3+1) andNum2:(int)(lbl2 + 1) andNum3:(int)(lbl1 + 1)];
+    }
+//    if (price == 0) {
+//        self.lbl1.text = @"";
+//        self.lbl2.text = @"";
+//        
+//        self.lbl3.text = @"";
+//    }else{
+//        self.lbl1.text = [NSString stringWithFormat:@"每日拜访%d位客户",(int)(lbl3 + 1)];
+//        self.lbl2.text = [NSString stringWithFormat:@"每周送出%d份产品建议书",(int)(lbl2 + 1)];
+//        
+//        self.lbl3.text = [NSString stringWithFormat:@"每月成交%d张保单",(int)(lbl1 + 1)];
+//    }
     
 }
-
+-(void)lblresultNum1:(int)num1 andNum2:(int)num2 andNum3:(int)num3
+{
+    NSMutableAttributedString *attribute1 = [[NSMutableAttributedString alloc] init];
+    NSAttributedString *lblt1 = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"每日拜访"] attributes:@{NSFontAttributeName : [UIFont boldSystemFontOfSize:15], NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    NSAttributedString *number1;
+    if (num1 == 0) {
+        number1 = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"   "] attributes:@{NSFontAttributeName : [UIFont boldSystemFontOfSize:20], NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    }
+    else{
+        number1 = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@" %d ",num1] attributes:@{NSFontAttributeName : [UIFont boldSystemFontOfSize:20], NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    }
+    
+    NSAttributedString *lblw1 = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"位客户"] attributes:@{NSFontAttributeName : [UIFont boldSystemFontOfSize:15], NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    
+    [attribute1 appendAttributedString:lblt1];
+    [attribute1 appendAttributedString:number1];
+    [attribute1 appendAttributedString:lblw1];
+    self.lbl1.attributedText = attribute1;
+    
+    NSMutableAttributedString *attribute2 = [[NSMutableAttributedString alloc] init];
+    NSAttributedString *lblt2 = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"每周送出"] attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:15], NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    NSAttributedString *number2;
+    if (num2 == 0) {
+        number2 = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"   "] attributes:@{NSFontAttributeName : [UIFont boldSystemFontOfSize:20], NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    }
+    else{
+        number2 = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@" %d ",num2] attributes:@{NSFontAttributeName : [UIFont boldSystemFontOfSize:20], NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    }
+    NSAttributedString *lblw2 = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"份产品建议书"] attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:15], NSForegroundColorAttributeName : [UIColor whiteColor]}];
+     
+    [attribute2 appendAttributedString:lblt2];
+    [attribute2 appendAttributedString:number2];
+    [attribute2 appendAttributedString:lblw2];
+    self.lbl2.attributedText = attribute2;
+    
+    NSMutableAttributedString *attribute3 = [[NSMutableAttributedString alloc] init];
+    NSAttributedString *lblt3 = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"每月成交"] attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:15], NSForegroundColorAttributeName : [UIColor whiteColor]}];
+        NSAttributedString *number3;
+        if (num3 == 0) {
+            number3 = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"   "] attributes:@{NSFontAttributeName : [UIFont boldSystemFontOfSize:20], NSForegroundColorAttributeName : [UIColor whiteColor]}];
+        }
+        else{
+            number3 = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@" %d ",num3] attributes:@{NSFontAttributeName : [UIFont boldSystemFontOfSize:20], NSForegroundColorAttributeName : [UIColor whiteColor]}];
+        }
+    NSAttributedString *lblw3 = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"张保单"] attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:15], NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    
+    [attribute3 appendAttributedString:lblt3];
+    [attribute3 appendAttributedString:number3];
+    [attribute3 appendAttributedString:lblw3];
+    self.lbl3.attributedText = attribute3;
+    
+}
 
 
 
@@ -364,12 +433,12 @@
     NSInteger i = sender.selectedSegmentIndex;
     [self chartValue:i];
     if (i == 0) {
-        self.imgChart.image = [UIImage imageNamed:@"ftd_xiaoshoupic.png"];
+        //self.imgChart.image = [UIImage imageNamed:@"ftd_xiaoshoupic.png"];
          self.viewZuzhiInfo.hidden = YES;
         self.btnSegmentCol.tintColor = [UIColor colorWithRed:0.82 green:0.07 blue:0.27 alpha:1];
     }
     else{
-        self.imgChart.image = [UIImage imageNamed:@"ftd_zuzhipic.png"];
+        //self.imgChart.image = [UIImage imageNamed:@"ftd_zuzhipic.png"];
         self.btnSegmentCol.tintColor = [UIColor colorWithRed:0.05 green:0.25 blue:0.49 alpha:1];
         self.viewZuzhiInfo.hidden = NO;
     }
@@ -380,10 +449,8 @@
     
     
 }
-- (IBAction)customCalculationAction:(id)sender {
-    FTDCustomCalculationViewController *vc = [[FTDCustomCalculationViewController alloc]init];
-    [self.navigationController pushViewController:vc animated:YES];
-    
+- (IBAction)IWantAction:(id)sender {
+    //[self changeLblText:self.price];
 }
 
 
@@ -391,4 +458,5 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 @end

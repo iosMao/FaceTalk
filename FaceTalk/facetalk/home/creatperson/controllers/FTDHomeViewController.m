@@ -17,6 +17,7 @@
 #import "Report.h"
 #import "FTDDataProvider.h"
 #import "FTDDBManager.h"
+#import "FTDAES256.h"
 #define remove_sp(a) [[NSUserDefaults standardUserDefaults] removeObjectForKey:a]
 #define get_sp(a) [[NSUserDefaults standardUserDefaults] objectForKey:a]
 #define get_Dsp(a) [[NSUserDefaults standardUserDefaults]dictionaryForKey:a]
@@ -36,8 +37,8 @@
     [self getlocalResourse];
     //[self reminderBtn];
     [self getFinishDate];
-    
-    
+     
+    [self getJsonUrl];
     
     NSLog(@"%@",self.navigationController);
     TFDNavViewController *nav = (TFDNavViewController *) self.navigationController;
@@ -83,6 +84,81 @@
 //    [self push: [[FTDDBManager searchLocalDBWithKeys:pred] objectAtIndex:0]];
  
 }
+-(void)getJsonUrl
+{
+    
+    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeClear];
+    FTDDataProvider *dataProvider = [[FTDDataProvider alloc] init];
+    __weak FTDHomeViewController *weakself = self;
+    
+    [dataProvider setFinishBlock:^(NSDictionary *resultDict){
+        
+        NSLog(@"json文件url：%@",resultDict);
+        if ([[resultDict  objectForKey:@"success"] intValue] == 1) {
+            
+            [weakself updateJsonFile:[resultDict objectForKey:@"msg"]];
+            
+        }
+        else{
+            [SVProgressHUD dismiss];
+        }
+        
+        
+        
+    }];
+    
+    [dataProvider setFailedBlock:^(NSString *strError){
+        [SVProgressHUD dismiss];
+    }];
+    
+    [dataProvider getJsonUrl];
+}
+
+
+-(void)updateJsonFile:(NSString *)url
+{
+    
+    FTDDataProvider *dataProvider = [[FTDDataProvider alloc] init];
+    __weak FTDHomeViewController *weakself = self;
+    
+    [dataProvider setFinishBlock:^(NSDictionary *resultDict){
+        
+        NSLog(@"登录结果：%@",resultDict);
+        if ([[resultDict  objectForKey:@"success"] intValue] == 1) {
+            [SVProgressHUD dismiss];
+            [[FTJsonManager shareManager]initData];
+            [weakself checkPicUpdate];
+        }
+        else{
+            [SVProgressHUD dismiss];
+        }
+        
+        
+        
+    }];
+    
+    [dataProvider setFailedBlock:^(NSString *strError){
+        [SVProgressHUD dismiss];
+    }];
+    
+    [dataProvider upDateJsonFile:url];
+}
+-(void)checkPicUpdate
+{
+    if ([[FTJsonManager shareManager].lastUpdatePicDate isEqualToString:get_sp(@"DLASTUPDATEPIC")]) {
+        NSLog(@"没更新");
+    }
+    else{
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"提示" message:@"检测到图片有更新，是否更新资源包？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+        [alert show];
+    }
+}
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1) {
+        [[FTDDataPacketManager sharedInstance] downloadFile];
+    }
+}
 -(void)getFinishDate
 {
     
@@ -94,7 +170,7 @@
         NSLog(@"最后日期：%@",resultDict);
         if ([[resultDict  objectForKey:@"success"] intValue] == 1) {
             
-             set_sp(@"DFINISHDATE", [resultDict objectForKey:@"msg"]);
+            set_sp(@"DFINISHDATE", [FTDAES256 AES256DecryptWithString:[resultDict objectForKey:@"msg"]]);
             
         }
         else{
@@ -129,6 +205,20 @@
     dstResourcePath = [dstResourcePath stringByAppendingPathComponent:@"data.json"];
     if ([fileManager fileExistsAtPath:dstResourcePath]) {
         [self getbackgroundImg];
+        if ([FTDDataPacketManager sharedInstance].firstID == 0) {
+            if (get_sp(@"DLASTUPDATEPIC") == nil) {
+                //set_sp(@"DLASTUPDATEPIC", @"2014-12-29");
+                
+                set_sp(@"DLASTUPDATEPIC", [FTJsonManager shareManager].lastUpdatePicDate);
+                [FTDDataPacketManager sharedInstance].firstID = 1;
+            }
+        }
+        else{
+            set_sp(@"DLASTUPDATEPIC", [FTJsonManager shareManager].lastUpdatePicDate);
+        }
+        
+        
+    
         loadTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(reminderBtn) userInfo:nil repeats:YES];
         [loadTimer fire];
     }
@@ -142,6 +232,7 @@
 -(void)getbackgroundImg
 {
     NSString *strImg = [FTJsonManager shareManager].index_background;
+    
     UIImageView *scrollImage = [[UIImageView alloc]initWithFrame:CGRectMake(0, 20, 1024, 748)];
      scrollImage.image = [UIImage imageWithContentsOfFile:strImg] ;
      //scrollImage.image=[UIImage imageNamed:@"FTD_home_aiaoffice.png"];

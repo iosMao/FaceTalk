@@ -35,4 +35,26 @@
     
     
 }
+
++(int)priceToInt:(int)value
+{
+    int i = 0;
+    if (value == 0) {
+        i = 0;
+    }
+    else if (value > 0 && value <= 1000) {
+        i = 1000;
+    }
+    else if (value > 1000 && value <= 20000)
+    {
+        i = (value+500)/1000*1000;
+        
+        //round(i);
+        NSLog(@"%d",i);
+    }
+    return i;
+    
+}
+
+
 @end

@@ -8,6 +8,7 @@
 
 #import "TFWReportDemo.h"
 #import "FTDWaterFullHeadView.h"
+#import "FTDAES256.h"
 #define get_Dsp(a) [[NSUserDefaults standardUserDefaults]dictionaryForKey:a]
 @interface TFWReportDemo ()
 {
@@ -195,7 +196,7 @@
     _adviserNameLabel.textColor = [UIColor blackColor];
     _adviserNameLabel.textAlignment = NSTextAlignmentCenter;
     //_adviserNameLabel.text = @"张怡";
-    NSString *str = [get_Dsp(@"DUSERINFO")objectForKey:@"USERNAME"];
+    NSString *str = [FTDAES256 AES256DecryptWithString:[get_Dsp(@"DUSERINFO")objectForKey:@"USERNAME"]];
     str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
     _adviserNameLabel.text = [NSString stringWithFormat:@"友邦保险 %@ 敬上",str];
     [headView addSubview:_adviserNameLabel];

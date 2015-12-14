@@ -21,6 +21,8 @@
     static dispatch_once_t oncePredicate;
     dispatch_once(&oncePredicate, ^{
         _sharedInstance = [[self alloc] init];
+        _sharedInstance.firstID = 0;
+        
     });
     
     return _sharedInstance;
@@ -94,7 +96,7 @@
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"失败了");
             [SVProgressHUD dismiss];
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"提示" message:@"请求网络超时,是否重新下载？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"提示" message:@"请求网络超时,再试一次吧！" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
             [alert show];
             
             //下载失败
@@ -107,14 +109,14 @@
 }
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if (buttonIndex==1) {
+    if (buttonIndex==0) {
         [self downloadFile];
     }
-    else if (buttonIndex==0)
-    {
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"FTDREQUESTFAILED" object:nil ];
-        
-    }
+//    else if (buttonIndex==0)
+//    {
+//        [[NSNotificationCenter defaultCenter] postNotificationName:@"FTDREQUESTFAILED" object:nil ];
+//        
+//    }
 }
 
 

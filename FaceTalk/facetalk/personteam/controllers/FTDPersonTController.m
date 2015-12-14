@@ -143,6 +143,7 @@
     if (indexPath.row==arrayPhoto.count) {
         cell.btnG.hidden=YES;
         cell.textDesc.hidden=YES;
+        cell.viewEdit.hidden=YES;
         cell.imgPhoto.image=[UIImage imageNamed:@"FTD_personalteam_add.png"];
         
     }else{
@@ -175,13 +176,19 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    
+    //UIButton *btn = (UIButton *)[self.view viewWithTag:233];
     
     if (indexId==indexPath.row) {
         indexId=10000;
         [collectionPhoto reloadData];
     }
      else if (indexPath.row==arrayPhoto.count) {
+         indexId=10000;
+         [collectionPhoto reloadData];
+//          NSIndexPath *indexPathid = [NSIndexPath indexPathForItem:indexId inSection:0];
+//         //indexPathid.row = indexId;
+//         //indexPathid.row = [[NSString stringWithFormat:@"%d",indexId] integerValue];
+//          [collectionPhoto reloadItemsAtIndexPaths:@[indexPathid]];
          indexId=indexPath.row;
  
         _actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:@"打开图库",@"拍照",nil];
@@ -237,7 +244,7 @@
 
 - (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
-    
+    //UIButton *btn =
     [_actionSheet removeFromSuperview];
     _actionSheet = nil;
     
@@ -270,6 +277,7 @@
 
     }
     else{
+        indexId = 10000;
         isEditPhoto = NO;
     }
     
@@ -373,7 +381,12 @@
 ////    NSString *filePath = [[paths objectAtIndex:0]stringByAppendingPathComponent:[NSString stringWithFormat:imagename,nil]];  // 保存文件的名称
 ////    [UIImagePNGRepresentation(image)writeToFile: filePath atomically:YES];
 //}
-
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [self.popView dismissPopoverAnimated:YES];
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    indexId = 10000;
+}
 
 
 -(void)editclick:(UIButton *)sender
@@ -422,11 +435,11 @@
 
 -(void)editDescclick:(UIButton *)sender
 {
-    FTDCollectionPhotoCell *cell= (FTDCollectionPhotoCell *)[[[sender superview] superview]superview];
-    NSIndexPath *indexPath=[collectionPhoto indexPathForCell:cell];
-    NSLog(@"%ld",(long)indexPath.row);
-    cell.textDesc.enabled=YES;
-    [cell.textDesc becomeFirstResponder];
+//    FTDCollectionPhotoCell *cell= (FTDCollectionPhotoCell *)[[[sender superview] superview]superview];
+//    NSIndexPath *indexPath=[collectionPhoto indexPathForCell:cell];
+//    NSLog(@"%ld",(long)indexPath.row);
+//    cell.textDesc.enabled=YES;
+//    [cell.textDesc becomeFirstResponder];
     
 }
 

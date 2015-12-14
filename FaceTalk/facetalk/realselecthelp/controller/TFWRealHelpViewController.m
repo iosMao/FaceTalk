@@ -96,6 +96,8 @@
     TFWRealHelpImageView *v1 = [TFWRealHelpImageView createImagewithTitle:@"收入丰厚" andCenter:CGPointMake(180, 245) andImageName:@"ft_ten_income"];
     [self.mutArray addObject:v1];
     v1.tag = 1001;
+     
+
     v1.tapBlock = ^(NSInteger tag){
         [weakself tapAction:tag];
     };

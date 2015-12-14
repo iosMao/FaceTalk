@@ -25,24 +25,26 @@
 #import "FTDChangeDate.h"
 #import <SVProgressHUD.h>
 #import "FTDDBManager.h"
+#import "FTDAES256.h"
 #define remove_sp(a) [[NSUserDefaults standardUserDefaults] removeObjectForKey:a]
 #define get_sp(a) [[NSUserDefaults standardUserDefaults] objectForKey:a]
 #define get_Dsp(a) [[NSUserDefaults standardUserDefaults]dictionaryForKey:a]
 #define set_sp(a,b) [[NSUserDefaults standardUserDefaults] setObject:b forKey:a]
 
 @interface AppDelegate ()
-
+@property (nonatomic,assign) int NetID;
 @end
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    self.NetID = 1;
     self.backgroundView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
     self.backgroundView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
     
     UILabel *lblTitle = [[UILabel alloc] initWithFrame:CGRectMake(0,0,300,100)];
-    lblTitle.text =@"该APP已经做废啦～";
+    lblTitle.text =@"该APP已经到期啦！，请点击home键返回桌面";
     lblTitle.center = self.backgroundView.center;
     lblTitle.numberOfLines = 0;
     [lblTitle.layer setMasksToBounds:YES];
@@ -52,8 +54,8 @@
     lblTitle.textColor = [UIColor blackColor];
     lblTitle.backgroundColor = [UIColor whiteColor];
     [self.backgroundView addSubview:lblTitle];
-    
-    
+    _LoginLockView = [[FTDLoginLockController alloc]init];
+    [self getFinishDate];
     [MagicalRecord setupCoreDataStackWithStoreNamed:@"MyDatabase.sqlite"];
     
     [ShareSDK registerApp:@"9b3c933e2258"];
@@ -76,12 +78,19 @@
     TFDNavViewController *navFTDHomeViewCol = [[TFDNavViewController alloc]initWithRootViewController:FTDHomeViewCol];
     navFTDHomeViewCol.navigationBar.hidden=YES;
      //remove_sp(@"DUSERINFO");
+    
+    
     if (get_Dsp(@"DUSERINFO")) {
+        set_sp(@"DFIRST", @"是");
           //self.window.rootViewController = [[FTDRevenueTrialDetailViewController alloc]init];
           self.window.rootViewController = navFTDHomeViewCol;
+        
+        
     }
     else{
+        set_sp(@"DFIRST", @"否");
         self.window.rootViewController = [[FTDLoginViewController alloc] init];
+        
     }
     
     
@@ -89,13 +98,41 @@
     
     [self.window makeKeyAndVisible];
     
-    [AppDelegate netWorkStatus];
+    [self netWorkStatus];
     
     return YES;
 }
+-(void)getFinishDate
+{
+    
+    FTDDataProvider *dataProvider = [[FTDDataProvider alloc] init];
+    __weak FTDHomeViewController *weakself = self;
+    
+    [dataProvider setFinishBlock:^(NSDictionary *resultDict){
+        
+        NSLog(@"最后日期：%@",[FTDAES256 AES256DecryptWithString:[resultDict objectForKey:@"msg"]]);
+        if ([[resultDict  objectForKey:@"success"] intValue] == 1) {
+             
+            set_sp(@"DFINISHDATE", [FTDAES256 AES256DecryptWithString:[resultDict objectForKey:@"msg"]]);
+            
+        }
+        else{
+            
+        }
+        
+        
+        
+    }];
+    
+    [dataProvider setFailedBlock:^(NSString *strError){
+        //        [SVProgressHUD dismiss];
+        //        [SVProgressHUD showErrorWithStatus:@"哎呀！请求服务器出错啦！请检查本地网络配置！" maskType:SVProgressHUDMaskTypeBlack];
+    }];
+    
+    [dataProvider getFinishDate];
+}
 
-
-+ (void)netWorkStatus
+- (void)netWorkStatus
 {
     /**
      AFNetworkReachabilityStatusUnknown          = -1,  // 未知
@@ -106,13 +143,25 @@
     
     // 如果要检测网络状态的变化,必须用检测管理器的单例的startMonitoring
     [[AFNetworkReachabilityManager sharedManager] startMonitoring];
-    
+      __weak AppDelegate *weakself = self;
     // 检测网络连接的单例,网络变化时的回调方法
+    
     [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
         
         //这是单利＋模型，用来记录网络状态
         FTDFileManager *maa = [FTDFileManager shareFTDFileManager];
         maa.netState = status;
+        
+        
+        weakself.NetID ++;
+        
+        if (weakself.NetID > 2 && status == 2) {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"提示" message:@"检测到有网络，是否同步下人才库呢？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+            [alert show];
+            alert.tag = 703;
+            
+        }
+        
         NSLog(@"-----网络状态----%ld---%d", status,maa.netState);
     }];
 }
@@ -145,11 +194,41 @@
             }
         }
     }
+    else if (alertView.tag == 703)
+    {
+        if (buttonIndex == 1) {
+            [SVProgressHUD showWithStatus:@"正在上传..." maskType:SVProgressHUDMaskTypeBlack];
+            
+            NSArray *array = [FTDDBManager searchLocalDB];
+            if (array.count > 0) {
+                [self netWorkpush:array];
+            }
+        }
+    }
     
 }
--(void) willPresentAlertView:(UIAlertView *)alertView
+-(void)netWorkpush:(NSArray *)array//没网到有网同步数据
 {
     
+    self.dataProvider= [[FTDDataProvider alloc] init];
+    __weak AppDelegate *weakself = self;
+    
+    [self.dataProvider setFinishBlock:^(NSDictionary *resultDict){
+        [SVProgressHUD dismiss];
+        
+        [SVProgressHUD showSuccessWithStatus:@"同步成功" maskType:SVProgressHUDMaskTypeBlack];
+        
+        
+        
+        
+    }];
+    
+    [self.dataProvider setFailedBlock:^(NSString *strError){
+        [SVProgressHUD dismiss];
+        [SVProgressHUD showSuccessWithStatus:@"同步失败，请检查网络设置" maskType:SVProgressHUDMaskTypeBlack];
+    }];
+    
+    [self.dataProvider pushTalentsInfoArray:array];
 }
 
 -(void)push:(NSArray *)array
@@ -180,6 +259,8 @@
     [self.dataProvider pushTalentsInfoArray:array];
 }
 - (void)applicationWillResignActive:(UIApplication *)application {
+    self.beginDate = [NSDate date];
+    
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
 }
@@ -195,18 +276,35 @@
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
+    
     NSString *strFinishDate = get_sp(@"DFINISHDATE");
     if (strFinishDate.length > 0) {
         NSDate *nowDate = [NSDate date];
+        NSString *strNowDate = [FTDChangeDate dateStr:nowDate];
+        NSDate *nowDate1 = [FTDChangeDate dateFromString:strNowDate];
         
         NSDate *finishDate = [FTDChangeDate dateFromString:strFinishDate];
         
-        if ([finishDate timeIntervalSinceDate:nowDate] < 0.0) {
+        if ([finishDate timeIntervalSinceDate:nowDate1] <= 0.0) {
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"提示" message:@"APP到期啦！同步下数据吧！" delegate:self cancelButtonTitle:@"确定" otherButtonTitles: nil];
             [alert show];
             alert.tag = 700;
         }
     }
+    
+    if ([get_sp(@"DFIRST")isEqualToString:@"是"]) {
+        if ( [self.window.rootViewController.presentedViewController isKindOfClass:[_LoginLockView class]]) {
+            
+            return;
+        }
+        [self.window.rootViewController presentViewController:_LoginLockView animated:YES completion:nil];
+        
+    }
+    self.endDate = [NSDate date];
+    NSLog(@"时间差%f",[self.endDate timeIntervalSinceDate:self.beginDate]);
+     if ( [self.endDate timeIntervalSinceDate:self.beginDate] > 3600 ) {
+         [self.window.rootViewController presentViewController:_LoginLockView animated:YES completion:nil];
+     }
     
     
 //    UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"提示" message:@"该关啦" delegate:self cancelButtonTitle:@"确定" otherButtonTitles: nil];
@@ -216,6 +314,7 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     [MagicalRecord cleanUp];
+    set_sp(@"DFIRST", @"是");
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 - (BOOL)application:(UIApplication *)application
