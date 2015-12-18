@@ -5,7 +5,31 @@
 //  Created by Mao-MacPro on 15/10/16.
 //  Copyright © 2015年 wen. All rights reserved.
 //
-
+/*
+ *
+ *          ┌─┐       ┌─┐
+ *       ┌──┘ ┴───────┘ ┴──┐
+ *       │                 │
+ *       │       ───       │
+ *       │  ─┬┘       └┬─  │
+ *       │                 │
+ *       │       ─┴─       │
+ *       │                 │
+ *       └───┐         ┌───┘
+ *           │         │
+ *           │         │
+ *           │         │
+ *           │         └──────────────┐
+ *           │                        │
+ *           │                        ├─┐
+ *           │                        ┌─┘
+ *           │                        │
+ *           └─┐  ┐  ┌───────┬──┐  ┌──┘
+ *             │ ─┤ ─┤       │ ─┤ ─┤
+ *             └──┴──┘       └──┴──┘
+ *                 神兽保佑
+ *                 代码无BUG!
+ */
 #import "FTDLoginViewController.h"
 #import "FTDDataProvider.h"
 #import "FTDHomeViewController.h"
@@ -40,6 +64,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
+    
     
     dicLoginInfo = [[NSMutableDictionary alloc]init];
     arrayCity = [[NSMutableArray alloc]init];

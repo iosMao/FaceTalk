@@ -164,6 +164,7 @@
 }
 -(void)setlblTitle
 {
+     
     TFWOrderModel *model = [[FTWDataManager shareManager] selectOrder];
     _lblTitle1.text=[[arrayStr objectAtIndex:model.first-1] objectForKey:@"title"];
     _lblSubTitle1.text=[[arrayStr objectAtIndex:model.first-1] objectForKey:@"subtitle"];
