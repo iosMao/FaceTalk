@@ -19,17 +19,17 @@
 #import <SVProgressHUD.h>
 #import "FTDAES256.h"
 #import "FTDkeyChainManager.h"
-//#define FTD_BASE_IPSURL @"http://imo.tohours.com/attract/isp?"
-//#define FTD_BASE_URL @"http://imo.tohours.com/attract/"
-//#define FTD_UPdateFile_URL @"http://imo.tohours.com/attract/data.json"
+#define FTD_BASE_IPSURL @"http://imo.tohours.com/attract/isp?"
+#define FTD_BASE_URL @"http://imo.tohours.com/attract/"
+#define FTD_UPdateFile_URL @"http://imo.tohours.com/attract/data.json"
 
 //#define FTD_BASE_IPSURL @"http://uat.aia.com.cn/cms/attract/isp?"
 //#define FTD_BASE_URL @"http://uat.aia.com.cn/cms/attract/"
 //#define FTD_UPdateFile_URL @"http://uat.aia.com.cn/cms/attract/data.json"
 
-#define FTD_BASE_IPSURL @"https://aes.aia.com.cn/cms/attract/isp?"
-#define FTD_BASE_URL @"https://aes.aia.com.cn/cms/attract/"
-#define FTD_UPdateFile_URL @"https://aes.aia.com.cn/cms/attract/data.json"
+//#define FTD_BASE_IPSURL @"https://aes.aia.com.cn/cms/attract/isp?"
+//#define FTD_BASE_URL @"https://aes.aia.com.cn/cms/attract/"
+//#define FTD_UPdateFile_URL @"https://aes.aia.com.cn/cms/attract/data.json"
 
 
 #define remove_sp(a) [[NSUserDefaults standardUserDefaults] removeObjectForKey:a]

@@ -411,6 +411,8 @@
             
             TFWOrderModel *orderModel = [[FTWDataManager shareManager] selectOrder];
             NSInteger index = orderModel.first;
+            NSLog(@"当前%ld",(long)[FTWDataManager shareManager].currentIndex);
+            [FTWDataManager shareManager].currentIndex = -1;
             [FTWDataManager shareManager].currentIndex++;
             id vc = nil;
             vc = [[NSClassFromString([[FTWDataManager shareManager].classArray objectAtIndex:index - 1]) alloc] init];
