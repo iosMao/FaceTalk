@@ -422,11 +422,15 @@
     else if (alertView.tag == 50000)
     {
         if (buttonIndex == 1) {
-            [SVProgressHUD showWithStatus:@"正在上传..." maskType:SVProgressHUDMaskTypeBlack];
+            
             
             NSArray *array = [FTDDBManager searchLocalDB];
             if (array.count > 0) {
+                [SVProgressHUD showWithStatus:@"正在上传..." maskType:SVProgressHUDMaskTypeBlack];
                 [self push:array];
+            }
+            else{
+                [SVProgressHUD showInfoWithStatus:@"人才库为空，请先添加人才信息！" maskType:SVProgressHUDMaskTypeBlack];
             }
         }
     }
@@ -531,7 +535,7 @@
     NSTimeZone *timeZone = [NSTimeZone timeZoneForSecondsFromGMT:3600*8];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setTimeZone:timeZone];
-    [formatter setDateFormat:@"YYYY-MM-dd"];
+    [formatter setDateFormat:@"yyyy-MM-dd"];
     self.textBeginDate.text=[formatter stringFromDate:selectedDate];
 }
 -(void)dateEndChange
@@ -540,7 +544,7 @@
     NSTimeZone *timeZone = [NSTimeZone timeZoneForSecondsFromGMT:3600*8];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setTimeZone:timeZone];
-    [formatter setDateFormat:@"YYYY-MM-dd"];
+    [formatter setDateFormat:@"yyyy-MM-dd"];
     self.textEndDate.text=[formatter stringFromDate:selectedDate];
 }
 

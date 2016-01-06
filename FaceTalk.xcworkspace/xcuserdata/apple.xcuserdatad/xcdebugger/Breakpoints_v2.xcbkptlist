@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FaceTalk/facetalk/workelements/realselectcareer/controller/TFWRealMarkViewController.m"
-            timestampString = "470304656.340129"
+            timestampString = "473066274.989915"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
             landmarkName = "-configData"
             landmarkType = "5">
          </BreakpointContent>
@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FaceTalk/facetalk/workelements/realselectcareer/controller/TFWRealMarkViewController.m"
-            timestampString = "470304656.340129"
+            timestampString = "473066274.989915"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
             landmarkName = "-buildTitleLabel"
             landmarkType = "5">
          </BreakpointContent>
@@ -506,11 +506,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FaceTalk/facetalk/workelements/realselectcareer/controller/TFWRealMarkViewController.m"
-            timestampString = "470304656.340129"
+            timestampString = "473066274.989915"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
             landmarkName = "-configData"
             landmarkType = "5">
          </BreakpointContent>
@@ -630,15 +630,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FaceTalk/facetalk/workelements/realselectcareer/controller/TFWRealMarkViewController.m"
-            timestampString = "470304656.340129"
+            timestampString = "473066613.19448"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "128"
-            endingLineNumber = "128"
+            startingLineNumber = "137"
+            endingLineNumber = "137"
             landmarkName = "-okAction"
             landmarkType = "5">
          </BreakpointContent>
@@ -1598,11 +1598,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FaceTalk/facetalk/home/talentsdatabase/controller/FTDTalentsListViewController.m"
-            timestampString = "472469749.745185"
+            timestampString = "473002988.665288"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "609"
-            endingLineNumber = "609"
+            startingLineNumber = "613"
+            endingLineNumber = "613"
             landmarkName = "-dateSearch"
             landmarkType = "5">
          </BreakpointContent>
@@ -1614,11 +1614,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FaceTalk/facetalk/home/talentsdatabase/controller/FTDTalentsListViewController.m"
-            timestampString = "472469749.745185"
+            timestampString = "473002988.665288"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "619"
-            endingLineNumber = "619"
+            startingLineNumber = "623"
+            endingLineNumber = "623"
             landmarkName = "-dateSearch"
             landmarkType = "5">
          </BreakpointContent>
@@ -1997,7 +1997,7 @@
                   moduleName = "FaceTalk"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Desktop/FaceTalk/FaceTalk/facetalk/home/login/controllers/FTDLoginViewController.m"
-                  timestampString = "472546145.1215"
+                  timestampString = "473067973.29001"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "192"
@@ -2012,7 +2012,7 @@
                   moduleName = "FaceTalk"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Desktop/FaceTalk/FaceTalk/facetalk/home/login/controllers/FTDLoginViewController.m"
-                  timestampString = "472546145.121636"
+                  timestampString = "473067973.290166"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -2027,7 +2027,7 @@
                   moduleName = "FaceTalk"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Desktop/FaceTalk/FaceTalk/facetalk/home/login/controllers/FTDLoginViewController.m"
-                  timestampString = "472546145.12176"
+                  timestampString = "473067973.290298"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -2500,7 +2500,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FaceTalk/AppDelegate.m"
@@ -2692,7 +2692,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FaceTalk/AppDelegate.m"
@@ -2807,22 +2807,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "FaceTalk/AppDelegate.m"
-            timestampString = "470982145.036419"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "113"
-            endingLineNumber = "113"
-            landmarkName = "-getFinishDate"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "FaceTalk/facetalk/manager/FTDDataProvider.m"
             timestampString = "471774609.553704"
             startingColumnNumber = "9223372036854775807"
@@ -2856,7 +2840,7 @@
                   moduleName = "FaceTalk"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Desktop/FaceTalk/FaceTalk/facetalk/manager/FTDDataProvider.m"
-                  timestampString = "472546145.136273"
+                  timestampString = "473067973.302401"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "340"
@@ -2871,7 +2855,7 @@
                   moduleName = "FaceTalk"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Desktop/FaceTalk/FaceTalk/facetalk/manager/FTDDataProvider.m"
-                  timestampString = "472546145.136454"
+                  timestampString = "473067973.302555"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "340"
@@ -2886,7 +2870,7 @@
                   moduleName = "FaceTalk"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Desktop/FaceTalk/FaceTalk/facetalk/manager/FTDDataProvider.m"
-                  timestampString = "472546145.13661"
+                  timestampString = "473067973.302688"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -2901,7 +2885,7 @@
                   moduleName = "FaceTalk"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Desktop/FaceTalk/FaceTalk/facetalk/manager/FTDDataProvider.m"
-                  timestampString = "472546145.136757"
+                  timestampString = "473067973.302829"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -2916,7 +2900,7 @@
                   moduleName = "FaceTalk"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Desktop/FaceTalk/FaceTalk/facetalk/manager/FTDDataProvider.m"
-                  timestampString = "472546145.136903"
+                  timestampString = "473067973.302964"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "340"
@@ -3157,7 +3141,7 @@
                   moduleName = "FaceTalk"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Desktop/FaceTalk/FaceTalk/facetalk/manager/FTDDataProvider.m"
-                  timestampString = "472546145.146019"
+                  timestampString = "473067973.31272"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "395"
@@ -3172,7 +3156,7 @@
                   moduleName = "FaceTalk"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Desktop/FaceTalk/FaceTalk/facetalk/manager/FTDDataProvider.m"
-                  timestampString = "472546145.146167"
+                  timestampString = "473067973.312888"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "395"
@@ -3187,7 +3171,7 @@
                   moduleName = "FaceTalk"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Desktop/FaceTalk/FaceTalk/facetalk/manager/FTDDataProvider.m"
-                  timestampString = "472546145.146287"
+                  timestampString = "473067973.313044"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -3202,7 +3186,7 @@
                   moduleName = "FaceTalk"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Desktop/FaceTalk/FaceTalk/facetalk/manager/FTDDataProvider.m"
-                  timestampString = "472546145.146409"
+                  timestampString = "473067973.313196"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -3217,7 +3201,7 @@
                   moduleName = "FaceTalk"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Desktop/FaceTalk/FaceTalk/facetalk/manager/FTDDataProvider.m"
-                  timestampString = "472546145.14653"
+                  timestampString = "473067973.313342"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "395"
@@ -3225,22 +3209,6 @@
                   offsetFromSymbolStart = "67">
                </Location>
             </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FaceTalk/facetalk/manager/FTJsonManager.m"
-            timestampString = "471347439.081024"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
-            landmarkName = "-initData"
-            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3434,15 +3402,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FaceTalk/facetalk/manager/FTDDataProvider.m"
-            timestampString = "471774609.553704"
+            timestampString = "473061209.253669"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
             landmarkName = "-userLogin:"
             landmarkType = "5">
          </BreakpointContent>
@@ -3476,6 +3444,86 @@
             startingLineNumber = "126"
             endingLineNumber = "126"
             landmarkName = "-getLoginInfo"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FaceTalk/AppDelegate.m"
+            timestampString = "472917762.457368"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "286"
+            endingLineNumber = "286"
+            landmarkName = "-applicationDidBecomeActive:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FaceTalk/facetalk/home/creatperson/controllers/FTDHomeViewController.m"
+            timestampString = "473061594.014257"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
+            landmarkName = "-updateJsonFile:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FaceTalk/facetalk/home/creatperson/controllers/FTDHomeViewController.m"
+            timestampString = "473063546.703442"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "148"
+            endingLineNumber = "148"
+            landmarkName = "-checkPicUpdate"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FaceTalk/facetalk/manager/FTJsonManager.m"
+            timestampString = "473063562.983184"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "-initData"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FaceTalk/facetalk/manager/FTDDataProvider.m"
+            timestampString = "473067980.085393"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "-userLogin:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

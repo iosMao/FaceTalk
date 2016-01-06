@@ -12,6 +12,7 @@
 #import "TFWSRResultViewController.h"
 #import "FTWDataManager.h"
 #import "TFDNavViewController.h"
+#import <SVProgressHUD.h>
 @interface TFWRealMarkViewController ()
 
 @property (nonatomic,strong) UILabel *titleLabel;
@@ -124,6 +125,14 @@
             }
         }
     }
+    for (int i = 0; i < 5; i ++) {
+        FTWElementItem *item=[mutArray objectAtIndex:i];
+        if (item.hopeScore == 0) {
+            [SVProgressHUD showErrorWithStatus:@"期望需大于0！"];
+            return;
+        }
+    }
+    
     
     for (int i=0; i<5;i++ ) {
         FTWElementItem *item=[mutArray objectAtIndex:i];

@@ -210,11 +210,11 @@
 
             NSDate *senddate = [NSDate date];
             NSDateFormatter *dateformatter = [[NSDateFormatter alloc] init];
-            [dateformatter setDateFormat:@"YYYY-MM-dd"];
+            [dateformatter setDateFormat:@"yyyy-MM-dd"];
             NSString *  locationString = [dateformatter stringFromDate:senddate];
             
             NSDateFormatter *dateformatter1 = [[NSDateFormatter alloc] init];
-            [dateformatter1 setDateFormat:@"YYYY-MM-dd"];
+            [dateformatter1 setDateFormat:@"yyyy-MM-dd"];
             NSDate *destDate = [dateformatter1 dateFromString:locationString];
             [talentDic setObject:destDate forKey:@"chattime"];
             
